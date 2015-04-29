@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+            <ui:define name="Datos">Gestión</ui:define>
+        </title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
+            <ui:define name="top">Gestión</ui:define>
+            <ui:define name="contenido">
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdatos">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+
+                    <p:panelGrid columns="2" id="pnlBusquedas"  style="margin-bottom: 20px;">
+
+                        <p:tieredMenu style="width:200px">
+                            <p:submenu label="Buscar" icon="ui-icon-zoomout">
+                                <p:submenu label="Victima" icon="ui-icon-star">
+                                    <p:menuitem value="Por Sexo"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgVictima.show()" 
+                                                process="@this" update=":dlgVictima, @form"   />
+
+                                    <p:menuitem value="Por Edad"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgVictimaEdad.show()" 
+                                                process="@this" update=":dlgVictimaEdad, @form"   />
+
+                                    <p:menuitem value="Por Ocupación"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgVictimaOcupacion.show()" 
+                                                process="@this" update=":dlgVictimaOcupacion, @form"   />
+
+                                    <p:menuitem value="Por Estado Civil"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgVictimaEstado.show()" 
+                                                process="@this" update=":dlgVictimaEstado, @form"   />
+
+
+                                </p:submenu>
+
+                                <p:submenu label="Agresor" icon="ui-icon-alert">
+                                    <p:menuitem value="Por Sexo"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgAgresor.show()"
+                                                process="@this" update=":dlgAgresor, @form"/>
+
+                                    <p:menuitem value="Por Edad"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgAgresorEdad.show()" 
+                                                process="@this" update=":dlgAgresorEdad, @form"   />
+
+                                    <p:menuitem value="Por Ocupación"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgAgresorOcupacion.show()" 
+                                                process="@this" update=":dlgAgresorOcupacion, @form"   />
+
+                                    <p:menuitem value="Por Estado Civil"  icon="ui-icon-circle-arrow-e"  
+                                                oncomplete="wdlgAgresorEstado.show()" 
+                                                process="@this" update=":dlgAgresorEstado, @form"   />
+
+                                </p:submenu >
+
+                                <p:menuitem value="Circuito" icon="ui-icon-home"
+                                            oncomplete="wdlgCircuito.show()"
+                                            process="@this" update=":dlgCircuito,@form">
+
+                                </p:menuitem>
+
+                                <p:menuitem value="SubCircuito" icon="ui-icon-flag"
+                                            oncomplete="wdlgSubCircuito.show()"
+                                            process="@this" update=":dlgSubCircuito,@form">
+
+                                </p:menuitem>
+
+
+                            </p:submenu>
+                            <p:submenu label="Gráficas" icon="ui-icon-arrow-4-diag">
+
+                                <p:menuitem value="Subcircuitos" icon="ui-icon-transferthick-e-w"
+                                            oncomplete="wdlgGrafico.show()"
+                                            process="@this" update=":dlgGrafico,@form">
+
+                                </p:menuitem>
+
+                                <p:menuitem value="Circuitos" icon="ui-icon-transferthick-e-w"
+                                            oncomplete="wdlgGraficoCircuito.show()"
+                                            process="@this" update=":dlgGraficoCircuito,@form">
+
+                                </p:menuitem>
+
+
+                            </p:submenu>
+
+                        </p:tieredMenu>
+                        <p:panelGrid columns="3" style="alignment-adjust: central">
+                            <f:facet name="header">
+                                <h:outputText value="Busqueda por Fechas"/>
+                            </f:facet>
+                             <p:separator style="alignment-adjust: middle">
+                            <p:column >
+
+                                <h:outputText value="Inicio: " />
+
+                                <p:calendar id="fecha1" value="#{vif_2010Controlador.date1}" pattern="yyyy-MM-dd" /> 
+                            </p:column>
+                            <p:column>
+
+                                <h:outputText value="Fin: " />
+
+                                <p:calendar id="fecha2" value="#{vif_2010Controlador.date2}" pattern="yyyy-MM-dd" />
+                            </p:column>     
+                            
+                               
+                                    <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoFechas()}" 
+                                                      icon=" ui-icon-circle-zoomin " process="@this, @form" 
+                                                      update=":frmdatos, @form"/>
+                                    <!--<p:commandButton value="Gráficar" icon="ui-icon-grip-diagonal-se" 
+                                                     action="wdlgGraficoCircuitoMes.show()" process="@this,@form" 
+                                                     update=":dlgGraficoCircuitoMes,@form"/>-->
+
+                                </p:separator>
+
+                            
+
+                        </p:panelGrid>
+
+                    </p:panelGrid>
+
+                    <p:panel id="pnldatos" >
+                        <p:dataTable id="tblDatos" value="#{vif_2010Controlador.lstDatos}"  
+                                     var="datos"  emptyMessage="No hay Registros"
+                                     paginator="true" rows="10" rowKey="#{datos.id}" selectionMode="single" 
+                                     selection="#{vif_2010Controlador.datoSel}" style="alignment-adjust: initial" >
+
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha Denuncia"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.fecha__den}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo Violencia"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.tipo_de_vi}"/>
+                            </p:column>
+
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Subcircuito"/>
+                                </f:facet>
+
+                                <h:outputText value="#{datos.subcircuit}"/>
+                            </p:column>
+
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Parentesco"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.parentesco}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo Violencia"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.tipo_de_vi}"/>
+                            </p:column>
+
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha Agresión"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.fecha_agre}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Medidas de Amparo"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.medidas_de}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Boletas Anteriores"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.boletas_an}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Observación"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.observacio}"/>
+                            </p:column>
+
+                            <p:column >
+                                <f:facet name="header">
+                                    <h:outputText value="Boletas de Rendición"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.boletas_de}"/>
+                            </p:column>
+
+
+                            <f:facet name="footer">  
+
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/excel.png" alt=""/>
+                                    <p:dataExporter type="xls" target="tblDatos" fileName="datos" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/pdf.png" alt=""/>
+                                    <p:dataExporter type="pdf" target="tblDatos" fileName="datos" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/csv.png" alt=""/>
+                                    <p:dataExporter type="csv" target="tblDatos" fileName="datos" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/xml.png" alt=""/>
+                                    <p:dataExporter type="xml" target="tblDatos" fileName="datos" pageOnly="true" />
+                                </h:commandLink>
+
+
+                            </f:facet>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+            <ui:define name="dialogos">
+
+                <p:dialog id="dlgVictima" header="Busquedas" widgetVar="wdlgVictima" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmVictima">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Victimas" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarVictima" columns="2">
+                                <p:outputLabel value="Sexo de la Victima" style="font-style: initial"/>
+                                <p:selectOneMenu id="victima" value="#{vif_2010Controlador.valorASeleccionado}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione una Opción" itemValue="null"/>
+                                    <f:selectItem itemLabel="FEMENINO" itemValue="F"  />
+                                    <f:selectItem itemLabel="MASCULINO" itemValue="M"  />
+                                    <f:selectItem itemLabel="NA" itemValue="NA"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoSexoVictima()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgVictima.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgVictimaEstado" header="Busquedas" widgetVar="wdlgVictimaEstado" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmVictimaEstado">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Victimas" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarVictimaEstado" columns="2">
+                                <p:outputLabel value="Estado Civil de la Victima" style="font-style: initial"/>
+                                <p:selectOneMenu id="estadoCV" value="#{vif_2010Controlador.valorGSeleccionada}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione una Opción" itemValue="null"/>
+                                    <f:selectItem itemLabel="CASADO/A" itemValue="CASAD"  />
+                                    <f:selectItem itemLabel="DIVORCIADO/A" itemValue="DIVORCIAD"  />
+                                    <f:selectItem itemLabel="SOLTERO/A" itemValue="SOLTER"  />
+                                    <f:selectItem itemLabel="VIUDO/A" itemValue="VIUD"  />
+                                    <f:selectItem itemLabel="UNIÓN LIBRE" itemValue="UNION LIBRE"  />
+                                    <f:selectItem itemLabel="NA" itemValue="NA"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoEstadoCivilVictima()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgVictimaEstado.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgAgresorEstado" header="Busquedas" widgetVar="wdlgAgresorEstado" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmAgresorEstado">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Agresor" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarAgresorEstado" columns="2">
+                                <p:outputLabel value="Estado Civil del Agresor" style="font-style: initial"/>
+                                <p:selectOneMenu id="estadoCA" value="#{vif_2010Controlador.valorHSeleccionada}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione una Opción" itemValue="null"/>
+                                    <f:selectItem itemLabel="CASADO/A" itemValue="CASAD"  />
+                                    <f:selectItem itemLabel="DIVORCIADO/A" itemValue="DIVORCIAD"  />
+                                    <f:selectItem itemLabel="SOLTERO/A" itemValue="SOLTER"  />
+                                    <f:selectItem itemLabel="VIUDO/A" itemValue="VIUD"  />
+                                    <f:selectItem itemLabel="UNIÓN LIBRE" itemValue="UNION LIBRE"  />
+                                    <f:selectItem itemLabel="NA" itemValue="NA"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoEstadoCivilAgresor()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgAgresorEstado.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgVictimaOcupacion" header="Busquedas" widgetVar="wdlgVictimaOcupacion" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmVictimaOcupacion">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Victimas" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarVictimaOcupacion" columns="2">
+                                <p:outputLabel value="Ocupación de la Victima" style="font-style: initial"/>
+                                <p:selectOneMenu id="victima" value="#{vif_2010Controlador.valorISeleccionada}" 
+                                                 effect="fold" editable="true">
+                                    <f:selectItem itemLabel="Seleccione un Nombre" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.lstDatos3}" var="ocupacionVic" 
+                                                   itemLabel="#{ocupacionVic.ocupacion}" itemValue="#{ocupacionVic.ocupacion}"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoOcupacionVictima()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgVictimaOcupacion.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgGrafico" header="Denuncias Vs. Subcircuito" widgetVar="wdlgGrafico" 
+                          modal="true" height="800" width="1200" 
+                          closable="true" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmGrafico">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Grafica" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngGrafica" columns="1" style="max-height: 400px;max-width: 1200px">
+
+                                <p:lineChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="e" 
+                                               title="SUBCIRCUITO" style="height:600px;width:1100px;text-decoration-style: dashed"
+                                               xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+
+                            <p:commandButton value="Cerrar" onclick="wdlgGrafico.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgGraficoCircuito" header="Denuncias Vs. Circuito" widgetVar="wdlgGraficoCircuito" 
+                          modal="true" height="800" width="1200" 
+                          closable="true" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmGraficoCircuito">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Grafica" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngGraficoCircuito" columns="1" style="max-height: 400px;max-width: 1200px">
+
+                                <p:lineChart   value="#{vif_2010Controlador.lineModel2}" legendPosition="e" 
+                                               title="CIRCUITO" style="height:600px;width:1100px;text-decoration-style: dashed"
+                                               xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+
+                            <p:commandButton value="Cerrar" onclick="wdlgGraficoCircuito.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+                
+                <p:dialog id="dlgGraficoCircuitoMes" header="Denuncias Vs. Circuito" widgetVar="wdlgGraficoCircuitoMes" 
+                          modal="true" height="800" width="1200" 
+                          closable="true" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmGraficoCircuitoMes">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Grafica" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngGraficoCircuitoMes" columns="1" style="max-height: 400px;max-width: 1200px">
+
+                                <p:lineChart   value="#{vif_2010Controlador.lineModel3}" legendPosition="e" 
+                                               title="CIRCUITO" style="height:600px;width:1100px;text-decoration-style: dashed"
+                                               xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+
+                            <p:commandButton value="Cerrar" onclick="wdlgGraficoCircuitoMes.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+
+                <p:dialog id="dlgCircuito" header="Busquedas" widgetVar="wdlgCircuito" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmCircuito">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Circuito" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarCircuito" columns="2">
+                                <p:outputLabel value="Circuito" style="font-style: initial"/>
+                                <p:selectOneMenu id="victima" value="#{vif_2010Controlador.valorCSeleccionada}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione un Circuito" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.lstDatos5}" var="circuito" 
+                                                   itemLabel="#{circuito.circuito}" itemValue="#{circuito.circuito}"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoCircuito()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgCircuito.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgSubCircuito" header="Busquedas" widgetVar="wdlgSubCircuito" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmSubCircuito">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="SubCircuito" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarSubCircuito" columns="2">
+                                <p:outputLabel value="SubCircuito" style="font-style: initial"/>
+                                <p:selectOneMenu id="victima" value="#{vif_2010Controlador.valorDSeleccionada}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione un SubCircuito" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.lstDatos6}" var="subcircuito" 
+                                                   itemLabel="#{subcircuito.subcircuit}" itemValue="#{subcircuito.subcircuit}"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoSubCircuito()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgSubCircuito.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgAgresorOcupacion" header="Busquedas" widgetVar="wdlgAgresorOcupacion" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmAgresorOcupacion">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Agresor" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarAgresorOcupacion" columns="2">
+                                <p:outputLabel value="Ocupación del Agresor" style="font-style: initial"/>
+                                <p:selectOneMenu id="victima" value="#{vif_2010Controlador.valorJSeleccionada}" 
+                                                 effect="fold" editable="true">
+                                    <f:selectItem itemLabel="Seleccione una Ocupación" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.lstDatos4}" var="ocupacionAgres" 
+                                                   itemLabel="#{ocupacionAgres.ocupacio_1}" itemValue="#{ocupacionAgres.ocupacio_1}"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoOcupacionAgresor()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgAgresorOcupacion.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+
+
+                <p:dialog id="dlgVictimaEdad" header="Busquedas" widgetVar="wdlgVictimaEdad" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmVictimaEdad">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Victimas" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarVictimaEdad" columns="2">
+                                <p:outputLabel value="Edad de la Victima" style="font-style: initial"/>
+                                <p:selectOneMenu id="victimaEdad" value="#{vif_2010Controlador.valorESeleccionado}" 
+                                                 effect="fold" editable="true">
+                                    <f:selectItem itemLabel="Seleccione una edad" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.listaEdad}"   />
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoEdadVictima()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgVictimaEdad.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgAgresorEdad" header="Busquedas" widgetVar="wdlgAgresorEdad" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmAgresorEdad">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Agresor" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarAgresorEdad" columns="2">
+                                <p:outputLabel value="Edad del Agresor" style="font-style: initial"/>
+                                <p:selectOneMenu id="agresorEdad" value="#{vif_2010Controlador.valorFSeleccionado}" 
+                                                 effect="fold" editable="true">
+                                    <f:selectItem itemLabel="Seleccione una edad" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010Controlador.listaEdad}"   />
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton  value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoEdadAgresor()}" 
+                                              icon=" ui-icon-circle-zoomin " 
+                                              update=":frmdatos:pnldatos"/>
+                            <p:commandButton value="Cancelar" onclick="wdlgAgresorEdad.hide()" icon="ui-icon-close" type="reset"/>
+
+
+                        </p:fieldset>
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog id="dlgAgresor" header="Buscar Agresor" widgetVar="wdlgAgresor" 
+                          modal="true" 
+                          closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
+                    <h:form id="frmAgresor">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:messages id="messages" autoUpdate="true"/>  
+                        <p:fieldset legend="Agresor" style="margin-bottom:20px">
+
+                            <p:panelGrid id="pngBuscarAgresor" columns="2">
+                                <p:outputLabel value="Sexo del Agresor" style="font-style: initial"/>
+                                <p:selectOneMenu id="agresor" value="#{vif_2010Controlador.valorBSeleccionado}" effect="fold" 
+                                                 editable="false">
+                                    <f:selectItem itemLabel="Seleccione una Opción" itemValue="null"/>
+                                    <f:selectItem itemLabel="FEMENINO" itemValue="F"  />
+                                    <f:selectItem itemLabel="MASCULINO" itemValue="M"  />
+                                    <f:selectItem itemLabel="NA" itemValue="NA"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            <p:commandButton value="Buscar" action="#{vif_2010Controlador.obtenerDatosDadoSexoAgresor()}" 
+                                             update=":frmdatos:pnldatos" icon=" ui-icon-circle-zoomin " />
+                            <p:commandButton value="Cancelar" onclick="wdlgAgresor.hide()" icon="ui-icon-close" type="reset"/>
+                        </p:fieldset>
+
+                    </h:form> 
+                </p:dialog>
+
+                <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
+                          resizable="false"> 
+                    <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
+                </p:dialog>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
