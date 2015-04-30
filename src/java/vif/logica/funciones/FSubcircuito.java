@@ -108,4 +108,21 @@ public class FSubcircuito {
         return eje;
     }
     
+    public static Subcircuito ObtenerSubcircuitoDadoId(int id) throws Exception {
+        Subcircuito lst;
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from vif.f_select_subcircuito_dado_id(?)";
+            lstP.add(new Parametro(1, id));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = new Subcircuito();
+            lst = llenarDatos(rs).get(0);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    
 }

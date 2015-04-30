@@ -134,4 +134,22 @@ public class FAgresor {
     }
     
     
+     public static Agresor ObtenerAgresorDadoId(int id) throws Exception {
+        Agresor lst;
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from vif.f_select_agresor_dado_id(?)";
+            lstP.add(new Parametro(1, id));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = new Agresor();
+            lst = llenarAgresor(rs).get(0);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+     
+     
 }

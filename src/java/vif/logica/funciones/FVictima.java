@@ -133,4 +133,22 @@ public class FVictima {
           return eje;
     }
 
+    public static Victima ObtenerVictimaDadoId(int id) throws Exception {
+        Victima lst;
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from vif.f_select_victima_dado_id(?)";
+            lstP.add(new Parametro(1, id));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = new Victima();
+            lst = llenarVictima(rs).get(0);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    
+    
 }
