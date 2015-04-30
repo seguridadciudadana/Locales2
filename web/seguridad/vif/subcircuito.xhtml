@@ -46,9 +46,7 @@
                                     <h:outputText value="Codigo Circuito"/>
                                 </f:facet>
                                 <h:outputText value="#{subcircuito.id_circuito.codigo_circuito}"/>
-                            </p:column>
-
-
+                            </p:column>                            
                             <p:column exportable="false">
                                 <p:commandButton id="btnEditarSubcircuito" icon="ui-icon-pencil"  title="Editar Subcircuito" 
                                                  oncomplete="wdlgEditarSubcircuito.show()" 
@@ -65,11 +63,6 @@
                                                                  target="#{subcircuitoControlador.subcircuitoSel}"/>
                                 </p:commandButton>
                             </p:column>
-
-
-
-
-
                             <f:facet name="footer">  
                                 <p:commandButton id="btnNuevoSubcircuito" value="Nuevo" icon="ui-icon-newwin"
                                                  oncomplete="wdlgNuevoSubcircuito.show()" title="Nuevo Circuito"/>  
@@ -106,24 +99,19 @@
                     <h:form id="frmNuevoSubcircuito">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                         <p:panelGrid id="pngNuevoSubcircuito" columns="2">
-
                             <h:outputText id="otxtCircuito" value="Circuito:"/>
                             <p:selectOneMenu value="#{subcircuitoControlador.valorCSeleccionado}" >
                                 <f:selectItem itemValue="#{null}" itemLabel="--Elija una opción--"/>
                                 <f:selectItems value="#{subcircuitoControlador.lstCircuito}" var="Circuitos" 
                                                itemLabel="#{Circuitos.descripcion}" itemValue="#{Circuitos.id_circuito}"/> 
-                                <p:ajax event="change" listener="#{subcircuitoControlador.objSubcircuito.id_circuito}" update="txtprueba"/>
-                                
+                                <p:ajax event="change" listener="#{subcircuitoControlador.objSubcircuito.id_circuito}" />                                
                             </p:selectOneMenu>
-                            <h:outputText value="Codigo circuito:"/>     
-                            <p:inputText id="txtprueba" value="#{Circuitos.codigo_circuito}"/>
                             <h:outputText value="Codigo Subcircuito:"/>                             
                             <p:inputText value="#{subcircuitoControlador.objSubcircuito.codigo_subcircuito}" title="ej: Sandra" 
                                          required="true" requiredMessage="Ingrese el Codigo del Subcricuito"/>
                             <h:outputText value="Descripcion Circuito:"/>                             
                             <p:inputText value="#{subcircuitoControlador.objSubcircuito.descripcion}" title="ej: Sandra" 
                                          required="true" requiredMessage="Ingrese la descripción"/>
-
                         </p:panelGrid>
                         <p:commandButton value="Aceptar" action="#{subcircuitoControlador.insertarSubcircuito()}" 
                                          update=":frmsubcircuito:pnlSubcircuito"/>
@@ -144,7 +132,7 @@
                                                itemLabel="#{Circuitos.descripcion}" itemValue="#{Circuitos.id_circuito}"/> 
                                 <p:ajax event="change" listener="#{subcircuitoControlador.subcircuitoSel.id_circuito}" />
                             </p:selectOneMenu>
-                            
+
                             <h:outputText value="Codigo Subcircuito:"/>     
                             <p:inputText value="#{subcircuitoControlador.subcircuitoSel.codigo_subcircuito}" title="ej: Sandra" 
                                          required="true" requiredMessage="Ingrese el Codigo del Subcricuito"/>
