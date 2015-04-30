@@ -16,6 +16,7 @@ public class Denuncia {
 
     private int id_denucnia;
     private Date fecha;
+    private String denunciante;
     private Victima id_victima;
     private double x;
     private double y;
@@ -34,9 +35,10 @@ public class Denuncia {
     public Denuncia() {
     }
 
-    public Denuncia(int id_denucnia, Date fecha, Victima id_victima, double x, double y, Circuito id_circuito, Subcircuito id_subcircuito, Agresor id_agresor, String relacion_victima_agresor, int numero_hijos, Violencia id_tipo_violencia, Date fecha_agresion, Time hora_agresion, String medidas_amparo, String sentencia, String apelacion) {
+    public Denuncia(int id_denucnia, Date fecha, String denunciante, Victima id_victima, double x, double y, Circuito id_circuito, Subcircuito id_subcircuito, Agresor id_agresor, String relacion_victima_agresor, int numero_hijos, Violencia id_tipo_violencia, Date fecha_agresion, Time hora_agresion, String medidas_amparo, String sentencia, String apelacion) {
         this.id_denucnia = id_denucnia;
         this.fecha = fecha;
+        this.denunciante = denunciante;
         this.id_victima = id_victima;
         this.x = x;
         this.y = y;
@@ -67,6 +69,14 @@ public class Denuncia {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public String getDenunciante() {
+        return denunciante;
+    }
+
+    public void setDenunciante(String denunciante) {
+        this.denunciante = denunciante;
     }
 
     public Victima getId_victima() {
@@ -181,4 +191,5 @@ public class Denuncia {
         this.apelacion = apelacion;
     }
 
+   
 }
