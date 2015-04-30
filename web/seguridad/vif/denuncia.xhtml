@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <ui:define name="DENUNCIAS">Gestión de Denuncias</ui:define>
+    </h:head>
+    <h:body>
+        <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
+            <ui:define name="top">Gestión de Agresores</ui:define>
+            <ui:define name="contenido">
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdenuncia">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                    <p:panel id="pnlDenuncia">
+                        <p:dataTable  id="tblDenuncia" value="#{denunciaControlador.lstDenuncia}" 
+                                      var="Denuncia" 
+                                      paginator="true" rows="10" rowKey="#{Denuncia.id_denucnia}" selectionMode="single" 
+                                      selection="#{denunciaControlador.denunciaSel}">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha denuncia"/>
+                                    <h:outputText value="#{Denuncia.fecha}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Denunciante"/>
+                                    <h:outputText value="#{Denuncia.denunciante}"/>
+                                </f:facet>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
