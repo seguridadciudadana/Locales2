@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Gestión de Agresores</ui:define>
+            <ui:define name="top">Gestión de Denuncias</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdenuncia">
@@ -18,7 +18,7 @@
                     <p:panel id="pnlDenuncia">
                         <p:dataTable  id="tblDenuncia" value="#{denunciaControlador.lstDenuncia}" 
                                       var="Denuncia" 
-                                      paginator="true" rows="10" rowKey="#{Denuncia.id_denucnia}" selectionMode="single" 
+                                      paginator="true" rows="15" rowKey="#{Denuncia.id_denucnia}" selectionMode="single" 
                                       selection="#{denunciaControlador.denunciaSel}">
                             <p:column>
                                 <f:facet name="header">
@@ -32,9 +32,122 @@
                                     <h:outputText value="#{Denuncia.denunciante}"/>
                                 </f:facet>
                             </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nombres Víctima"/>
+                                    <h:outputText value="#{Denuncia.id_victima.pnombres}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Apellidos Víctima"/>
+                                    <h:outputText value="#{Denuncia.id_victima.papellidos}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Sexo Víctima"/>
+                                    <h:outputText value="#{Denuncia.id_victima.sexo}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Dirección Víctima"/>
+                                    <h:outputText value="#{Denuncia.id_victima.direccion}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Latitud"/>
+                                    <h:outputText value="#{Denuncia.x}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Longitud"/>
+                                    <h:outputText value="#{Denuncia.y}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Circuito"/>
+                                    <h:outputText value="#{Denuncia.id_circuito.descripcion}"/>
+                                </f:facet>
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Domiciliado"/>
+                                    <h:outputText value="#{Denuncia.id_victima.pdomiciliado}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Domiciliado"/>
+                                    <h:outputText value="#{Denuncia.id_victima.pdomiciliado}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Edad"/>
+                                    <h:outputText value="#{Denuncia.id_victima.edad}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Estado Civil"/>
+                                    <h:outputText value="#{Denuncia.id_victima.estado_civil}"/>
+                                </f:facet>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nivel Instrucción"/>
+                                    <h:outputText value="#{Denuncia.id_victima.nivel_educacion}"/>
+                                </f:facet>
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Ocupación Víctima"/>
+                                    <h:outputText value="#{Denuncia.id_victima.ocupacion}"/>
+                                </f:facet>
+                            </p:column>
+
+                            <f:facet name="footer">  
+                                <p:commandButton id="btnNuevaDenuncia" value="Nuevo" icon="ui-icon-newwin"
+                                                 oncomplete="wdlgNuevaDenuncia.show()" title="Nueva Denuncia"/>  
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/excel.png" alt=""/>
+                                    <p:dataExporter type="xls" target="tblDenuncia" fileName="Denuncia" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/pdf.png" alt=""/>
+                                    <p:dataExporter type="pdf" target="tblDenuncia" fileName="Denuncia" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/csv.png" alt=""/>
+                                    <p:dataExporter type="csv" target="tblDenuncia" fileName="Denuncia" pageOnly="true" />
+                                </h:commandLink>
+
+                                <h:commandLink>
+                                    <img src="../../resources/images/xml.png" alt=""/>
+                                    <p:dataExporter type="xml" target="tblDenuncia" fileName="Denuncia" pageOnly="true" />
+                                </h:commandLink>
+                            </f:facet>
+
                         </p:dataTable>
                     </p:panel>
                 </h:form>
+            </ui:define>
+            <ui:define name="dialogos">
+                <p:dialog id="dlgNuevaDenuncia" header="Nueva Denuncia" widgetVar="wdlgNuevaDenuncia" 
+                          modal="true" closable="false" resizable="false"
+                          showEffect="clip" hideEffect="fold"> 
+                </p:dialog>
+
             </ui:define>
         </ui:composition>
     </h:body>

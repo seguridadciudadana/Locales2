@@ -175,7 +175,16 @@ public class DenunciaControlador {
     }
 
     private void reinit() {
-
+        this.cargarAgresor();
+        this.cargarDenuncia();
+        this.cargarSubcircuito();
+        this.cargarVictima();
+        this.cargarViolencia();
+        this.cargarCircuito();
+        this.objDenuncia = new Denuncia();
+        this.lstDenuncia = new ArrayList<Denuncia>();
+        this.denunciaSel=new Denuncia();
+        
     }
 
     public void cargarDenuncia() {
@@ -238,15 +247,15 @@ public class DenunciaControlador {
             System.out.println("public void cargarViolenciao dice: " + e.getMessage());
         }
     }
-    
-     public void insertarDenuncia() {
-        try {            
+
+    public void insertarDenuncia() {
+        try {
             objDenuncia.setId_victima(FVictima.ObtenerVictimaDadoId(valorVicSeleccionada));
             objDenuncia.setId_circuito(FCircuito.ObtenerCircuitoDadoId(valorCSeleccionada));
             objDenuncia.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(valorSubcSeleccionada));
             objDenuncia.setId_agresor(FAgresor.ObtenerAgresorDadoId(valorASeleccionado));
             objDenuncia.setId_tipo_violencia(FViolencia.ObtenerViolenciaDadoId(valorViolSeleccionada));
-            if(FDenuncia.insertarDenuncia(objDenuncia)){
+            if (FDenuncia.insertarDenuncia(objDenuncia)) {
                 this.reinit();
                 DefaultRequestContext.getCurrentInstance().execute("wdlgNuevaDenuncia.hide()");
                 Util.addSuccessMessage("Información Guardada con éxito");
@@ -265,5 +274,5 @@ public class DenunciaControlador {
     public void cambiarEstadoMostrarActualizar() {
         mostrarActualizar = true;
     }
-    
+
 }

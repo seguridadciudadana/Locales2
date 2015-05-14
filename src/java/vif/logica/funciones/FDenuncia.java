@@ -34,10 +34,23 @@ public class FDenuncia {
         Denuncia denuncia = null;
         try {
             while (rs.next()) {
-                denuncia = new Denuncia(rs.getInt("pid_denuncia"), rs.getDate("pfecha_denuncia"), rs.getString("pdenunciante"), FVictima.ObtenerVictimaDadoId(rs.getInt("pid_victima")), rs.getDouble("px"), rs.getDouble("py"),
-                        FCircuito.ObtenerCircuitoDadoId(rs.getInt("pid_circuito")), FSubcircuito.ObtenerSubcircuitoDadoId(rs.getInt("pid_subcircuito")), FAgresor.ObtenerAgresorDadoId(rs.getInt("pid_agresor")),
-                        rs.getString("prelacion_victima_agresor"), rs.getInt("pnumero_hijos"), FViolencia.ObtenerViolenciaDadoId(rs.getInt("pid_tipo_violencia")), rs.getDate("pfecha_agresion"),
-                        rs.getTime("phora_agresion"), rs.getString("pmedidas_amparo"), rs.getString("psentencia"), rs.getString("papelacion"));
+                denuncia = new Denuncia(rs.getInt("pid_denucnia"), 
+                                        rs.getDate("pfecha"), 
+                                        rs.getString("pdenunciante"), 
+                                        FVictima.ObtenerVictimaDadoId(rs.getInt("pid_victima")), 
+                                        rs.getDouble("px"), 
+                                        rs.getDouble("py"),
+                                        FCircuito.ObtenerCircuitoDadoId(rs.getInt("pid_circuito")),     
+                                        FSubcircuito.ObtenerSubcircuitoDadoId(rs.getInt("pid_subcircuito")), 
+                                        FAgresor.ObtenerAgresorDadoId(rs.getInt("pid_agresor")),
+                                        rs.getString("prelacion_victima_agresor"), 
+                                        rs.getInt("pnumero_hijos"), 
+                                        FViolencia.ObtenerViolenciaDadoId(rs.getInt("pid_tipo_violencia")), 
+                                        rs.getDate("pfecha_agresion"),
+                                        rs.getTime("phora_agresion"), 
+                                        rs.getString("pmedidas_amparo"), 
+                                        rs.getString("psentencia"), 
+                                        rs.getString("papelacion"));
                 lst.add(denuncia);
             }
         } catch (Exception e) {
