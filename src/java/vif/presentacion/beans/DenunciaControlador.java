@@ -50,10 +50,6 @@ public class DenunciaControlador {
     private int valorVicSeleccionada;
     private int valorViolSeleccionada;
 
-    public DenunciaControlador() {
-        this.reinit();
-    }
-
     public Denuncia getObjDenuncia() {
         return objDenuncia;
     }
@@ -174,6 +170,10 @@ public class DenunciaControlador {
         this.valorViolSeleccionada = valorViolSeleccionada;
     }
 
+    public DenunciaControlador() {
+        this.reinit();
+    }
+
     private void reinit() {
         this.cargarAgresor();
         this.cargarDenuncia();
@@ -183,8 +183,8 @@ public class DenunciaControlador {
         this.cargarCircuito();
         this.objDenuncia = new Denuncia();
         this.lstDenuncia = new ArrayList<Denuncia>();
-        this.denunciaSel=new Denuncia();
-        
+        this.denunciaSel = new Denuncia();
+
     }
 
     public void cargarDenuncia() {
