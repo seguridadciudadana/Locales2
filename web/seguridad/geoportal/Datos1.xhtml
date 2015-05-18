@@ -26,49 +26,7 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Gráfico Denuncias por Subcircuito">
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-
-                            <p:lineChart   value="#{vif_2010Controlador1.lineModel1}" legendPosition="e" 
-                                           title="SUBCIRCUITO" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
-                        </p:tab>
-                        <p:tab title="Gráfico Denuncias por Circuito">
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-
-                            <p:lineChart   value="#{vif_2010Controlador1.lineModel2}" legendPosition="e" 
-                                           title="CIRCUITO" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
-
-                        </p:tab>
-
-                        <p:tab title="Gráfico Sexo Agresor por Circuito" >
-
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-
-                            <p:lineChart   value="#{vif_2010Controlador1.lineModel3}" legendPosition="e" 
-                                           title="CIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
-
-                        </p:tab>
-
-                        <p:tab title="Gráfico Sexo Agresor por SubCircuito" >
-
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-
-                            <p:lineChart   value="#{vif_2010Controlador1.lineModel4}" legendPosition="e" 
-                                           title="SUBCIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  />   
-
-                        </p:tab>
-
-                        <p:tab title="Gráfico Agresor por Edad" >
-
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2010Controlador1.lineModel5}" legendPosition="e" 
-                                           title="EDAD Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Edad Agresor" yaxisLabel="# Denuncias"  />                              
-                        </p:tab>
+                                             
 
                         <p:tab title="Gráfico Sexo Victima por Circuito" >
 

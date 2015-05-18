@@ -38,31 +38,25 @@ public class Vif_2010Controlador1 implements Serializable {
     /**
      * Creates a new instance of Vif_2010Controlador
      */
-    private CartesianChartModel lineModel1;
-    private CartesianChartModel lineModel2;
-    private CartesianChartModel lineModel3;
-    private CartesianChartModel lineModel4;
-    private CartesianChartModel lineModel5;
+    
+   
     private CartesianChartModel lineModel6;
     private CartesianChartModel lineModel7;
     private CartesianChartModel lineModel8;
 
     private Vif_2010 objDatos;
     private Vif_2010 datoSel;
-    private ArrayList<Vif_2010> lstDatosC;
-    private ArrayList<Vif_2010> lstDatosCir;
-    private ArrayList<Vif_2010> lstDatosDadoC;
-    private ArrayList<Vif_2010> lstDatosMes;
+    
     private ArrayList<Vif_2010> lstDatos;
     private ArrayList<Vif_2010> lstDatosFecha;
     private ArrayList<Vif_2010> lstDatos1;
-    private ArrayList<Vif_2010> lstDatos2;
+    
     private ArrayList<Vif_2010> lstDatos3;
-    private ArrayList<Vif_2010> lstDatos4;
+    
     private ArrayList<Vif_2010> lstDatos5;
-    private ArrayList<Vif_2010> lstDatos6;
+    
     private ArrayList<Vif_2010> lstDatos7;
-    private ArrayList<Vif_2010> lstDatos8;
+        
     private ArrayList<Vif_2010> lstDatosCopia;
     private ArrayList<Vif_2010> lstDatos9;
     private ArrayList<Vif_2010> lstDatos10;
@@ -74,45 +68,15 @@ public class Vif_2010Controlador1 implements Serializable {
     private Date date1;
     private Date date2;
 
-    public CartesianChartModel getLineModel1() {
-        return lineModel1;
+    public ArrayList<Vif_2010> getLstDatos7() {
+        return lstDatos7;
     }
 
-    public void setLineModel1(CartesianChartModel lineModel1) {
-        this.lineModel1 = lineModel1;
+    public void setLstDatos7(ArrayList<Vif_2010> lstDatos7) {
+        this.lstDatos7 = lstDatos7;
     }
 
-    public CartesianChartModel getLineModel2() {
-        return lineModel2;
-    }
-
-    public void setLineModel2(CartesianChartModel lineModel2) {
-        this.lineModel2 = lineModel2;
-    }
-
-    public CartesianChartModel getLineModel3() {
-        return lineModel3;
-    }
-
-    public void setLineModel3(CartesianChartModel lineModel3) {
-        this.lineModel3 = lineModel3;
-    }
-
-    public CartesianChartModel getLineModel4() {
-        return lineModel4;
-    }
-
-    public void setLineModel4(CartesianChartModel lineModel4) {
-        this.lineModel4 = lineModel4;
-    }
-
-    public CartesianChartModel getLineModel5() {
-        return lineModel5;
-    }
-
-    public void setLineModel5(CartesianChartModel lineModel5) {
-        this.lineModel5 = lineModel5;
-    }
+       
 
     public CartesianChartModel getLineModel6() {
         return lineModel6;
@@ -154,28 +118,13 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos10 = lstDatos10;
     }
 
-    public ArrayList<Vif_2010> getLstDatosCir() {
-        return lstDatosCir;
-    }
-
-    public void setLstDatosCir(ArrayList<Vif_2010> lstDatosCir) {
-        this.lstDatosCir = lstDatosCir;
-    }
-
+    
     public ArrayList<Vif_2010> getLstDatosCopia() {
         return lstDatosCopia;
     }
 
     public void setLstDatosCopia(ArrayList<Vif_2010> lstDatosCopia) {
         this.lstDatosCopia = lstDatosCopia;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMes() {
-        return lstDatosMes;
-    }
-
-    public void setLstDatosMes(ArrayList<Vif_2010> lstDatosMes) {
-        this.lstDatosMes = lstDatosMes;
     }
 
     public String getFecha1() {
@@ -218,38 +167,7 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatosFecha = lstDatosFecha;
     }
 
-    public ArrayList<Vif_2010> getLstDatosC() {
-        return lstDatosC;
-    }
-
-    public void setLstDatosC(ArrayList<Vif_2010> lstDatosC) {
-        this.lstDatosC = lstDatosC;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosDadoC() {
-        return lstDatosDadoC;
-    }
-
-    public void setLstDatosDadoC(ArrayList<Vif_2010> lstDatosDadoC) {
-        this.lstDatosDadoC = lstDatosDadoC;
-    }
-
-    public ArrayList<Vif_2010> getLstDatos7() {
-        return lstDatos7;
-    }
-
-    public void setLstDatos7(ArrayList<Vif_2010> lstDatos7) {
-        this.lstDatos7 = lstDatos7;
-    }
-
-    public ArrayList<Vif_2010> getLstDatos8() {
-        return lstDatos8;
-    }
-
-    public void setLstDatos8(ArrayList<Vif_2010> lstDatos8) {
-        this.lstDatos8 = lstDatos8;
-    }
-
+    
     public ArrayList<Vif_2010> getLstDatos5() {
         return lstDatos5;
     }
@@ -258,13 +176,7 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos5 = lstDatos5;
     }
 
-    public ArrayList<Vif_2010> getLstDatos6() {
-        return lstDatos6;
-    }
-
-    public void setLstDatos6(ArrayList<Vif_2010> lstDatos6) {
-        this.lstDatos6 = lstDatos6;
-    }
+    
 
     public ArrayList<Vif_2010> getLstDatos3() {
         return lstDatos3;
@@ -274,13 +186,7 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos3 = lstDatos3;
     }
 
-    public ArrayList<Vif_2010> getLstDatos4() {
-        return lstDatos4;
-    }
-
-    public void setLstDatos4(ArrayList<Vif_2010> lstDatos4) {
-        this.lstDatos4 = lstDatos4;
-    }
+    
 
     public List<Integer> getListaEdad() {
         return listaEdad;
@@ -290,13 +196,7 @@ public class Vif_2010Controlador1 implements Serializable {
         this.listaEdad = listaEdad;
     }
 
-    public ArrayList<Vif_2010> getLstDatos2() {
-        return lstDatos2;
-    }
-
-    public void setLstDatos2(ArrayList<Vif_2010> lstDatos2) {
-        this.lstDatos2 = lstDatos2;
-    }
+    
 
     public ArrayList<Vif_2010> getLstDatos1() {
         return lstDatos1;
@@ -346,17 +246,16 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos1 = new ArrayList<Vif_2010>();
         this.listaEdad = new ArrayList<Integer>();
         this.lstDatos3 = new ArrayList<Vif_2010>();
-        this.lstDatos4 = new ArrayList<Vif_2010>();
+        
         this.lstDatos5 = new ArrayList<Vif_2010>();
-        this.lstDatos6 = new ArrayList<Vif_2010>();
+        
         this.lstDatos7 = new ArrayList<Vif_2010>();
-        this.lstDatos8 = new ArrayList<Vif_2010>();
-        this.lstDatosC = new ArrayList<Vif_2010>();
+        
+        
         this.lstDatosCopia = new ArrayList<Vif_2010>();
-        this.lstDatosDadoC = new ArrayList<Vif_2010>();
+        
         this.lstDatosFecha = new ArrayList<Vif_2010>();
-        this.lstDatosMes = new ArrayList<Vif_2010>();
-        this.lstDatosCir = new ArrayList<Vif_2010>();
+        
         this.lstDatos9 = new ArrayList<Vif_2010>();
         this.lstDatos10 = new ArrayList<Vif_2010>();
         this.cargarDatos();
@@ -366,146 +265,16 @@ public class Vif_2010Controlador1 implements Serializable {
     //Graficas
     public void grficar() {
 
-        lineModel1 = initCategorySubcircuito();
-        lineModel2 = initCategoryCircuito();
-        lineModel3 = initCategoryModelSexo();
-        lineModel4 = initCategoryModelSexoSub();
-        lineModel5 = initCategoryModelSexoEdadA();
+        
+        
         lineModel6 = initCategoryModelSexoEdadV();
         lineModel7 = initCategoryModelSexoV();
         lineModel8 = initCategoryModelSexoSubV();
 
     }
 
-    private CartesianChartModel initCategorySubcircuito() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatos8 = FVif_2010.ObtenerDatosSubCircuito();
-            ChartSeries SubCircuito = new ChartSeries();
-            SubCircuito.setLabel("SubCircuito");
-            for (int x = 0; x < lstDatos8.size(); x++) {
-                lstDatos7 = FVif_2010.ObtenerDatosDadoSubcircuito(lstDatos8.get(x).getSubcircuit());
-                SubCircuito.set(lstDatos8.get(x).getSubcircuit(), lstDatos7.size());
-
-            }
-
-            model.addSeries(SubCircuito);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
-
-    private CartesianChartModel initCategoryCircuito() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatosC = FVif_2010.ObtenerDatosCircuito();
-
-            ChartSeries Circuito = new ChartSeries();
-            Circuito.setLabel("Circuito");
-            for (int x = 0; x < lstDatosC.size(); x++) {
-                lstDatosDadoC = FVif_2010.ObtenerDatosDadoCircuito(lstDatosC.get(x).getCircuito());
-                Circuito.set(lstDatosC.get(x).getCircuito(), lstDatosDadoC.size());
-
-            }
-
-            model.addSeries(Circuito);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
-
-    private CartesianChartModel initCategoryModelSexo() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-
-            ChartSeries CircuitoSexoM = new ChartSeries();
-            CircuitoSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatos.size(); i++) {
-
-                lstDatosMes = FVif_2010.ObtenerDatosDadoCircuitoSexo("M", lstDatos.get(i).getCircuito());
-                CircuitoSexoM.set(lstDatos.get(i).getCircuito(), lstDatosMes.size());
-            }
-
-            ChartSeries CircuitoSexoF = new ChartSeries();
-            CircuitoSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-
-                lstDatosCir = FVif_2010.ObtenerDatosDadoCircuitoSexo("F", lstDatos.get(j).getCircuito());
-                CircuitoSexoF.set(lstDatos.get(j).getCircuito(), lstDatosCir.size());
-            }
-            model.addSeries(CircuitoSexoM);
-            model.addSeries(CircuitoSexoF);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
-
-    private CartesianChartModel initCategoryModelSexoSub() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-
-            ChartSeries SubCircuitoSexoM = new ChartSeries();
-            SubCircuitoSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatos.size(); i++) {
-
-                lstDatos2 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("M", lstDatos.get(i).getSubcircuit());
-                SubCircuitoSexoM.set(lstDatos.get(i).getSubcircuit(), lstDatos2.size());
-            }
-
-            ChartSeries SubCircuitoSexoF = new ChartSeries();
-            SubCircuitoSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-
-                lstDatos4 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("F", lstDatos.get(j).getSubcircuit());
-                SubCircuitoSexoF.set(lstDatos.get(j).getSubcircuit(), lstDatos4.size());
-            }
-            model.addSeries(SubCircuitoSexoM);
-            model.addSeries(SubCircuitoSexoF);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
-
-    private CartesianChartModel initCategoryModelSexoEdadA() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-
-            ChartSeries EdadSexoM = new ChartSeries();
-            EdadSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatos.size(); i++) {
-
-                lstDatos6 = FVif_2010.ObtenerDatosDadoEdadSexo("M", lstDatos.get(i).getEdad__agre());
-                EdadSexoM.set(lstDatos.get(i).getEdad__agre(), lstDatos6.size());
-            }
-
-            ChartSeries EdadSexoF = new ChartSeries();
-            EdadSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-
-                lstDatos8 = FVif_2010.ObtenerDatosDadoEdadSexo("F", lstDatos.get(j).getEdad__agre());
-                EdadSexoF.set(lstDatos.get(j).getEdad__agre(), lstDatos8.size());
-            }
-            model.addSeries(EdadSexoM);
-            model.addSeries(EdadSexoF);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
+    
+    
 
     private CartesianChartModel initCategoryModelSexoV() {
         CartesianChartModel model = new CartesianChartModel();
