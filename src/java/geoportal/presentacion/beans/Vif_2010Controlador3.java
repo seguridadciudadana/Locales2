@@ -38,20 +38,15 @@ public class Vif_2010Controlador3 implements Serializable {
     private CartesianChartModel lineModel3;
     private CartesianChartModel lineModel4;
     private CartesianChartModel lineModel5;
-    private ArrayList<Vif_2010> lstDatosControl1;
-    
+    private ArrayList<Vif_2010> lstDatosControl1;    
     private ArrayList<Vif_2010> lstDatos2;
     private ArrayList<Vif_2010> lstDatos4;
     private ArrayList<Vif_2010> lstDatos6;
     private ArrayList<Vif_2010> lstDatos8;
     private Vif_2010 datoSel;
-
     private ArrayList<Vif_2010> lstDatosCir;
-
     private ArrayList<Vif_2010> lstDatosMes;
-
-     
-
+    
     public ArrayList<Vif_2010> getLstDatos8() {
         return lstDatos8;
     }

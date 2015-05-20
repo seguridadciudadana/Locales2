@@ -38,25 +38,23 @@ public class Vif_2010Controlador1 implements Serializable {
     /**
      * Creates a new instance of Vif_2010Controlador
      */
-    
-   
     private CartesianChartModel lineModel6;
     private CartesianChartModel lineModel7;
     private CartesianChartModel lineModel8;
 
     private Vif_2010 objDatos;
     private Vif_2010 datoSel;
-    
+
     private ArrayList<Vif_2010> lstDatos;
     private ArrayList<Vif_2010> lstDatosFecha;
     private ArrayList<Vif_2010> lstDatos1;
-    
+
     private ArrayList<Vif_2010> lstDatos3;
-    
+
     private ArrayList<Vif_2010> lstDatos5;
-    
+
     private ArrayList<Vif_2010> lstDatos7;
-        
+
     private ArrayList<Vif_2010> lstDatosCopia;
     private ArrayList<Vif_2010> lstDatos9;
     private ArrayList<Vif_2010> lstDatos10;
@@ -75,8 +73,6 @@ public class Vif_2010Controlador1 implements Serializable {
     public void setLstDatos7(ArrayList<Vif_2010> lstDatos7) {
         this.lstDatos7 = lstDatos7;
     }
-
-       
 
     public CartesianChartModel getLineModel6() {
         return lineModel6;
@@ -118,7 +114,6 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos10 = lstDatos10;
     }
 
-    
     public ArrayList<Vif_2010> getLstDatosCopia() {
         return lstDatosCopia;
     }
@@ -167,7 +162,6 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatosFecha = lstDatosFecha;
     }
 
-    
     public ArrayList<Vif_2010> getLstDatos5() {
         return lstDatos5;
     }
@@ -175,8 +169,6 @@ public class Vif_2010Controlador1 implements Serializable {
     public void setLstDatos5(ArrayList<Vif_2010> lstDatos5) {
         this.lstDatos5 = lstDatos5;
     }
-
-    
 
     public ArrayList<Vif_2010> getLstDatos3() {
         return lstDatos3;
@@ -186,8 +178,6 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos3 = lstDatos3;
     }
 
-    
-
     public List<Integer> getListaEdad() {
         return listaEdad;
     }
@@ -195,8 +185,6 @@ public class Vif_2010Controlador1 implements Serializable {
     public void setListaEdad(List<Integer> listaEdad) {
         this.listaEdad = listaEdad;
     }
-
-    
 
     public ArrayList<Vif_2010> getLstDatos1() {
         return lstDatos1;
@@ -246,16 +234,15 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos1 = new ArrayList<Vif_2010>();
         this.listaEdad = new ArrayList<Integer>();
         this.lstDatos3 = new ArrayList<Vif_2010>();
-        
+
         this.lstDatos5 = new ArrayList<Vif_2010>();
-        
+
         this.lstDatos7 = new ArrayList<Vif_2010>();
-        
-        
+
         this.lstDatosCopia = new ArrayList<Vif_2010>();
-        
+
         this.lstDatosFecha = new ArrayList<Vif_2010>();
-        
+
         this.lstDatos9 = new ArrayList<Vif_2010>();
         this.lstDatos10 = new ArrayList<Vif_2010>();
         this.cargarDatos();
@@ -265,16 +252,11 @@ public class Vif_2010Controlador1 implements Serializable {
     //Graficas
     public void grficar() {
 
-        
-        
         lineModel6 = initCategoryModelSexoEdadV();
         lineModel7 = initCategoryModelSexoV();
         lineModel8 = initCategoryModelSexoSubV();
 
     }
-
-    
-    
 
     private CartesianChartModel initCategoryModelSexoV() {
         CartesianChartModel model = new CartesianChartModel();

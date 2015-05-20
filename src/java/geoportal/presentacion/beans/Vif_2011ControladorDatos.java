@@ -79,20 +79,21 @@ public class Vif_2011ControladorDatos {
     }
 
     public void reinit() {
+        this.lstVif_2011 = new ArrayList<Vif_2011>();
         this.objVif_2011 = new Vif_2011();
         this.objVif_2011Sel = new Vif_2011();
-        this.lstVif_2011 = new ArrayList<Vif_2011>();
+
         this.obtenerDatosVif_2011();
     }
-    
+
     public void obtenerDatosVif_2011() {
         try {
-            this.lstVif_2011=FVif_2011.ObtenerDatos();
-            this.objVif_2011Sel=lstVif_2011.get(0);
+            this.lstVif_2011 = FVif_2011.ObtenerDatos();
+            this.objVif_2011Sel = lstVif_2011.get(0);
             System.out.println(lstVif_2011.get(0).getId());
         } catch (Exception e) {
-            Util.addErrorMessage("public void obtenerDatosVif2011 dice: "+e.getMessage());
-            System.out.println("public void obtenerDatosVif2011 dice: "+e.getMessage());
+            Util.addErrorMessage("public void obtenerDatosVif2011 dice: " + e.getMessage());
+            System.out.println("public void obtenerDatosVif2011 dice: " + e.getMessage());
         }
 
     }
