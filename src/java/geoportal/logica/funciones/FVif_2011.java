@@ -135,5 +135,33 @@ public class FVif_2011 {
         }
         return lst;
     }
+
+    public static ArrayList<Vif_2011> ObtenerDatosDadoCircuito(String circuito) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_circuito(?)";
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }      
     
+    public static ArrayList<Vif_2011> ObtenerDatosDadoSubcircuito(String subcircuito) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_subcircuito(?)";
+            lstP.add(new Parametro(1, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
 }

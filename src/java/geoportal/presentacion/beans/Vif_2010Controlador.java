@@ -40,17 +40,13 @@ public class Vif_2010Controlador implements Serializable {
      */
     private CartesianChartModel lineModel1;
     private CartesianChartModel lineModel2;
-   
     private ArrayList<Vif_2010> lstDatosControl1;
     private Vif_2010 datoSel;
-    
     private ArrayList<Vif_2010> lstDatosC;
-    
     private ArrayList<Vif_2010> lstDatosDadoC;
-    
     private ArrayList<Vif_2010> lstDatos7;
     private ArrayList<Vif_2010> lstDatos8;
-    
+
     public CartesianChartModel getLineModel1() {
         return lineModel1;
     }
@@ -67,7 +63,6 @@ public class Vif_2010Controlador implements Serializable {
         this.lineModel2 = lineModel2;
     }
 
-      
     public ArrayList<Vif_2010> getLstDatosC() {
         return lstDatosC;
     }
@@ -99,7 +94,6 @@ public class Vif_2010Controlador implements Serializable {
     public void setLstDatos8(ArrayList<Vif_2010> lstDatos8) {
         this.lstDatos8 = lstDatos8;
     }
-    
 
     public ArrayList<Vif_2010> getLstDatosControl1() {
         return lstDatosControl1;
@@ -120,8 +114,8 @@ public class Vif_2010Controlador implements Serializable {
     public Vif_2010Controlador() {
         this.reinit();
     }
-    
-     @PostConstruct
+
+    @PostConstruct
     public void init() {
         graficar();
     }
@@ -134,22 +128,20 @@ public class Vif_2010Controlador implements Serializable {
         this.lstDatos8 = new ArrayList<Vif_2010>();
         this.lstDatosC = new ArrayList<Vif_2010>();
         this.lstDatosDadoC = new ArrayList<Vif_2010>();
-        
+
         this.init();
         this.cargarDatos();
 
     }
-    
-    public void graficar(){
+
+    public void graficar() {
         lineModel1 = initCategorySubcircuito();
         lineModel2 = initCategoryCircuito();
-        
-}
+    }
 
     /**
      *
      */
-    
     private CartesianChartModel initCategorySubcircuito() {
         CartesianChartModel model = new CartesianChartModel();
         try {
@@ -193,7 +185,6 @@ public class Vif_2010Controlador implements Serializable {
 
     }
 
-   
     public void cargarDatos() {
         try {
 
