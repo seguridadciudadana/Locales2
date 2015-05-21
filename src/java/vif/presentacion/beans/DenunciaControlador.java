@@ -175,15 +175,22 @@ public class DenunciaControlador {
     }
 
     private void reinit() {
+
+        this.lstDenuncia = new ArrayList<Denuncia>();
+        this.objDenuncia = new Denuncia();
+        this.denunciaSel = new Denuncia();
+        this.lstAgresor = new ArrayList<Agresor>();
+        this.lstCircuito = new ArrayList<Circuito>();
+        this.lstSubcircuito = new ArrayList<Subcircuito>();
+        this.lstVictima = new ArrayList<Victima>();
+        this.lstViolencia = new ArrayList<Violencia>();
+        
         this.cargarAgresor();
         this.cargarDenuncia();
         this.cargarSubcircuito();
         this.cargarVictima();
         this.cargarViolencia();
         this.cargarCircuito();
-        this.objDenuncia = new Denuncia();
-        this.lstDenuncia = new ArrayList<Denuncia>();
-        this.denunciaSel = new Denuncia();
 
     }
 
