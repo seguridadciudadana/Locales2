@@ -140,7 +140,6 @@ public final class Vif_2011ControladorDatosGeneral {
                 lstDatosDadoS = FVif_2011.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getSubcircuito());
                 SubCircuito.set(lstDatosS.get(x).getSubcircuito(), lstDatosDadoS.size());
             }
-
             model.addSeries(SubCircuito);
 
         } catch (Exception e) {
