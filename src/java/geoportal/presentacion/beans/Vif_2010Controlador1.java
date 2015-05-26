@@ -41,26 +41,18 @@ public class Vif_2010Controlador1 implements Serializable {
     private CartesianChartModel lineModel6;
     private CartesianChartModel lineModel7;
     private CartesianChartModel lineModel8;
-
     private Vif_2010 objDatos;
     private Vif_2010 datoSel;
-
     private ArrayList<Vif_2010> lstDatos;
     private ArrayList<Vif_2010> lstDatosFecha;
     private ArrayList<Vif_2010> lstDatos1;
-
     private ArrayList<Vif_2010> lstDatos3;
-
     private ArrayList<Vif_2010> lstDatos5;
-
     private ArrayList<Vif_2010> lstDatos7;
-
     private ArrayList<Vif_2010> lstDatosCopia;
     private ArrayList<Vif_2010> lstDatos9;
     private ArrayList<Vif_2010> lstDatos10;
-
     List<Integer> listaEdad = new ArrayList<Integer>();
-
     private String fecha1;
     private String fecha2;
     private Date date1;
@@ -234,15 +226,10 @@ public class Vif_2010Controlador1 implements Serializable {
         this.lstDatos1 = new ArrayList<Vif_2010>();
         this.listaEdad = new ArrayList<Integer>();
         this.lstDatos3 = new ArrayList<Vif_2010>();
-
         this.lstDatos5 = new ArrayList<Vif_2010>();
-
         this.lstDatos7 = new ArrayList<Vif_2010>();
-
         this.lstDatosCopia = new ArrayList<Vif_2010>();
-
         this.lstDatosFecha = new ArrayList<Vif_2010>();
-
         this.lstDatos9 = new ArrayList<Vif_2010>();
         this.lstDatos10 = new ArrayList<Vif_2010>();
         this.cargarDatos();
