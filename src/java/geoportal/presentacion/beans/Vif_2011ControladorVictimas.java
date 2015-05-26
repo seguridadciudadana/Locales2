@@ -23,7 +23,7 @@ import recursos.Util;
  */
 @ManagedBean
 @RequestScoped
-public class Vif_2011ControladorVictimas implements Serializable{
+public class Vif_2011ControladorVictimas {
 
     /**
      * Creates a new instance of Vif_2011ControladorVictimas
