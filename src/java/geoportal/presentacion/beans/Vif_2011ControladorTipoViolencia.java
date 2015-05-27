@@ -13,6 +13,7 @@ import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import geoportal.logica.clases.Vif_2011;
 import geoportal.logica.funciones.FVif_2011;
+import javax.annotation.PostConstruct;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
 
@@ -73,28 +74,60 @@ public class Vif_2011ControladorTipoViolencia {
         this.lstDatosDadoV = lstDatosDadoV;
     }
 
-    public Vif_2011ControladorTipoViolencia() {
+    @PostConstruct
+    public void init() {
+        graficar();
     }
 
-    private CartesianChartModel initCategorySubcircuito() {
+    public void graficar() {
+        lineModel = initCategoryTipoViolencia();
+    }
+
+    public Vif_2011ControladorTipoViolencia() {
+        this.reinit();
+    }
+
+    private void reinit() {
+
+        this.lstDatosControl = new ArrayList<Vif_2011>();
+        this.lstDatosV = new ArrayList<Vif_2011>();
+        this.lstDatosDadoV = new ArrayList<Vif_2011>();
+        this.datoSel = new Vif_2011();
+
+        this.init();
+        this.cargarDatos();
+
+    }
+
+    private CartesianChartModel initCategoryTipoViolencia() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            //lstDatosS = FVif_2011.ObtenerDatosSubcircuito();
+            
             lstDatosV = FVif_2011.ObtenerDatosTipoViolencia();
-            ChartSeries SubCircuito = new ChartSeries();
-            SubCircuito.setLabel("Tipo de Violencia");
+            ChartSeries TipoViolencia = new ChartSeries();
+            TipoViolencia.setLabel("Tipo de Violencia");
             for (int x = 0; x < lstDatosV.size(); x++) {
-                //lstDatosDadoS = FVif_2011.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getSubcircuito());
-                lstDatosDadoV=FVif_2011.ObtenerDatosDadoTipoViolencia(lstDatosV.get);
-                SubCircuito.set(lstDatosS.get(x).getSubcircuito(), lstDatosDadoS.size());
+                lstDatosDadoV = FVif_2011.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getTipo_de_violencia());
+                TipoViolencia.set(lstDatosV.get(x).getTipo_de_violencia(), lstDatosDadoV.size());
             }
-            model.addSeries(SubCircuito);
+            model.addSeries(TipoViolencia);
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
         return model;
 
+    }
+
+    public void cargarDatos() {
+        try {
+            this.lstDatosControl = FVif_2011.ObtenerDatos();
+            this.datoSel = lstDatosControl.get(0);
+            System.out.println(lstDatosControl.get(0).getId());
+        } catch (Exception e) {
+            Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
+            System.out.println("private void cargarDatos dice: " + e.getMessage());
+        }
     }
 
 }
