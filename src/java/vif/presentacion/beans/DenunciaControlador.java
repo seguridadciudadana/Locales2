@@ -5,9 +5,11 @@
  */
 package vif.presentacion.beans;
 
+import java.text.SimpleDateFormat;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.util.ArrayList;
+import java.util.Date;
 import org.primefaces.context.DefaultRequestContext;
 import recursos.Util;
 import vif.logica.clases.Agresor;
@@ -49,6 +51,25 @@ public class DenunciaControlador {
     private int valorSubcSeleccionada;
     private int valorVicSeleccionada;
     private int valorViolSeleccionada;
+    private Date fecha;
+    private Date hora;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getHora() {
+        return hora;
+    }
+
+    public void setHora(Date hora) {
+        this.hora = hora;
+    }
+    
 
     public Denuncia getObjDenuncia() {
         return objDenuncia;
@@ -185,6 +206,7 @@ public class DenunciaControlador {
         this.lstVictima = new ArrayList<Victima>();
         this.lstViolencia = new ArrayList<Violencia>();
         
+        
         this.cargarAgresor();
         this.cargarDenuncia();
         this.cargarSubcircuito();
@@ -256,6 +278,8 @@ public class DenunciaControlador {
     }
 
     public void insertarDenuncia() {
+       //SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+        
         try {
             objDenuncia.setId_victima(FVictima.ObtenerVictimaDadoId(valorVicSeleccionada));
             objDenuncia.setId_circuito(FCircuito.ObtenerCircuitoDadoId(valorCSeleccionada));
