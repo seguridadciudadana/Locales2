@@ -114,6 +114,7 @@
                                 <h:outputText value="#{Denuncia.id_victima.ocupacion}"/>
                             </p:column>
 
+
                             <f:facet name="footer">  
                                 <p:commandButton id="btnNuevaDenuncia" value="Nuevo" icon="ui-icon-newwin"
                                                  oncomplete="wdlgNuevaDenuncia.show()" title="Nueva Denuncia"/> 
@@ -147,6 +148,89 @@
                 <p:dialog id="dlgNuevaDenuncia" header="Nueva Denuncia" widgetVar="wdlgNuevaDenuncia" 
                           modal="true" closable="false" resizable="false"
                           showEffect="clip" hideEffect="fold"> 
+                    <h:form id="frmNuevaDenuncia">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:panelGrid id="pngNuevoDenuncia" columns="2">
+                            <h:outputText value="Denunciante:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.denunciante}" title="Juan Peres" 
+                                         required="true" requiredMessage="Ingrese el nombre del denunciante"/>
+
+                            <h:outputText value="Victima:"/>
+                            <p:selectOneMenu id="cmbVictima" value="#{denunciaControlador.valorVicSeleccionada}">
+                                <f:selectItem itemLabel="Elija una Victima" itemValue="#{null}"/>
+                                <f:selectItems value="#{denunciaControlador.lstVictima}" var="victima"
+                                               itemLabel="#{victima.pnombres} #{victima.papellidos}" itemValue="#{victima.id_victima}"/>
+
+                            </p:selectOneMenu>
+
+                            <h:outputText value="Coordenada Geografica de X:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.x}" title="ej: Santos"
+                                         required="true" requiredMessage="Ingrese Coordenada de X"/>
+
+                            <h:outputText value="Coordenada Geografica de Y:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.y}" title="ej: Santos"
+                                         required="true" requiredMessage="Ingrese Coordenada Y"/>
+
+                            <h:outputText value="Circuito:"/>
+                            <p:selectOneMenu id="cmbCircuito" value="#{denunciaControlador.valorCSeleccionada}">
+                                <f:selectItem itemLabel="Elija un Circuito" itemValue="#{null}"/>
+                                <f:selectItems value="#{denunciaControlador.lstCircuito}" var="circuito"
+                                               itemLabel="#{circuito.descripcion}" itemValue="#{circuito.id_circuito}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="Subcircuito:"/>
+                            <p:selectOneMenu id="cmbSubcircuito" value="#{denunciaControlador.valorSubcSeleccionada}">
+                                <f:selectItem itemLabel="Elija un Subcircuito" itemValue="#{null}"/>
+                                <f:selectItems value="#{denunciaControlador.lstSubcircuito}" var="subcircuito"
+                                               itemLabel="#{subcircuito.descripcion}" itemValue="#{subcircuito.id_subcircuito}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="Agresor:"/>
+                            <p:selectOneMenu id="cmbAgresor" value="#{denunciaControlador.valorSubcSeleccionada}">
+                                <f:selectItem itemLabel="Elija un Agresor" itemValue="#{null}"/>
+                                <f:selectItems value="#{denunciaControlador.lstAgresor}" var="agresor"
+                                               itemLabel="#{agresor.pnombres} #{agresor.papellidos}" itemValue="#{agresor.id_agresor}"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="Relación Victima - Agresor:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.relacion_victima_agresor}" title="ej: Conyugue"
+                                         required="true" requiredMessage="Ingrese la relacion víctima - agresor"/>
+
+                            <h:outputText value="# de Hijos:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.numero_hijos}" title="ej: 2"
+                                         required="true" requiredMessage="Ingrese el número de hijos"/>
+
+                            <h:outputText value="Tipo de Violencia:"/>
+                            <p:selectOneMenu id="cmbTViolencia" value="#{denunciaControlador.valorViolSeleccionada}">
+                                <f:selectItem itemLabel="Elija un tipo de Violencia" itemValue="#{null}"/>
+                                <f:selectItems value="#{denunciaControlador.lstViolencia}" var="violencia"
+                                               itemLabel="#{violencia.tipo}" itemValue="#{violencia.id_violencia}"/>
+                            </p:selectOneMenu>
+
+                           
+                            <p:outputLabel for="effect" value="Fecha Agresión:" />
+                            <p:calendar id="effect" value="#{denunciaControlador.fecha}" effect="fold" pattern="yyyy-MM-dd" />
+
+                            
+                            <p:outputLabel for="time" value="Hora Agresión:" />
+                            <p:calendar id="time" value="#{denunciaControlador.hora}" pattern="HH:mm a" timeOnly="true"  />
+
+                            <h:outputText value="Medidas de Amparo:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.medidas_amparo}" title="ej: Boletas"
+                                         required="true" requiredMessage="Ingrese la medida de amparo"/>                              
+
+                            <h:outputText value="Sentencia:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.sentencia}" title="ej: "
+                                         required="true" requiredMessage="Ingrese la sentencia"/>   
+                            
+                            <h:outputText value="Apelación:"/>
+                            <p:inputText value="#{denunciaControlador.objDenuncia.apelacion}" title="ej: "
+                                         required="true" requiredMessage="Ingrese la sentencia"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Aceptar" action="#{denunciaControlador.insertarDenuncia()}" 
+                                         update=":frmdenuncia:pnlDenuncia"/>
+                        <p:commandButton value="Cancelar" onclick="wdlgNuevaDenuncia.hide()" type="reset"/>
+                    </h:form>
                 </p:dialog>
 
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
