@@ -17,52 +17,52 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Casos de Violencia Intrafamiliar 2011</ui:define>
+            <ui:define name="top">Denuncias de Violencia Intrafamiliar 2012</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:dataTable id="tblDatos" value="#{vif_2011ControladorDatos.lstVif_2011}"  
+                        <p:dataTable id="tblDatos" value="#{vif_2012ControladorDatos.lstVif_2012}"  
                                      var="datos"  emptyMessage="No hay Registros"
-                                     paginator="true" rows="15" rowKey="#{datos.id}" selectionMode="single" 
-                                     selection="#{vif_2011ControladorDatos.objVif_2011Sel}" style="alignment-adjust: initial" >
+                                     paginator="true" rows="15" rowKey="#{datos.pid}" selectionMode="single" 
+                                     selection="#{vif_2012ControladorDatos.objVif_2012Sel}" style="alignment-adjust: initial" >
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Fecha Denuncia"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.fecha_denuncia}"/>                                
+                                <h:outputText value="#{datos.pfecha_denuncia}"/>                                
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Tipo de Violencia"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.tipo_de_violencia}"/>                                
+                                <h:outputText value="#{datos.ptipo_de_violencia}"/>                                
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Circuito"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.circuito}"/>                                
+                                <h:outputText value="#{datos.pcircuito}"/>                                
                             </p:column> 
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Subcircuito"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.subcircuito}"/>                                
+                                <h:outputText value="#{datos.psubcircuito}"/>                                
                             </p:column> 
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Parentesco Victima - Agresor"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.parentesco_victima_agresor}"/>                                
+                                <h:outputText value="#{datos.pparentesco_victima_agresor}"/>                                
                             </p:column> 
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Medidas de amparo"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.medidas_de_amparo}"/>                                
+                                <h:outputText value="#{datos.pmedidas_de_amparo}"/>                                
                             </p:column> 
 
                             <f:facet name="footer">
@@ -85,12 +85,10 @@ and open the template in the editor.
                             </f:facet>
 
                         </p:dataTable>
-                        <!--
-                        <p:commandButton value="cargardatos" onclick="#{vif_2011ControladorDatos.lstVif_2011}"
+                        <p:commandButton value="cargardatos" onclick="#{vif_2012ControladorDatos.lstVif_2012}"
                                          process="@this" update=":frmdatos">
-                            
-                        </p:commandButton> -->
 
+                        </p:commandButton>
                     </p:panel>
                 </h:form>
             </ui:define>

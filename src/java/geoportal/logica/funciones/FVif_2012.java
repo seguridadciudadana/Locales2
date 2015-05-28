@@ -49,7 +49,7 @@ public class FVif_2012 {
                         rs.getString("pnivel_de_instruccion_agresor"),
                         rs.getString("pocupacion_agresor"),
                         rs.getString("pparentesco_victima_agresor"),
-                        rs.getString("pnumeros_hijos_comun"),
+                        rs.getString("pnumero_hijos_comun"),
                         rs.getString("plugar_agresion"),
                         rs.getString("ptipo_de_violencia"),
                         rs.getDate("pfecha_agresion"),
@@ -71,11 +71,59 @@ public class FVif_2012 {
         return lst;
     }
 
-    
     public static ArrayList<Vif_2012> ObtenerDatos() throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
-            String sql = "select * from geoportal.f_select_vif2012()";
+            String sql = "select * from geoportal.f_select_vif_2012()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    /*
+     funciones de las victimas
+     */
+    public static ArrayList<Vif_2012> ObtenerDatosVictima() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_busqueda_victima()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    /*
+     funciones circuitos
+     */
+    public static ArrayList<Vif_2012> ObtenerDatosCircuito() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_busqueda_circuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    /*
+     funciones circuitos
+     */
+    
+     public static ArrayList<Vif_2012> ObtenerDatosSubcircuito() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_busqueda_subcircuito()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
@@ -85,4 +133,73 @@ public class FVif_2012 {
         return lst;
     }
     
+        public static ArrayList<Vif_2012> ObtenerDatosDadoCircuito(String circuito) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * geoportal.f_select_vif_2012_dado_circuito(?)";
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+        public static ArrayList<Vif_2012> ObtenerDatosDadoSubcircuito(String subcircuito) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_subcircuito(?)";
+            lstP.add(new Parametro(1, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+        
+    public static ArrayList<Vif_2012> ObtenerDatosDadoCircuitoSexo(String circuito, String sexo) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2010_2_dado_circuito_sexo(?,?)";
+            lstP.add(new Parametro(1, sexo));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+        
+     public static ArrayList<Vif_2012> ObtenerDatosDadoCircuitoSexoVictima(String circuito, String sexo) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_circuito_sexo_victima(?,?)";
+            lstP.add(new Parametro(1, circuito));
+            lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }   
+        
+        
+        
+        
+        
+        
+        
+        
 }
