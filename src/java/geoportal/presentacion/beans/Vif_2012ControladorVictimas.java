@@ -7,7 +7,6 @@ package geoportal.presentacion.beans;
 
 import geoportal.logica.clases.Vif_2012;
 import geoportal.logica.funciones.FVif_2012;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -23,7 +22,7 @@ import recursos.Util;
  */
 @ManagedBean
 @RequestScoped
-public class Vif_2012ControladorVictimas implements Serializable  {
+public class Vif_2012ControladorVictimas {
 
     /**
      * Creates a new instance of Vif_2012ControladorVictimas
