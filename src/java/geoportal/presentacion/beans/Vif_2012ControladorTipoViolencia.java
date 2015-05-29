@@ -5,15 +5,13 @@
  */
 package geoportal.presentacion.beans;
 
-import geoportal.logica.clases.Vif_2011;
-import geoportal.logica.funciones.FVif_2011;
+import geoportal.logica.clases.Vif_2012;
+import geoportal.logica.funciones.FVif_2012;
 import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
-import geoportal.logica.clases.Vif_2011;
-import geoportal.logica.funciones.FVif_2011;
-import javax.annotation.PostConstruct;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
 
@@ -23,16 +21,16 @@ import recursos.Util;
  */
 @ManagedBean
 @RequestScoped
-public class Vif_2011ControladorTipoViolencia {
+public class Vif_2012ControladorTipoViolencia {
 
     /**
-     * Creates a new instance of Vif_2011ControladorTipoViolencia
+     * Creates a new instance of Vif_2012ControladorTipoViolencia
      */
     private CartesianChartModel lineModel;
-    private ArrayList<Vif_2011> lstDatosControl;
-    private Vif_2011 datoSel;
-    private ArrayList<Vif_2011> lstDatosV;
-    private ArrayList<Vif_2011> lstDatosDadoV;
+    private ArrayList<Vif_2012> lstDatosControl;
+    private Vif_2012 datoSel;
+    private ArrayList<Vif_2012> lstDatosV;
+    private ArrayList<Vif_2012> lstDatosDadoV;
 
     public CartesianChartModel getLineModel() {
         return lineModel;
@@ -42,35 +40,35 @@ public class Vif_2011ControladorTipoViolencia {
         this.lineModel = lineModel;
     }
 
-    public ArrayList<Vif_2011> getLstDatosControl() {
+    public ArrayList<Vif_2012> getLstDatosControl() {
         return lstDatosControl;
     }
 
-    public void setLstDatosControl(ArrayList<Vif_2011> lstDatosControl) {
+    public void setLstDatosControl(ArrayList<Vif_2012> lstDatosControl) {
         this.lstDatosControl = lstDatosControl;
     }
 
-    public Vif_2011 getDatoSel() {
+    public Vif_2012 getDatoSel() {
         return datoSel;
     }
 
-    public void setDatoSel(Vif_2011 datoSel) {
+    public void setDatoSel(Vif_2012 datoSel) {
         this.datoSel = datoSel;
     }
 
-    public ArrayList<Vif_2011> getLstDatosV() {
+    public ArrayList<Vif_2012> getLstDatosV() {
         return lstDatosV;
     }
 
-    public void setLstDatosV(ArrayList<Vif_2011> lstDatosV) {
+    public void setLstDatosV(ArrayList<Vif_2012> lstDatosV) {
         this.lstDatosV = lstDatosV;
     }
 
-    public ArrayList<Vif_2011> getLstDatosDadoV() {
+    public ArrayList<Vif_2012> getLstDatosDadoV() {
         return lstDatosDadoV;
     }
 
-    public void setLstDatosDadoV(ArrayList<Vif_2011> lstDatosDadoV) {
+    public void setLstDatosDadoV(ArrayList<Vif_2012> lstDatosDadoV) {
         this.lstDatosDadoV = lstDatosDadoV;
     }
 
@@ -82,33 +80,33 @@ public class Vif_2011ControladorTipoViolencia {
     public void graficar() {
         lineModel = initCategoryTipoViolencia();
     }
-
-    public Vif_2011ControladorTipoViolencia() {
-        this.reinit();
-    }
-
+    
     private void reinit() {
 
-        this.lstDatosControl = new ArrayList<Vif_2011>();
-        this.lstDatosV = new ArrayList<Vif_2011>();
-        this.lstDatosDadoV = new ArrayList<Vif_2011>();
-        this.datoSel = new Vif_2011();
+        this.lstDatosControl = new ArrayList<Vif_2012>();
+        this.lstDatosV = new ArrayList<Vif_2012>();
+        this.lstDatosDadoV = new ArrayList<Vif_2012>();
+        this.datoSel = new Vif_2012();
 
         this.init();
         this.cargarDatos();
 
     }
-
-    private CartesianChartModel initCategoryTipoViolencia() {
+    public Vif_2012ControladorTipoViolencia() {
+        this.reinit();
+    }
+    
+    
+     private CartesianChartModel initCategoryTipoViolencia() {
         CartesianChartModel model = new CartesianChartModel();
-        try {
-            
-            lstDatosV = FVif_2011.ObtenerDatosTipoViolencia();
+        try {                       
+            lstDatosV=FVif_2012.ObtenerDatosTipoViolencia();
             ChartSeries TipoViolencia = new ChartSeries();
             TipoViolencia.setLabel("Tipo de Violencia");
             for (int x = 0; x < lstDatosV.size(); x++) {
-                lstDatosDadoV = FVif_2011.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getTipo_de_violencia());
-                TipoViolencia.set(lstDatosV.get(x).getTipo_de_violencia(), lstDatosDadoV.size());
+                //lstDatosDadoV = FVif_2011.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getTipo_de_violencia());
+                lstDatosDadoV=FVif_2012.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getPtipo_de_violencia());
+                TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
             }
             model.addSeries(TipoViolencia);
 
@@ -118,16 +116,18 @@ public class Vif_2011ControladorTipoViolencia {
         return model;
 
     }
-           
+       
     public void cargarDatos() {
         try {
-            this.lstDatosControl = FVif_2011.ObtenerDatos();
+            this.lstDatosControl = FVif_2012.ObtenerDatos();
             this.datoSel = lstDatosControl.get(0);
-            System.out.println(lstDatosControl.get(0).getId());
+            System.out.println(lstDatosControl.get(0).getPid());
         } catch (Exception e) {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());
         }
     }
 
+    
+    
 }
