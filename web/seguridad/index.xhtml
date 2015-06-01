@@ -45,16 +45,16 @@
                     <ui:include src="datosPie.xhtml" />
                 </h:form>
             </p:layoutUnit>
-            <p:layoutUnit position="west" size="250" resizable="true" collapsible="true" header="Menu Principal" gutter="2">
+            <p:layoutUnit position="west" size="250" resizable="true" collapsible="true" header="Menu Principal" gutter="2" >
                 <p:messages id="messages" showDetail="true"/>  
-                <h:form id="frmMenuUsuario">
+                <h:form id="frmMenuUsuario" >
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                     <p:accordionPanel style="font-size: 9px; text-align: left;" styleClass="accordionMenu">
                         <c:forEach items="#{indexMasterControlador.dm.menu}" var="nodo">
                             <p:tab title="#{nodo.nombre}"> <hr style="color: antiquewhite;"/>
                                 <c:forEach items="#{nodo.hijos}" var="subnodo">
                                     <c:if test="#{subnodo.hijos.size()>0}">
-                                        <p:accordionPanel style="padding-left: 10px; width: 95%">
+                                        <p:accordionPanel style="padding-left:10px; width: 95%" multiple="true">
                                             <p:tab title="#{subnodo.nombre}" >  <hr style="color: antiquewhite;"/>
                                                 <c:forEach items="#{subnodo.hijos}" var="nieto">
                                                     <p:commandLink value="►#{nieto.nombre}" actionListener="#{indexMasterControlador.asignaCodigoFuncion}" styleClass="ui-helper-reset ui-corner-all ui-widget-content" process="@this" update=":paginas">
