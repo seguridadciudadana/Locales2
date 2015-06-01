@@ -463,7 +463,7 @@ public class Vif_2012ControladorDenunciaAnio {
 
     public void graficar() {
         graficoAnio = graficaAño();
-        graficaAnioSV=graficaSexoVictima();
+        graficaAnioSV = graficaSexoVictima();
     }
 
     private CartesianChartModel graficaAño() {
@@ -505,7 +505,6 @@ public class Vif_2012ControladorDenunciaAnio {
 
     }
 
-    
     private CartesianChartModel graficaSexoVictima() {
         CartesianChartModel model = new CartesianChartModel();
         try {
@@ -533,8 +532,7 @@ public class Vif_2012ControladorDenunciaAnio {
             lstDatosNoviembreF = FVif_2012.ObtenerDatosSexoVictimaNoviembre("F");
             lstDatosDiciembreM = FVif_2012.ObtenerDatosSexoVictimaDiciembre("M");
             lstDatosDiciembreF = FVif_2012.ObtenerDatosSexoVictimaDiciembre("F");
-            
-            
+
             ChartSeries Masculino = new ChartSeries();
             Masculino.setLabel("Femenino");
             Masculino.set("Enero", lstDatosEneroM.size());
@@ -565,7 +563,6 @@ public class Vif_2012ControladorDenunciaAnio {
             Femenino.set("Noviembre", lstDatosNoviembreF.size());
             Femenino.set("Diciembre", lstDatosDiciembreF.size());
 
-
             model.addSeries(Masculino);
             model.addSeries(Femenino);
 
@@ -575,15 +572,7 @@ public class Vif_2012ControladorDenunciaAnio {
         return model;
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     public void cargarDatos() {
         try {
 
