@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import geoportal.logica.clases.Vif_2011;
 import geoportal.logica.funciones.FVif_2011;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -23,7 +24,7 @@ import recursos.Util;
  */
 @ManagedBean
 @RequestScoped
-public class Vif_2011ControladorEdades {
+public class Vif_2011ControladorEdades implements Serializable {
 
     /**
      * Creates a new instance of Vif_2011ControladorEdades
@@ -191,34 +192,34 @@ public class Vif_2011ControladorEdades {
     public void graficar() {
         graficaEdadSV = graficaEdadSexoVictima();
     }
-   public Vif_2011ControladorEdades() {
-        this.reinit();
-    }
+
     private void reinit() {
         this.datoSel = new Vif_2011();
         this.lstDatosRango1F = new ArrayList<Vif_2011>();
-        this.lstDatosRango1M = new ArrayList<Vif_2011>();
-        this.lstDatosRango2F = new ArrayList<Vif_2011>();
-        this.lstDatosRango2M = new ArrayList<Vif_2011>();
-        this.lstDatosRango3F = new ArrayList<Vif_2011>();
-        this.lstDatosRango3M = new ArrayList<Vif_2011>();
-        this.lstDatosRango4F = new ArrayList<Vif_2011>();
-        this.lstDatosRango4M = new ArrayList<Vif_2011>();
-        this.lstDatosRango5F = new ArrayList<Vif_2011>();
-        this.lstDatosRango5M = new ArrayList<Vif_2011>();
-        this.lstDatosRango6F = new ArrayList<Vif_2011>();
-        this.lstDatosRango6M = new ArrayList<Vif_2011>();
-        this.lstDatosRango7F = new ArrayList<Vif_2011>();
-        this.lstDatosRango7M = new ArrayList<Vif_2011>();
-        this.cargarDatos();
+         this.lstDatosRango1M = new ArrayList<Vif_2011>();
+         this.lstDatosRango2F = new ArrayList<Vif_2011>();
+         this.lstDatosRango2M = new ArrayList<Vif_2011>();
+         this.lstDatosRango3F = new ArrayList<Vif_2011>();
+         this.lstDatosRango3M = new ArrayList<Vif_2011>();
+         this.lstDatosRango4F = new ArrayList<Vif_2011>();
+         this.lstDatosRango4M = new ArrayList<Vif_2011>();
+         this.lstDatosRango5F = new ArrayList<Vif_2011>();
+         this.lstDatosRango5M = new ArrayList<Vif_2011>();
+         this.lstDatosRango6F = new ArrayList<Vif_2011>();
+         this.lstDatosRango6M = new ArrayList<Vif_2011>();
+         this.lstDatosRango7F = new ArrayList<Vif_2011>();
+         this.lstDatosRango7M = new ArrayList<Vif_2011>();
+        // this.cargarDatos();
         this.init();
     }
 
- 
+    public Vif_2011ControladorEdades() {
+        this.reinit();
+    }
 
     private CartesianChartModel graficaEdadSexoVictima() {
         CartesianChartModel model = new CartesianChartModel();
-        try {            
+        try {
             lstDatosRango1F = FVif_2011.ObtenerDatosSexoVictimaEdad1("F");
             lstDatosRango1M = FVif_2011.ObtenerDatosSexoVictimaEdad1("M");
             lstDatosRango2F = FVif_2011.ObtenerDatosSexoVictimaEdad2("F");
