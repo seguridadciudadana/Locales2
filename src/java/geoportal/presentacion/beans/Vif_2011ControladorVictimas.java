@@ -28,6 +28,7 @@ public class Vif_2011ControladorVictimas implements Serializable {
     /**
      * Creates a new instance of Vif_2011ControladorVictimas
      */
+    private static final long serialVersionUID = 6401166601481931346L;
     private CartesianChartModel lineModel_Victima_Circuito; //lineModel6
     private CartesianChartModel lineModel_Victima_Subcircuito;
     private CartesianChartModel lineModel8;
@@ -172,7 +173,7 @@ public class Vif_2011ControladorVictimas implements Serializable {
     private void reinit() {
         this.objDatos = new Vif_2011();
         this.datoSel = new Vif_2011();
-        this.lstDatos = new ArrayList<Vif_2011>();
+        /*this.lstDatos = new ArrayList<Vif_2011>();
         this.lstDatos1 = new ArrayList<Vif_2011>();
         this.listaEdad = new ArrayList<Integer>();
         this.lstDatos3 = new ArrayList<Vif_2011>();
@@ -181,7 +182,7 @@ public class Vif_2011ControladorVictimas implements Serializable {
         this.lstDatosCopia = new ArrayList<Vif_2011>();
         this.lstDatosFecha = new ArrayList<Vif_2011>();
         this.lstDatos9 = new ArrayList<Vif_2011>();
-        this.lstDatos10 = new ArrayList<Vif_2011>();
+        this.lstDatos10 = new ArrayList<Vif_2011>();*/
         this.cargarDatos();
         this.init();
     }
@@ -203,14 +204,14 @@ public class Vif_2011ControladorVictimas implements Serializable {
         CartesianChartModel model = new CartesianChartModel();
         try {
 
-            ChartSeries CircuitoSexoMV = new ChartSeries();
+            final ChartSeries CircuitoSexoMV = new ChartSeries();
             CircuitoSexoMV.setLabel("Masculino");
             for (Vif_2011 pr:lstDatos){
                 lstDatos1 = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", pr.getCircuito());
                 CircuitoSexoMV.set(pr.getCircuito(), lstDatos1.size());
             }
                 
-            ChartSeries CircuitoSexoFV = new ChartSeries();
+            final ChartSeries CircuitoSexoFV = new ChartSeries();
             CircuitoSexoFV.setLabel("Femenino");
             
             for (Vif_2011 pr1:lstDatos){
@@ -232,14 +233,14 @@ public class Vif_2011ControladorVictimas implements Serializable {
         CartesianChartModel model = new CartesianChartModel();
         try {
 
-            ChartSeries SubCircuitoSexoMV = new ChartSeries();
+            final ChartSeries SubCircuitoSexoMV = new ChartSeries();
             SubCircuitoSexoMV.setLabel("Masculino");
             for (Vif_2011 pr2:lstDatos){
               lstDatos5 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", pr2.getSubcircuito());
                 SubCircuitoSexoMV.set(pr2.getSubcircuito(), lstDatos5.size());  
             }
            
-            ChartSeries SubCircuitoSexoFV = new ChartSeries();
+            final ChartSeries SubCircuitoSexoFV = new ChartSeries();
             SubCircuitoSexoFV.setLabel("Femenino");
             for (Vif_2011 pr3:lstDatos){
                 lstDatos7 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", pr3.getSubcircuito());
