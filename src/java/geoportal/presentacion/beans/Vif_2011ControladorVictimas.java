@@ -205,19 +205,19 @@ public class Vif_2011ControladorVictimas {
 
             ChartSeries CircuitoSexoMV = new ChartSeries();
             CircuitoSexoMV.setLabel("Masculino");
-            for (int i = 0; i < lstDatos.size(); i++) {
-
-                lstDatos1 = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", lstDatos.get(i).getCircuito());
-                CircuitoSexoMV.set(lstDatos.get(i).getCircuito(), lstDatos1.size());
+            for (Vif_2011 pr:lstDatos){
+                lstDatos1 = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", pr.getCircuito());
+                CircuitoSexoMV.set(pr.getCircuito(), lstDatos1.size());
             }
-
+                
             ChartSeries CircuitoSexoFV = new ChartSeries();
             CircuitoSexoFV.setLabel("Femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-
-                lstDatos3 = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", lstDatos.get(j).getCircuito());
-                CircuitoSexoFV.set(lstDatos.get(j).getCircuito(), lstDatos3.size());
+            
+            for (Vif_2011 pr1:lstDatos){
+                lstDatos3 = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", pr1.getCircuito());
+                CircuitoSexoFV.set(pr1.getCircuito(), lstDatos3.size());
             }
+            
             model.addSeries(CircuitoSexoMV);
             model.addSeries(CircuitoSexoFV);
 
@@ -234,19 +234,18 @@ public class Vif_2011ControladorVictimas {
 
             ChartSeries SubCircuitoSexoMV = new ChartSeries();
             SubCircuitoSexoMV.setLabel("Masculino");
-            for (int i = 0; i < lstDatos.size(); i++) {
-
-                lstDatos5 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", lstDatos.get(i).getSubcircuito());
-                SubCircuitoSexoMV.set(lstDatos.get(i).getSubcircuito(), lstDatos5.size());
+            for (Vif_2011 pr2:lstDatos){
+              lstDatos5 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", pr2.getSubcircuito());
+                SubCircuitoSexoMV.set(pr2.getSubcircuito(), lstDatos5.size());  
             }
-
+           
             ChartSeries SubCircuitoSexoFV = new ChartSeries();
             SubCircuitoSexoFV.setLabel("Femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-
-                lstDatos7 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", lstDatos.get(j).getSubcircuito());
-                SubCircuitoSexoFV.set(lstDatos.get(j).getSubcircuito(), lstDatos7.size());
+            for (Vif_2011 pr3:lstDatos){
+                lstDatos7 = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", pr3.getSubcircuito());
+                SubCircuitoSexoFV.set(pr3.getSubcircuito(), lstDatos7.size());
             }
+         
             model.addSeries(SubCircuitoSexoMV);
             model.addSeries(SubCircuitoSexoFV);
 

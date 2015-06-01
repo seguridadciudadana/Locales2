@@ -207,13 +207,14 @@
                                                itemLabel="#{violencia.tipo}" itemValue="#{violencia.id_violencia}"/>
                             </p:selectOneMenu>
 
-                           
+
                             <p:outputLabel for="effect" value="Fecha Agresión:" />
                             <p:calendar id="effect" value="#{denunciaControlador.fecha}" effect="fold" pattern="yyyy-MM-dd" />
 
-                            
+
                             <p:outputLabel for="time" value="Hora Agresión:" />
                             <p:calendar id="time" value="#{denunciaControlador.hora}" pattern="HH:mm a" timeOnly="true"  />
+                            
 
                             <h:outputText value="Medidas de Amparo:"/>
                             <p:inputText value="#{denunciaControlador.objDenuncia.medidas_amparo}" title="ej: Boletas"
@@ -222,7 +223,7 @@
                             <h:outputText value="Sentencia:"/>
                             <p:inputText value="#{denunciaControlador.objDenuncia.sentencia}" title="ej: "
                                          required="true" requiredMessage="Ingrese la sentencia"/>   
-                            
+
                             <h:outputText value="Apelación:"/>
                             <p:inputText value="#{denunciaControlador.objDenuncia.apelacion}" title="ej: "
                                          required="true" requiredMessage="Ingrese la sentencia"/>
