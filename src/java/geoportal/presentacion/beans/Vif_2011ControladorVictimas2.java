@@ -740,8 +740,8 @@ public class Vif_2011ControladorVictimas2 {
             lstDatos24MayoM = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", "24 DE MAYO");
             lstDatosCamiloPonceM = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", "CAMILO PONCE");
             lstDatosCamiloPonceF = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", "CAMILO PONCE");
-            lstDatosCaminoSolF = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", "CAMINO AL SOL");
-            lstDatosCaminoSolM = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", "CAMINO AL SOL");
+            lstDatosCaminoSolF = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", "CAMINOS AL SOL");
+            lstDatosCaminoSolM = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", "CAMINOS AL SOL");
             lstDatosLaCondamineF = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", "LA CONDAMINE");
             lstDatosLaCondamineM = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("M", "LA CONDAMINE");
             lstDatosLaEstacionF = FVif_2011.ObtenerDatosDadoCircuitoSexoVictima("F", "LA ESTACION");
@@ -814,8 +814,8 @@ public class Vif_2011ControladorVictimas2 {
             lstDatosCamiloPonce1F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "CAMILO PONCE 1");
             lstDatosCamiloPonce2M = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", "CAMILO PONCE 2");
             lstDatosCamiloPonce2F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "CAMILO PONCE 2");
-            lstDatosCaminoSol1F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "06D01C05S01");
-            lstDatosCaminoSol1M = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", "06D01C05S01");
+            lstDatosCaminoSol1F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "CAMINOS AL SOL");
+            lstDatosCaminoSol1M = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", "CAMINOS AL SOL");
             lstDatosLaCondamine1F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "LA CONDAMINE 1");
             lstDatosLaCondamine1M = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("M", "LA CONDAMINE 1");
             lstDatosLaCondamine2F = FVif_2011.ObtenerDatosDadoSubCircuitoSexoVictima("F", "LA CONDAMINE 2");
