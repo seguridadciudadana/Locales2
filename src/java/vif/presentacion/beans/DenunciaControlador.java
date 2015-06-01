@@ -5,11 +5,14 @@
  */
 package vif.presentacion.beans;
 
+import java.sql.Time;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import org.primefaces.context.DefaultRequestContext;
 import recursos.Util;
 import vif.logica.clases.Agresor;
@@ -36,6 +39,9 @@ public class DenunciaControlador {
     /**
      * Creates a new instance of DenunciaControlador
      */
+    java.sql.Date sqlDate;
+    java.sql.Date sqlDate1;
+    java.sql.Time sqlDate2;
     private Denuncia objDenuncia;
     private Denuncia denunciaSel;
     private ArrayList<Denuncia> lstDenuncia;
@@ -53,6 +59,48 @@ public class DenunciaControlador {
     private int valorViolSeleccionada;
     private Date fecha;
     private Date hora;
+    private Date ahora;
+    private String fecha1;
+
+    public java.sql.Date getSqlDate() {
+        return sqlDate;
+    }
+
+    public void setSqlDate(java.sql.Date sqlDate) {
+        this.sqlDate = sqlDate;
+    }
+
+    public java.sql.Date getSqlDate1() {
+        return sqlDate1;
+    }
+
+    public void setSqlDate1(java.sql.Date sqlDate1) {
+        this.sqlDate1 = sqlDate1;
+    }
+
+    public Time getSqlDate2() {
+        return sqlDate2;
+    }
+
+    public void setSqlDate2(Time sqlDate2) {
+        this.sqlDate2 = sqlDate2;
+    }
+
+    public String getFecha1() {
+        return fecha1;
+    }
+
+    public void setFecha1(String fecha1) {
+        this.fecha1 = fecha1;
+    }
+
+    public Date getAhora() {
+        return ahora;
+    }
+
+    public void setAhora(Date ahora) {
+        this.ahora = ahora;
+    }
 
     public Date getFecha() {
         return fecha;
@@ -69,7 +117,6 @@ public class DenunciaControlador {
     public void setHora(Date hora) {
         this.hora = hora;
     }
-    
 
     public Denuncia getObjDenuncia() {
         return objDenuncia;
@@ -205,14 +252,15 @@ public class DenunciaControlador {
         this.lstSubcircuito = new ArrayList<Subcircuito>();
         this.lstVictima = new ArrayList<Victima>();
         this.lstViolencia = new ArrayList<Violencia>();
-        
-        
+
         this.cargarAgresor();
         this.cargarDenuncia();
         this.cargarSubcircuito();
         this.cargarVictima();
         this.cargarViolencia();
         this.cargarCircuito();
+         this.sqlDate = new java.sql.Date(ahora.getTime());
+        sqlDate1 = new java.sql.Date(fecha.getTime());
 
     }
 
@@ -278,9 +326,17 @@ public class DenunciaControlador {
     }
 
     public void insertarDenuncia() {
-       //SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        
+        SimpleDateFormat formato = new SimpleDateFormat("HH:mm a");
+        //DateFormat df =  DateFormat.getDateInstance();
+        fecha1 = formato.format(hora);
+
+        //GregorianCalendar calendario = new GregorianCalendar();
         try {
+            java.sql.Time sqlDate2 = new java.sql.Time(formato.parse(fecha1).getTime());
+            //calendario.setTime(formato.parse(fecha1));//hora= formato.parse(fecha1);
+            objDenuncia.setHora_agresion(sqlDate2);
+            objDenuncia.setFecha_agresion(sqlDate1);
+            objDenuncia.setFecha(sqlDate);
             objDenuncia.setId_victima(FVictima.ObtenerVictimaDadoId(valorVicSeleccionada));
             objDenuncia.setId_circuito(FCircuito.ObtenerCircuitoDadoId(valorCSeleccionada));
             objDenuncia.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(valorSubcSeleccionada));
