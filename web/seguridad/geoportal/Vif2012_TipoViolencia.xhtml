@@ -27,7 +27,14 @@ and open the template in the editor.
                         <p:tab title="Tipos de Violencia">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2012ControladorTipoViolencia.lineModel}" legendPosition="e" 
-                                           title="Tipo de Violencia" style="height:650px;width:1000px;text-decoration-style: dashed"
+                                           title="Tipo de Violencia" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+
+                        </p:tab>
+                        <p:tab title="Tipos de Violencia">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2012ControladorTipoViolencia.lineModel}" legendPosition="e" 
+                                           title="Tipo de Violencia" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
 
                         </p:tab>
