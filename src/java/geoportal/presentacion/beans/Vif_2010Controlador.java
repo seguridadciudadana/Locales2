@@ -170,10 +170,9 @@ public class Vif_2010Controlador implements Serializable {
 
             ChartSeries Circuito = new ChartSeries();
             Circuito.setLabel("Circuito");
-            for (int x = 0; x < lstDatosC.size(); x++) {
-                lstDatosDadoC = FVif_2010.ObtenerDatosDadoCircuito(lstDatosC.get(x).getCircuito());
-                Circuito.set(lstDatosC.get(x).getCircuito(), lstDatosDadoC.size());
-
+            for (Vif_2010 lstDatosC1 : lstDatosC) {
+                lstDatosDadoC = FVif_2010.ObtenerDatosDadoCircuito(lstDatosC1.getCircuito());
+                Circuito.set(lstDatosC1.getCircuito(), lstDatosDadoC.size());
             }
 
             model.addSeries(Circuito);
