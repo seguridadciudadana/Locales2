@@ -17,25 +17,20 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Gestión</ui:define>    
+            <ui:define name="top">Gestión</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Victimas vs Circuito" >
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2011ControladorVictimas.lineModel_Victima_Circuito}" legendPosition="e" 
-                                           title="CIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
+                        <p:tab title="Tipos de Violencia">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{vif_2012ControladorTipoViolencia.lineModel}" legendPosition="e" 
+                                           title="Tipo de Violencia" style="height:650px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+
                         </p:tab>
-                   <p:tab title="Victima vs SubCircuito" >
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2011ControladorVictimas.lineModel_Victima_Subcircuito}" legendPosition="e" 
-                                           title="CIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>  
-                        </p:tab> 
                     </p:accordionPanel>
                 </h:form>
             </ui:define>
@@ -43,7 +38,7 @@ and open the template in the editor.
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
                           resizable="false"> 
                     <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
-                </p:dialog>
+                </p:dialog>   
             </ui:define>
         </ui:composition>
     </h:body>

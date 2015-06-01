@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,32 +11,32 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Gestión</ui:define>
+            <ui:define name="Datos">Victimas</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
             <ui:define name="top">Gestión</ui:define>    
             <ui:define name="contenido">
-                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
-                <h:form id="frmdatos" style="alignment-adjust: central">
-                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                 <h:form id="frmdatos" style="alignment-adjust: central">
+                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Victimas vs Circuito" >
+                        <p:tab title="Victimas por rangos de edades" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2011ControladorVictimas.lineModel_Victima_Circuito}" legendPosition="e" 
+                            <p:lineChart   value="#{vif_2012ControladorEdades.graficaEdadSV}" legendPosition="e" 
+                                           title="Víctimas por rangos de edades" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas"/>   
+                        </p:tab>
+                        <!--<p:tab title="Victimas vs Circuito" >
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                            <p:lineChart   value="#{vif_2012ControladorVictimas.lineModel_Victima_Subcircuito}" legendPosition="e" 
                                            title="CIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
-                        </p:tab>
-                   <p:tab title="Victima vs SubCircuito" >
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2011ControladorVictimas.lineModel_Victima_Subcircuito}" legendPosition="e" 
-                                           title="CIRCUITO Vs DENUNCIAS" style="height:600px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>  
-                        </p:tab> 
+                        </p:tab>-->
                     </p:accordionPanel>
-                </h:form>
+                 </h:form>
             </ui:define>
             <ui:define name="dialogos">
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 

@@ -633,7 +633,7 @@ public class Vif_2010Controlador2 {
             
             
             ChartSeries Masculino = new ChartSeries();
-            Masculino.setLabel("Masculino");
+            Masculino.setLabel("Femenino");
             Masculino.set("Enero", lstDatosEneroM.size());
             Masculino.set("Febrero", lstDatosFebreroM.size());
             Masculino.set("Marzo", lstDatosMarzoM.size());
@@ -648,7 +648,7 @@ public class Vif_2010Controlador2 {
             Masculino.set("Diciembre", lstDatosDiciembreM.size());
 
             ChartSeries Femenino = new ChartSeries();
-            Femenino.setLabel("Femenino");
+            Femenino.setLabel("Masculino");
             Femenino.set("Enero", lstDatosEneroF.size());
             Femenino.set("Febrero", lstDatosFebreroF.size());
             Femenino.set("Marzo", lstDatosMarzoF.size());
