@@ -103,8 +103,7 @@ public class Vif_2012ControladorTipoViolencia {
             lstDatosV=FVif_2012.ObtenerDatosTipoViolencia();
             ChartSeries TipoViolencia = new ChartSeries();
             TipoViolencia.setLabel("Tipo de Violencia");
-            for (int x = 0; x < lstDatosV.size(); x++) {
-                //lstDatosDadoV = FVif_2011.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getTipo_de_violencia());
+            for (int x = 0; x < lstDatosV.size(); x++) {               
                 lstDatosDadoV=FVif_2012.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getPtipo_de_violencia());
                 TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
             }

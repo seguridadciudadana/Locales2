@@ -234,23 +234,23 @@ public class Vif_2012ControladorEdades {
 
             ChartSeries Masculino = new ChartSeries();
             Masculino.setLabel("Masculino");
-            Masculino.set("0 - 18", lstDatosRango1M.size());
-            Masculino.set("19 - 30", lstDatosRango2M.size());
-            Masculino.set("31 - 40", lstDatosRango3M.size());
-            Masculino.set("41 - 50", lstDatosRango4M.size());
-            Masculino.set("51 - 60", lstDatosRango5M.size());
-            Masculino.set("61 - 70", lstDatosRango6M.size());
-            Masculino.set("71 - 90", lstDatosRango7M.size());
+            Masculino.set("desde 0 hasta 12", lstDatosRango1M.size());
+            Masculino.set("desde 12 hasta 18", lstDatosRango2M.size());
+            Masculino.set("desde 18 hasta 30", lstDatosRango3M.size());
+            Masculino.set("desde 30 hasta 40", lstDatosRango4M.size());
+            Masculino.set("desde 40 hasta 50", lstDatosRango5M.size());
+            Masculino.set("desde 50 hasta 65", lstDatosRango6M.size());
+            Masculino.set("mayores de 65", lstDatosRango7M.size());
 
             ChartSeries Femenino = new ChartSeries();
             Femenino.setLabel("Femenino");
-            Femenino.set("0 - 18", lstDatosRango1F.size());
-            Femenino.set("19 - 30", lstDatosRango2F.size());
-            Femenino.set("31 - 40", lstDatosRango3F.size());
-            Femenino.set("41 - 50", lstDatosRango4F.size());
-            Femenino.set("51 - 60", lstDatosRango5F.size());
-            Femenino.set("61 - 70", lstDatosRango6F.size());
-            Femenino.set("71 - 90", lstDatosRango7F.size());
+            Femenino.set("desde 0 hasta 12", lstDatosRango1F.size());
+            Femenino.set("desde 12 hasta 18", lstDatosRango2F.size());
+            Femenino.set("desde 18 hasta 30", lstDatosRango3F.size());
+            Femenino.set("desde 30 hasta 40", lstDatosRango4F.size());
+            Femenino.set("desde 40 hasta 50", lstDatosRango5F.size());
+            Femenino.set("desde 50 hasta 65", lstDatosRango6F.size());
+            Femenino.set("mayores de 65", lstDatosRango7F.size());
 
             model.addSeries(Masculino);
             model.addSeries(Femenino);
