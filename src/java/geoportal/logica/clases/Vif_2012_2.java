@@ -40,19 +40,19 @@ public class Vif_2012_2 {
     private String pnumeros_hijos_comun;
     private String plugar_agresion;
     private String ptipo_de_violencia;
-    private Date pfecha_agresion;
+    private String pfecha_agresion;
     private String phora_de_agresion;
     private String pmedidas_de_amparo;
     private String psentencia;
     private String papelacion;
     private String pboletas_anteriores;
     private String pobservaciones;    
-    private int pid;
+    private int pid;   
 
     public Vif_2012_2() {
     }
 
-    public Vif_2012_2(Date pfecha_denuncia, String pdenunciante, String pvictima, String psexo_victima, String pdireccion_victima, double px, double py, String pcircuito, String pcodigo_circuito, String psubcircuito, String pcodigo_subcircuito, String pdomiciliado_victima, int pedad_victima, String pestado_civil_victima, String pnivel_de_instruccion_victima, String pocupacion, String pagresor, String psexo_agresor, String pdireccion_agresor, String pedad_agresor, String pdomiciliado_agresor, String pestado_civil_agresor, String pnivel_de_instruccion_agresor, String pocupacion_agresor, String pparentesco_victima_agresor, String pnumeros_hijos_comun, String plugar_agresion, String ptipo_de_violencia, Date pfecha_agresion, String phora_de_agresion, String pmedidas_de_amparo, String psentencia, String papelacion, String pboletas_anteriores, String pobservaciones, int pid) {
+    public Vif_2012_2(Date pfecha_denuncia, String pdenunciante, String pvictima, String psexo_victima, String pdireccion_victima, double px, double py, String pcircuito, String pcodigo_circuito, String psubcircuito, String pcodigo_subcircuito, String pdomiciliado_victima, int pedad_victima, String pestado_civil_victima, String pnivel_de_instruccion_victima, String pocupacion, String pagresor, String psexo_agresor, String pdireccion_agresor, String pedad_agresor, String pdomiciliado_agresor, String pestado_civil_agresor, String pnivel_de_instruccion_agresor, String pocupacion_agresor, String pparentesco_victima_agresor, String pnumeros_hijos_comun, String plugar_agresion, String ptipo_de_violencia, String pfecha_agresion, String phora_de_agresion, String pmedidas_de_amparo, String psentencia, String papelacion, String pboletas_anteriores, String pobservaciones, int pid) {
         this.pfecha_denuncia = pfecha_denuncia;
         this.pdenunciante = pdenunciante;
         this.pvictima = pvictima;
@@ -315,11 +315,11 @@ public class Vif_2012_2 {
         this.ptipo_de_violencia = ptipo_de_violencia;
     }
 
-    public Date getPfecha_agresion() {
+    public String getPfecha_agresion() {
         return pfecha_agresion;
     }
 
-    public void setPfecha_agresion(Date pfecha_agresion) {
+    public void setPfecha_agresion(String pfecha_agresion) {
         this.pfecha_agresion = pfecha_agresion;
     }
 
@@ -378,6 +378,8 @@ public class Vif_2012_2 {
     public void setPid(int pid) {
         this.pid = pid;
     }
+    
+    
     
     
 }
