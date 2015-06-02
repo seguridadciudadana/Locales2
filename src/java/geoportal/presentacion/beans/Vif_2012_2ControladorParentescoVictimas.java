@@ -124,9 +124,7 @@ private void reinit() {
         }
         return model;
     }*/
-    
-    
-    
+            
      public void cargarDatos() {
         try {
             this.lstDatosControl = FVif_2012_2.ObtenerDatos();
