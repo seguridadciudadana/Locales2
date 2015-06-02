@@ -9,6 +9,7 @@
             <h:form id="frmLogin">
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                 <p:messages id="msgLogin" showDetail="true" autoUpdate="true"/>
+                <p:growl id="growl" showDetail="true" sticky="false" /> 
                 <h:outputText value="Inicio de sesi&oacute;n" style="text-align: center"/>
                 <p:layout fullPage="false" style="height: 250px">
                     <p:layoutUnit position="west" style="height: 150px">
@@ -29,7 +30,7 @@
                     <p:layoutUnit position="south" >
                         <h:panelGrid columns="2" style="text-align: center" cellpadding="2" cellspacing="0">
                             <p:commandButton action="#{loginUsuario.login}" style="width: 70px; height: 25px; cursor: pointer" 
-                                             value="Ingresar" ajax="false"/>
+                                             value="Ingresar" ajax="false" update="growl"/>
                             <p:commandButton action="index" value="Cancelar" style="width: 70px; height: 25px; cursor: pointer" ajax="false"/>
                         </h:panelGrid>
                     </p:layoutUnit>

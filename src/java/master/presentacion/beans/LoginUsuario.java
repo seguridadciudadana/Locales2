@@ -15,6 +15,8 @@ import master.logica.clases.Usuario;
 import master.logica.funciones.*;
 import recursos.Util;
 import java.util.Date;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import recursos.Tools;
 
 /**
@@ -28,12 +30,11 @@ public class LoginUsuario {
     Usuario usuario;
     @ManagedProperty(value = "#{sesionUsuarioDataManager}")
     private SesionUsuarioDataManager dm;
-    
+
     public LoginUsuario() {
         usuario = new Usuario();
     }
 
-    
     public SesionUsuarioDataManager getDm() {
         return dm;
     }
@@ -53,14 +54,14 @@ public class LoginUsuario {
     public String login() {
         ResourceBundle recurso = ResourceBundle.getBundle("/recursos/mensajesSeguridad");
         try {
-            
+
             this.dm.setSesionUsuario(FUsuario.autenticarUsuario(this.usuario.getIdentificacion(), this.usuario.getClave()));
             if (this.dm.getSesionUsuario() != null) {
                 //this.dm.setSesionPersona(FUsuarioPersona.obtenerUsuarioPersonaDadoCodigoUsuario(this.dm.getSesionUsuario().getCodigo()));
                 this.dm.setSesionUsuarioRoles(FUsuarioRol.obtenerRolesDadoUsuario(this.dm.getSesionUsuario().getCodigo()));
                 this.dm.setSesionPeriodos(FPeriodos.ObtenerPeriodoActual());
 
-               // this.dm.setIntSesionTutor(FTutor.ObtenerCodigoTutorDadoIdentificacionUsuario(this.dm.getSesionUsuario().getIdentificacion()));
+                // this.dm.setIntSesionTutor(FTutor.ObtenerCodigoTutorDadoIdentificacionUsuario(this.dm.getSesionUsuario().getIdentificacion()));
                 //this.dm.setSesionTutor(FTutor.ObtenerCodigoTutorDadoIdentificacion(this.dm.getSesionUsuario().getIdentificacion()));
                 this.dm.setValidado(Boolean.TRUE);
                 if (this.dm.getSesionUsuarioRoles().isEmpty()) {
@@ -72,7 +73,7 @@ public class LoginUsuario {
                 this.dm.setSesionPeriodoActual(this.dm.getSesionPeriodos().get(0));
                 this.dm.setSesionTutorActual(this.dm.getSesionTutor());
 
-            //    FTutor.ObtenerCodigoTutorDadoIdentificacionUsuario(this.usuario);
+                //    FTutor.ObtenerCodigoTutorDadoIdentificacionUsuario(this.usuario);
                 //this.dm.setSesionTutorActual(FTutor.ObtenerTutorDadoUsuarioRol(this.dm.getSesionUsuarioRolActual().getCodigo()));
                 //this.dm.setIntSesionTutor(this.dm.getIntSesionTutor());
                 //this.dm.getSesionUsuario().setUtimo_acceso(Tools.obtieneFechaActualSegundos()); //gettime devuelve el dato en long
@@ -81,16 +82,20 @@ public class LoginUsuario {
                 FNodoMenu objMenu = new FNodoMenu();
                 this.dm.setMenu(objMenu.generarMenuUsuario(this.dm.getSesionUsuarioRolActual().getCodigo_rol().getCodigo())); //menu de usuario, arrays list
                 this.dm.setPaginaActual("home.xhtml");
-
                 return "/seguridad/index?faces-redirect=true"; // forzando q vaya a la parte interna/segura del sitio
             } else {
-                
                 Util.addErrorMessage(null, recurso.getString("login"));
+                //Util.addErrorMessage("El usuario no tiene perfiles asignados, comuniquese con el administrador del sistema");
                 this.dm.setValidado(Boolean.FALSE);
                 return "/login";
             }
         } catch (Exception e) {
-            Util.addErrorMessage(e, String.format(recurso.getString("errorCatch"), "Autentificacion"));
+            
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_FATAL, "INCORRECTO", "Usuario o Contraseña Incorrecta");
+            FacesMessage mensaje1 = new FacesMessage(FacesMessage.SEVERITY_FATAL, "VERIFICAR", "Solicitar Acceso");
+            FacesContext.getCurrentInstance().addMessage(null, mensaje);
+            FacesContext.getCurrentInstance().addMessage(null, mensaje1);
+            //Util.addErrorMessage(e, String.format(recurso.getString("errorCatch"), "Autentificacion"));
             return "/login";
         }
 
