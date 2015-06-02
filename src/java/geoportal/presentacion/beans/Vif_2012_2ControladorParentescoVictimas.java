@@ -8,9 +8,12 @@ package geoportal.presentacion.beans;
 import geoportal.logica.funciones.FVif_2012_2;
 import geoportal.logica.clases.Vif_2012_2;
 import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
+import recursos.Util;
 
 /**
  *
@@ -23,7 +26,6 @@ public class Vif_2012_2ControladorParentescoVictimas {
     /**
      * Creates a new instance of Vif_2012_2ControladorParentescoVictimas
      */
-    
     private CartesianChartModel lineModel;
     private ArrayList<Vif_2012_2> lstDatosControl;
     private Vif_2012_2 datoSel;
@@ -69,11 +71,58 @@ public class Vif_2012_2ControladorParentescoVictimas {
     public void setLstDatosDadoP(ArrayList<Vif_2012_2> lstDatosDadoP) {
         this.lstDatosDadoP = lstDatosDadoP;
     }
-    
-    
-    
-    
+
+    @PostConstruct
+    public void init() {
+        graficar();
+    }
+
     public Vif_2012_2ControladorParentescoVictimas() {
+        this.reinit();
+    }
+private void reinit() {
+        
+    this.lstDatosControl=new ArrayList<Vif_2012_2>();
+        this.lstDatosP = new ArrayList<Vif_2012_2>();
+        this.lstDatosDadoP = new ArrayList<Vif_2012_2>();
+        this.datoSel = new Vif_2012_2();
+
+        this.init();
+        this.cargarDatos();
+
+    }
+    public void graficar() {
+        lineModel = initCategoryParentesco();
+    }
+
+    private CartesianChartModel initCategoryParentesco() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            lstDatosP = FVif_2012_2.ObtenerDatosParentesco();
+            ChartSeries Parentesco = new ChartSeries();
+            Parentesco.setLabel("Parentesco Victima - Agresor");
+            for (int x = 0; x < lstDatosP.size(); x++) {
+                lstDatosDadoP = FVif_2012_2.ObtenerDatosDadoParentesco(lstDatosP.get(x).getPparentesco_victima_agresor());
+                //TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
+                Parentesco.set(lstDatosP.get(x).getPparentesco_victima_agresor(), lstDatosDadoP.size());
+            }
+            model.addSeries(Parentesco);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
     }
     
+    
+     public void cargarDatos() {
+        try {
+            this.lstDatosControl = FVif_2012_2.ObtenerDatos();
+            this.datoSel = lstDatosControl.get(0);
+            System.out.println(lstDatosControl.get(0).getPid());
+        } catch (Exception e) {
+            Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
+            System.out.println("private void cargarDatos dice: " + e.getMessage());
+        }
+    }
 }

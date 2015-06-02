@@ -96,12 +96,11 @@ public class FVif_2012_2 {
         return lst;
     }
     
-    public static ArrayList<Vif_2012_2> ObtenerDatosParentesco(String violencia) throws Exception {
+    public static ArrayList<Vif_2012_2> ObtenerDatosParentesco() throws Exception {
         ArrayList<Vif_2012_2> lst = new ArrayList<Vif_2012_2>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from geoportal.f_select_vif_2012_2_dado_parentesco(?)";
-            lstP.add(new Parametro(1, violencia));
+            String sql = "select * from geoportal.f_select_vif_2012_2_parentesco()";            
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
