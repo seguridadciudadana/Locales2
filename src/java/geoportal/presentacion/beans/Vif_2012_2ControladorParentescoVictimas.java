@@ -115,6 +115,17 @@ private void reinit() {
     }
     
     
+   /* private CartesianChartModel initCategoryParentesco() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            
+        } catch (Exception e) {
+        }
+        return model;
+    }*/
+    
+    
+    
      public void cargarDatos() {
         try {
             this.lstDatosControl = FVif_2012_2.ObtenerDatos();
