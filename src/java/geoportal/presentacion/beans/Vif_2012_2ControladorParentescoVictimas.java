@@ -26,20 +26,21 @@ public class Vif_2012_2ControladorParentescoVictimas {
     /**
      * Creates a new instance of Vif_2012_2ControladorParentescoVictimas
      */
-    private CartesianChartModel lineModel;
+    private CartesianChartModel parentescoGrafico;
     private ArrayList<Vif_2012_2> lstDatosControl;
     private Vif_2012_2 datoSel;
     private ArrayList<Vif_2012_2> lstDatosP;
     private ArrayList<Vif_2012_2> lstDatosDadoP;
 
-    public CartesianChartModel getLineModel() {
-        return lineModel;
+    public CartesianChartModel getParentescoGrafico() {
+        return parentescoGrafico;
     }
 
-    public void setLineModel(CartesianChartModel lineModel) {
-        this.lineModel = lineModel;
+    public void setParentescoGrafico(CartesianChartModel parentescoGrafico) {
+        this.parentescoGrafico = parentescoGrafico;
     }
 
+    
     public ArrayList<Vif_2012_2> getLstDatosControl() {
         return lstDatosControl;
     }
@@ -82,7 +83,7 @@ public class Vif_2012_2ControladorParentescoVictimas {
     }
 private void reinit() {
         
-    this.lstDatosControl=new ArrayList<Vif_2012_2>();
+        this.lstDatosControl=new ArrayList<Vif_2012_2>();
         this.lstDatosP = new ArrayList<Vif_2012_2>();
         this.lstDatosDadoP = new ArrayList<Vif_2012_2>();
         this.datoSel = new Vif_2012_2();
@@ -92,7 +93,7 @@ private void reinit() {
 
     }
     public void graficar() {
-        lineModel = initCategoryParentesco();
+        parentescoGrafico = initCategoryParentesco();
     }
 
     private CartesianChartModel initCategoryParentesco() {
@@ -101,10 +102,10 @@ private void reinit() {
             lstDatosP = FVif_2012_2.ObtenerDatosParentesco();
             ChartSeries Parentesco = new ChartSeries();
             Parentesco.setLabel("Parentesco Victima - Agresor");
-            for (int x = 0; x < lstDatosP.size(); x++) {
-                lstDatosDadoP = FVif_2012_2.ObtenerDatosDadoParentesco(lstDatosP.get(x).getPparentesco_victima_agresor());
+            for (Vif_2012_2 lstDatosP1 : lstDatosP) {
+                lstDatosDadoP = FVif_2012_2.ObtenerDatosDadoParentesco(lstDatosP1.getPparentesco_victima_agresor());
                 //TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
-                Parentesco.set(lstDatosP.get(x).getPparentesco_victima_agresor(), lstDatosDadoP.size());
+                Parentesco.set(lstDatosP1.getPparentesco_victima_agresor(), lstDatosDadoP.size());
             }
             model.addSeries(Parentesco);
 
