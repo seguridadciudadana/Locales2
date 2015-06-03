@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+            <ui:define name="Datos">Casos de Violencia Intrafamiliar 2010</ui:define>
+        </title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
+            <ui:define name="top">Casos de Violencia Intrafamiliar 2010</ui:define>
+            <ui:define name="contenido">
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdatos" style="alignment-adjust: central">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                    <p:panel id="pnldatos" >
+                        <p:panelGrid id="pngGraficar" columns="2">
+                                <p:outputLabel for="circuito" value="Circuito" style="font-style: initial"/>
+                                <p:selectOneMenu id="circuito" value="#{vif_2010ControladorCircuitoTViolencia.circuito}" 
+                                                 effect="fold" editable="false">
+                                    <f:selectItem itemLabel="Seleccione un Circuito" itemValue="null"/>
+                                    <f:selectItems value="#{vif_2010ControladorCircuitoTViolencia.lstDatosCircuito}" var="circuito" 
+                                                   itemLabel="#{circuito.circuito}" itemValue="#{circuito.circuito}"  />
+                                </p:selectOneMenu> 
+
+
+                            </p:panelGrid>
+                            <p:separator style="border-color: background" />
+                            
+                            <p:commandButton id="btnGraficar" value="Graficar" icon="ui-icon-newwin"
+                                                 oncomplete="wdlgGraficar.show()" title="Grafica"/> 
+                    </p:panel>
+                </h:form>
+            </ui:define>
+            
+            
+            <ui:define name="dialogos">
+                
+                <p:dialog id="dlgGraficar" header="Grafica" widgetVar="wdlgGrafica" 
+                          modal="true" closable="false" resizable="false"
+                          showEffect="clip" hideEffect="fold"> 
+                    <h:form id="frmGrafica">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:panelGrid id="pngGrafica" columns="2">
+                            <p:pieChart   value="#{vif_2010ControladorCircuitoTViolencia.pieModel}}" legendPosition="e" 
+                                           title="Tipo de Violencia" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                             /> 
+                        </p:panelGrid>
+                        
+                        <p:commandButton value="Cancelar" onclick="wdlgGrafica.hide()" type="reset"/>
+                    </h:form>
+                </p:dialog>
+                <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
+                          resizable="false">
+                    <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
+                </p:dialog>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
