@@ -44,7 +44,7 @@ and open the template in the editor.
                                 <f:selectItem itemLabel="SHOPPING" itemValue="SHOPPING" />
                                 <f:selectItem itemLabel="TERMINAL TERRESTRE" itemValue="TERMINAL TERRESTRE" />
                                 <f:selectItem itemLabel="YARUQUIES" itemValue="YARUQUIES" />
-                                
+
                             </p:selectOneMenu> 
 
 
@@ -57,7 +57,6 @@ and open the template in the editor.
                 </h:form>
             </ui:define>
 
-
             <ui:define name="dialogos">
 
                 <p:dialog id="dlgGraficar" header="Grafica" widgetVar="wdlgGrafica" 
@@ -66,10 +65,10 @@ and open the template in the editor.
                     <h:form id="frmGrafica">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                         <p:panelGrid id="pngGrafica" columns="2">
-                            <p:pieChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.pieModel}}" legendPosition="w" 
-                                          title="Tipo de Violencia" style="height:450px;width:400px;text-decoration-style: dashed"
-                                          /> 
-                            
+                            <p:barChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}}" legendPosition="w" 
+                                        title="Tipo de Violencia por Circuito" style="height:450px;width:400px;"> 
+                                <p:ajax event="itemSelect" listener="#{vif_2010ControladorCircuitoTViolencia.itemSelect}" update="growl" />
+                            </p:barChart>>
                         </p:panelGrid>
 
                         <p:commandButton value="Cancelar" onclick="wdlgGrafica.hide()" type="reset"/>
@@ -79,6 +78,7 @@ and open the template in the editor.
                           resizable="false">
                     <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
                 </p:dialog>
+                
             </ui:define>
         </ui:composition>
     </h:body>
