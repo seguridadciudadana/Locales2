@@ -711,5 +711,37 @@ public class FVif_2012 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2012> ObtenerDatosDadoCircuitoTipoViolencia(String circuito, String violencia) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_circuito_violencia(?,?)";
+            lstP.add(new Parametro(1, circuito));
+            lstP.add(new Parametro(2, violencia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 
+    public static ArrayList<Vif_2012> ObtenerDatosDiaDenuncia(int dia) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_busqueda_dia_agresion(?)";
+            lstP.add(new Parametro(1, dia));            
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    
 }
