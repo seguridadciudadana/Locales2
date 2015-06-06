@@ -40,7 +40,6 @@ public class Vif_2012_2ControladorParentescoVictimas {
         this.parentescoGrafico = parentescoGrafico;
     }
 
-    
     public ArrayList<Vif_2012_2> getLstDatosControl() {
         return lstDatosControl;
     }
@@ -81,9 +80,10 @@ public class Vif_2012_2ControladorParentescoVictimas {
     public Vif_2012_2ControladorParentescoVictimas() {
         this.reinit();
     }
-private void reinit() {
-        
-        this.lstDatosControl=new ArrayList<Vif_2012_2>();
+
+    private void reinit() {
+
+        this.lstDatosControl = new ArrayList<Vif_2012_2>();
         this.lstDatosP = new ArrayList<Vif_2012_2>();
         this.lstDatosDadoP = new ArrayList<Vif_2012_2>();
         this.datoSel = new Vif_2012_2();
@@ -92,6 +92,7 @@ private void reinit() {
         this.cargarDatos();
 
     }
+
     public void graficar() {
         parentescoGrafico = initCategoryParentesco();
     }
@@ -114,18 +115,16 @@ private void reinit() {
         }
         return model;
     }
-    
-    
-   /* private CartesianChartModel initCategoryParentesco() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
+
+    /* private CartesianChartModel initCategoryParentesco() {
+     CartesianChartModel model = new CartesianChartModel();
+     try {
             
-        } catch (Exception e) {
-        }
-        return model;
-    }*/
-            
-     public void cargarDatos() {
+     } catch (Exception e) {
+     }
+     return model;
+     }*/
+    public void cargarDatos() {
         try {
             this.lstDatosControl = FVif_2012_2.ObtenerDatos();
             this.datoSel = lstDatosControl.get(0);

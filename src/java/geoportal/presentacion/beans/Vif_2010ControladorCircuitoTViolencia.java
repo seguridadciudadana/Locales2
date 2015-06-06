@@ -11,10 +11,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 //import javafx.scene.chart.PieChart;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-//import org.primefaces.model.chart.CartesianChartModel;
-//import org.primefaces.model.chart.ChartSeries;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.ItemSelectEvent;
+import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 
@@ -26,8 +29,9 @@ import recursos.Util;
 @RequestScoped
 public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
-    //private CartesianChartModel graficaTViolenciaCircuito;
-    private PieChartModel pieModel;
+    private CartesianChartModel graficaTViolenciaCircuito;
+    //private PieChartModel pieModel;
+    //private PieChartModel model = new PieChartModel();
 
     private ArrayList<Vif_2010> lstDatos;
     private ArrayList<Vif_2010> lstDatosCircuito;
@@ -41,6 +45,14 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
     private Vif_2010 datoSel;
     private String circuito;
     private Integer valorSeleccionado;
+
+    public CartesianChartModel getGraficaTViolenciaCircuito() {
+        return graficaTViolenciaCircuito;
+    }
+
+    public void setGraficaTViolenciaCircuito(CartesianChartModel graficaTViolenciaCircuito) {
+        this.graficaTViolenciaCircuito = graficaTViolenciaCircuito;
+    }
 
     public Integer getValorSeleccionado() {
         return valorSeleccionado;
@@ -106,21 +118,6 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         this.circuito = circuito;
     }
 
-    public PieChartModel getPieModel() {
-        return pieModel;
-    }
-
-    public void setPieModel(PieChartModel pieModel) {
-        this.pieModel = pieModel;
-    }
-
-    /*public CartesianChartModel getGraficaTViolenciaCircuito() {
-     return graficaTViolenciaCircuito;
-     }*/
-
-    /*public void setGraficaTViolenciaCircuito(CartesianChartModel graficaTViolenciaCircuito) {
-     this.graficaTViolenciaCircuito = graficaTViolenciaCircuito;
-     }*/
     public ArrayList<Vif_2010> getLstDatos() {
         return lstDatos;
     }
@@ -169,7 +166,7 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
         this.lstDatosCircuito = new ArrayList<Vif_2010>();
         this.lstDatosCircuitoTViolencia = new ArrayList<Vif_2010>();
-        this.circuito = "24 DE MAYO";
+        
         this.init();
         this.cargarDatos();
 
@@ -177,12 +174,12 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
     public void graficar() {
 
-        pieModel = pastelGrafica();
+        graficaTViolenciaCircuito = pastelGrafica();
     }
 
-    public PieChartModel pastelGrafica() {
+    private CartesianChartModel pastelGrafica() {
 
-        PieChartModel model = new PieChartModel();
+        CartesianChartModel model = new CartesianChartModel();
 
         try {
 
@@ -192,13 +189,15 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
             lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA, PSICOLOGICA Y SEXUAL");
             lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA");
             lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "PSICOLOGICA");
-            model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
-            model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
-            model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
-            model.set("FISICA", lstDatosCircuitoTViolencia4.size());
-            model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
+            ChartSeries violencia = new ChartSeries();
+            violencia.setLabel("");
+            violencia.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
+            violencia.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
+            violencia.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
+            violencia.set("FISICA", lstDatosCircuitoTViolencia4.size());
+            violencia.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
             //}
-
+            model.addSeries(violencia);
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
@@ -217,5 +216,12 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());
         }
+    }
+
+    public void itemSelect(ItemSelectEvent event) {
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",
+                "Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }

@@ -727,6 +727,33 @@ public class FVif_2012 {
         }
         return lst;
     }
+    public static ArrayList<Vif_2012> ObtenerDatosParentesco() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_parentesco()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2012> ObtenerDatosDadoParentesco(String parentesco) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_parentesco(?)";
+            lstP.add(new Parametro(1, parentesco));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
 
     public static ArrayList<Vif_2012> ObtenerDatosDiaDenuncia(int dia) throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
