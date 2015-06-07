@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 
 /**
@@ -77,6 +78,15 @@ public class Vif_2010Controlador2 {
     private ArrayList<Vif_2010> lstDatosNoviembreF;
     private ArrayList<Vif_2010> lstDatosDiciembreM;
     private ArrayList<Vif_2010> lstDatosDiciembreF;
+    private PieChartModel pieModel;
+
+    public PieChartModel getPieModel() {
+        return pieModel;
+    }
+
+    public void setPieModel(PieChartModel pieModel) {
+        this.pieModel = pieModel;
+    }
 
     public Vif_2010 getDatoSel() {
         return datoSel;
@@ -225,8 +235,7 @@ public class Vif_2010Controlador2 {
     public void setLstDatosDiciembreF(ArrayList<Vif_2010> lstDatosDiciembreF) {
         this.lstDatosDiciembreF = lstDatosDiciembreF;
     }
-    
-    
+
     public ArrayList<Vif_2010> getLstDatosMarzoM() {
         return lstDatosMarzoM;
     }
@@ -561,6 +570,7 @@ public class Vif_2010Controlador2 {
     public void graficar() {
         graficoAño = graficaAño();
         graficaEnero = graficaEnero2010();
+        pieModel=graficaAnioDenuncia();
     }
 
     private CartesianChartModel graficaAño() {
@@ -605,6 +615,7 @@ public class Vif_2010Controlador2 {
 
     private CartesianChartModel graficaEnero2010() {
         CartesianChartModel model = new CartesianChartModel();
+
         try {
             lstDatosEneroM = FVif_2010.ObtenerDatosSexoAgresorEneroMasculino();
             lstDatosEneroF = FVif_2010.ObtenerDatosSexoAgresorEneroFemenino();
@@ -630,8 +641,7 @@ public class Vif_2010Controlador2 {
             lstDatosNoviembreF = FVif_2010.ObtenerDatosSexoAgresorNoviembre("F");
             lstDatosDiciembreM = FVif_2010.ObtenerDatosSexoAgresorDiciembre("M");
             lstDatosDiciembreF = FVif_2010.ObtenerDatosSexoAgresorDiciembre("F");
-            
-            
+
             ChartSeries Masculino = new ChartSeries();
             Masculino.setLabel("Femenino");
             Masculino.set("Enero", lstDatosEneroM.size());
@@ -662,7 +672,6 @@ public class Vif_2010Controlador2 {
             Femenino.set("Noviembre", lstDatosNoviembreF.size());
             Femenino.set("Diciembre", lstDatosDiciembreF.size());
 
-
             model.addSeries(Masculino);
             model.addSeries(Femenino);
 
@@ -671,6 +680,43 @@ public class Vif_2010Controlador2 {
         }
         return model;
 
+    }
+
+    private PieChartModel graficaAnioDenuncia() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+
+            lstDatos11 = FVif_2010.ObtenerDatosEnero();
+            lstDatos12 = FVif_2010.ObtenerDatosFebrero();
+            lstDatos13 = FVif_2010.ObtenerDatosMarzo();
+            lstDatos14 = FVif_2010.ObtenerDatosAbril();
+            lstDatos15 = FVif_2010.ObtenerDatosMayo();
+            lstDatos16 = FVif_2010.ObtenerDatosJunio();
+            lstDatos17 = FVif_2010.ObtenerDatosJulio();
+            lstDatos18 = FVif_2010.ObtenerDatosAgosto();
+            lstDatos19 = FVif_2010.ObtenerDatosSeptiembre();
+            lstDatos20 = FVif_2010.ObtenerDatosOctubre();
+            lstDatos21 = FVif_2010.ObtenerDatosNoviembre();
+            lstDatos22 = FVif_2010.ObtenerDatosDiciembre();
+
+            pieModel = new PieChartModel();
+            pieModel.set("Enero", lstDatos11.size());
+            pieModel.set("Febrero", lstDatos12.size());
+            pieModel.set("Marzo", lstDatos13.size());
+            pieModel.set("Abril", lstDatos14.size());
+            pieModel.set("Mayo", lstDatos15.size());
+            pieModel.set("Junio", lstDatos16.size());
+            pieModel.set("Julio", lstDatos17.size());
+            pieModel.set("Agosto", lstDatos18.size());
+            pieModel.set("Septiembre", lstDatos19.size());
+            pieModel.set("Octubre", lstDatos20.size());
+            pieModel.set("Noviembre", lstDatos21.size());
+            pieModel.set("Diciembre", lstDatos22.size());
+
+        } catch (Exception e) {
+
+        }
+        return pieModel;
     }
 
     public void cargarDatos() {

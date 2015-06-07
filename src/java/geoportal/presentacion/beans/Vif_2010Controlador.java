@@ -21,6 +21,7 @@ import org.primefaces.context.DefaultRequestContext;
 import org.primefaces.model.chart.CartesianChartModel;
 //import org.primefaces.model.chart.CategoryAxis;
 import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 //import org.primefaces.model.chart.LineChartModel;
 //import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
@@ -40,12 +41,139 @@ public class Vif_2010Controlador implements Serializable {
      */
     private CartesianChartModel lineModel1;
     private CartesianChartModel lineModel2;
+    private PieChartModel pieModel;
     private ArrayList<Vif_2010> lstDatosControl1;
     private Vif_2010 datoSel;
     private ArrayList<Vif_2010> lstDatosC;
     private ArrayList<Vif_2010> lstDatosDadoC;
     private ArrayList<Vif_2010> lstDatos7;
     private ArrayList<Vif_2010> lstDatos8;
+    //listas de los circuitos
+    private ArrayList<Vif_2010> lstDatos24Mayo;
+    private ArrayList<Vif_2010> lstDatosCamiloPonce;
+    private ArrayList<Vif_2010> lstDatosCaminosAlSol;
+    private ArrayList<Vif_2010> lstDatosLaCondamine;
+    private ArrayList<Vif_2010> lstDatosLaEstacion;
+    private ArrayList<Vif_2010> lstDatosLaPaz;
+    private ArrayList<Vif_2010> lstDatosLaPrimavera;
+    private ArrayList<Vif_2010> lstDatosPolitecnica;
+    private ArrayList<Vif_2010> lstDatosPucara;
+    private ArrayList<Vif_2010> lstDatosSanAlfonso;
+    private ArrayList<Vif_2010> lstDatosShopping;
+    private ArrayList<Vif_2010> lstDatosTerminalTerretre;
+    private ArrayList<Vif_2010> lstDatosYaruquies;
+
+    public PieChartModel getPieModel() {
+        return pieModel;
+    }
+
+    public void setPieModel(PieChartModel pieModel) {
+        this.pieModel = pieModel;
+    }
+
+    public ArrayList<Vif_2010> getLstDatos24Mayo() {
+        return lstDatos24Mayo;
+    }
+
+    public void setLstDatos24Mayo(ArrayList<Vif_2010> lstDatos24Mayo) {
+        this.lstDatos24Mayo = lstDatos24Mayo;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosCamiloPonce() {
+        return lstDatosCamiloPonce;
+    }
+
+    public void setLstDatosCamiloPonce(ArrayList<Vif_2010> lstDatosCamiloPonce) {
+        this.lstDatosCamiloPonce = lstDatosCamiloPonce;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosCaminosAlSol() {
+        return lstDatosCaminosAlSol;
+    }
+
+    public void setLstDatosCaminosAlSol(ArrayList<Vif_2010> lstDatosCaminosAlSol) {
+        this.lstDatosCaminosAlSol = lstDatosCaminosAlSol;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLaCondamine() {
+        return lstDatosLaCondamine;
+    }
+
+    public void setLstDatosLaCondamine(ArrayList<Vif_2010> lstDatosLaCondamine) {
+        this.lstDatosLaCondamine = lstDatosLaCondamine;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLaEstacion() {
+        return lstDatosLaEstacion;
+    }
+
+    public void setLstDatosLaEstacion(ArrayList<Vif_2010> lstDatosLaEstacion) {
+        this.lstDatosLaEstacion = lstDatosLaEstacion;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLaPaz() {
+        return lstDatosLaPaz;
+    }
+
+    public void setLstDatosLaPaz(ArrayList<Vif_2010> lstDatosLaPaz) {
+        this.lstDatosLaPaz = lstDatosLaPaz;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLaPrimavera() {
+        return lstDatosLaPrimavera;
+    }
+
+    public void setLstDatosLaPrimavera(ArrayList<Vif_2010> lstDatosLaPrimavera) {
+        this.lstDatosLaPrimavera = lstDatosLaPrimavera;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosPolitecnica() {
+        return lstDatosPolitecnica;
+    }
+
+    public void setLstDatosPolitecnica(ArrayList<Vif_2010> lstDatosPolitecnica) {
+        this.lstDatosPolitecnica = lstDatosPolitecnica;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosPucara() {
+        return lstDatosPucara;
+    }
+
+    public void setLstDatosPucara(ArrayList<Vif_2010> lstDatosPucara) {
+        this.lstDatosPucara = lstDatosPucara;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosSanAlfonso() {
+        return lstDatosSanAlfonso;
+    }
+
+    public void setLstDatosSanAlfonso(ArrayList<Vif_2010> lstDatosSanAlfonso) {
+        this.lstDatosSanAlfonso = lstDatosSanAlfonso;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosShopping() {
+        return lstDatosShopping;
+    }
+
+    public void setLstDatosShopping(ArrayList<Vif_2010> lstDatosShopping) {
+        this.lstDatosShopping = lstDatosShopping;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosTerminalTerretre() {
+        return lstDatosTerminalTerretre;
+    }
+
+    public void setLstDatosTerminalTerretre(ArrayList<Vif_2010> lstDatosTerminalTerretre) {
+        this.lstDatosTerminalTerretre = lstDatosTerminalTerretre;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosYaruquies() {
+        return lstDatosYaruquies;
+    }
+
+    public void setLstDatosYaruquies(ArrayList<Vif_2010> lstDatosYaruquies) {
+        this.lstDatosYaruquies = lstDatosYaruquies;
+    }
 
     public CartesianChartModel getLineModel1() {
         return lineModel1;
@@ -137,6 +265,7 @@ public class Vif_2010Controlador implements Serializable {
     public void graficar() {
         lineModel1 = initCategorySubcircuito();
         lineModel2 = initCategoryCircuito();
+        pieModel=graficaDenunciasCircuito();
     }
 
     /**
@@ -182,6 +311,51 @@ public class Vif_2010Controlador implements Serializable {
         }
         return model;
 
+    }
+
+    private PieChartModel graficaDenunciasCircuito() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+            pieModel = new PieChartModel();
+//            pieModel.set("Lunes", lstDatosLunes.size());
+//            pieModel.set("Martes", lstDatosMartes.size());
+//            pieModel.set("Miercoles", lstDatosMiercoles.size());
+//            pieModel.set("Jueves", lstDatosJueves.size());
+//            pieModel.set("Viernes", lstDatosViernes.size());
+//            pieModel.set("Sabado", lstDatosSabado.size());
+//            pieModel.set("Domingo", lstDatosDomingo.size());
+            lstDatos24Mayo = FVif_2010.ObtenerDatosDadoCircuito("24 DE MAYO");
+            lstDatosCamiloPonce = FVif_2010.ObtenerDatosDadoCircuito("CAMILO PONCE");
+            lstDatosCaminosAlSol = FVif_2010.ObtenerDatosDadoCircuito("CAMINOS AL SOL");
+            lstDatosLaCondamine = FVif_2010.ObtenerDatosDadoCircuito("LA CONDAMINE");
+            lstDatosLaEstacion = FVif_2010.ObtenerDatosDadoCircuito("LA ESTACION");
+            lstDatosLaPaz = FVif_2010.ObtenerDatosDadoCircuito("LA PAZ");
+            lstDatosLaPrimavera = FVif_2010.ObtenerDatosDadoCircuito("LA PRIMAVERA");
+            lstDatosPolitecnica = FVif_2010.ObtenerDatosDadoCircuito("POLITECNICA");
+            lstDatosPucara = FVif_2010.ObtenerDatosDadoCircuito("PUCARA");
+            lstDatosSanAlfonso = FVif_2010.ObtenerDatosDadoCircuito("SAN ALFONSO");
+            lstDatosShopping = FVif_2010.ObtenerDatosDadoCircuito("SHOPPING");
+            lstDatosTerminalTerretre = FVif_2010.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
+            lstDatosYaruquies = FVif_2010.ObtenerDatosDadoCircuito("YARUQUIES");
+
+            pieModel.set("24 DE MAYO", lstDatos24Mayo.size());
+            pieModel.set("CAMILO PONCE", lstDatosCamiloPonce.size());
+            pieModel.set("CAMINOS AL SOL", lstDatosCaminosAlSol.size());
+            pieModel.set("LA CONDAMINE", lstDatosLaCondamine.size());
+            pieModel.set("LA ESTACION", lstDatosLaEstacion.size());
+            pieModel.set("LA PAZ", lstDatosLaPaz.size());
+            pieModel.set("LA PRIMAVERA", lstDatosLaPrimavera.size());
+            pieModel.set("POLITECNICA", lstDatosPolitecnica.size());
+            pieModel.set("PUCARA", lstDatosPucara.size());
+            pieModel.set("SAN ALFONSO", lstDatosSanAlfonso.size());
+            pieModel.set("SHOPPING", lstDatosShopping.size());
+            pieModel.set("TERMINAL TERRESTRE", lstDatosTerminalTerretre.size());
+            pieModel.set("YARUQUIES", lstDatosYaruquies.size());
+
+        } catch (Exception e) {
+
+        }
+        return pieModel;
     }
 
     public void cargarDatos() {
