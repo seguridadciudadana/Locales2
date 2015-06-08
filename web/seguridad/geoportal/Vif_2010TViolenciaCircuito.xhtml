@@ -24,61 +24,61 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:panelGrid id="pngGraficar" columns="2">
-                            <p:outputLabel for="circuito" value="Circuito" style="font-style: initial"/>
-                            <p:selectOneMenu id="circuito" value="#{vif_2010ControladorCircuitoTViolencia.circuito}" 
+                        <p:panelGrid id="pngGraficar" columns="3">
+                            <h:outputText value="Circuito:" style="font-style: initial"/>
+                            <p:selectOneMenu id="cmbCircuito" value="#{vif_2010ControladorCircuitoTViolencia.valorSeleccionado}" 
                                              effect="fold" editable="false">
-                                <f:selectItem itemLabel="Seleccione un Circuito" itemValue="" />
-                                <f:selectItem itemLabel="24 DE MAYO" itemValue="24 DE MAYO" />
-                                <f:selectItem itemLabel="CALPI" itemValue="CALPI" />
-                                <f:selectItem itemLabel="CAMILO PONCE" itemValue="CAMILO PONCE" />
-                                <f:selectItem itemLabel="CAMINOS AL SOL" itemValue="CAMINOS AL SOL" />
-                                <f:selectItem itemLabel="LA CONDAMINE" itemValue="LA CONDAMINE" />
-                                <f:selectItem itemLabel="LA ESTACION" itemValue="LA ESTACION" />
-                                <f:selectItem itemLabel="LA PAZ" itemValue="LA PAZ" />
-                                <f:selectItem itemLabel="LA PRIMAVERA" itemValue="LA PRIMAVERA" />
-                                <f:selectItem itemLabel="POLITECNICA" itemValue="POLITECNICA" />
-                                <f:selectItem itemLabel="PUCARA" itemValue="PUCARA" />
-                                <f:selectItem itemLabel="SAN ALFONSO" itemValue="SAN ALFONSO" />
-                                <f:selectItem itemLabel="SAN LUIS" itemValue="SAN LUIS" />
-                                <f:selectItem itemLabel="SHOPPING" itemValue="SHOPPING" />
-                                <f:selectItem itemLabel="TERMINAL TERRESTRE" itemValue="TERMINAL TERRESTRE" />
-                                <f:selectItem itemLabel="YARUQUIES" itemValue="YARUQUIES" />
+                                <f:selectItem itemLabel="Seleccione un Circuito" itemValue="#{null}" />
+                                <f:selectItems value="#{vif_2010ControladorCircuitoTViolencia.lstDatosCircuito}" var="circuito"
+                                               itemLabel="#{circuito.circuito}" itemValue="#{circuito.codigo_cir}"/>
 
                             </p:selectOneMenu> 
-
+                            <p:commandButton id="btnGraficar" value="Graficar" icon="ui-icon-newwin"
+                                             title="Grafica" oncomplete="wdlgNuevaGrafica.show();" 
+                                             update=":dlgNuevaGrafica" process="@this">
+                                <f:setPropertyActionListener value="#{circuito}" 
+                                                             target="#{vif_2010ControladorCircuitoTViolencia.valorSeleccionado}"/>
+                                 
+                            </p:commandButton> 
 
                         </p:panelGrid>
+                                 
                         <p:separator style="border-color: background" />
 
-                        <p:commandButton id="btnGraficar" value="Graficar" icon="ui-icon-newwin"
-                                         oncomplete="wdlgGraficar.show()" title="Grafica"/> 
                     </p:panel>
+
+
+
                 </h:form>
             </ui:define>
 
             <ui:define name="dialogos">
-
-                <p:dialog id="dlgGraficar" header="Grafica" widgetVar="wdlgGrafica" 
+                
+                <p:dialog id="dlgNuevaGrafica" header="Nueva Grafica" widgetVar="wdlgNuevaGrafica" 
                           modal="true" closable="false" resizable="false"
                           showEffect="clip" hideEffect="fold"> 
-                    <h:form id="frmGrafica">
+ 
+                    <h:form id="frmNuevaGrafica">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                        <p:panelGrid id="pngGrafica" columns="2">
-                            <p:barChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}}" legendPosition="w" 
-                                        title="Tipo de Violencia por Circuito" style="height:450px;width:400px;"> 
-                                <p:ajax event="itemSelect" listener="#{vif_2010ControladorCircuitoTViolencia.itemSelect}" update="growl" />
-                            </p:barChart>>
-                        </p:panelGrid>
+                        <p:panelGrid id="pngNuevaGrafica" columns="1">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                                        <p:pieChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}" 
+                                                    legendPosition="e" style="height:450px;width:1000 px;text-decoration-style:dashed"
+                                                    showDataLabels="true"> 
 
-                        <p:commandButton value="Cancelar" onclick="wdlgGrafica.hide()" type="reset"/>
-                    </h:form>
-                </p:dialog>
+                                        </p:pieChart> 
+                            
+                           </p:panelGrid>
+                        
+                       <p:commandButton value="Cerrar" onclick="wdlgNuevaGrafica.hide()" type="reset"/>
+                    </h:form> 
+                </p:dialog> 
+
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
                           resizable="false">
                     <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
                 </p:dialog>
-                
+
             </ui:define>
         </ui:composition>
     </h:body>

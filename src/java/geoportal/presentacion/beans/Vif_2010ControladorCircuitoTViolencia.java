@@ -29,7 +29,7 @@ import recursos.Util;
 @RequestScoped
 public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
-    private CartesianChartModel graficaTViolenciaCircuito;
+    private PieChartModel graficaTViolenciaCircuito;
     //private PieChartModel pieModel;
     //private PieChartModel model = new PieChartModel();
 
@@ -44,23 +44,24 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
     private ArrayList<Vif_2010> lstDatosCircuitoTViolencia7;
     private Vif_2010 datoSel;
     private String circuito;
-    private Integer valorSeleccionado;
+    private String valorSeleccionado;
 
-    public CartesianChartModel getGraficaTViolenciaCircuito() {
+    public PieChartModel getGraficaTViolenciaCircuito() {
         return graficaTViolenciaCircuito;
     }
 
-    public void setGraficaTViolenciaCircuito(CartesianChartModel graficaTViolenciaCircuito) {
+    public void setGraficaTViolenciaCircuito(PieChartModel graficaTViolenciaCircuito) {
         this.graficaTViolenciaCircuito = graficaTViolenciaCircuito;
     }
 
-    public Integer getValorSeleccionado() {
+    public String getValorSeleccionado() {
         return valorSeleccionado;
     }
 
-    public void setValorSeleccionado(Integer valorSeleccionado) {
+    public void setValorSeleccionado(String valorSeleccionado) {
         this.valorSeleccionado = valorSeleccionado;
     }
+
 
     public ArrayList<Vif_2010> getLstDatosCircuitoTViolencia2() {
         return lstDatosCircuitoTViolencia2;
@@ -166,7 +167,7 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
         this.lstDatosCircuito = new ArrayList<Vif_2010>();
         this.lstDatosCircuitoTViolencia = new ArrayList<Vif_2010>();
-        
+
         this.init();
         this.cargarDatos();
 
@@ -177,27 +178,25 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         graficaTViolenciaCircuito = pastelGrafica();
     }
 
-    private CartesianChartModel pastelGrafica() {
+    private PieChartModel pastelGrafica() {
 
-        CartesianChartModel model = new CartesianChartModel();
+        PieChartModel model = new PieChartModel();
 
         try {
+             model = new PieChartModel();
+            
+            lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y PSICOLOGICA");
+            lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y SEXUAL");
+            lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA, PSICOLOGICA Y SEXUAL");
+            lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA");
+            lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "PSICOLOGICA");
 
-            //for (int i = 0; i < lstDatos.size(); i++) {
-            lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA Y PSICOLOGICA");
-            lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA Y SEXUAL");
-            lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA, PSICOLOGICA Y SEXUAL");
-            lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "FISICA");
-            lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(circuito, "PSICOLOGICA");
-            ChartSeries violencia = new ChartSeries();
-            violencia.setLabel("");
-            violencia.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
-            violencia.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
-            violencia.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
-            violencia.set("FISICA", lstDatosCircuitoTViolencia4.size());
-            violencia.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
-            //}
-            model.addSeries(violencia);
+            model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
+            model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
+            model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
+            model.set("FISICA", lstDatosCircuitoTViolencia4.size());
+           model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
+            
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }

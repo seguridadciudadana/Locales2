@@ -13,9 +13,12 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import org.primefaces.context.DefaultRequestContext;
+import org.primefaces.event.ItemSelectEvent;
 //import org.primefaces.model.chart.Axis;
 //import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.CartesianChartModel;
@@ -363,6 +366,13 @@ public class Vif_2010Controlador implements Serializable {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());
         }
+    }
+    
+      public void itemSelect(ItemSelectEvent event) {
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",
+                "Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
 }
