@@ -24,25 +24,25 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Gráfico Denuncias por Subcircuito">
+                        <p:tab title="Denuncias efectudas en cada Subcircuito">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="e" 
                                            title="SUBCIRCUITO" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Gráfico Denuncias por Circuito">
+                        <p:tab title="Denuncias efectuadas en cada Circuito">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2010Controlador.lineModel2}" legendPosition="e" 
                                            title="CIRCUITO" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
                         </p:tab>  
-                        <p:tab title="Gráfico Denuncias por Circuito">
+                        <p:tab title="Denuncias efectuadas en cada Circuito(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2010Controlador.lineModel2}" legendPosition="e" 
                                           title="CIRCUITO" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
                         </p:tab>  
-                        <p:tab title="Tipos de Violencia">
+                        <p:tab title="Denuncias efectuadas en cada Circuito(Pastel)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{vif_2010Controlador.pieModel}" legendPosition="e" 
                                         style="height:450px;width:1000 px;text-decoration-style:dashed" showDataLabels="true" />                             
