@@ -45,7 +45,10 @@ and open the template in the editor.
                         <p:tab title="Tipos de Violencia">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{vif_2010Controlador.pieModel}" legendPosition="e" 
-                                        style="height:450px;width:1000 px;text-decoration-style:dashed" showDataLabels="true" />                             
+                                        style="height:450px;width:1000 px;text-decoration-style:dashed" showDataLabels="true" >
+                                
+                            </p:pieChart>   
+                            
                         </p:tab>
                     </p:accordionPanel>
                 </h:form>
