@@ -317,13 +317,7 @@ public class Vif_2010Controlador implements Serializable {
         PieChartModel pieModel = new PieChartModel();
         try {
             pieModel = new PieChartModel();
-//            pieModel.set("Lunes", lstDatosLunes.size());
-//            pieModel.set("Martes", lstDatosMartes.size());
-//            pieModel.set("Miercoles", lstDatosMiercoles.size());
-//            pieModel.set("Jueves", lstDatosJueves.size());
-//            pieModel.set("Viernes", lstDatosViernes.size());
-//            pieModel.set("Sabado", lstDatosSabado.size());
-//            pieModel.set("Domingo", lstDatosDomingo.size());
+
             lstDatos24Mayo = FVif_2010.ObtenerDatosDadoCircuito("24 DE MAYO");
             lstDatosCamiloPonce = FVif_2010.ObtenerDatosDadoCircuito("CAMILO PONCE");
             lstDatosCaminosAlSol = FVif_2010.ObtenerDatosDadoCircuito("CAMINOS AL SOL");

@@ -26,16 +26,21 @@ and open the template in the editor.
                         <p:tab title="Victimas por rangos de edades" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2011ControladorEdades.graficaEdadSV}" legendPosition="e" 
-                                           title="Víctimas por rangos de edades" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           title="Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas"/>   
-                        </p:tab>
-                        <p:tab title="Victimas por rango de Edades" >
+                        </p:tab>    
+                        <p:tab title="Victimas por rangos de edades" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2011ControladorEdades.graficaEdadSV}" legendPosition="e" 
-                                          title="Víctimas por rango de edades" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas">                              
-                            </p:barChart>   
-                        </p:tab>                        
+                                           title="Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas"/>   
+                        </p:tab> 
+                         <p:tab title="Denuncias efectuadas por meses del año(Gráfico Circular)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:pieChart value="#{vif_2011ControladorEdades.pieModel}" legendPosition="e" 
+                                        style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
+
+                        </p:tab>
                     </p:accordionPanel>
                 </h:form>
             </ui:define>

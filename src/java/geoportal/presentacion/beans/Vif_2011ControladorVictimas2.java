@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 
 /**
@@ -28,6 +29,7 @@ public class Vif_2011ControladorVictimas2 {
     private CartesianChartModel lineModel_Victima_Circuito;
     private CartesianChartModel lineModel_Victima_Subcircuito;
     private CartesianChartModel lineModel8;
+     private PieChartModel pieModel;
     private Vif_2011 objDatos;
     private Vif_2011 datoSel;
     private ArrayList<Vif_2011> lstDatos;
@@ -101,6 +103,14 @@ public class Vif_2011ControladorVictimas2 {
     private ArrayList<Vif_2011> lstDatosTerminalTerrestre1F;
     private ArrayList<Vif_2011> lstDatosYaruquies1M;
     private ArrayList<Vif_2011> lstDatosYaruquies1F;
+
+    public PieChartModel getPieModel() {
+        return pieModel;
+    }
+
+    public void setPieModel(PieChartModel pieModel) {
+        this.pieModel = pieModel;
+    }
 
     public CartesianChartModel getLineModel_Victima_Circuito() {
         return lineModel_Victima_Circuito;
