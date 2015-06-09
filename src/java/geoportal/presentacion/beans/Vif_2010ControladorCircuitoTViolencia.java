@@ -62,7 +62,6 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         this.valorSeleccionado = valorSeleccionado;
     }
 
-
     public ArrayList<Vif_2010> getLstDatosCircuitoTViolencia2() {
         return lstDatosCircuitoTViolencia2;
     }
@@ -162,12 +161,10 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
     private void reinit() {
         //this.objDatos = new Vif_2010();
+        this.lstDatosCircuito = new ArrayList<Vif_2010>();
         this.datoSel = new Vif_2010();
         this.lstDatos = new ArrayList<Vif_2010>();
-
-        this.lstDatosCircuito = new ArrayList<Vif_2010>();
         this.lstDatosCircuitoTViolencia = new ArrayList<Vif_2010>();
-
         this.init();
         this.cargarDatos();
 
@@ -183,19 +180,20 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         PieChartModel model = new PieChartModel();
 
         try {
-             model = new PieChartModel();
+            model = new PieChartModel();
             
-            lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y PSICOLOGICA");
-            lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y SEXUAL");
-            lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA, PSICOLOGICA Y SEXUAL");
-            lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA");
-            lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "PSICOLOGICA");
+                
+                lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y PSICOLOGICA");
+                lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y SEXUAL");
+                lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA, PSICOLOGICA Y SEXUAL");
+                lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA");
+                lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "PSICOLOGICA");
 
-            model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
-            model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
-            model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
-            model.set("FISICA", lstDatosCircuitoTViolencia4.size());
-           model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
+                model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
+                model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
+                model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
+                model.set("FISICA", lstDatosCircuitoTViolencia4.size());
+                model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
             
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
@@ -206,11 +204,10 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
     public void cargarDatos() {
         try {
-
             lstDatosCircuito = FVif_2010.ObtenerDatosCircuito();
+            //lstDatos = FVif_2010.ObtenerDatos();
             //this.datoSel = lstDatos.get(0);
             //System.out.println(lstDatos.get(0).getId());
-
         } catch (Exception e) {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());
