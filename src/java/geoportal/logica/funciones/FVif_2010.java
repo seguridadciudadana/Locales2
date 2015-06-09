@@ -144,6 +144,23 @@ public class FVif_2010 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2010> ObtenerDatosDadoSubCircuitoTipoViolencia(String subcircuito, String tViolencia) throws Exception {
+        ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2010_2_dado_subcircuito_tipo_violencia(?,?)";
+            lstP.add(new Parametro(1, subcircuito));
+            lstP.add(new Parametro(2, tViolencia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     public static ArrayList<Vif_2010> ObtenerDatosDadoCircuitoSexoVictima(String circuito, String sexo) throws Exception {
         ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
         try {
