@@ -229,43 +229,43 @@ public class ControladorContrastesCircuitos {
         this.lstDatosControl12 = new ArrayList<Vif_2012>();
         this.lstDatosC12 = new ArrayList<Vif_2012>();
         this.lstDatosDadoC12 = new ArrayList<Vif_2012>();
-
-        this.init();
+        
         this.cargarDatos2010();
         this.cargarDatos2011();
         this.cargarDatos2012();
+         this.init();
     }
 
     private CartesianChartModel initConstrastesCircuito() {
         CartesianChartModel model = new CartesianChartModel();
         try {
+            lstDatosC12 = FVif_2012.ObtenerDatosCircuito();
+            ChartSeries Circuito12 = new ChartSeries();
+            Circuito12.setLabel("2012");
+            for (Vif_2012 lstDatosC : lstDatosC12) {
+                lstDatosDadoC12 = FVif_2012.ObtenerDatosDadoCircuito(lstDatosC.getPcircuito());
+                Circuito12.set(lstDatosC.getPcircuito(), lstDatosDadoC12.size());
+            }
+
             lstDatosC10 = FVif_2010.ObtenerDatosCircuito();
             ChartSeries Circuito10 = new ChartSeries();
             Circuito10.setLabel("2010");
-            for (Vif_2010 lstDatosC1 : lstDatosC10) {
-                lstDatosDadoC10 = FVif_2010.ObtenerDatosDadoCircuito(lstDatosC1.getCircuito());
-                Circuito10.set(lstDatosC1.getCircuito(), lstDatosDadoC10.size());
+            for (Vif_2010 lstDatosC : lstDatosC10) {
+                lstDatosDadoC10 = FVif_2010.ObtenerDatosDadoCircuito(lstDatosC.getCircuito());
+                Circuito10.set(lstDatosC.getCircuito(), lstDatosDadoC10.size());
             }
 
             lstDatosC11 = FVif_2011.ObtenerDatosCircuito();
             ChartSeries Circuito11 = new ChartSeries();
             Circuito11.setLabel("2011");
-            for (Vif_2011 lstDatosC11 : lstDatosC11) {
-                lstDatosDadoC11 = FVif_2011.ObtenerDatosDadoCircuito(lstDatosC11.getCircuito());
-                Circuito11.set(lstDatosC11.getCircuito(), lstDatosDadoC11.size());
-            }
-
-            lstDatosC12 = FVif_2012.ObtenerDatosCircuito();
-            ChartSeries Circuito12 = new ChartSeries();
-            Circuito12.setLabel("2012");
-            for (Vif_2012 lstDatosC12 : lstDatosC12) {
-                lstDatosDadoC12 = FVif_2012.ObtenerDatosDadoCircuito(lstDatosC12.getPcircuito());
-                Circuito12.set(lstDatosC12.getPcircuito(), lstDatosDadoC12.size());
+            for (Vif_2011 lstDatosC : lstDatosC11) {
+                lstDatosDadoC11 = FVif_2011.ObtenerDatosDadoCircuito(lstDatosC.getCircuito());
+                Circuito11.set(lstDatosC.getCircuito(), lstDatosDadoC11.size());
             }
 
             model.addSeries(Circuito10);
+            model.addSeries(Circuito12);           
             model.addSeries(Circuito11);
-            model.addSeries(Circuito12);
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
