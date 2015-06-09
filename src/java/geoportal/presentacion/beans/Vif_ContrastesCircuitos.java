@@ -545,10 +545,10 @@ public class Vif_ContrastesCircuitos {
             lstDatosShopping2011 = FVif_2011.ObtenerDatosDadoCircuito("SHOPPING");
             lstDatosTerminalTerretre2011 = FVif_2011.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
             lstDatosYaruquies2011 = FVif_2011.ObtenerDatosDadoCircuito("YARUQUIES");
-            
+
             lstDatos24Mayo2012 = FVif_2012.ObtenerDatosDadoCircuito("24 DE MAYO");
             lstDatosCamiloPonce2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMILO PONCE");
-            lstDatosCaminosAlSol2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMINOS AL SOL");
+            lstDatosCaminosAlSol2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMINO AL SOL");
             lstDatosLaCondamine2012 = FVif_2012.ObtenerDatosDadoCircuito("LA CONDAMINE");
             lstDatosLaEstacion2012 = FVif_2012.ObtenerDatosDadoCircuito("LA ESTACION");
             lstDatosLaPaz2012 = FVif_2012.ObtenerDatosDadoCircuito("LA PAZ");
@@ -613,6 +613,7 @@ public class Vif_ContrastesCircuitos {
             model.addSeries(Vif_2012);
 
         } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
         }
         return model;
     }
