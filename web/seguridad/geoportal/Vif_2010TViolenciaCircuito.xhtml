@@ -24,57 +24,92 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:panelGrid id="pngGraficar" columns="3">
+                        <p:panelGrid id="pngGraficar" columns="6">
                             <h:outputText value="Circuito:" style="font-style: initial"/>
                             <p:selectOneMenu id="cmbCircuito" value="#{vif_2010ControladorCircuitoTViolencia.valorSeleccionado}" 
                                              effect="fold" editable="false">
                                 <f:selectItem itemLabel="Seleccione un Circuito" itemValue="#{null}" />
                                 <f:selectItems value="#{vif_2010ControladorCircuitoTViolencia.lstDatosCircuito}" var="circuito"
-                                               itemLabel="#{circuito.circuito}" itemValue="#{circuito.codigo_cir}"/>
+                                               itemLabel="#{circuito.circuito}" itemValue="#{circuito.circuito}"/>
 
                             </p:selectOneMenu> 
-                            <p:commandButton id="btnGraficar" value="Graficar" icon="ui-icon-newwin"
-                                             title="Grafica" oncomplete="wdlgNuevaGrafica.show();" 
-                                             update=":dlgNuevaGrafica" process="@this">
-                                <f:setPropertyActionListener value="#{circuito}" 
-                                                             target="#{vif_2010ControladorCircuitoTViolencia.valorSeleccionado}"/>
-                                 
-                            </p:commandButton> 
+                                                      
+                            <p:commandButton value="Graficar"
+                                             action="#{vif_2010ControladorCircuitoTViolencia.graficar()}" oncomplete="wdlgNuevaGrafica.show()" 
+                                             update=":frmNuevaGrafica:pngNuevaGrafica @form, @this" >
+                            
+                            </p:commandButton>
+                            
+                            <h:outputText value="SubCircuito:" style="font-style: initial"/>
+                            <p:selectOneMenu id="cmbSubcircuito" value="#{vif_2010ControladorSubcircuitoTViolencia.valorSSeleccionado}" 
+                                             effect="fold" editable="false">
+                                <f:selectItem itemLabel="Seleccione un SubCircuito" itemValue="#{null}" />
+                                <f:selectItems value="#{vif_2010ControladorSubcircuitoTViolencia.lstDatosSubCircuito}" var="subcircuito"
+                                               itemLabel="#{subcircuito.subcircuit}" itemValue="#{subcircuito.subcircuit}"/>
+
+                            </p:selectOneMenu> 
+                                                      
+                            <p:commandButton value="Graficar"
+                                             action="#{vif_2010ControladorSubcircuitoTViolencia.graficar()}" oncomplete="wdlgNuevaGraficaSubcircuito.show()" 
+                                             update=":frmNuevaGraficaSubcircuito:pngNuevaGraficaSubcircuito @form, @this" >
+                            
+                            </p:commandButton>
+                            
 
                         </p:panelGrid>
-                                 
+                        
+                        
+
                         <p:separator style="border-color: background" />
 
                     </p:panel>
-
-
 
                 </h:form>
             </ui:define>
 
             <ui:define name="dialogos">
-                
-                <p:dialog id="dlgNuevaGrafica" header="Nueva Grafica" widgetVar="wdlgNuevaGrafica" 
+
+                <p:dialog id="dlgNuevaGrafica" header="" footer="Fuente:OSCUNACH-2015" widgetVar="wdlgNuevaGrafica" 
                           modal="true" closable="false" resizable="false"
-                          showEffect="clip" hideEffect="fold"> 
- 
+                          showEffect="clip" hideEffect="fold" height="450" width="1200"> 
+
                     <h:form id="frmNuevaGrafica">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                        <p:panelGrid id="pngNuevaGrafica" columns="1">
+                        <p:panel id="pngNuevaGrafica">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                                        <p:pieChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}" 
-                                                    legendPosition="e" style="height:450px;width:1000 px;text-decoration-style:dashed"
-                                                    showDataLabels="true"> 
+                            <p:pieChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}" 
+                                        legendPosition="e" style="height:400px;width:1000 px;text-decoration-style:dashed"
+                                        showDataLabels="true" > 
 
-                                        </p:pieChart> 
-                            
-                           </p:panelGrid>
-                        
-                       <p:commandButton value="Cerrar" onclick="wdlgNuevaGrafica.hide()" type="reset"/>
+                            </p:pieChart> 
+
+                        </p:panel>
+
+                        <p:commandButton value="Cerrar" onclick="wdlgNuevaGrafica.hide()" type="reset"/>
+                    </h:form> 
+                </p:dialog> 
+                
+                <p:dialog id="dlgNuevaGraficaSubcircuito" header="" footer="Fuente:OSCUNACH-2015" widgetVar="wdlgNuevaGraficaSubcircuito" 
+                          modal="true" closable="false" resizable="false"
+                          showEffect="clip" hideEffect="fold" height="450" width="1200"> 
+
+                    <h:form id="frmNuevaGraficaSubcircuito">
+                        <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                        <p:panel id="pngNuevaGraficaSubcircuito">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:pieChart id="GraficaPastelSubcircuito" value="#{vif_2010ControladorSubcircuitoTViolencia.graficaTViolenciaSubCircuito}" 
+                                        legendPosition="e" style="height:400px;width:1000 px;text-decoration-style:dashed"
+                                        showDataLabels="true"> 
+
+                            </p:pieChart> 
+
+                        </p:panel>
+
+                        <p:commandButton value="Cerrar" onclick="wdlgNuevaGraficaSubcircuito.hide()" type="reset"/>
                     </h:form> 
                 </p:dialog> 
 
-                <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
+                <p:dialog modal="true" widgetVar="dlgStatus" header="Graficando" draggable="false" closable="false" 
                           resizable="false">
                     <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
                 </p:dialog>
