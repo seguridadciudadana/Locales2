@@ -534,7 +534,7 @@ public class Vif_ContrastesCircuitos {
 
             lstDatos24Mayo2011 = FVif_2011.ObtenerDatosDadoCircuito("24 DE MAYO");
             lstDatosCamiloPonce2011 = FVif_2011.ObtenerDatosDadoCircuito("CAMILO PONCE");
-            lstDatosCaminosAlSol2011 = FVif_2011.ObtenerDatosDadoCircuito("CAMINOS AL SOL");
+            lstDatosCaminosAlSol2011 = FVif_2011.ObtenerDatosDadoCircuito("CAMINO AL SOL");
             lstDatosLaCondamine2011 = FVif_2011.ObtenerDatosDadoCircuito("LA CONDAMINE");
             lstDatosLaEstacion2011 = FVif_2011.ObtenerDatosDadoCircuito("LA ESTACION");
             lstDatosLaPaz2011 = FVif_2011.ObtenerDatosDadoCircuito("LA PAZ");
@@ -545,10 +545,10 @@ public class Vif_ContrastesCircuitos {
             lstDatosShopping2011 = FVif_2011.ObtenerDatosDadoCircuito("SHOPPING");
             lstDatosTerminalTerretre2011 = FVif_2011.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
             lstDatosYaruquies2011 = FVif_2011.ObtenerDatosDadoCircuito("YARUQUIES");
-            
+
             lstDatos24Mayo2012 = FVif_2012.ObtenerDatosDadoCircuito("24 DE MAYO");
             lstDatosCamiloPonce2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMILO PONCE");
-            lstDatosCaminosAlSol2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMINOS AL SOL");
+            lstDatosCaminosAlSol2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMINO AL SOL");
             lstDatosLaCondamine2012 = FVif_2012.ObtenerDatosDadoCircuito("LA CONDAMINE");
             lstDatosLaEstacion2012 = FVif_2012.ObtenerDatosDadoCircuito("LA ESTACION");
             lstDatosLaPaz2012 = FVif_2012.ObtenerDatosDadoCircuito("LA PAZ");
@@ -564,7 +564,7 @@ public class Vif_ContrastesCircuitos {
             Vif_2010.setLabel("Víctimas 2010 por circuitos");
             Vif_2010.set("24 DE MAYO", lstDatos24Mayo2010.size());
             Vif_2010.set("CAMILO PONCE", lstDatosCamiloPonce2010.size());
-            Vif_2010.set("CAMINOS AL SOL", lstDatosCaminosAlSol2010.size());
+            Vif_2010.set("CAMINO AL SOL", lstDatosCaminosAlSol2010.size());
             Vif_2010.set("LA CONDAMINE", lstDatosLaCondamine2010.size());
             Vif_2010.set("LA ESTACION", lstDatosLaEstacion2010.size());
             Vif_2010.set("LA PAZ", lstDatosLaPaz2010.size());
@@ -580,7 +580,7 @@ public class Vif_ContrastesCircuitos {
             Vif_2011.setLabel("Víctimas 2011 por circuitos");
             Vif_2011.set("24 DE MAYO", lstDatos24Mayo2011.size());
             Vif_2011.set("CAMILO PONCE", lstDatosCamiloPonce2011.size());
-            Vif_2011.set("CAMINOS AL SOL", lstDatosCaminosAlSol2011.size());
+            Vif_2011.set("CAMINO AL SOL", lstDatosCaminosAlSol2011.size());
             Vif_2011.set("LA CONDAMINE", lstDatosLaCondamine2011.size());
             Vif_2011.set("LA ESTACION", lstDatosLaEstacion2011.size());
             Vif_2011.set("LA PAZ", lstDatosLaPaz2011.size());
@@ -596,7 +596,7 @@ public class Vif_ContrastesCircuitos {
             Vif_2012.setLabel("Víctimas 2012 por circuitos");
             Vif_2012.set("24 DE MAYO", lstDatos24Mayo2012.size());
             Vif_2012.set("CAMILO PONCE", lstDatosCamiloPonce2012.size());
-            Vif_2012.set("CAMINOS AL SOL", lstDatosCaminosAlSol2012.size());
+            Vif_2012.set("CAMINO AL SOL", lstDatosCaminosAlSol2012.size());
             Vif_2012.set("LA CONDAMINE", lstDatosLaCondamine2012.size());
             Vif_2012.set("LA ESTACION", lstDatosLaEstacion2012.size());
             Vif_2012.set("LA PAZ", lstDatosLaPaz2012.size());
@@ -613,6 +613,7 @@ public class Vif_ContrastesCircuitos {
             model.addSeries(Vif_2012);
 
         } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
         }
         return model;
     }
