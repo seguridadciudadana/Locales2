@@ -40,19 +40,20 @@ public class Vif_2012_2 {
     private String numero_hijos_comun;
     private String lugar_agresion;
     private String tipo_de_violencia;
-    private String fecha_agresion;
+    private Date fecha_agresion;
     private String hora_de_agresion;
     private String medidas_de_amparo;
     private String sentencia;
     private String apelacion;
     private String boletas_anteriores;
     private String observaciones;    
+    private String boletas_de_remision;
     private int id;
 
     public Vif_2012_2() {
     }
 
-    public Vif_2012_2(Date fecha_denuncia, String denunciante, String victima, String sexo_victima, String direccion_victima, double x, double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String domiciliado_victima, int edad_victima, String estado_civil_victima, String nivel_de_instruccion_victima, String ocupacion, String agresor, String sexo_agresor, String direccion_agresor, String edad_agresor, String domiciliado_agresor, String estado_civil_agresor, String nivel_de_instruccion_agresor, String ocupacion_agresor, String parentesco_victima_agresor, String numero_hijos_comun, String lugar_agresion, String tipo_de_violencia, String fecha_agresion, String hora_de_agresion, String medidas_de_amparo, String sentencia, String apelacion, String boletas_anteriores, String observaciones, int id) {
+    public Vif_2012_2(Date fecha_denuncia, String denunciante, String victima, String sexo_victima, String direccion_victima, double x, double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String domiciliado_victima, int edad_victima, String estado_civil_victima, String nivel_de_instruccion_victima, String ocupacion, String agresor, String sexo_agresor, String direccion_agresor, String edad_agresor, String domiciliado_agresor, String estado_civil_agresor, String nivel_de_instruccion_agresor, String ocupacion_agresor, String parentesco_victima_agresor, String numero_hijos_comun, String lugar_agresion, String tipo_de_violencia, Date fecha_agresion, String hora_de_agresion, String medidas_de_amparo, String sentencia, String apelacion, String boletas_anteriores, String observaciones, String boletas_de_remision, int id) {
         this.fecha_denuncia = fecha_denuncia;
         this.denunciante = denunciante;
         this.victima = victima;
@@ -88,6 +89,7 @@ public class Vif_2012_2 {
         this.apelacion = apelacion;
         this.boletas_anteriores = boletas_anteriores;
         this.observaciones = observaciones;
+        this.boletas_de_remision = boletas_de_remision;
         this.id = id;
     }
 
@@ -315,11 +317,11 @@ public class Vif_2012_2 {
         this.tipo_de_violencia = tipo_de_violencia;
     }
 
-    public String getFecha_agresion() {
+    public Date getFecha_agresion() {
         return fecha_agresion;
     }
 
-    public void setFecha_agresion(String fecha_agresion) {
+    public void setFecha_agresion(Date fecha_agresion) {
         this.fecha_agresion = fecha_agresion;
     }
 
@@ -371,14 +373,23 @@ public class Vif_2012_2 {
         this.observaciones = observaciones;
     }
 
+    public String getBoletas_de_remision() {
+        return boletas_de_remision;
+    }
+
+    public void setBoletas_de_remision(String boletas_de_remision) {
+        this.boletas_de_remision = boletas_de_remision;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }  
+    }
 
+    
     
     
 }
