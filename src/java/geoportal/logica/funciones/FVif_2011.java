@@ -231,7 +231,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosDadoTipoViolenciaSexoVictima(String sexo, String violencia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -248,8 +248,8 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
-        public static ArrayList<Vif_2011> ObtenerDatosDadoTipoViolencia(String violencia) throws Exception {
+
+    public static ArrayList<Vif_2011> ObtenerDatosDadoTipoViolencia(String violencia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -262,7 +262,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosTipoViolencia() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -290,7 +290,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad2(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -305,6 +305,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad3(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -319,7 +320,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad4(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -334,7 +335,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad5(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -349,7 +350,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad6(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -364,7 +365,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSexoVictimaEdad7(String sexo) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -379,7 +380,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad1() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -392,7 +393,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad2() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -405,6 +406,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad3() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -417,6 +419,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad4() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -429,6 +432,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad5() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -441,6 +445,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad6() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -453,6 +458,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosVictimasEdad7() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -465,6 +471,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosDadoDiaAgresion(int dia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -479,5 +486,163 @@ public class FVif_2011 {
         }
         return lst;
     }
+
+    public static ArrayList<Vif_2011> ObtenerDatosEnero() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_enero()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosFebrero() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_febrero()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosMarzo() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_marzo()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosAbril() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_abril()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosMayo() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_mayo()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    public static ArrayList<Vif_2011> ObtenerDatosJunio() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_junio()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosJulio() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_julio()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosAgosto() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_agosto()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosSeptiembre() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_septiembre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosOctubre() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_octubre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosNoviembre() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_noviembre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDiciembre() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.select_vif2011_denuncias_diciembre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    
+    
     
 }
