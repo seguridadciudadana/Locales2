@@ -31,7 +31,7 @@ public class Vif_2011ControladorTipoViolencia {
      */
     private CartesianChartModel lineModel;
     private CartesianChartModel lineModel2;
-    private PieChartModel pieModel;
+    private PieChartModel pieModel;    
     private ArrayList<Vif_2011> lstDatosControl;
     private Vif_2011 datoSel;
     private ArrayList<Vif_2011> lstDatosV;

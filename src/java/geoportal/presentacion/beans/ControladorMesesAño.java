@@ -8,9 +8,16 @@ package geoportal.presentacion.beans;
 import geoportal.logica.clases.Vif_2010;
 import geoportal.logica.clases.Vif_2011;
 import geoportal.logica.clases.Vif_2012;
+import geoportal.logica.funciones.FVif_2010;
+import geoportal.logica.funciones.FVif_2011;
+import geoportal.logica.funciones.FVif_2012;
 import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
+import recursos.Util;
 
 /**
  *
@@ -59,6 +66,33 @@ public class ControladorMesesAño {
     private ArrayList<Vif_2012> lstDatosOctubre2012;
     private ArrayList<Vif_2012> lstDatosNoviembre2012;
     private ArrayList<Vif_2012> lstDatosDiciembre2012;
+    private CartesianChartModel graficoContrastesMeses;
+    private Vif_2010 datoSel2010;
+    private ArrayList<Vif_2010> lstDatos2010;
+
+    public Vif_2010 getDatoSel2010() {
+        return datoSel2010;
+    }
+
+    public void setDatoSel2010(Vif_2010 datoSel2010) {
+        this.datoSel2010 = datoSel2010;
+    }
+
+    public ArrayList<Vif_2010> getLstDatos2010() {
+        return lstDatos2010;
+    }
+
+    public void setLstDatos2010(ArrayList<Vif_2010> lstDatos2010) {
+        this.lstDatos2010 = lstDatos2010;
+    }
+
+    public CartesianChartModel getGraficoContrastesMeses() {
+        return graficoContrastesMeses;
+    }
+
+    public void setGraficoContrastesMeses(CartesianChartModel graficoContrastesMeses) {
+        this.graficoContrastesMeses = graficoContrastesMeses;
+    }
 
     public ArrayList<Vif_2010> getLstDatosEnero2010() {
         return lstDatosEnero2010;
@@ -347,10 +381,145 @@ public class ControladorMesesAño {
     public void setLstDatosDiciembre2012(ArrayList<Vif_2012> lstDatosDiciembre2012) {
         this.lstDatosDiciembre2012 = lstDatosDiciembre2012;
     }
-    
-    
 
-    public ControladorMesesAño() {
+    @PostConstruct
+    public void init() {
+        graficar();
     }
 
+    public void graficar() {
+        graficoContrastesMeses = contrastesMeses();
+    }
+
+    public ControladorMesesAño() {
+        this.reinit();
+    }
+
+    private void reinit() {
+        this.lstDatosEnero2010 = new ArrayList<Vif_2010>();
+        this.lstDatosFebrero2010 = new ArrayList<Vif_2010>();
+        this.lstDatosMarzo2010 = new ArrayList<Vif_2010>();
+        this.lstDatosAbril2010 = new ArrayList<Vif_2010>();
+        this.lstDatosMayo2010 = new ArrayList<Vif_2010>();
+        this.lstDatosJunio2010 = new ArrayList<Vif_2010>();
+        this.lstDatosJulio2010 = new ArrayList<Vif_2010>();
+        this.lstDatosAgosto2010 = new ArrayList<Vif_2010>();
+        this.lstDatosSeptiembre2010 = new ArrayList<Vif_2010>();
+        this.lstDatosOctubre2010 = new ArrayList<Vif_2010>();
+        this.lstDatosNoviembre2010 = new ArrayList<Vif_2010>();
+        this.lstDatosDiciembre2010 = new ArrayList<Vif_2010>();
+        this.cargarDatos2010();
+        this.init();
+    }
+
+    private CartesianChartModel contrastesMeses() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+
+            lstDatosEnero2010 = FVif_2010.ObtenerDatosEnero();
+            lstDatosFebrero2010 = FVif_2010.ObtenerDatosFebrero();
+            lstDatosMarzo2010 = FVif_2010.ObtenerDatosMarzo();
+            lstDatosAbril2010 = FVif_2010.ObtenerDatosAbril();
+            lstDatosMayo2010 = FVif_2010.ObtenerDatosMayo();
+            lstDatosJunio2010 = FVif_2010.ObtenerDatosJunio();
+            lstDatosJulio2010 = FVif_2010.ObtenerDatosJulio();
+            lstDatosAgosto2010 = FVif_2010.ObtenerDatosAgosto();
+            lstDatosSeptiembre2010 = FVif_2010.ObtenerDatosSeptiembre();
+            lstDatosOctubre2010 = FVif_2010.ObtenerDatosOctubre();
+            lstDatosNoviembre2010 = FVif_2010.ObtenerDatosNoviembre();
+            lstDatosDiciembre2010 = FVif_2010.ObtenerDatosDiciembre();
+
+            lstDatosEnero2011 = FVif_2011.ObtenerDatosEnero();
+            lstDatosFebrero2011 = FVif_2011.ObtenerDatosFebrero();
+            lstDatosMarzo2011 = FVif_2011.ObtenerDatosMarzo();
+            lstDatosAbril2011 = FVif_2011.ObtenerDatosAbril();
+            lstDatosMayo2011 = FVif_2011.ObtenerDatosMayo();
+            lstDatosJunio2011 = FVif_2011.ObtenerDatosJunio();
+            lstDatosJulio2011 = FVif_2011.ObtenerDatosJulio();
+            lstDatosAgosto2011 = FVif_2011.ObtenerDatosAgosto();
+            lstDatosSeptiembre2011 = FVif_2011.ObtenerDatosSeptiembre();
+            lstDatosOctubre2011 = FVif_2011.ObtenerDatosOctubre();
+            lstDatosNoviembre2011 = FVif_2011.ObtenerDatosNoviembre();
+            lstDatosDiciembre2011 = FVif_2011.ObtenerDatosDiciembre();
+
+            lstDatosEnero2012 = FVif_2012.ObtenerDatosEnero();
+            lstDatosFebrero2012 = FVif_2012.ObtenerDatosFebrero();
+            lstDatosMarzo2012 = FVif_2012.ObtenerDatosMarzo();
+            lstDatosAbril2012 = FVif_2012.ObtenerDatosAbril();
+            lstDatosMayo2012 = FVif_2012.ObtenerDatosMayo();
+            lstDatosJunio2012 = FVif_2012.ObtenerDatosJunio();
+            lstDatosJulio2012 = FVif_2012.ObtenerDatosJulio();
+            lstDatosAgosto2012 = FVif_2012.ObtenerDatosAgosto();
+            lstDatosSeptiembre2012 = FVif_2012.ObtenerDatosSeptiembre();
+            lstDatosOctubre2012 = FVif_2012.ObtenerDatosOctubre();
+            lstDatosNoviembre2012 = FVif_2012.ObtenerDatosNoviembre();
+            lstDatosDiciembre2012 = FVif_2012.ObtenerDatosDiciembre();
+
+            ChartSeries Vif_2010 = new ChartSeries();
+            Vif_2010.setLabel("Casos 2010");
+            Vif_2010.set("Enero", lstDatosEnero2010.size());
+            Vif_2010.set("Febrero", lstDatosFebrero2010.size());
+            Vif_2010.set("Marzo", lstDatosMarzo2010.size());
+            Vif_2010.set("Abril", lstDatosAbril2010.size());
+            Vif_2010.set("Mayo", lstDatosMayo2010.size());
+            Vif_2010.set("Junio", lstDatosJunio2010.size());
+            Vif_2010.set("Julio", lstDatosJulio2010.size());
+            Vif_2010.set("Agosto", lstDatosAgosto2010.size());
+            Vif_2010.set("Septiembre", lstDatosSeptiembre2010.size());
+            Vif_2010.set("Octubre", lstDatosOctubre2010.size());
+            Vif_2010.set("Noviembre", lstDatosNoviembre2010.size());
+            Vif_2010.set("Diciembre", lstDatosDiciembre2010.size());
+
+            ChartSeries Vif_2011 = new ChartSeries();
+            Vif_2011.setLabel("Casos 2011");
+            Vif_2011.set("Enero", lstDatosEnero2011.size());
+            Vif_2011.set("Febrero", lstDatosFebrero2011.size());
+            Vif_2011.set("Marzo", lstDatosMarzo2011.size());
+            Vif_2011.set("Abril", lstDatosAbril2011.size());
+            Vif_2011.set("Mayo", lstDatosMayo2011.size());
+            Vif_2011.set("Junio", lstDatosJunio2011.size());
+            Vif_2011.set("Julio", lstDatosJulio2011.size());
+            Vif_2011.set("Agosto", lstDatosAgosto2011.size());
+            Vif_2011.set("Septiembre", lstDatosSeptiembre2011.size());
+            Vif_2011.set("Octubre", lstDatosOctubre2011.size());
+            Vif_2011.set("Noviembre", lstDatosNoviembre2011.size());
+            Vif_2011.set("Diciembre", lstDatosDiciembre2011.size());
+
+            ChartSeries Vif_2012 = new ChartSeries();
+            Vif_2012.setLabel("Casos 2012");
+            Vif_2012.set("Enero", lstDatosEnero2012.size());
+            Vif_2012.set("Febrero", lstDatosFebrero2012.size());
+            Vif_2012.set("Marzo", lstDatosMarzo2012.size());
+            Vif_2012.set("Abril", lstDatosAbril2012.size());
+            Vif_2012.set("Mayo", lstDatosMayo2012.size());
+            Vif_2012.set("Junio", lstDatosJunio2012.size());
+            Vif_2012.set("Julio", lstDatosJulio2012.size());
+            Vif_2012.set("Agosto", lstDatosAgosto2012.size());
+            Vif_2012.set("Septiembre", lstDatosSeptiembre2012.size());
+            Vif_2012.set("Octubre", lstDatosOctubre2012.size());
+            Vif_2012.set("Noviembre", lstDatosNoviembre2012.size());
+            Vif_2012.set("Diciembre", lstDatosDiciembre2012.size());
+
+            model.addSeries(Vif_2010);
+            model.addSeries(Vif_2011);
+             model.addSeries(Vif_2012);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    public void cargarDatos2010() {
+        try {
+
+            this.lstDatos2010 = FVif_2010.ObtenerDatos();
+            this.datoSel2010 = lstDatos2010.get(0);
+            System.out.println(lstDatos2010.get(0).getId());
+
+        } catch (Exception e) {
+            Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
+            System.out.println("private void cargarDatos dice: " + e.getMessage());
+        }
+    }
 }
