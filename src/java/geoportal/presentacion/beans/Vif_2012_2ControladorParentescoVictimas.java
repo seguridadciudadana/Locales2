@@ -104,9 +104,9 @@ public class Vif_2012_2ControladorParentescoVictimas {
             ChartSeries Parentesco = new ChartSeries();
             Parentesco.setLabel("Parentesco Victima - Agresor");
             for (Vif_2012_2 lstDatosP1 : lstDatosP) {
-                lstDatosDadoP = FVif_2012_2.ObtenerDatosDadoParentesco(lstDatosP1.getPparentesco_victima_agresor());
+                lstDatosDadoP = FVif_2012_2.ObtenerDatosDadoParentesco(lstDatosP1.getParentesco_victima_agresor());
                 //TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
-                Parentesco.set(lstDatosP1.getPparentesco_victima_agresor(), lstDatosDadoP.size());
+                Parentesco.set(lstDatosP1.getParentesco_victima_agresor(), lstDatosDadoP.size());
             }
             model.addSeries(Parentesco);
 
@@ -128,7 +128,7 @@ public class Vif_2012_2ControladorParentescoVictimas {
         try {
             this.lstDatosControl = FVif_2012_2.ObtenerDatos();
             this.datoSel = lstDatosControl.get(0);
-            System.out.println(lstDatosControl.get(0).getPid());
+            System.out.println(lstDatosControl.get(0).getId());
         } catch (Exception e) {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());

@@ -8,9 +8,11 @@ package geoportal.presentacion.beans;
 import geoportal.logica.clases.Vif_2010;
 import geoportal.logica.clases.Vif_2011;
 import geoportal.logica.clases.Vif_2012;
+import geoportal.logica.clases.Vif_2012_2;
 import geoportal.logica.funciones.FVif_2010;
 import geoportal.logica.funciones.FVif_2011;
 import geoportal.logica.funciones.FVif_2012;
+import geoportal.logica.funciones.FVif_2012_2;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -66,19 +68,19 @@ public class Vif_ContrastesCircuitos {
     private ArrayList<Vif_2011> lstDatosTerminalTerretre2011;
     private ArrayList<Vif_2011> lstDatosYaruquies2011;
     //listas 2012
-    private ArrayList<Vif_2012> lstDatos24Mayo2012;
-    private ArrayList<Vif_2012> lstDatosCamiloPonce2012;
-    private ArrayList<Vif_2012> lstDatosCaminosAlSol2012;
-    private ArrayList<Vif_2012> lstDatosLaCondamine2012;
-    private ArrayList<Vif_2012> lstDatosLaEstacion2012;
-    private ArrayList<Vif_2012> lstDatosLaPaz2012;
-    private ArrayList<Vif_2012> lstDatosLaPrimavera2012;
-    private ArrayList<Vif_2012> lstDatosPolitecnica2012;
-    private ArrayList<Vif_2012> lstDatosPucara2012;
-    private ArrayList<Vif_2012> lstDatosSanAlfonso2012;
-    private ArrayList<Vif_2012> lstDatosShopping2012;
-    private ArrayList<Vif_2012> lstDatosTerminalTerretre2012;
-    private ArrayList<Vif_2012> lstDatosYaruquies2012;
+    private ArrayList<Vif_2012_2> lstDatos24Mayo2012;
+    private ArrayList<Vif_2012_2> lstDatosCamiloPonce2012;
+    private ArrayList<Vif_2012_2> lstDatosCaminosAlSol2012;
+    private ArrayList<Vif_2012_2> lstDatosLaCondamine2012;
+    private ArrayList<Vif_2012_2> lstDatosLaEstacion2012;
+    private ArrayList<Vif_2012_2> lstDatosLaPaz2012;
+    private ArrayList<Vif_2012_2> lstDatosLaPrimavera2012;
+    private ArrayList<Vif_2012_2> lstDatosPolitecnica2012;
+    private ArrayList<Vif_2012_2> lstDatosPucara2012;
+    private ArrayList<Vif_2012_2> lstDatosSanAlfonso2012;
+    private ArrayList<Vif_2012_2> lstDatosShopping2012;
+    private ArrayList<Vif_2012_2> lstDatosTerminalTerretre2012;
+    private ArrayList<Vif_2012_2> lstDatosYaruquies2012;
 
     public CartesianChartModel getLineModel1() {
         return lineModel1;
@@ -344,108 +346,115 @@ public class Vif_ContrastesCircuitos {
         this.lstDatosYaruquies2011 = lstDatosYaruquies2011;
     }
 
-    public ArrayList<Vif_2012> getLstDatos24Mayo2012() {
+    public ArrayList<Vif_2012_2> getLstDatos24Mayo2012() {
         return lstDatos24Mayo2012;
     }
 
-    public void setLstDatos24Mayo2012(ArrayList<Vif_2012> lstDatos24Mayo2012) {
+    public void setLstDatos24Mayo2012(ArrayList<Vif_2012_2> lstDatos24Mayo2012) {
         this.lstDatos24Mayo2012 = lstDatos24Mayo2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosCamiloPonce2012() {
+    public ArrayList<Vif_2012_2> getLstDatosCamiloPonce2012() {
         return lstDatosCamiloPonce2012;
     }
 
-    public void setLstDatosCamiloPonce2012(ArrayList<Vif_2012> lstDatosCamiloPonce2012) {
+    public void setLstDatosCamiloPonce2012(ArrayList<Vif_2012_2> lstDatosCamiloPonce2012) {
         this.lstDatosCamiloPonce2012 = lstDatosCamiloPonce2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosCaminosAlSol2012() {
+    public ArrayList<Vif_2012_2> getLstDatosCaminosAlSol2012() {
         return lstDatosCaminosAlSol2012;
     }
 
-    public void setLstDatosCaminosAlSol2012(ArrayList<Vif_2012> lstDatosCaminosAlSol2012) {
+    public void setLstDatosCaminosAlSol2012(ArrayList<Vif_2012_2> lstDatosCaminosAlSol2012) {
         this.lstDatosCaminosAlSol2012 = lstDatosCaminosAlSol2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosLaCondamine2012() {
+    public ArrayList<Vif_2012_2> getLstDatosLaCondamine2012() {
         return lstDatosLaCondamine2012;
     }
 
-    public void setLstDatosLaCondamine2012(ArrayList<Vif_2012> lstDatosLaCondamine2012) {
+    public void setLstDatosLaCondamine2012(ArrayList<Vif_2012_2> lstDatosLaCondamine2012) {
         this.lstDatosLaCondamine2012 = lstDatosLaCondamine2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosLaEstacion2012() {
+    public ArrayList<Vif_2012_2> getLstDatosLaEstacion2012() {
         return lstDatosLaEstacion2012;
     }
 
-    public void setLstDatosLaEstacion2012(ArrayList<Vif_2012> lstDatosLaEstacion2012) {
+    public void setLstDatosLaEstacion2012(ArrayList<Vif_2012_2> lstDatosLaEstacion2012) {
         this.lstDatosLaEstacion2012 = lstDatosLaEstacion2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosLaPaz2012() {
+    public ArrayList<Vif_2012_2> getLstDatosLaPaz2012() {
         return lstDatosLaPaz2012;
     }
 
-    public void setLstDatosLaPaz2012(ArrayList<Vif_2012> lstDatosLaPaz2012) {
+    public void setLstDatosLaPaz2012(ArrayList<Vif_2012_2> lstDatosLaPaz2012) {
         this.lstDatosLaPaz2012 = lstDatosLaPaz2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosLaPrimavera2012() {
+    public ArrayList<Vif_2012_2> getLstDatosLaPrimavera2012() {
         return lstDatosLaPrimavera2012;
     }
 
-    public void setLstDatosLaPrimavera2012(ArrayList<Vif_2012> lstDatosLaPrimavera2012) {
+    public void setLstDatosLaPrimavera2012(ArrayList<Vif_2012_2> lstDatosLaPrimavera2012) {
         this.lstDatosLaPrimavera2012 = lstDatosLaPrimavera2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosPolitecnica2012() {
+    public ArrayList<Vif_2012_2> getLstDatosPolitecnica2012() {
         return lstDatosPolitecnica2012;
     }
 
-    public void setLstDatosPolitecnica2012(ArrayList<Vif_2012> lstDatosPolitecnica2012) {
+    public void setLstDatosPolitecnica2012(ArrayList<Vif_2012_2> lstDatosPolitecnica2012) {
         this.lstDatosPolitecnica2012 = lstDatosPolitecnica2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosPucara2012() {
+    public ArrayList<Vif_2012_2> getLstDatosPucara2012() {
         return lstDatosPucara2012;
     }
 
-    public void setLstDatosPucara2012(ArrayList<Vif_2012> lstDatosPucara2012) {
+    public void setLstDatosPucara2012(ArrayList<Vif_2012_2> lstDatosPucara2012) {
         this.lstDatosPucara2012 = lstDatosPucara2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosSanAlfonso2012() {
+    public ArrayList<Vif_2012_2> getLstDatosSanAlfonso2012() {
         return lstDatosSanAlfonso2012;
     }
 
-    public void setLstDatosSanAlfonso2012(ArrayList<Vif_2012> lstDatosSanAlfonso2012) {
+    public void setLstDatosSanAlfonso2012(ArrayList<Vif_2012_2> lstDatosSanAlfonso2012) {
         this.lstDatosSanAlfonso2012 = lstDatosSanAlfonso2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosShopping2012() {
+    public ArrayList<Vif_2012_2> getLstDatosShopping2012() {
         return lstDatosShopping2012;
     }
 
-    public void setLstDatosShopping2012(ArrayList<Vif_2012> lstDatosShopping2012) {
+    public void setLstDatosShopping2012(ArrayList<Vif_2012_2> lstDatosShopping2012) {
         this.lstDatosShopping2012 = lstDatosShopping2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosTerminalTerretre2012() {
+    public ArrayList<Vif_2012_2> getLstDatosTerminalTerretre2012() {
         return lstDatosTerminalTerretre2012;
     }
 
-    public void setLstDatosTerminalTerretre2012(ArrayList<Vif_2012> lstDatosTerminalTerretre2012) {
+    public void setLstDatosTerminalTerretre2012(ArrayList<Vif_2012_2> lstDatosTerminalTerretre2012) {
         this.lstDatosTerminalTerretre2012 = lstDatosTerminalTerretre2012;
     }
 
-    public ArrayList<Vif_2012> getLstDatosYaruquies2012() {
+    public ArrayList<Vif_2012_2> getLstDatosYaruquies2012() {
         return lstDatosYaruquies2012;
     }
 
-    public void setLstDatosYaruquies2012(ArrayList<Vif_2012> lstDatosYaruquies2012) {
+    public void setLstDatosYaruquies2012(ArrayList<Vif_2012_2> lstDatosYaruquies2012) {
         this.lstDatosYaruquies2012 = lstDatosYaruquies2012;
+    }
+    
+    
+
+    
+     public Vif_ContrastesCircuitos() {
+        this.reinit();
     }
 
     @PostConstruct
@@ -491,27 +500,23 @@ public class Vif_ContrastesCircuitos {
         this.lstDatosShopping2011 = new ArrayList<Vif_2011>();
         this.lstDatosTerminalTerretre2011 = new ArrayList<Vif_2011>();
         this.lstDatosYaruquies2011 = new ArrayList<Vif_2011>();
-        this.lstDatos24Mayo2012 = new ArrayList<Vif_2012>();
-        this.lstDatosCamiloPonce2012 = new ArrayList<Vif_2012>();
-        this.lstDatosCaminosAlSol2012 = new ArrayList<Vif_2012>();
-        this.lstDatosLaCondamine2012 = new ArrayList<Vif_2012>();
-        this.lstDatosLaEstacion2012 = new ArrayList<Vif_2012>();
-        this.lstDatosLaPaz2012 = new ArrayList<Vif_2012>();
-        this.lstDatosLaPrimavera2012 = new ArrayList<Vif_2012>();
-        this.lstDatosPolitecnica2012 = new ArrayList<Vif_2012>();
-        this.lstDatosPucara2012 = new ArrayList<Vif_2012>();
-        this.lstDatosSanAlfonso2012 = new ArrayList<Vif_2012>();
-        this.lstDatosShopping2012 = new ArrayList<Vif_2012>();
-        this.lstDatosTerminalTerretre2012 = new ArrayList<Vif_2012>();
-        this.lstDatosYaruquies2012 = new ArrayList<Vif_2012>();
+        this.lstDatos24Mayo2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosCamiloPonce2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosCaminosAlSol2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosLaCondamine2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosLaEstacion2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosLaPaz2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosLaPrimavera2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosPolitecnica2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosPucara2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosSanAlfonso2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosShopping2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosTerminalTerretre2012 = new ArrayList<Vif_2012_2>();
+        this.lstDatosYaruquies2012 = new ArrayList<Vif_2012_2>();
         this.cargarDatos2010();
         this.cargarDatos2011();
         this.cargarDatos2012();
         this.init();
-    }
-
-    public Vif_ContrastesCircuitos() {
-        this.reinit();
     }
 
     private CartesianChartModel contrasteCircuito() {
@@ -546,19 +551,19 @@ public class Vif_ContrastesCircuitos {
             lstDatosTerminalTerretre2011 = FVif_2011.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
             lstDatosYaruquies2011 = FVif_2011.ObtenerDatosDadoCircuito("YARUQUIES");
 
-            lstDatos24Mayo2012 = FVif_2012.ObtenerDatosDadoCircuito("24 DE MAYO");
-            lstDatosCamiloPonce2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMILO PONCE");
-            lstDatosCaminosAlSol2012 = FVif_2012.ObtenerDatosDadoCircuito("CAMINO AL SOL");
-            lstDatosLaCondamine2012 = FVif_2012.ObtenerDatosDadoCircuito("LA CONDAMINE");
-            lstDatosLaEstacion2012 = FVif_2012.ObtenerDatosDadoCircuito("LA ESTACION");
-            lstDatosLaPaz2012 = FVif_2012.ObtenerDatosDadoCircuito("LA PAZ");
-            lstDatosLaPrimavera2012 = FVif_2012.ObtenerDatosDadoCircuito("LA PRIMAVERA");
-            lstDatosPolitecnica2012 = FVif_2012.ObtenerDatosDadoCircuito("POLITECNICA");
-            lstDatosPucara2012 = FVif_2012.ObtenerDatosDadoCircuito("PUCARA");
-            lstDatosSanAlfonso2012 = FVif_2012.ObtenerDatosDadoCircuito("SAN ALFONSO");
-            lstDatosShopping2012 = FVif_2012.ObtenerDatosDadoCircuito("SHOPPING");
-            lstDatosTerminalTerretre2012 = FVif_2012.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
-            lstDatosYaruquies2012 = FVif_2012.ObtenerDatosDadoCircuito("YARUQUIES");
+            lstDatos24Mayo2012 = FVif_2012_2.ObtenerDatosDadoCircuito("24 DE MAYO");
+            lstDatosCamiloPonce2012 = FVif_2012_2.ObtenerDatosDadoCircuito("CAMILO PONCE");
+            lstDatosCaminosAlSol2012 = FVif_2012_2.ObtenerDatosDadoCircuito("CAMINO AL SOL");
+            lstDatosLaCondamine2012 = FVif_2012_2.ObtenerDatosDadoCircuito("LA CONDAMINE");
+            lstDatosLaEstacion2012 = FVif_2012_2.ObtenerDatosDadoCircuito("LA ESTACION");
+            lstDatosLaPaz2012 = FVif_2012_2.ObtenerDatosDadoCircuito("LA PAZ");
+            lstDatosLaPrimavera2012 = FVif_2012_2.ObtenerDatosDadoCircuito("LA PRIMAVERA");
+            lstDatosPolitecnica2012 = FVif_2012_2.ObtenerDatosDadoCircuito("POLITECNICA");
+            lstDatosPucara2012 = FVif_2012_2.ObtenerDatosDadoCircuito("PUCARA");
+            lstDatosSanAlfonso2012 = FVif_2012_2.ObtenerDatosDadoCircuito("SAN ALFONSO");
+            lstDatosShopping2012 = FVif_2012_2.ObtenerDatosDadoCircuito("SHOPPING");
+            lstDatosTerminalTerretre2012 = FVif_2012_2.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
+            lstDatosYaruquies2012 = FVif_2012_2.ObtenerDatosDadoCircuito("YARUQUIES");
 
             ChartSeries Vif_2010 = new ChartSeries();
             Vif_2010.setLabel("Víctimas 2010 por circuitos");
@@ -607,6 +612,8 @@ public class Vif_ContrastesCircuitos {
             Vif_2012.set("SHOPPING", lstDatosShopping2012.size());
             Vif_2012.set("TERMINAL TERRESTRE", lstDatosTerminalTerretre2012.size());
             Vif_2012.set("YARUQUIES", lstDatosYaruquies2012.size());
+            
+            //System.out.println(lstDatos24Mayo2012.get(0).getPcircuito());
 
             model.addSeries(Vif_2010);
             model.addSeries(Vif_2011);

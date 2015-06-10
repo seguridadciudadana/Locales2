@@ -8,7 +8,9 @@ package geoportal.logica.funciones;
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
 import accesodatos.Parametro;
+import geoportal.logica.clases.Vif_2012;
 import geoportal.logica.clases.Vif_2012_2;
+import static geoportal.logica.funciones.FVif_2012.llenarDatos;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -117,6 +119,20 @@ public class FVif_2012_2 {
             String sql = "select * from geoportal.f_select_vif_2012_2_dado_parentesco_sexo_victima(?,?)";
             lstP.add(new Parametro(1, parentesco));
             lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+       public static ArrayList<Vif_2012_2> ObtenerDatosDadoCircuito(String circuito) throws Exception {
+        ArrayList<Vif_2012_2> lst = new ArrayList<Vif_2012_2>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * geoportal.f_select_vif_2012_dado_circuito(?)";
+            lstP.add(new Parametro(1, circuito));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
