@@ -366,7 +366,7 @@ public class Vif_2012ControladorDiaDenuncia {
             Femenino.set("Sabado", lstDatosSabadoF.size());
             Femenino.set("DoFingo", lstDatosDomingoF.size());
 
-            model.addSeries(Semana);
+//            model.addSeries(Semana);
             model.addSeries(Femenino);
             model.addSeries(Masculino);
 

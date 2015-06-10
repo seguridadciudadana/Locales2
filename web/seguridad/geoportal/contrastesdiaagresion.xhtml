@@ -23,21 +23,22 @@ and open the template in the editor.
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                    <p:accordionPanel style="max-height: 800px;max-width: 1400px">
-                        <p:tab title="Tipos de Violencia">
+                    <p:accordionPanel style="max-height: 800px;max-width: 1200px">
+                        <p:tab title="Contraste agresiones efectuadas en el transcurso de la semana">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2012ControladorCircuitoViolencia.lineModelCircuitoViolencia}" legendPosition="e" 
-                                           title="Tipo de Violencia" style="height:400px;width:1000px;text-decoration-style: dashed"
-                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
-                        </p:tab>  
-                        <p:tab title="Tipos de Violencia">
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2012ControladorCircuitoViolencia.lineModelCircuitoViolencia}" legendPosition="e" 
-                                           title="Tipo de Violencia" style="height:400px;width:1200px;text-decoration-style: dashed"
-                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <p:lineChart   value="#{controladorContrastesDiaAgresion.modelContrastesDia}" legendPosition="e" 
+                                           title="#Casos" style="height:400px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
 
-                        </p:tab>  
-                    </p:accordionPanel>
+                        </p:tab>
+                        <p:tab title="Contraste agresiones efectuadas en el transcurso de la semana(Gráfico De Barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesDiaAgresion.modelContrastesDia}" legendPosition="e" 
+                                           title="#Casos" style="height:400px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+
+                        </p:tab>
+                    </p:accordionPanel>                   
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">
