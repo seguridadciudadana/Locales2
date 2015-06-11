@@ -83,6 +83,40 @@ public class FVif_2012 {
         }
         return lst;
     }
+    
+    /*public static ArrayList<Vif_2012> ObtenerDatosDadoCircuitoTipoViolencia(String circuito, String tViolencia) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_circuito_tipo_violencia(?,?)";
+            lstP.add(new Parametro(1, circuito));
+            lstP.add(new Parametro(2, tViolencia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }*/
+    
+    public static ArrayList<Vif_2012> ObtenerDatosDadoSubCircuitoTipoViolencia(String subcircuito, String tViolencia) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_subcircuito_tipo_violencia(?,?)";
+            lstP.add(new Parametro(1, subcircuito));
+            lstP.add(new Parametro(2, tViolencia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 
     /*
      funciones de las victimas
