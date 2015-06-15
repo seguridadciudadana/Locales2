@@ -1,5 +1,6 @@
 package recursos;
 
+import java.sql.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -8,8 +9,10 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
-@ManagedBean(name="util")
+@ManagedBean(name = "util")
 @SessionScoped
 public class Util {
 
@@ -22,7 +25,7 @@ public class Util {
     public static void setPrimerIngreso(boolean primerIngreso) {
         Util.primerIngreso = primerIngreso;
     }
-    
+
     public static SelectItem[] getSelectItems(List<?> entities, boolean selectOne) {
         int size = selectOne ? entities.size() + 1 : entities.size();
         SelectItem[] items = new SelectItem[size];
@@ -70,11 +73,28 @@ public class Util {
         String theId = Util.getRequestParameter(requestParameterName);
         return converter.getAsObject(FacesContext.getCurrentInstance(), component, theId);
     }
-    
+
     public static void mostrarMensaje(String msj) {
         if (msj != null) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Alerta!!", msj);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
+    }
+
+    
+    //convertir string a date
+    
+    public static Date convertirStringDate(String fechaString) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = (Date) formato.parse(fechaString);
+        } catch (ParseException ex) {
+            System.out.println(ex);
+        }
+
+        System.out.println(fechaDate.toString());
+        
+        return fechaDate;
     }
 }

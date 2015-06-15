@@ -307,6 +307,7 @@ public class Vif_2012ControladorDiaDenuncia {
         this.reinit();
     }
 
+
     private CartesianChartModel graficaDiaDenuncia() {
         CartesianChartModel model = new CartesianChartModel();
         try {
