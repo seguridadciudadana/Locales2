@@ -933,8 +933,7 @@ public class FVif_2010 {
         }
         return lst;
     }
-     
-     
+          
      public static ArrayList<Vif_2010> ObtenerDatosDadoTipoViolenciaSexoVictima(String sexo, String violencia) throws Exception {
         ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
         try {
@@ -951,4 +950,34 @@ public class FVif_2010 {
         }
         return lst;
     }
+     
+     public static ArrayList<Vif_2010> ObtenerDatosDiaAgresion() throws Exception {
+        ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_fecha_agresion()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+     public static ArrayList<Vif_2010> ObtenerDatosDadoFechaAgresion(String nombre) throws Exception {
+        ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2010_2_dado_fecha_agresion(?)";
+            lstP.add(new Parametro(1, nombre));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
 }

@@ -372,6 +372,7 @@ public class Vif_2012ControladorDiaDenuncia {
             model.addSeries(Masculino);
 
         } catch (Exception e) {
+             Util.addErrorMessage(e, "Error");
         }
         return model;
     }

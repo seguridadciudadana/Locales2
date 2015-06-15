@@ -268,7 +268,7 @@ public class Vif_2010Controlador implements Serializable {
     public void graficar() {
         lineModel1 = initCategorySubcircuito();
         lineModel2 = initCategoryCircuito();
-        pieModel=graficaDenunciasCircuito();
+        pieModel = graficaDenunciasCircuito();
     }
 
     /**
@@ -367,8 +367,8 @@ public class Vif_2010Controlador implements Serializable {
             System.out.println("private void cargarDatos dice: " + e.getMessage());
         }
     }
-    
-      public void itemSelect(ItemSelectEvent event) {
+
+    public void itemSelect(ItemSelectEvent event) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Item selected",
                 "Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());
 

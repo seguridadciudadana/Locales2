@@ -287,6 +287,7 @@ public class Vif_2010ControladorTipoViolencia {
             model.addSeries(Vif_2010);
 
         } catch (Exception e) {
+             Util.addErrorMessage(e, "Error");
         }
         return model;
     }
@@ -331,8 +332,9 @@ public class Vif_2010ControladorTipoViolencia {
             Femenino.set("PSICOLOGICA Y SEXUAL", lstDatosPsicologicaSexualF.size());
             Femenino.set("SEXUAL", lstDatosSexualF.size());
 
-            model.addSeries(Masculino);
             model.addSeries(Femenino);
+            model.addSeries(Masculino);
+            
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");

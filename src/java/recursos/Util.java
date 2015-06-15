@@ -1,6 +1,5 @@
 package recursos;
 
-import java.sql.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -9,8 +8,6 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 
 @ManagedBean(name = "util")
 @SessionScoped
@@ -81,20 +78,5 @@ public class Util {
         }
     }
 
-    
-    //convertir string a date
-    
-    public static Date convertirStringDate(String fechaString) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date fechaDate = null;
-        try {
-            fechaDate = (Date) formato.parse(fechaString);
-        } catch (ParseException ex) {
-            System.out.println(ex);
-        }
-
-        System.out.println(fechaDate.toString());
-        
-        return fechaDate;
-    }
+  
 }
