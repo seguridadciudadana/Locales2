@@ -9,9 +9,9 @@ import java.sql.Date;
 
 /**
  *
- * @author oscunach
+ * @author Oscunach
  */
-public class Vif_2012_Sala_1acogida {
+public class Vif_2012_spa {
 
     private int n_caso;
     private String provincia;
@@ -60,14 +60,14 @@ public class Vif_2012_Sala_1acogida {
     private String telefono_agresor;
     private String relacion_con_victima;
     private String tratamiento_recibido;
-    private String caso_medico;
+    private String pcaso_medico;
     private String referido;
     private int id;
 
-    public Vif_2012_Sala_1acogida() {
+    public Vif_2012_spa() {
     }
 
-    public Vif_2012_Sala_1acogida(int n_caso, String provincia, String canton, String barrio, String institucion, Date fecha_atencion, String apellidos_victima, String nombres_victima, int edad_victima, String sexo_victima, String instruccion_victima, int anios_cursados, String estado_civil_victima, String ocupacion_victima, String telefono_victima, String domiciliado_canton, String domiciliado_parroquia, String domiciliado_calles, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String direccion_trabajo_victima, String telefono_trabajo_victima, String tipo_agresion, String frecuencia_agresion, String lugar_agresion, Date fecha_agresion, String hora_agresion, String asociacion_agresion, String objeto_agresion, String estado_conciencia_agresor, String apellidos_agresor, String nombres_agresor, String edad_agresor, String sexo_agresor, String estado_civil_agresor, String instruccion_agresor, String anios_cursados_agresor, String direccion_agresor, String ocupacion_agresor, String direccion_trabajo_agresor, String telefono_agresor, String relacion_con_victima, String tratamiento_recibido, String caso_medico, String referido, int id) {
+    public Vif_2012_spa(int n_caso, String provincia, String canton, String barrio, String institucion, Date fecha_atencion, String apellidos_victima, String nombres_victima, int edad_victima, String sexo_victima, String instruccion_victima, int anios_cursados, String estado_civil_victima, String ocupacion_victima, String telefono_victima, String domiciliado_canton, String domiciliado_parroquia, String domiciliado_calles, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String direccion_trabajo_victima, String telefono_trabajo_victima, String tipo_agresion, String frecuencia_agresion, String lugar_agresion, Date fecha_agresion, String hora_agresion, String asociacion_agresion, String objeto_agresion, String estado_conciencia_agresor, String apellidos_agresor, String nombres_agresor, String edad_agresor, String sexo_agresor, String estado_civil_agresor, String instruccion_agresor, String anios_cursados_agresor, String direccion_agresor, String ocupacion_agresor, String direccion_trabajo_agresor, String telefono_agresor, String relacion_con_victima, String tratamiento_recibido, String pcaso_medico, String referido, int id) {
         this.n_caso = n_caso;
         this.provincia = provincia;
         this.canton = canton;
@@ -115,7 +115,7 @@ public class Vif_2012_Sala_1acogida {
         this.telefono_agresor = telefono_agresor;
         this.relacion_con_victima = relacion_con_victima;
         this.tratamiento_recibido = tratamiento_recibido;
-        this.caso_medico = caso_medico;
+        this.pcaso_medico = pcaso_medico;
         this.referido = referido;
         this.id = id;
     }
@@ -496,12 +496,12 @@ public class Vif_2012_Sala_1acogida {
         this.tratamiento_recibido = tratamiento_recibido;
     }
 
-    public String getCaso_medico() {
-        return caso_medico;
+    public String getPcaso_medico() {
+        return pcaso_medico;
     }
 
-    public void setCaso_medico(String caso_medico) {
-        this.caso_medico = caso_medico;
+    public void setPcaso_medico(String pcaso_medico) {
+        this.pcaso_medico = pcaso_medico;
     }
 
     public String getReferido() {

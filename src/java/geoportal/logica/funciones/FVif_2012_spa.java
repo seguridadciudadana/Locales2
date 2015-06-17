@@ -7,7 +7,7 @@ package geoportal.logica.funciones;
 
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
-import geoportal.logica.clases.Vif_2012_Sala_1acogida;
+import geoportal.logica.clases.Vif_2012_spa;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -15,14 +15,14 @@ import java.util.ArrayList;
  *
  * @author Oscunach
  */
-public class FVif_2012_Sala_1acogida {
+public class FVif_2012_spa {
 
-    public static ArrayList<Vif_2012_Sala_1acogida> llenarDatos(ConjuntoResultado rs) throws Exception {
-        ArrayList<Vif_2012_Sala_1acogida> lst = new ArrayList<Vif_2012_Sala_1acogida>();
-        Vif_2012_Sala_1acogida datos = null;
+    public static ArrayList<Vif_2012_spa> llenarDatos(ConjuntoResultado rs) throws Exception {
+        ArrayList<Vif_2012_spa> lst = new ArrayList<Vif_2012_spa>();
+        Vif_2012_spa datos = null;
         try {
             while (rs.next()) {
-                datos = new Vif_2012_Sala_1acogida(
+                datos = new Vif_2012_spa(
                         rs.getInt("pn_caso"),
                         rs.getString("pprovincia"),
                         rs.getString("pcanton"),
@@ -74,20 +74,20 @@ public class FVif_2012_Sala_1acogida {
                         rs.getString("preferido"),
                         rs.getInt("pid")
                 );
+
                 lst.add(datos);
             }
         } catch (Exception e) {
             lst.clear();
             throw e;
         }
-
         return lst;
     }
-
-    public static ArrayList<Vif_2012_Sala_1acogida> ObtenerDatos() throws Exception {
-        ArrayList<Vif_2012_Sala_1acogida> lst = new ArrayList<Vif_2012_Sala_1acogida>();
+    
+    public static ArrayList<Vif_2012_spa> ObtenerDatos() throws Exception {
+        ArrayList<Vif_2012_spa> lst = new ArrayList<Vif_2012_spa>();
         try {
-            String sql = "select * from geoportal.select_vif_2012_1ra_acogida()";
+            String sql = "select * from geoportal.select_vif_2012_1ra_acogida_circuito()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;

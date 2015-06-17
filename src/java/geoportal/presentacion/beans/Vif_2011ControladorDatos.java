@@ -78,7 +78,7 @@ public class Vif_2011ControladorDatos {
         this.reinit();
     }
 
-    public void reinit() {
+    private void reinit() {
         this.lstVif_2011 = new ArrayList<Vif_2011>();
         this.objVif_2011 = new Vif_2011();
         this.objVif_2011Sel = new Vif_2011();

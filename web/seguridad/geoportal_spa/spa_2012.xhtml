@@ -24,10 +24,10 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:dataTable id="tblDatos" value="#{vif_2012_spa.lstSpa_2012}"  
+                        <p:dataTable id="tblDatos" value="#{vif_2012ControladorSPA.lstVif_2012_spa}"  
                                      var="datos"  emptyMessage="No hay Registros"
                                      paginator="true" rows="15" rowKey="#{datos.id}" selectionMode="single" 
-                                     selection="#{vif_2012_spa.objSpa_2012Sel}" style="alignment-adjust: initial" >
+                                     selection="#{vif_2012ControladorSPA.objVif_2012_spaSel}" style="alignment-adjust: initial" >
 
                             <p:column>
                                 <f:facet name="header">
