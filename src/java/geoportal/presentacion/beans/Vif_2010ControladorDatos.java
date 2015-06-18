@@ -45,8 +45,7 @@ public class Vif_2010ControladorDatos {
 
     private void reinit() {
         
-        this.lstDatos = new ArrayList<Vif_2010>();
-        
+        this.lstDatos = new ArrayList<Vif_2010>();        
         this.cargarDatos();
         
     }

@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author Oscunach
  */
-public class Vif_2012_spa {
+public class Vif_2011_spa {
 
     private int n_caso;
     private String provincia;
@@ -27,9 +27,9 @@ public class Vif_2012_spa {
     private int anios_cursados;
     private String estado_civil_victima;
     private String ocupacion_victima;
-    private String telefono_victima;
+    private int telefono_victima;
     private String domiciliado_canton;
-    private String domiciliado_parroquia;
+    private String domiciliado_parroquias;
     private String domiciliado_calles;
     private Double x;
     private Double y;
@@ -39,7 +39,7 @@ public class Vif_2012_spa {
     private String codigo_subcircuito;
     private String direccion_trabajo_victima;
     private String telefono_trabajo_victima;
-    private String tipo_agresion;
+    private String tipos_agresion;
     private String frecuencia_agresion;
     private String lugar_agresion;
     private Date fecha_agresion;
@@ -49,25 +49,25 @@ public class Vif_2012_spa {
     private String estado_conciencia_agresor;
     private String apellidos_agresor;
     private String nombres_agresor;
-    private String edad_agresor;
+    private int edad_agresor;
     private String sexo_agresor;
     private String estado_civil_agresor;
     private String instruccion_agresor;
-    private String anios_cursados_agresor;
-    private String direccion_agresor;
+    private int anios_cursados_agresor;
+    private String domicilio_agresor;
     private String ocupacion_agresor;
     private String direccion_trabajo_agresor;
-    private String telefono_agresor;
+    private int telefono_agresor;
     private String relacion_con_victima;
     private String tratamiento_recibido;
     private String caso_medico;
     private String referido;
     private int id;
 
-    public Vif_2012_spa() {
+    public Vif_2011_spa() {
     }
 
-    public Vif_2012_spa(int n_caso, String provincia, String canton, String barrio, String institucion, Date fecha_atencion, String apellidos_victima, String nombres_victima, int edad_victima, String sexo_victima, String instruccion_victima, int anios_cursados, String estado_civil_victima, String ocupacion_victima, String telefono_victima, String domiciliado_canton, String domiciliado_parroquia, String domiciliado_calles, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String direccion_trabajo_victima, String telefono_trabajo_victima, String tipo_agresion, String frecuencia_agresion, String lugar_agresion, Date fecha_agresion, String hora_agresion, String asociacion_agresion, String objeto_agresion, String estado_conciencia_agresor, String apellidos_agresor, String nombres_agresor, String edad_agresor, String sexo_agresor, String estado_civil_agresor, String instruccion_agresor, String anios_cursados_agresor, String direccion_agresor, String ocupacion_agresor, String direccion_trabajo_agresor, String telefono_agresor, String relacion_con_victima, String tratamiento_recibido, String caso_medico, String referido, int id) {
+    public Vif_2011_spa(int n_caso, String provincia, String canton, String barrio, String institucion, Date fecha_atencion, String apellidos_victima, String nombres_victima, int edad_victima, String sexo_victima, String instruccion_victima, int anios_cursados, String estado_civil_victima, String ocupacion_victima, int telefono_victima, String domiciliado_canton, String domiciliado_parroquias, String domiciliado_calles, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, String direccion_trabajo_victima, String telefono_trabajo_victima, String tipos_agresion, String frecuencia_agresion, String lugar_agresion, Date fecha_agresion, String hora_agresion, String asociacion_agresion, String objeto_agresion, String estado_conciencia_agresor, String apellidos_agresor, String nombres_agresor, int edad_agresor, String sexo_agresor, String estado_civil_agresor, String instruccion_agresor, int anios_cursados_agresor, String domicilio_agresor, String ocupacion_agresor, String direccion_trabajo_agresor, int telefono_agresor, String relacion_con_victima, String tratamiento_recibido, String caso_medico, String referido, int id) {
         this.n_caso = n_caso;
         this.provincia = provincia;
         this.canton = canton;
@@ -84,7 +84,7 @@ public class Vif_2012_spa {
         this.ocupacion_victima = ocupacion_victima;
         this.telefono_victima = telefono_victima;
         this.domiciliado_canton = domiciliado_canton;
-        this.domiciliado_parroquia = domiciliado_parroquia;
+        this.domiciliado_parroquias = domiciliado_parroquias;
         this.domiciliado_calles = domiciliado_calles;
         this.x = x;
         this.y = y;
@@ -94,7 +94,7 @@ public class Vif_2012_spa {
         this.codigo_subcircuito = codigo_subcircuito;
         this.direccion_trabajo_victima = direccion_trabajo_victima;
         this.telefono_trabajo_victima = telefono_trabajo_victima;
-        this.tipo_agresion = tipo_agresion;
+        this.tipos_agresion = tipos_agresion;
         this.frecuencia_agresion = frecuencia_agresion;
         this.lugar_agresion = lugar_agresion;
         this.fecha_agresion = fecha_agresion;
@@ -109,7 +109,7 @@ public class Vif_2012_spa {
         this.estado_civil_agresor = estado_civil_agresor;
         this.instruccion_agresor = instruccion_agresor;
         this.anios_cursados_agresor = anios_cursados_agresor;
-        this.direccion_agresor = direccion_agresor;
+        this.domicilio_agresor = domicilio_agresor;
         this.ocupacion_agresor = ocupacion_agresor;
         this.direccion_trabajo_agresor = direccion_trabajo_agresor;
         this.telefono_agresor = telefono_agresor;
@@ -232,11 +232,11 @@ public class Vif_2012_spa {
         this.ocupacion_victima = ocupacion_victima;
     }
 
-    public String getTelefono_victima() {
+    public int getTelefono_victima() {
         return telefono_victima;
     }
 
-    public void setTelefono_victima(String telefono_victima) {
+    public void setTelefono_victima(int telefono_victima) {
         this.telefono_victima = telefono_victima;
     }
 
@@ -248,12 +248,12 @@ public class Vif_2012_spa {
         this.domiciliado_canton = domiciliado_canton;
     }
 
-    public String getDomiciliado_parroquia() {
-        return domiciliado_parroquia;
+    public String getDomiciliado_parroquias() {
+        return domiciliado_parroquias;
     }
 
-    public void setDomiciliado_parroquia(String domiciliado_parroquia) {
-        this.domiciliado_parroquia = domiciliado_parroquia;
+    public void setDomiciliado_parroquias(String domiciliado_parroquias) {
+        this.domiciliado_parroquias = domiciliado_parroquias;
     }
 
     public String getDomiciliado_calles() {
@@ -328,12 +328,12 @@ public class Vif_2012_spa {
         this.telefono_trabajo_victima = telefono_trabajo_victima;
     }
 
-    public String getTipo_agresion() {
-        return tipo_agresion;
+    public String getTipos_agresion() {
+        return tipos_agresion;
     }
 
-    public void setTipo_agresion(String tipo_agresion) {
-        this.tipo_agresion = tipo_agresion;
+    public void setTipos_agresion(String tipos_agresion) {
+        this.tipos_agresion = tipos_agresion;
     }
 
     public String getFrecuencia_agresion() {
@@ -408,11 +408,11 @@ public class Vif_2012_spa {
         this.nombres_agresor = nombres_agresor;
     }
 
-    public String getEdad_agresor() {
+    public int getEdad_agresor() {
         return edad_agresor;
     }
 
-    public void setEdad_agresor(String edad_agresor) {
+    public void setEdad_agresor(int edad_agresor) {
         this.edad_agresor = edad_agresor;
     }
 
@@ -440,20 +440,20 @@ public class Vif_2012_spa {
         this.instruccion_agresor = instruccion_agresor;
     }
 
-    public String getAnios_cursados_agresor() {
+    public int getAnios_cursados_agresor() {
         return anios_cursados_agresor;
     }
 
-    public void setAnios_cursados_agresor(String anios_cursados_agresor) {
+    public void setAnios_cursados_agresor(int anios_cursados_agresor) {
         this.anios_cursados_agresor = anios_cursados_agresor;
     }
 
-    public String getDireccion_agresor() {
-        return direccion_agresor;
+    public String getDomicilio_agresor() {
+        return domicilio_agresor;
     }
 
-    public void setDireccion_agresor(String direccion_agresor) {
-        this.direccion_agresor = direccion_agresor;
+    public void setDomicilio_agresor(String domicilio_agresor) {
+        this.domicilio_agresor = domicilio_agresor;
     }
 
     public String getOcupacion_agresor() {
@@ -472,11 +472,11 @@ public class Vif_2012_spa {
         this.direccion_trabajo_agresor = direccion_trabajo_agresor;
     }
 
-    public String getTelefono_agresor() {
+    public int getTelefono_agresor() {
         return telefono_agresor;
     }
 
-    public void setTelefono_agresor(String telefono_agresor) {
+    public void setTelefono_agresor(int telefono_agresor) {
         this.telefono_agresor = telefono_agresor;
     }
 
@@ -519,5 +519,6 @@ public class Vif_2012_spa {
     public void setId(int id) {
         this.id = id;
     }
-    
+
+   
 }

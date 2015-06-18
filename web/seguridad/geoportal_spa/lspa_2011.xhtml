@@ -24,10 +24,10 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:dataTable id="tblDatos" value="#{vif_2012ControladorSPA.lstVif_2012_spa}"  
+                        <p:dataTable id="tblDatos" value="#{vif_2011_spaControlador.lstVif_2011_spa}"  
                                      var="datos"  emptyMessage="No hay Registros"
                                      paginator="true" rows="15" rowKey="#{datos.id}" selectionMode="single" 
-                                     selection="#{vif_2012ControladorSPA.objVif_2012_spaSel}" style="alignment-adjust: initial" >
+                                     selection="#{vif_2011_spaControlador.objVif_2011_spaSel}" style="alignment-adjust: initial" >
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Fecha Atencion"/>
@@ -53,8 +53,9 @@ and open the template in the editor.
                                 </h:commandLink>
                             </f:facet>
                         </p:dataTable>
-                        <p:commandButton value="cargardatos" onclick="#{vif_2012ControladorSPA.lstVif_2012_spa}"
+                        <p:commandButton value="cargardatos" onclick="#{vif_2011_spaControlador.lstVif_2011_spa}"
                                          process="@this" update=":frmdatos">
+
                         </p:commandButton> 
                     </p:panel>
                 </h:form>

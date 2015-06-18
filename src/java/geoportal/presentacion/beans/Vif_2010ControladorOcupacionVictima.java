@@ -151,15 +151,15 @@ public class Vif_2010ControladorOcupacionVictima {
     private CartesianChartModel initCategoryOcupacionVictima() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatosComerciante = FVif_2010.ObtenerDatosVictimaCasados();
-            lstDatosEmpleadoPrivado = FVif_2010.ObtenerDatosVictimaDivorciado();
-            lstDatosEmpleadoPublico = FVif_2010.ObtenerDatosVictimaNa();
-            lstDatosEstudiantes = FVif_2010.ObtenerDatosVictimaSoltero();
-            lstDatosJornalero = FVif_2010.ObtenerDatosVictimaUnionHecho();
-            lstDatosJubilado = FVif_2010.ObtenerDatosVictimaUnionLibre();
-            lstDatosNa = FVif_2010.ObtenerDatosVictimaViudo();
+            lstDatosComerciante = FVif_2010.ObtenerDatosVictimaComerciante();
+            lstDatosEmpleadoPrivado = FVif_2010.ObtenerDatosVictimaEmpleadoPrivado();
+            lstDatosEmpleadoPublico = FVif_2010.ObtenerDatosVictimaEmpleadoPublico();
+            lstDatosEstudiantes = FVif_2010.ObtenerDatosVictimaEstudiantes();
+            lstDatosJornalero = FVif_2010.ObtenerDatosVictimaJornalero();
+            lstDatosJubilado = FVif_2010.ObtenerDatosVictimaJubilado();
+            lstDatosNa = FVif_2010.ObtenerDatosVictimaNA();
             lstDatosProfesional = FVif_2010.ObtenerDatosVictimaProfesional();
-            lstDatosQueHaceresDomesticos = FVif_2010.ObtenerDatosVictimaViudo();
+            lstDatosQueHaceresDomesticos = FVif_2010.ObtenerDatosVictimaQueHaceres();
             ChartSeries Ocupacion = new ChartSeries();
             Ocupacion.setLabel("Ocupación");
             Ocupacion.set("Comerciante", lstDatosComerciante.size());

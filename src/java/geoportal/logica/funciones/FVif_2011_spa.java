@@ -7,23 +7,22 @@ package geoportal.logica.funciones;
 
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
-import geoportal.logica.clases.Vif_2012_spa;
+import geoportal.logica.clases.Vif_2011_spa;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import accesodatos.Parametro;
 /**
  *
  * @author Oscunach
  */
-public class FVif_2012_spa {
+public class FVif_2011_spa {
 
-    public static ArrayList<Vif_2012_spa> llenarDatos(ConjuntoResultado rs) throws Exception {
-        ArrayList<Vif_2012_spa> lst = new ArrayList<Vif_2012_spa>();
-        Vif_2012_spa datos = null;
+    public static ArrayList<Vif_2011_spa> llenarDatos(ConjuntoResultado rs) throws Exception {
+        ArrayList<Vif_2011_spa> lst = new ArrayList<Vif_2011_spa>();
+        Vif_2011_spa datos = null;
         try {
             while (rs.next()) {
-                datos = new Vif_2012_spa(
-                        rs.getInt("pn_caso"),
+                datos = new Vif_2011_spa(rs.getInt("pn_caso"),
                         rs.getString("pprovincia"),
                         rs.getString("pcanton"),
                         rs.getString("pbarrio"),
@@ -37,9 +36,9 @@ public class FVif_2012_spa {
                         rs.getInt("panios_cursados"),
                         rs.getString("pestado_civil_victima"),
                         rs.getString("pocupacion_victima"),
-                        rs.getString("ptelefono_victima"),
+                        rs.getInt("ptelefono_victima"),
                         rs.getString("pdomiciliado_canton"),
-                        rs.getString("pdomiciliado_parroquia"),
+                        rs.getString("pdomiciliado_parroquias"),
                         rs.getString("pdomiciliado_calles"),
                         rs.getDouble("px"),
                         rs.getDouble("py"),
@@ -49,7 +48,7 @@ public class FVif_2012_spa {
                         rs.getString("pcodigo_subcircuito"),
                         rs.getString("pdireccion_trabajo_victima"),
                         rs.getString("ptelefono_trabajo_victima"),
-                        rs.getString("ptipo_agresion"),
+                        rs.getString("ptipos_agresion"),
                         rs.getString("pfrecuencia_agresion"),
                         rs.getString("plugar_agresion"),
                         rs.getDate("pfecha_agresion"),
@@ -59,22 +58,21 @@ public class FVif_2012_spa {
                         rs.getString("pestado_conciencia_agresor"),
                         rs.getString("papellidos_agresor"),
                         rs.getString("pnombres_agresor"),
-                        rs.getString("pedad_agresor"),
+                        rs.getInt("pedad_agresor"),
                         rs.getString("psexo_agresor"),
                         rs.getString("pestado_civil_agresor"),
                         rs.getString("pinstruccion_agresor"),
-                        rs.getString("panios_cursados_agresor"),
-                        rs.getString("pdireccion_agresor"),
+                        rs.getInt("panios_cursados_agresor"),
+                        rs.getString("pdomicilio_agresor"),
                         rs.getString("pocupacion_agresor"),
                         rs.getString("pdireccion_trabajo_agresor"),
-                        rs.getString("ptelefono_agresor"),
+                        rs.getInt("ptelefono_agresor"),
                         rs.getString("prelacion_con_victima"),
                         rs.getString("ptratamiento_recibido"),
                         rs.getString("pcaso_medico"),
                         rs.getString("preferido"),
                         rs.getInt("pid")
                 );
-
                 lst.add(datos);
             }
         } catch (Exception e) {
@@ -83,11 +81,11 @@ public class FVif_2012_spa {
         }
         return lst;
     }
-    
-    public static ArrayList<Vif_2012_spa> ObtenerDatos() throws Exception {
-        ArrayList<Vif_2012_spa> lst = new ArrayList<Vif_2012_spa>();
+
+    public static ArrayList<Vif_2011_spa> ObtenerDatos() throws Exception {
+        ArrayList<Vif_2011_spa> lst = new ArrayList<Vif_2011_spa>();
         try {
-            String sql = "select * from geoportal.select_vif_2012_1ra_acogida()";
+            String sql = "select * from geoportal.select_vif_2011_spa()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
@@ -96,5 +94,6 @@ public class FVif_2012_spa {
         }
         return lst;
     }
-
+    
+    
 }
