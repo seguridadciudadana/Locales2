@@ -24,37 +24,52 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Total de Denuncias por SubCircuito">
+                        <p:tab title="Casos de acuerdo al tipo de violencia">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="e" 
                                            title="Total de Denuncias por Circuito" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
-                        <p:tab title="Total de Denuncias por SubCircuito(Gráfico de Barras)">
+                        <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="e" 
                                           title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
                                           xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
-                       <p:tab title="Total de Denuncias por Circuito(Gráfico Circular)">
+                        <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieViolencia}" legendPosition="e" 
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
 
                         </p:tab>
-                        <p:tab title="Denuncias por Subcircuito clasificadas por sexo de la víctima">
+
+                        <p:tab title="Frecuencia de agresion">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorVictimas2012_Subcircuito.lineModel_Victima_Subcircuito}" legendPosition="e" 
-                                           title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1000px;text-decoration-style: dashed"
+                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="e" 
+                                           title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
-                        </p:tab>
-                        <p:tab title="Denuncias por subcircuito clasificadas por sexo de la víctima(Gráfico de Barras)">
+                        </p:tab>  
+
+                        <p:tab title="Frecuencia de agresion (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{controladorVictimas2012_Subcircuito.lineModel_Victima_Subcircuito}" legendPosition="e" 
-                                          title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                          xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias" legendCols="" />                             
+                            <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="e" 
+                                          title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          xaxisLabel="Frecuencia de agresion" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
+                        </p:tab>  
+
+                        <p:tab title="Frecuencia de Agresión (Gráfico Circular)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieFrecuenciaAgresion}" legendPosition="e" 
+                                        style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
                         </p:tab>
 
+                        <p:tab title="Tratamientos recibidos por las victimas">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTratamiento}" legendPosition="e" 
+                                           title="Tratamientos recibidos por las victimas" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="#Víctimas" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
+                        </p:tab> 
+                        
                     </p:accordionPanel>
 
                 </h:form>

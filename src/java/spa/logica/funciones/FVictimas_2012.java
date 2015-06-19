@@ -133,6 +133,37 @@ public class FVictimas_2012 {
         return lst;
     }
     
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoFrecuenciaAgresion(String pe) throws Exception {
+        ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_victimas_2012_dado_frecuencia_agresion(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoTratamientoRecibido(String pe) throws Exception {
+        ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_victimas_2012_dado_tratamiento(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
     public static ArrayList<Victimas_2012> ObtenerDatosDadoViolencia(String pe) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
@@ -150,6 +181,23 @@ public class FVictimas_2012 {
         return lst;
     }
 
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoTratamiento(String pe) throws Exception {
+        ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_victimas_2012_dado_tratamiento(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    
     public static ArrayList<Victimas_2012> ObtenerDatosDadoSexoVictimaCircuito(String sexo, String circuito) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
         try {

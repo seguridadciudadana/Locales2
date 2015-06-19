@@ -42,6 +42,150 @@ public class ControladorVictimas2012_Tratamiento {
     private CartesianChartModel lineTipoViolencia;
     private CartesianChartModel lineTipoViolencia2;
     private Victimas_2012 datoSel;
+    private ArrayList<Victimas_2012> lstDatosDadoFrecuencia;
+    private ArrayList<Victimas_2012> lstDatosDadoFrecuenciaPrimera;
+    private ArrayList<Victimas_2012> lstDatosDadoFrecuenciaSubsecuente;
+    private ArrayList<Victimas_2012> lstDatosDadoFrecuenciaNA;
+    private CartesianChartModel lineFrecuenciaAGresion;
+    private PieChartModel pieFrecuenciaAgresion;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamiento;
+    private CartesianChartModel lineTratamiento;
+    private PieChartModel pieTratamiento;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoClinico;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoQuirurgicoPsicologico;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoPsicologico;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoQuirurgico;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoNA;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoPsicologico;
+    private ArrayList<Victimas_2012> lstDatosDadoTratamientoQuirurgico;
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamiento() {
+        return lstDatosDadoTratamiento;
+    }
+
+    public void setLstDatosDadoTratamiento(ArrayList<Victimas_2012> lstDatosDadoTratamiento) {
+        this.lstDatosDadoTratamiento = lstDatosDadoTratamiento;
+    }
+
+    public CartesianChartModel getLineTratamiento() {
+        return lineTratamiento;
+    }
+
+    public void setLineTratamiento(CartesianChartModel lineTratamiento) {
+        this.lineTratamiento = lineTratamiento;
+    }
+
+    public PieChartModel getPieTratamiento() {
+        return pieTratamiento;
+    }
+
+    public void setPieTratamiento(PieChartModel pieTratamiento) {
+        this.pieTratamiento = pieTratamiento;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoClinico() {
+        return lstDatosDadoTratamientoClinico;
+    }
+
+    public void setLstDatosDadoTratamientoClinico(ArrayList<Victimas_2012> lstDatosDadoTratamientoClinico) {
+        this.lstDatosDadoTratamientoClinico = lstDatosDadoTratamientoClinico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoClinicoQuirurgicoPsicologico() {
+        return lstDatosDadoTratamientoClinicoQuirurgicoPsicologico;
+    }
+
+    public void setLstDatosDadoTratamientoClinicoQuirurgicoPsicologico(ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoQuirurgicoPsicologico) {
+        this.lstDatosDadoTratamientoClinicoQuirurgicoPsicologico = lstDatosDadoTratamientoClinicoQuirurgicoPsicologico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoClinicoPsicologico() {
+        return lstDatosDadoTratamientoClinicoPsicologico;
+    }
+
+    public void setLstDatosDadoTratamientoClinicoPsicologico(ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoPsicologico) {
+        this.lstDatosDadoTratamientoClinicoPsicologico = lstDatosDadoTratamientoClinicoPsicologico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoClinicoQuirurgico() {
+        return lstDatosDadoTratamientoClinicoQuirurgico;
+    }
+
+    public void setLstDatosDadoTratamientoClinicoQuirurgico(ArrayList<Victimas_2012> lstDatosDadoTratamientoClinicoQuirurgico) {
+        this.lstDatosDadoTratamientoClinicoQuirurgico = lstDatosDadoTratamientoClinicoQuirurgico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoNA() {
+        return lstDatosDadoTratamientoNA;
+    }
+
+    public void setLstDatosDadoTratamientoNA(ArrayList<Victimas_2012> lstDatosDadoTratamientoNA) {
+        this.lstDatosDadoTratamientoNA = lstDatosDadoTratamientoNA;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoPsicologico() {
+        return lstDatosDadoTratamientoPsicologico;
+    }
+
+    public void setLstDatosDadoTratamientoPsicologico(ArrayList<Victimas_2012> lstDatosDadoTratamientoPsicologico) {
+        this.lstDatosDadoTratamientoPsicologico = lstDatosDadoTratamientoPsicologico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoTratamientoQuirurgico() {
+        return lstDatosDadoTratamientoQuirurgico;
+    }
+
+    public void setLstDatosDadoTratamientoQuirurgico(ArrayList<Victimas_2012> lstDatosDadoTratamientoQuirurgico) {
+        this.lstDatosDadoTratamientoQuirurgico = lstDatosDadoTratamientoQuirurgico;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoFrecuenciaPrimera() {
+        return lstDatosDadoFrecuenciaPrimera;
+    }
+
+    public void setLstDatosDadoFrecuenciaPrimera(ArrayList<Victimas_2012> lstDatosDadoFrecuenciaPrimera) {
+        this.lstDatosDadoFrecuenciaPrimera = lstDatosDadoFrecuenciaPrimera;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoFrecuenciaSubsecuente() {
+        return lstDatosDadoFrecuenciaSubsecuente;
+    }
+
+    public void setLstDatosDadoFrecuenciaSubsecuente(ArrayList<Victimas_2012> lstDatosDadoFrecuenciaSubsecuente) {
+        this.lstDatosDadoFrecuenciaSubsecuente = lstDatosDadoFrecuenciaSubsecuente;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoFrecuenciaNA() {
+        return lstDatosDadoFrecuenciaNA;
+    }
+
+    public void setLstDatosDadoFrecuenciaNA(ArrayList<Victimas_2012> lstDatosDadoFrecuenciaNA) {
+        this.lstDatosDadoFrecuenciaNA = lstDatosDadoFrecuenciaNA;
+    }
+
+    public PieChartModel getPieFrecuenciaAgresion() {
+        return pieFrecuenciaAgresion;
+    }
+
+    public void setPieFrecuenciaAgresion(PieChartModel pieFrecuenciaAgresion) {
+        this.pieFrecuenciaAgresion = pieFrecuenciaAgresion;
+    }
+
+    public ArrayList<Victimas_2012> getLstDatosDadoFrecuencia() {
+        return lstDatosDadoFrecuencia;
+    }
+
+    public void setLstDatosDadoFrecuencia(ArrayList<Victimas_2012> lstDatosDadoFrecuencia) {
+        this.lstDatosDadoFrecuencia = lstDatosDadoFrecuencia;
+    }
+
+    public CartesianChartModel getLineFrecuenciaAGresion() {
+        return lineFrecuenciaAGresion;
+    }
+
+    public void setLineFrecuenciaAGresion(CartesianChartModel lineFrecuenciaAGresion) {
+        this.lineFrecuenciaAGresion = lineFrecuenciaAGresion;
+    }
 
     public PieChartModel getPieViolencia() {
         return pieViolencia;
@@ -171,6 +315,10 @@ public class ControladorVictimas2012_Tratamiento {
         lineTipoViolencia = initTipoViolencia();
         lineTipoViolencia2 = initTipoViolencia2();
         pieViolencia = pieViolencia();
+        lineFrecuenciaAGresion = initFrecuenciaAgresion();
+        pieFrecuenciaAgresion = pieFrecuenciaAgresion();
+        lineTratamiento = initTratamiento();
+        pieTratamiento = pieTratamiento();
 
     }
 
@@ -208,9 +356,9 @@ public class ControladorVictimas2012_Tratamiento {
             lstDatos1 = FVictimas_2012.ObtenerDatos();
             ChartSeries Violencia = new ChartSeries();
             Violencia.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoViolencia = FVictimas_2012.ObtenerDatosDadoCircuito(lstDatos1.get(i).getTipos_agre());
-                Violencia.set(lstDatos1.get(i).getTipos_agre(), lstDatosDadoViolencia.size());
+            for (Victimas_2012 lstDatos11 : lstDatos1) {
+                lstDatosDadoViolencia = FVictimas_2012.ObtenerDatosDadoCircuito(lstDatos11.getTipos_agre());
+                Violencia.set(lstDatos11.getTipos_agre(), lstDatosDadoViolencia.size());
             }
             model.addSeries(Violencia);
 
@@ -274,6 +422,89 @@ public class ControladorVictimas2012_Tratamiento {
             pieModel.set("Psicologica y Sexual", lstDatosPsicologicaSexual.size());
             pieModel.set("Sexual", lstDatosSexual.size());
             pieModel.set("Sin datos", lstDatosNA.size());
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
+    }
+
+    private CartesianChartModel initFrecuenciaAgresion() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            lstDatos1 = FVictimas_2012.ObtenerDatos();
+            ChartSeries Violencia = new ChartSeries();
+
+            Violencia.setLabel("Frecuencia Agresion");
+            for (Victimas_2012 lstDatos11 : lstDatos1) {
+                lstDatosDadoFrecuencia = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion(lstDatos11.getFrecuencia());
+                Violencia.set(lstDatos11.getFrecuencia(), lstDatosDadoFrecuencia.size());
+            }
+            model.addSeries(Violencia);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    private CartesianChartModel initTratamiento() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            lstDatos1 = FVictimas_2012.ObtenerDatos();
+            ChartSeries Violencia = new ChartSeries();
+
+            Violencia.setLabel("Frecuencia Agresion");
+            for (Victimas_2012 lstDatos11 : lstDatos1) {
+                lstDatosDadoTratamiento = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion(lstDatos11.getTratamient());
+                Violencia.set(lstDatos11.getTratamient(), lstDatosDadoTratamiento.size());
+            }
+            model.addSeries(Violencia);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    private PieChartModel pieFrecuenciaAgresion() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+            pieModel = new PieChartModel();
+
+            lstDatosDadoFrecuenciaPrimera = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion("Primera");
+            lstDatosDadoFrecuenciaSubsecuente = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion("Subsecuente");
+            lstDatosDadoFrecuenciaNA = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion("N/A");
+
+            pieModel.set("Primera", lstDatosDadoFrecuenciaPrimera.size());
+            pieModel.set("Subsecuente", lstDatosDadoFrecuenciaSubsecuente.size());
+            pieModel.set("Sin Especificar", lstDatosDadoFrecuenciaNA.size());
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
+    }
+
+    private PieChartModel pieTratamiento() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+            pieModel = new PieChartModel();
+            lstDatosDadoTratamientoClinico = FVictimas_2012.ObtenerDatosDadoTratamiento("Clinico");
+            lstDatosDadoTratamientoClinicoQuirurgicoPsicologico = FVictimas_2012.ObtenerDatosDadoTratamiento("Clinico, Quirurgico y Psicologico");
+            lstDatosDadoTratamientoClinicoPsicologico = FVictimas_2012.ObtenerDatosDadoTratamiento("Clinico y Psicologico");
+            lstDatosDadoTratamientoClinicoQuirurgico = FVictimas_2012.ObtenerDatosDadoTratamiento("Clinico y Quirurgico");
+            lstDatosDadoTratamientoNA = FVictimas_2012.ObtenerDatosDadoTratamiento("N/A");
+            lstDatosDadoTratamientoPsicologico = FVictimas_2012.ObtenerDatosDadoTratamiento("Psicologico");
+            lstDatosDadoTratamientoQuirurgico = FVictimas_2012.ObtenerDatosDadoTratamiento("Quirurgico");
+
+            pieModel.set("Clinico", lstDatosDadoTratamientoClinico.size());
+            pieModel.set("Clinico, Quirurgico y Psicologico", lstDatosDadoTratamientoClinicoQuirurgicoPsicologico.size());
+            pieModel.set("Clinico y Psicologico", lstDatosDadoTratamientoClinicoPsicologico.size());
+            pieModel.set("Clinico y Quirurgico", lstDatosDadoTratamientoClinicoQuirurgico.size());
+            pieModel.set("Sin definir", lstDatosDadoTratamientoNA.size());
+            pieModel.set("Psicologico", lstDatosDadoTratamientoPsicologico.size());
+            pieModel.set("Quirurgico", lstDatosDadoTratamientoQuirurgico.size());
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");

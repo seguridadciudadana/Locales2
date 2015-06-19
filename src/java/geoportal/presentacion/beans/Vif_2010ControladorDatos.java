@@ -19,6 +19,7 @@ import recursos.Util;
 @ManagedBean
 @RequestScoped
 public class Vif_2010ControladorDatos {
+
     private ArrayList<Vif_2010> lstDatos;
     private Vif_2010 datoSel;
 
@@ -30,7 +31,6 @@ public class Vif_2010ControladorDatos {
         this.datoSel = datoSel;
     }
 
-    
     public ArrayList<Vif_2010> getLstDatos() {
         return lstDatos;
     }
@@ -38,18 +38,18 @@ public class Vif_2010ControladorDatos {
     public void setLstDatos(ArrayList<Vif_2010> lstDatos) {
         this.lstDatos = lstDatos;
     }
-    
+
     public Vif_2010ControladorDatos() {
         this.reinit();
     }
 
     private void reinit() {
-        
-        this.lstDatos = new ArrayList<Vif_2010>();        
+
+        this.lstDatos = new ArrayList<Vif_2010>();
         this.cargarDatos();
-        
+
     }
-    
+
     public void cargarDatos() {
         try {
 
