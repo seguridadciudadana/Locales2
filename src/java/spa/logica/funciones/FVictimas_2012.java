@@ -84,7 +84,7 @@ public class FVictimas_2012 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Victimas_2012> ObtenerDatosDadoSexoVictima(String sexo) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
         try {
@@ -100,8 +100,8 @@ public class FVictimas_2012 {
         }
         return lst;
     }
-    
-     public static ArrayList<Victimas_2012> ObtenerDatosDadoCircuito(String sexo) throws Exception {
+
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoCircuito(String sexo) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -116,7 +116,40 @@ public class FVictimas_2012 {
         }
         return lst;
     }
+
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoSubCircuito(String sexo) throws Exception {
+        ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_victimas_2012_dado_subcircuito(?)";
+            lstP.add(new Parametro(1, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
+    
+    public static ArrayList<Victimas_2012> ObtenerDatosDadoViolencia(String pe) throws Exception {
+        ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_victimas_2012_dado_violencia(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
     public static ArrayList<Victimas_2012> ObtenerDatosDadoSexoVictimaCircuito(String sexo, String circuito) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
         try {
@@ -133,7 +166,7 @@ public class FVictimas_2012 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Victimas_2012> ObtenerDatosDadoSexoVictimaSubcircuito(String sexo, String circuito) throws Exception {
         ArrayList<Victimas_2012> lst = new ArrayList<Victimas_2012>();
         try {
