@@ -43,5 +43,18 @@ public class ControladorFiscalia2011_Datos {
     
     public ControladorFiscalia2011_Datos() {
     }
+    
+    public void cargarDatos() {
+//        try {
+//
+//            this.lstDatos = FVif_2010.ObtenerDatos();
+//            this.datoSel = lstDatos.get(0);
+//            System.out.println(lstDatos.get(0).getId());
+//
+//        } catch (Exception e) {
+//            Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
+//            System.out.println("private void cargarDatos dice: " + e.getMessage());
+//        }
+//    }
 
 }
