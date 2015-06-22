@@ -18,9 +18,9 @@ and open the template in the editor.
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
             <ui:define name="top">Gestión</ui:define>    
             <ui:define name="contenido">
-                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
-                 <h:form id="frmdatos" style="alignment-adjust: central">
-                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdatos" style="alignment-adjust: central">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Victimas por rangos de edades" >
@@ -32,12 +32,22 @@ and open the template in the editor.
                         <p:tab title="Victimas por rango de Edades" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2012ControladorEdades.graficaEdadSV}" legendPosition="e" 
-                                           title="Víctimas por rango de edades" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas">                              
+                                          title="Víctimas por rango de edades" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas">                              
                             </p:barChart>   
-                        </p:tab>                        
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+                                this.cfg.stackSeries: true;
+                            }
+                        </script>                        
                     </p:accordionPanel>
-                 </h:form>
+                </h:form>
             </ui:define>
             <ui:define name="dialogos">
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 

@@ -26,18 +26,27 @@ and open the template in the editor.
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Casos de Violencia Intrfamiliar por meses">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorMesesAño.graficoContrastesMeses}" legendPosition="e" 
+                            <p:lineChart   value="#{controladorMesesAño.graficoContrastesMeses}" legendPosition="ne" 
                                            title="Contrastes" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
 
                         </p:tab>
-                          <p:tab title="Casos de Violencia Intrfamiliar por meses (Cuadro de barras)">
+                        <p:tab title="Casos de Violencia Intrfamiliar por meses (Cuadro de barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorMesesAño.graficoContrastesMeses}" legendPosition="e" 
-                                           title="Contrastes" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
-
+                                          title="Contrastes" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+                                this.cfg.stackSeries: true;
+                            }
+                        </script>
                     </p:accordionPanel>                   
                 </h:form>
             </ui:define>

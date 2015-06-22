@@ -30,14 +30,24 @@ and open the template in the editor.
                                            title="Parentesco Victima - Agresor" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Parentesco Victima - Agresor" xaxisAngle="45" yaxisLabel="#Víctimas"  /> 
                         </p:tab>
-                        
+
                         <p:tab title="Parentesco entre Victima con su agresor (Cuadro de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{vif_2012ControladorParentesco.parentescoGrafico}" legendPosition="e" 
-                                           title="Victimas vs Agresores (Cuadro de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                           xaxisLabel="Parentesco Victima - Agresor" xaxisAngle="45" yaxisLabel="#Víctimas" /> 
+                                          title="Victimas vs Agresores (Cuadro de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          xaxisLabel="Parentesco Victima - Agresor" xaxisAngle="45" yaxisLabel="#Víctimas" /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                        
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+                                this.cfg.stackSeries: true;
+                            }
+                        </script>
+
                     </p:accordionPanel>
                 </h:form>
             </ui:define>

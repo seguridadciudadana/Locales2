@@ -33,9 +33,19 @@ and open the template in the editor.
                         <p:tab title="Contrastes Tipos de Violencia (Cuadro de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorContrastesTipoViolencia.lineModel}" legendPosition="e" 
-                                           title="Contraste Tipo de Violencia (Barras)" style="height:400px;width:750px;text-decoration-style: dashed"
-                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                                          title="Contraste Tipo de Violencia (Barras)" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+                                this.cfg.stackSeries: true;
+                            }
+                        </script>
                     </p:accordionPanel>
                 </h:form>
             </ui:define>

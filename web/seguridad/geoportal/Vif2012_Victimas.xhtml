@@ -13,25 +13,35 @@
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
             <ui:define name="top">Gestión</ui:define>    
             <ui:define name="contenido">
-                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
-                 <h:form id="frmdatos" style="alignment-adjust: central">
-                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdatos" style="alignment-adjust: central">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Victimas por circuitos" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="e" 
+                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="ne" 
                                            title="Victimas por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="#Victimas"/>   
                         </p:tab>
                         <p:tab title="Victimas por Subcircuitos" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="e" 
+                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="ne" 
                                            title="Victimas por Subcircuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="#Victimas"/>   
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+                                this.cfg.stackSeries: true;
+                            }
+                        </script>
                     </p:accordionPanel>
-                 </h:form>
+                </h:form>
             </ui:define>
             <ui:define name="dialogos">
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
