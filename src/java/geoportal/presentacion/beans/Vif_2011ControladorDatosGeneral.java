@@ -33,6 +33,7 @@ public final class Vif_2011ControladorDatosGeneral {
     private CartesianChartModel lineModel1;
     private CartesianChartModel lineModel2;
     private PieChartModel pieModel;
+    private PieChartModel pieModelSubCircuito;
     private ArrayList<Vif_2011> lstDatosControl1;
     private Vif_2011 datoSel;
     private ArrayList<Vif_2011> lstDatosC;
@@ -53,13 +54,22 @@ public final class Vif_2011ControladorDatosGeneral {
     private ArrayList<Vif_2011> lstDatosTerminalTerretre;
     private ArrayList<Vif_2011> lstDatosYaruquies;
 
+    public PieChartModel getPieModelSubCircuito() {
+        return pieModelSubCircuito;
+    }
+
+    public void setPieModelSubCircuito(PieChartModel pieModelSubCircuito) {
+        this.pieModelSubCircuito = pieModelSubCircuito;
+    }
+
     public PieChartModel getPieModel() {
         return pieModel;
     }
 
     public void setPieModel(PieChartModel pieModel) {
         this.pieModel = pieModel;
-    }        
+    }
+
     public ArrayList<Vif_2011> getLstDatos24Mayo() {
         return lstDatos24Mayo;
     }
@@ -253,7 +263,8 @@ public final class Vif_2011ControladorDatosGeneral {
     public void graficar() {
         lineModel1 = initCategorySubcircuito();
         lineModel2 = initCategoryCircuito();
-        pieModel=graficaDenunciasCircuito();
+        pieModel = graficaDenunciasCircuito();
+        pieModelSubCircuito = pieDenunciasSubCircuito();
     }
 
     private CartesianChartModel initCategorySubcircuito() {
@@ -273,7 +284,22 @@ public final class Vif_2011ControladorDatosGeneral {
             Util.addErrorMessage(e, "Error");
         }
         return model;
+    }
 
+    private PieChartModel pieDenunciasSubCircuito() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+//            lstDatosDadoS = FVif_2011.ObtenerDatosSubcircuito();
+            lstDatosS = FVif_2011.ObtenerDatosSubcircuito();
+            for (int x = 0; x < lstDatosS.size(); x++) {
+                lstDatosDadoS = FVif_2011.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getSubcircuito());
+                pieModel.set(lstDatosS.get(x).getSubcircuito(), lstDatosDadoS.size());
+            }
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
     }
 
     private CartesianChartModel initCategoryCircuito() {
@@ -293,7 +319,6 @@ public final class Vif_2011ControladorDatosGeneral {
         return model;
     }
 
-    
     private PieChartModel graficaDenunciasCircuito() {
         PieChartModel pieModel = new PieChartModel();
         try {
@@ -333,7 +358,6 @@ public final class Vif_2011ControladorDatosGeneral {
         return pieModel;
     }
 
-    
     public void cargarDatos() {
         try {
             this.lstDatosControl1 = FVif_2011.ObtenerDatos();
