@@ -456,7 +456,7 @@ public class ControladorVictimas2012_Tratamiento {
 
             Violencia.setLabel("Frecuencia Agresion");
             for (Victimas_2012 lstDatos11 : lstDatos1) {
-                lstDatosDadoTratamiento = FVictimas_2012.ObtenerDatosDadoFrecuenciaAgresion(lstDatos11.getTratamient());
+                lstDatosDadoTratamiento = FVictimas_2012.ObtenerDatosDadoTratamientoRecibido(lstDatos11.getTratamient());
                 Violencia.set(lstDatos11.getTratamient(), lstDatosDadoTratamiento.size());
             }
             model.addSeries(Violencia);

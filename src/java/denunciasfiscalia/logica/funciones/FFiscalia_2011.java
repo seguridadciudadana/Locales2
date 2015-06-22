@@ -7,6 +7,7 @@ package denunciasfiscalia.logica.funciones;
 
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
+import accesodatos.Parametro;
 import denunciasfiscalia.logica.clases.Fiscalia_2011;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -81,6 +82,115 @@ public class FFiscalia_2011 {
         }
         return lst;
     }
+
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoCircuito(String circuito) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_circuito(?)";
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoSubCircuito(String circuito) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_subcircuito(?)";
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoTipoAgresion(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_tipo_agresion(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
     
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoEstadoCivil(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_estado_civil_victima(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
     
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoOcupacion(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_ocupacion_victima(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoParentescoAgresor(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_parentesco(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoDiaAgresion(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_dia_agresion(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    public static ArrayList<Fiscalia_2011> ObtenerDatosDadoMesAgresion(String pe) throws Exception {
+        ArrayList<Fiscalia_2011> lst = new ArrayList<Fiscalia_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif_2011_fiscalia_dado_mes_agresion(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
 }
