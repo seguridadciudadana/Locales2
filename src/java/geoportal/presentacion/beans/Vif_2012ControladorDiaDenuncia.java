@@ -358,14 +358,14 @@ public class Vif_2012ControladorDiaDenuncia {
             Masculino.set("Domingo", lstDatosDomingoM.size());
 
             ChartSeries Femenino = new ChartSeries();
-            Femenino.setLabel("VictiFas Sexo FeFenino");
+            Femenino.setLabel("Victimas Sexo Femenino");
             Femenino.set("Lunes", lstDatosLunesF.size());
-            Femenino.set("Fartes", lstDatosMartesF.size());
-            Femenino.set("Fiercoles", lstDatosMiercolesF.size());
+            Femenino.set("Martes", lstDatosMartesF.size());
+            Femenino.set("Miercoles", lstDatosMiercolesF.size());
             Femenino.set("Jueves", lstDatosJuevesF.size());
             Femenino.set("Viernes", lstDatosViernesF.size());
             Femenino.set("Sabado", lstDatosSabadoF.size());
-            Femenino.set("DoFingo", lstDatosDomingoF.size());
+            Femenino.set("Domingo", lstDatosDomingoF.size());
 
 //            model.addSeries(Semana);
             model.addSeries(Femenino);
