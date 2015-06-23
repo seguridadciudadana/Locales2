@@ -102,9 +102,9 @@ public class ControladorReincidencias_2010 {
             lstDatos = FReincidencias2010.ObtenerDatos();
             ChartSeries Reincidencias = new ChartSeries();
             Reincidencias.setLabel("Reincidencias");
-            for (int x = 0; x < lstDatos.size(); x++) {
-                lstDatosDadoReincidencia = FReincidencias2010.ObtenerDatosDadoReincidencias(lstDatos.get(x).getReincidencias());
-                Reincidencias.set(lstDatos.get(x).getReincidencias(), lstDatosDadoReincidencia.size());
+            for (Reincidencias2010 lstDato : lstDatos) {
+                lstDatosDadoReincidencia = FReincidencias2010.ObtenerDatosDadoReincidencias(lstDato.getReincidencias());
+                Reincidencias.set(lstDato.getReincidencias(), lstDatosDadoReincidencia.size());
             }
             model.addSeries(Reincidencias);
         } catch (Exception e) {
