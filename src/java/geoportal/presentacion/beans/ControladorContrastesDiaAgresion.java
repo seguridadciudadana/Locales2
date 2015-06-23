@@ -269,13 +269,13 @@ public class ControladorContrastesDiaAgresion {
     private CartesianChartModel initGraficoContrastesDias() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatosLunes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(0);
-            lstDatosMartes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(1);
-            lstDatosMiercoles2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(2);
-            lstDatosJueves2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(3);
-            lstDatosViernes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(4);
-            lstDatosSabado2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(5);
-            lstDatosDomingo2010 = FVif_2010.ObtenerDatosDadoDiaAgresion(6);
+            lstDatosLunes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosMartes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
+            lstDatosMiercoles2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("MIERCOLES");
+            lstDatosJueves2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
+            lstDatosViernes2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("VIERNES");
+            lstDatosSabado2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("SABADO");
+            lstDatosDomingo2010 = FVif_2010.ObtenerDatosDadoDiaAgresion("DOMINGO");
             lstDatosLunes2011 = FVif_2011.ObtenerDatosDadoDiaAgresion(0);
             lstDatosMartes2011 = FVif_2011.ObtenerDatosDadoDiaAgresion(1);
             lstDatosMiercoles2011 = FVif_2011.ObtenerDatosDadoDiaAgresion(2);

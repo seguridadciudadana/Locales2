@@ -1113,7 +1113,7 @@ public class FVif_2010 {
         return lst;
     }
     
-    public static ArrayList<Vif_2010> ObtenerDatosDadoDiaAgresion(int dia) throws Exception {
+    public static ArrayList<Vif_2010> ObtenerDatosDadoDiaAgresion(String dia) throws Exception {
         ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -1190,5 +1190,6 @@ public class FVif_2010 {
         }
         return lst;
     }
-    
+         
+     
 }
