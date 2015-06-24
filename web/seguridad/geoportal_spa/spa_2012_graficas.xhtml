@@ -38,10 +38,29 @@ and open the template in the editor.
                         </p:tab>
                         <p:tab title="Total de Denuncias por Circuito(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:pieChart value="#{controladorVictimas2012.pieCircuito}" legendPosition="e" 
+                            <p:pieChart value="#{controladorVictimas2012.pieCircuito}" legendPosition="ne" 
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
-
+                            <p:pieChart value="#{controladorVictimas2012.pieCircuito}" legendPosition="ne" fill="false" showDataLabels="true"
+                                        style="width:1000px; height:450px" 
+                                        dataFormat="label" shadow="false" 
+                                        styleClass="pieLabels" />
                         </p:tab>
+
+                        
+                        <script type="text/javascript">
+                            function pieChartExtender() {
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelFormatString = '%#.2f%%';
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelThreshold = 5;
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelPositionFactor = 0.8;
+                                this.cfg.seriesDefaults.rendererOptions.startAngle = -90;
+
+                            }
+                            function pieChartLabelExtender() {
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelThreshold = 5;
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelPositionFactor = 0.8;
+                                this.cfg.seriesDefaults.rendererOptions.startAngle = -90;
+                            }
+                        </script>
                         <p:tab title="Denuncias por circuito clasificadas por sexo de la víctima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012.graficaCircuitoSexoVictima}" legendPosition="e" 
@@ -53,7 +72,20 @@ and open the template in the editor.
                             <p:barChart   value="#{controladorVictimas2012.graficaCircuitoSexoVictima}" legendPosition="e" 
                                           title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1000px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" legendCols="" />                             
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+
                         </p:tab>
+                        <script >
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+
+                                this.cfg.stackSeries: true;
+                            }
+                        </script> 
+
 
                     </p:accordionPanel>
 
