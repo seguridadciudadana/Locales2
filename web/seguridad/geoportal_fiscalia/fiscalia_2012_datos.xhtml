@@ -27,7 +27,7 @@ and open the template in the editor.
                         <p:dataTable id="tblDatos" value="#{controladorFiscalia2012_Datos.lstDatos}"  
                                      var="datos"  emptyMessage="No hay Registros"
                                      paginator="true" rows="15" rowKey="#{datos.id}" selectionMode="single" 
-                                     selection="#{controladorFiscalia2012_Datos.lstDatos}" style="alignment-adjust: initial" >
+                                     selection="#{controladorFiscalia2012_Datos.datoSel}" style="alignment-adjust: initial" >
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Fecha Denuncia"/>
@@ -105,8 +105,6 @@ and open the template in the editor.
                             </p:column>
                             
                             
-
-
                             <f:facet name="footer">
                                 <h:commandLink>
                                     <img src="../../resources/images/excel.png" alt=""/>

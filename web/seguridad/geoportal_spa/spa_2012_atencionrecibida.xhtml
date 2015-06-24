@@ -26,50 +26,100 @@ and open the template in the editor.
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Casos de acuerdo al tipo de violencia">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="e" 
+                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="ne" 
                                            title="Total de Denuncias por Circuito" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
                         <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="e" 
+                            <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="ne" 
                                           title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
                                           xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
                         <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieViolencia}" legendPosition="e" 
+                            <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieViolencia}" legendPosition="ne" 
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
 
                         </p:tab>
 
                         <p:tab title="Frecuencia de agresion">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="e" 
+                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="ne" 
                                            title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>  
 
                         <p:tab title="Frecuencia de agresion (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="e" 
+                            <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="ne" 
                                           title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                          xaxisLabel="Frecuencia de agresion" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
+                                          xaxisLabel="Frecuencia de agresion" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="percent"  />                             
                         </p:tab>  
 
                         <p:tab title="Frecuencia de Agresión (Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieFrecuenciaAgresion}" legendPosition="e" 
-                                        style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
+                            <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieFrecuenciaAgresion}" legendPosition="ne" 
+                                        style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true"  /> 
                         </p:tab>
 
                         <p:tab title="Tratamientos recibidos por las victimas">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTratamiento}" legendPosition="e" 
+                            <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTratamiento}" legendPosition="ne" 
                                            title="Tratamientos recibidos por las victimas" style="height:450px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="#Víctimas" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
-                        </p:tab> 
-                        
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        <script type="text/javascript">
+                            function my_ext() {
+                                this.cfg.seriesDefaults = {
+                                    renderer: $.jqplot.BarRenderer,
+                                    pointLabels: {show: true}
+                                };
+
+                                this.cfg.stackSeries: true;
+                            }
+                        </script> 
+                        <script type="text/javascript">
+                            function pieChartLabelExtender() {
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelFormatString = '%#.2f%%';
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelThreshold = 5;
+                                this.cfg.seriesDefaults.rendererOptions.dataLabelPositionFactor = 0.8;
+                                this.cfg.seriesDefaults.rendererOptions.startAngle = -90;
+                            }
+                        </script>
+                        <style type="text/css">
+                            .chartContainer {
+                                position:relative;
+                                margin: 0 auto;
+                                top: 10px;
+                                width: 350px;
+                                height: 350px;
+                            }
+                            .chartLegend {
+                                border: 1px solid #d7d7d8;
+                                margin: 40px 40px;
+                                width: 80%;
+                            }
+                            .pieExtra {
+                                position:absolute;
+                                left: 17px;
+                                top: 13.5px;
+                            }
+                            .pieLabels { position:absolute !important; }
+                            .mainPieChart { position:absolute !important; }
+                            .jqplot-title { display:none !important; }
+                            .jqplot-grid-canvas { display:none !important; }
+                            .jqplot-series-shadowCanvas { display:none !important; }
+                            .mainPieChart .jqplot-event-canvas { z-index: 10 !important; }
+                            .jqplot-data-label { color: #fff; font-weight: bold; font-size: 14px; }
+                            .pieLabels .jqplot-data-label { margin-top: -9px !important; }
+                            .mainPieChart .jqplot-data-label { margin-top: 8px !important; }
+                            .pieLabels .jqplot-series-canvas { display:none !important; }   
+
+                        </style>
+
+
                     </p:accordionPanel>
 
                 </h:form>

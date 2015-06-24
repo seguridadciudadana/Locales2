@@ -106,11 +106,11 @@ and open the template in the editor.
                             <f:facet name="footer">
                                 <h:commandLink>
                                     <img src="../../resources/images/excel.png" alt=""/>
-                                    <p:dataExporter type="xls" target="tblDatos" fileName="datos" pageOnly="true" />
+                                    <p:dataExporter type="xls" target="tblDatos" fileName="datos" pageOnly="false" rendered="true" />
                                 </h:commandLink>
                                 <h:commandLink>
                                     <img src="../../resources/images/pdf.png" alt=""/>
-                                    <p:dataExporter type="pdf" target="tblDatos" fileName="datos" pageOnly="true" />
+                                    <p:dataExporter type="pdf" target="tblDatos" fileName="datos" pageOnly="fasle" rendered="true"/>
                                 </h:commandLink>
                                 <h:commandLink>
                                     <img src="../../resources/images/csv.png" alt=""/>
