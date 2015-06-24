@@ -424,9 +424,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
             lstDatos1 = FFiscalia_2011.ObtenerDatos();
             ChartSeries Violencia = new ChartSeries();
             Violencia.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoViolencia = FFiscalia_2011.ObtenerDatosDadoTipoAgresion(lstDatos1.get(i).getTipo_agresion());
-                Violencia.set(lstDatos1.get(i).getTipo_agresion(), lstDatosDadoViolencia.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoViolencia = FFiscalia_2011.ObtenerDatosDadoTipoAgresion(lstDatos11.getTipo_agresion());
+                Violencia.set(lstDatos11.getTipo_agresion(), lstDatosDadoViolencia.size());
             }
 
             model.addSeries(Violencia);
@@ -443,9 +443,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
             lstDatos1 = FFiscalia_2011.ObtenerDatos();
             ChartSeries Circuito = new ChartSeries();
             Circuito.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoCircuito = FFiscalia_2011.ObtenerDatosDadoCircuito(lstDatos1.get(i).getCircuito());
-                Circuito.set(lstDatos1.get(i).getCircuito(), lstDatosDadoCircuito.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoCircuito = FFiscalia_2011.ObtenerDatosDadoCircuito(lstDatos11.getCircuito());
+                Circuito.set(lstDatos11.getCircuito(), lstDatosDadoCircuito.size());
             }
             model.addSeries(Circuito);
 
@@ -461,9 +461,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
             lstDatos1 = FFiscalia_2011.ObtenerDatos();
             ChartSeries Subcircuito = new ChartSeries();
             Subcircuito.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoSubCircuito = FFiscalia_2011.ObtenerDatosDadoSubCircuito(lstDatos1.get(i).getSubcircuito());
-                Subcircuito.set(lstDatos1.get(i).getSubcircuito(), lstDatosDadoSubCircuito.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoSubCircuito = FFiscalia_2011.ObtenerDatosDadoSubCircuito(lstDatos11.getSubcircuito());
+                Subcircuito.set(lstDatos11.getSubcircuito(), lstDatosDadoSubCircuito.size());
             }
             model.addSeries(Subcircuito);
 
@@ -480,9 +480,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
             lstDatos1 = FFiscalia_2011.ObtenerDatos();
             ChartSeries Ec = new ChartSeries();
             Ec.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoestadoCivil = FFiscalia_2011.ObtenerDatosDadoEstadoCivil(lstDatos1.get(i).getEstado_civil_victima());
-                Ec.set(lstDatos1.get(i).getEstado_civil_victima(), lstDatosDadoestadoCivil.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoestadoCivil = FFiscalia_2011.ObtenerDatosDadoEstadoCivil(lstDatos11.getEstado_civil_victima());
+                Ec.set(lstDatos11.getEstado_civil_victima(), lstDatosDadoestadoCivil.size());
             }
             model.addSeries(Ec);
 
@@ -496,9 +496,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
         PieChartModel pieModel = new PieChartModel();
         try {
             pieModel = new PieChartModel();
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoestadoCivil = FFiscalia_2011.ObtenerDatosDadoEstadoCivil(lstDatos1.get(i).getEstado_civil_victima());
-                pieModel.set(lstDatos1.get(i).getEstado_civil_victima(), lstDatosDadoestadoCivil.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoestadoCivil = FFiscalia_2011.ObtenerDatosDadoEstadoCivil(lstDatos11.getEstado_civil_victima());
+                pieModel.set(lstDatos11.getEstado_civil_victima(), lstDatosDadoestadoCivil.size());
             }
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
@@ -510,9 +510,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
         PieChartModel pieModel = new PieChartModel();
         try {
             pieModel = new PieChartModel();
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoViolencia = FFiscalia_2011.ObtenerDatosDadoTipoAgresion(lstDatos1.get(i).getTipo_agresion());
-                pieModel.set(lstDatos1.get(i).getTipo_agresion(), lstDatosDadoViolencia.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoViolencia = FFiscalia_2011.ObtenerDatosDadoTipoAgresion(lstDatos11.getTipo_agresion());
+                pieModel.set(lstDatos11.getTipo_agresion(), lstDatosDadoViolencia.size());
             }
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
@@ -526,9 +526,9 @@ public class ControladorFiscalia2011_EstadisticasGenerales {
             lstDatos1 = FFiscalia_2011.ObtenerDatos();
             ChartSeries Ec = new ChartSeries();
             Ec.setLabel("Tipos de Violencia");
-            for (int i = 0; i < lstDatos1.size(); i++) {
-                lstDatosDadoParentesco = FFiscalia_2011.ObtenerDatosDadoParentescoAgresor(lstDatos1.get(i).getParentesco_agresor_victima());
-                Ec.set(lstDatos1.get(i).getParentesco_agresor_victima(), lstDatosDadoParentesco.size());
+            for (Fiscalia_2011 lstDatos11 : lstDatos1) {
+                lstDatosDadoParentesco = FFiscalia_2011.ObtenerDatosDadoParentescoAgresor(lstDatos11.getParentesco_agresor_victima());
+                Ec.set(lstDatos11.getParentesco_agresor_victima(), lstDatosDadoParentesco.size());
             }
             model.addSeries(Ec);
 
