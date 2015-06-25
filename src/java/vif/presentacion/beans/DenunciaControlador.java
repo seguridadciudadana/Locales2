@@ -259,8 +259,7 @@ public class DenunciaControlador {
         this.cargarVictima();
         this.cargarViolencia();
         this.cargarCircuito();
-         this.sqlDate = new java.sql.Date(ahora.getTime());
-        sqlDate1 = new java.sql.Date(fecha.getTime());
+
 
     }
 
@@ -326,6 +325,8 @@ public class DenunciaControlador {
     }
 
     public void insertarDenuncia() {
+        this.sqlDate = new java.sql.Date(ahora.getTime());
+        sqlDate1 = new java.sql.Date(fecha.getTime());
         SimpleDateFormat formato = new SimpleDateFormat("HH:mm a");
         //DateFormat df =  DateFormat.getDateInstance();
         fecha1 = formato.format(hora);
