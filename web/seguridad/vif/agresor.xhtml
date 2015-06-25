@@ -31,7 +31,7 @@ and open the template in the editor.
                                 <f:facet name="header">
                                     <h:outputText value="Cédula Ciudadanía"/>
                                 </f:facet>
-                                <h:outputText value="#{Agresor.cedula_identidad}"/>
+                                <h:outputText value="#{Agresor.cedula_identidad}" />
                             </p:column>
 
                             <p:column headerText="Nombres">
@@ -116,45 +116,50 @@ and open the template in the editor.
                     <h:form id="frmNuevaAgresor">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                         <p:panelGrid id="pngNuevoAgresor" columns="2">
-                            <h:outputText value="Cedula de Ciudadanía:"/>
+                            <h:outputText value="Cedula de Ciudadanía:" />
                             <p:inputText value="#{agresorControlador.objAgresor.cedula_identidad}" title="ej: 0603977224" 
-                                         required="true" requiredMessage="Ingrese el número de cédula"/>
+                                         required="true" requiredMessage="Ingrese el número de cédula" placeholder="ej: 0603977224"/>
 
                             <h:outputText value="Nombres:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.pnombres}" title="ej: Juan Manuel"
-                                         required="true" requiredMessage="Ingrese los nombres"/>
+                                         required="true" requiredMessage="Ingrese los nombres" placeholder="ej: Juan Manuel"/>
 
                             <h:outputText value="Apellidos:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.papellidos}" title="ej: Santos"
-                                         required="true" requiredMessage="Ingrese los apellidos"/>
+                                         required="true" requiredMessage="Ingrese los apellidos" placeholder="ej: Santos"/>
 
                             <h:outputText value="Sexo:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.sexo}" title="M/F"
-                                         required="true" requiredMessage="Ingrese el sexo de la víctima"/>
+                                         required="true" requiredMessage="Ingrese el sexo de la víctima" placeholder="M/F"/>
 
                             <h:outputText value="Direccion:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.direccion}" title="ej: Avda 11 de Noviembre y Juan Salinas"
-                                         required="true" requiredMessage="Ingrese la dirección de la víctima"/>
+                                         required="true" requiredMessage="Ingrese la dirección de la víctima" 
+                                         placeholder="ej: Avda 11 de Noviembre y Juan Salinas"/>
 
                             <h:outputText value="Domiciliado:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.pdomiciliado}" title="ej: Avda 11 de Noviembre y Juan Salinas"
-                                         required="true" requiredMessage="Ingrese la dirección de la víctima"/>
+                                         required="true" requiredMessage="Ingrese la dirección de la víctima" 
+                                         placeholder="ej: Avda 11 de Noviembre y Juan Salinas"/>
 
                             <h:outputText value="Edad:"/>
-                            <p:inputText value="#{agresorControlador.objAgresor.edad}" title="ej: 25"
-                                         required="true" requiredMessage="Ingrese la edad de la víctima"/>
-
+                            <p:spinner   value="#{agresorControlador.objAgresor.edad}" title="ej: 25" placeholder="ej: 25"
+                                         requiredMessage="Ingrese la edad de la víctima" min="5" max="100"/>
+                            
                             <h:outputText value="Estado Civil:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.estado_civil}" title="ej: Casado"
-                                         required="true" requiredMessage="Ingrese el estado civil de la víctima"/>    
+                                         required="true" requiredMessage="Ingrese el estado civil de la víctima" 
+                                         placeholder="ej: Casado"/>    
 
                             <h:outputText value="Nivel de Educación:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.nivel_educacion}" title="ej: Superior"
-                                         required="true" requiredMessage="Ingrese el nivel de educación de la víctima"/>                              
+                                         required="true" requiredMessage="Ingrese el nivel de educación de la víctima" 
+                                         placeholder="ej: Superior"/>                              
 
                             <h:outputText value="Ocupación:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.ocupacion}" title="ej: Agricultor"
-                                         required="true" requiredMessage="Ingrese la ocupación de la víctima"/>   
+                                         required="true" requiredMessage="Ingrese la ocupación de la víctima" 
+                                         placeholder="ej: Agricultor"/>   
                         </p:panelGrid>
                         <p:commandButton value="Aceptar" action="#{agresorControlador.insertarAgresor()}" 
                                          update=":frmagresor:pnlAgresor"/>
