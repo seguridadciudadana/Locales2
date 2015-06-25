@@ -28,13 +28,13 @@ and open the template in the editor.
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012.graficaCasosCircuito}" legendPosition="e" 
                                            title="Total de Denuncias por Circuito" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
+                                           xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="label"  />                             
                         </p:tab>
                         <p:tab title="Total de Denuncias por Circuito(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012.graficaCasosCircuito}" legendPosition="e" 
                                           title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
-                                          xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
+                                          xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="percent"  />                             
                         </p:tab>
                         <p:tab title="Total de Denuncias por Circuito(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
@@ -46,7 +46,7 @@ and open the template in the editor.
                                         styleClass="pieLabels" />
                         </p:tab>
 
-                        
+
                         <script type="text/javascript">
                             function pieChartExtender() {
                                 this.cfg.seriesDefaults.rendererOptions.dataLabelFormatString = '%#.2f%%';
@@ -59,6 +59,7 @@ and open the template in the editor.
                                 this.cfg.seriesDefaults.rendererOptions.dataLabelThreshold = 5;
                                 this.cfg.seriesDefaults.rendererOptions.dataLabelPositionFactor = 0.8;
                                 this.cfg.seriesDefaults.rendererOptions.startAngle = -90;
+
                             }
                         </script>
                         <p:tab title="Denuncias por circuito clasificadas por sexo de la víctima">
