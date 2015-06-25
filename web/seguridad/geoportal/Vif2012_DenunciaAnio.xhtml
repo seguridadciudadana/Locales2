@@ -25,16 +25,28 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Victimas por meses">
+                        <p:tab title="Total de denuncias clasificadas por meses">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2012ControladorDenunciaAnio.graficoAnio}" legendPosition="ne" 
                                            title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="MESES" yaxisLabel="# Denuncias" /> 
                         </p:tab>
+                        <p:tab title="Total de denuncias clasificadas por meses (Gráfico de Barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2012ControladorDenunciaAnio.graficoAnio}" legendPosition="ne" 
+                                          title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="MESES" yaxisLabel="# Denuncias" /> 
+                        </p:tab>
 
-                        <p:tab title="Sexo Victima por meses">
+                        <p:tab title="Total de denuncias clasificadas por meses y sexo de la víctima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2012ControladorDenunciaAnio.graficaAnioSV}" legendPosition="ne" 
+                                           title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="MESES" yaxisLabel="# Denuncias" />                             
+                        </p:tab>
+                        <p:tab title="Total de denuncias clasificadas por meses y sexo de la víctima (Gráfico de Barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2012ControladorDenunciaAnio.graficaAnioSV}" legendPosition="ne" 
                                            title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="MESES" yaxisLabel="# Denuncias" /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
