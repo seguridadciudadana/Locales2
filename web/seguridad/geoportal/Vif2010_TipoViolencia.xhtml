@@ -56,23 +56,17 @@ and open the template in the editor.
                                           title="Tipo de Violencia" style="height:450px;width:1000px;text-decoration-style: dashed"
                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias" 
                                           stacked="true"/> 
-                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
-                           
-
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />                           
                         </p:tab>
                         
                          <script type="text/javascript">
                                 function my_ext() {
                                     this.cfg.seriesDefaults = {
                                         renderer: $.jqplot.BarRenderer,
-                                        pointLabels: {show: true}
-                                        
+                                        pointLabels: {show: true}                                        
                                     };
-                                    this.cfg.stackSeries: true;
-                                    
-            
-                                }
-                                
+                                    this.cfg.stackSeries: true;                                                
+                                }                                
                             </script>
                     </p:accordionPanel>
                 </h:form>
