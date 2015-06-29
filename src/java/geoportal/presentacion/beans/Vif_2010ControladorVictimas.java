@@ -767,7 +767,7 @@ public class Vif_2010ControladorVictimas {
             Masculino.setLabel("Masculino");
             Masculino.set("24 DE MAYO", lstDatos24MayoM.size());
             Masculino.set("CAMILO PONCE", lstDatosCamiloPonceM.size());
-            Masculino.set("CAMINO AL SOL", lstDatosCaminoSolM.size());
+            Masculino.set("CAMINOS AL SOL", lstDatosCaminoSolM.size());
             Masculino.set("LA CONDAMINE", lstDatosLaCondamineM.size());
             Masculino.set("LA ESTACION", lstDatosLaEstacionM.size());
             Masculino.set("LA PAZ", lstDatosLaPazM.size());
@@ -783,7 +783,7 @@ public class Vif_2010ControladorVictimas {
             Femenino.setLabel("Femenino");
             Femenino.set("24 DE MAYO", lstDatos24MayoF.size());
             Femenino.set("CAMILO PONCE", lstDatosCamiloPonceF.size());
-            Femenino.set("CAMINO AL SOL", lstDatosCaminoSolF.size());
+            Femenino.set("CAMINOS AL SOL", lstDatosCaminoSolF.size());
             Femenino.set("LA CONDAMINE", lstDatosLaCondamineF.size());
             Femenino.set("LA ESTACION", lstDatosLaEstacionF.size());
             Femenino.set("LA PAZ", lstDatosLaPazF.size());
@@ -857,7 +857,7 @@ public class Vif_2010ControladorVictimas {
             Masculino.set("24 DE MAYO 2", lstDatos24Mayo2M.size());
             Masculino.set("CAMILO PONCE 1", lstDatosCamiloPonce1M.size());
             Masculino.set("CAMILO PONCE 2", lstDatosCamiloPonce2M.size());
-            Masculino.set("CAMINO AL SOL 1", lstDatosCaminoSol1M.size());
+            Masculino.set("CAMINOS AL SOL 1", lstDatosCaminoSol1M.size());
             Masculino.set("LA CONDAMINE 1", lstDatosLaCondamine1M.size());
             Masculino.set("LA CONDAMINE 2", lstDatosLaCondamine2M.size());
             Masculino.set("LA ESTACION 1", lstDatosLaEstacion1M.size());
@@ -882,7 +882,7 @@ public class Vif_2010ControladorVictimas {
             Femenino.set("24 DE MAYO 2", lstDatos24Mayo2F.size());
             Femenino.set("CAMILO PONCE 1", lstDatosCamiloPonce1F.size());
             Femenino.set("CAMILO PONCE 2", lstDatosCamiloPonce2F.size());
-            Femenino.set("CAMINO AL SOL 1", lstDatosCaminoSol1F.size());
+            Femenino.set("CAMINOS AL SOL 1", lstDatosCaminoSol1F.size());
             Femenino.set("LA CONDAMINE 1", lstDatosLaCondamine1F.size());
             Femenino.set("LA CONDAMINE 2", lstDatosLaCondamine2F.size());
             Femenino.set("LA ESTACION 1", lstDatosLaEstacion1F.size());
