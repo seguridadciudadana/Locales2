@@ -33,33 +33,24 @@ and open the template in the editor.
                                         <f:selectItem itemLabel="Seleccione un Circuito" itemValue="#{null}" />
                                         <f:selectItems value="#{vif_2010ControladorCircuitoTViolencia.lstDatosCircuito}" var="circuito"
                                                        itemLabel="#{circuito.circuito}" itemValue="#{circuito.circuito}"/>
-
                                     </p:selectOneMenu> 
-
                                     <p:commandButton value="Graficar"
                                                      action="#{vif_2010ControladorCircuitoTViolencia.graficar()}" 
                                                      oncomplete="wdlgNuevaGrafica.show()" 
                                                      update=":frmNuevaGrafica:pngNuevaGrafica" >
-
                                     </p:commandButton>
-
                                     <h:outputText value="SubCircuito:" style="font-style: initial"/>
                                     <p:selectOneMenu id="cmbSubcircuito" value="#{vif_2010ControladorSubcircuitoTViolencia.valorSSeleccionado}" 
                                                      effect="fold" editable="false">
                                         <f:selectItem itemLabel="Seleccione un SubCircuito" itemValue="#{null}" />
                                         <f:selectItems value="#{vif_2010ControladorSubcircuitoTViolencia.lstDatosSubCircuito}" var="subcircuito"
                                                        itemLabel="#{subcircuito.subcircuit}" itemValue="#{subcircuito.subcircuit}"/>
-
                                     </p:selectOneMenu> 
-
                                     <p:commandButton value="Graficar"
                                                      action="#{vif_2010ControladorSubcircuitoTViolencia.graficar()}" 
                                                      oncomplete="wdlgNuevaGraficaSubcircuito.show()" 
                                                      update=":frmNuevaGraficaSubcircuito:pngNuevaGraficaSubcircuito" >
-
                                     </p:commandButton>
-
-
                                 </p:panelGrid>
                                 <p:separator style="border-color: background" />
                             </p:tab>
@@ -97,12 +88,10 @@ and open the template in the editor.
                                                      update=":frmNuevaGraficaSubcircuito2011:pngNuevaGraficaSubcircuito2011" >
 
                                     </p:commandButton>
-
-
                                 </p:panelGrid>
                                 <p:separator style="border-color: background" />
                             </p:tab>
-                            
+
                             <!--2012-->
                             <p:tab title="Violencia 2012">
                                 <p:panelGrid id="pngGraficar2012" columns="6">
@@ -112,42 +101,30 @@ and open the template in the editor.
                                         <f:selectItem itemLabel="Seleccione un Circuito" itemValue="#{null}" />
                                         <f:selectItems value="#{vif_2012ControladorCircuitoTViolencia.lstDatosCircuito}" var="circuito"
                                                        itemLabel="#{circuito.pcircuito}" itemValue="#{circuito.pcircuito}"/>
-
                                     </p:selectOneMenu> 
 
                                     <p:commandButton value="Graficar"
                                                      action="#{vif_2012ControladorCircuitoTViolencia.graficar()}" 
                                                      oncomplete="wdlgNuevaGrafica2012.show()" 
                                                      update=":frmNuevaGrafica2012:pngNuevaGrafica2012" >
-
                                     </p:commandButton>
-
                                     <h:outputText value="SubCircuito:" style="font-style: initial"/>
                                     <p:selectOneMenu id="cmbSubcircuito2012" value="#{vif_2012ControladorSubcircuitoTViolencia.valorSSeleccionado}" 
                                                      effect="fold" editable="false">
                                         <f:selectItem itemLabel="Seleccione un SubCircuito" itemValue="#{null}" />
                                         <f:selectItems value="#{vif_2012ControladorSubcircuitoTViolencia.lstDatosSubCircuito}" var="subcircuito"
                                                        itemLabel="#{subcircuito.psubcircuito}" itemValue="#{subcircuito.psubcircuito}"/>
-
                                     </p:selectOneMenu> 
-
                                     <p:commandButton value="Graficar"
                                                      action="#{vif_2012ControladorSubcircuitoTViolencia.graficar()}" 
                                                      oncomplete="wdlgNuevaGraficaSubcircuito2012.show()" 
                                                      update=":frmNuevaGraficaSubcircuito2012:pngNuevaGraficaSubcircuito2012" >
-
                                     </p:commandButton>
-
-
                                 </p:panelGrid>
                                 <p:separator style="border-color: background" />
                             </p:tab>
                         </p:accordionPanel>
-
-                        
-
                     </p:panel>
-
                 </h:form>
             </ui:define>
 
@@ -164,11 +141,8 @@ and open the template in the editor.
                             <p:pieChart id="GraficaPastel" value="#{vif_2010ControladorCircuitoTViolencia.graficaTViolenciaCircuito}" 
                                         legendPosition="e" style="height:400px;width:1000 px;text-decoration-style:dashed"
                                         showDataLabels="true" seriesColors="00FFFF,FFD700,FFFACD,3CB371,800000,778899,9400D3" > 
-
                             </p:pieChart> 
-
                         </p:panel>
-
                         <p:commandButton value="Cerrar" onclick="wdlgNuevaGrafica.hide()" type="reset"/>
                     </h:form> 
                 </p:dialog> 
@@ -192,9 +166,9 @@ and open the template in the editor.
                         <p:commandButton value="Cerrar" onclick="wdlgNuevaGraficaSubcircuito.hide()" type="reset"/>
                     </h:form> 
                 </p:dialog> 
-                
+
                 <!--2011-->
-                
+
                 <p:dialog id="dlgNuevaGrafica2011" header="" footer="Fuente:OSCUNACH-2015" widgetVar="wdlgNuevaGrafica2011" 
                           modal="true" closable="false" resizable="false"
                           showEffect="clip" hideEffect="fold" height="450" width="1200"> 
@@ -235,9 +209,9 @@ and open the template in the editor.
                         <p:commandButton value="Cerrar" onclick="wdlgNuevaGraficaSubcircuito2011.hide()" type="reset"/>
                     </h:form> 
                 </p:dialog> 
-                
+
                 <!--2012-->
-                
+
                 <p:dialog id="dlgNuevaGrafica2012" header="" footer="Fuente:OSCUNACH-2015" widgetVar="wdlgNuevaGrafica2012" 
                           modal="true" closable="false" resizable="false"
                           showEffect="clip" hideEffect="fold" height="450" width="1200"> 
