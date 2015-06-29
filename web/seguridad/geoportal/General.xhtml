@@ -24,18 +24,7 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Total de denuncias por subcircuitos">
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="ne" 
-                                           title="SUBCIRCUITO" style="height:400px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
-                        </p:tab>
-                        <p:tab title="Total de denuncias por subcircuitos (Gráfico de barras)">
-                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="ne" 
-                                           title="SUBCIRCUITO" style="height:400px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
-                        </p:tab>
+
                         <p:tab title="Total de denuncias por Circuitos">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2010Controlador.lineModel2}" legendPosition="ne" 
@@ -54,6 +43,19 @@ and open the template in the editor.
                                         style="height:450px;width:1000 px;text-decoration-style:dashed" showDataLabels="true" >
 
                             </p:pieChart>   
+
+                        </p:tab>
+                        <p:tab title="Total de denuncias por subcircuitos">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="ne" 
+                                           title="SUBCIRCUITO" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        <p:tab title="Total de denuncias por subcircuitos (Gráfico de barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2010Controlador.lineModel1}" legendPosition="ne" 
+                                          title="SUBCIRCUITO" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="# Denuncias"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <script type="text/javascript">
