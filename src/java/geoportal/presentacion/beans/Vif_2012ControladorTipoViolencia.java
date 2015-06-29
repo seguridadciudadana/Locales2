@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 
 /**
@@ -31,6 +32,15 @@ public class Vif_2012ControladorTipoViolencia {
     private Vif_2012 datoSel;
     private ArrayList<Vif_2012> lstDatosV;
     private ArrayList<Vif_2012> lstDatosDadoV;
+    private PieChartModel pieTipoViolencia;
+
+    public PieChartModel getPieTipoViolencia() {
+        return pieTipoViolencia;
+    }
+
+    public void setPieTipoViolencia(PieChartModel pieTipoViolencia) {
+        this.pieTipoViolencia = pieTipoViolencia;
+    }
 
     public CartesianChartModel getLineModel() {
         return lineModel;
@@ -79,8 +89,9 @@ public class Vif_2012ControladorTipoViolencia {
 
     public void graficar() {
         lineModel = initCategoryTipoViolencia();
+        pieTipoViolencia=pieTipoViolencia();
     }
-    
+
     private void reinit() {
 
         this.lstDatosControl = new ArrayList<Vif_2012>();
@@ -92,19 +103,19 @@ public class Vif_2012ControladorTipoViolencia {
         this.cargarDatos();
 
     }
+
     public Vif_2012ControladorTipoViolencia() {
         this.reinit();
     }
-    
-    
-     private CartesianChartModel initCategoryTipoViolencia() {
+
+    private CartesianChartModel initCategoryTipoViolencia() {
         CartesianChartModel model = new CartesianChartModel();
-        try {                       
-            lstDatosV=FVif_2012.ObtenerDatosTipoViolencia();
+        try {
+            lstDatosV = FVif_2012.ObtenerDatosTipoViolencia();
             ChartSeries TipoViolencia = new ChartSeries();
             TipoViolencia.setLabel("Tipo de Violencia");
-            for (int x = 0; x < lstDatosV.size(); x++) {               
-                lstDatosDadoV=FVif_2012.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getPtipo_de_violencia());
+            for (int x = 0; x < lstDatosV.size(); x++) {
+                lstDatosDadoV = FVif_2012.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getPtipo_de_violencia());
                 TipoViolencia.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
             }
             model.addSeries(TipoViolencia);
@@ -115,7 +126,21 @@ public class Vif_2012ControladorTipoViolencia {
         return model;
 
     }
-       
+
+   private PieChartModel pieTipoViolencia() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+            pieModel = new PieChartModel();
+            for (int x = 0; x < lstDatosV.size(); x++) {
+                lstDatosDadoV = FVif_2012.ObtenerDatosDadoTipoViolencia(lstDatosV.get(x).getPtipo_de_violencia());
+                pieModel.set(lstDatosV.get(x).getPtipo_de_violencia(), lstDatosDadoV.size());
+            }
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
+    }
+    
     public void cargarDatos() {
         try {
             this.lstDatosControl = FVif_2012.ObtenerDatos();
@@ -127,6 +152,4 @@ public class Vif_2012ControladorTipoViolencia {
         }
     }
 
-    
-    
 }
