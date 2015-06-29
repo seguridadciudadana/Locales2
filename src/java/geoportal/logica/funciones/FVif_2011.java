@@ -135,8 +135,8 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
-        public static ArrayList<Vif_2011> ObtenerDatosDadoCircuitoTipoViolencia(String circuito, String tViolencia) throws Exception {
+
+    public static ArrayList<Vif_2011> ObtenerDatosDadoCircuitoTipoViolencia(String circuito, String tViolencia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -152,7 +152,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosDadoSubCircuitoTipoViolencia(String subcircuito, String tViolencia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -180,6 +180,124 @@ public class FVif_2011 {
             lst = llenarDatos(rs);
             rs = null;
         } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    //ocupaciones victimas
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaComerciante() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_que_haceres()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaQueHaceres() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_que_haceres()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaEmpleadoPrivado() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_empleado_privado()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaEmpleadoPublico() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_empleado_publico()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaEstudiantes() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_estudiantes()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaJornalero() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_jornalero()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaJubilado() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_jubilado()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaProfesional() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_profesional()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2011> ObtenerDatosVictimaNA() throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_na()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
         }
         return lst;
     }
@@ -533,7 +651,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosFebrero() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -546,7 +664,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosMarzo() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -559,7 +677,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosAbril() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -585,6 +703,7 @@ public class FVif_2011 {
         }
         return lst;
     }
+
     public static ArrayList<Vif_2011> ObtenerDatosJunio() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -597,7 +716,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosJulio() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -610,7 +729,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosAgosto() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -623,7 +742,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosSeptiembre() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -636,7 +755,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosOctubre() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -649,7 +768,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosNoviembre() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -662,7 +781,7 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2011> ObtenerDatosDiciembre() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
@@ -675,8 +794,5 @@ public class FVif_2011 {
         }
         return lst;
     }
-    
-    
-    
-    
+
 }
