@@ -207,13 +207,13 @@ public class Vif_2010ControladorDiaAgresion {
         PieChartModel semana = new PieChartModel();
         try {
 
-            lstDatosLunes = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
-            lstDatosMartes = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
+            lstDatosLunes = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosMartes = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
             lstDatosMiercoles = FVif_2010.ObtenerDatosDadoDiaAgresion("MIERCOLES");
-            lstDatosJueves = FVif_2010.ObtenerDatosDadoDiaAgresion("DOMINGO");
-            lstDatosViernes = FVif_2010.ObtenerDatosDadoDiaAgresion("SABADO");
-            lstDatosSabado = FVif_2010.ObtenerDatosDadoDiaAgresion("VIERNES");
-            lstDatosDomingo = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosJueves = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
+            lstDatosViernes = FVif_2010.ObtenerDatosDadoDiaAgresion("VIERNES");
+            lstDatosSabado = FVif_2010.ObtenerDatosDadoDiaAgresion("SABADO");
+            lstDatosDomingo = FVif_2010.ObtenerDatosDadoDiaAgresion("DOMINGO");
 
             semana = new PieChartModel();
             semana.set("Lunes", lstDatosLunes.size());

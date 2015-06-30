@@ -195,7 +195,7 @@ public class FVif_2010 {
       public static ArrayList<Vif_2010> ObtenerDatosVictimaComerciante() throws Exception {
         ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
         try {
-            String sql = "select * from geoportal.f_select_vif_2010_2_que_haceres()";
+            String sql = "select * from geoportal.f_select_vif_2010_2_comerciante()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
