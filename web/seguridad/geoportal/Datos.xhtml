@@ -17,7 +17,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Gestión</ui:define>
+            <ui:define name="top">Estadísticas</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -38,14 +38,7 @@ and open the template in the editor.
                                 </f:facet>
                                 <h:outputText value="#{datos.fecha__den}"/>
                             </p:column>
-
-                            <p:column >
-                                <f:facet name="header">
-                                    <h:outputText value="Tipo Violencia"/>
-                                </f:facet>
-                                <h:outputText value="#{datos.tipo_de_vi}"/>
-                            </p:column>
-
+                            
                             <p:column >
                                 <f:facet name="header">
                                     <h:outputText value="Subcircuito"/>
