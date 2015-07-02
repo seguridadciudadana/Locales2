@@ -30,7 +30,7 @@ and open the template in the editor.
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                             <p:lineChart   value="#{vif_2010Controlador2.graficoAño}" legendPosition="ne" 
-                                           title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           title="Estadísticas Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="MESES" yaxisLabel="# Denuncias" /> 
                         </p:tab>
                         <p:tab title="Total de denuncias por meses (Gráfico Circular)">
@@ -39,18 +39,18 @@ and open the template in the editor.
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
 
                         </p:tab>
-                        <p:tab title="Total de denuncias del por meses clasificadas al sexo de la víctima">
+                        <p:tab title="Total de denuncias por meses clasificadas al sexo de la víctima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                             <p:lineChart   value="#{vif_2010Controlador2.graficaEnero}" legendPosition="ne" 
-                                           title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           title="Total de Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Meses" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
                         <p:tab title="Total de denuncias del por meses clasificadas al sexo de la víctima (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                             <p:barChart   value="#{vif_2010Controlador2.graficaEnero}" legendPosition="ne" 
-                                           title="Gestion Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           title="Total de Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Meses" yaxisLabel="# Denuncias" stacked="true"/> 
                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
