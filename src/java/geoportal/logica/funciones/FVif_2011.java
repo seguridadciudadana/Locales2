@@ -925,4 +925,22 @@ public class FVif_2011 {
         return lst;
     }  
 
+    public static ArrayList<Vif_2011> ObtenerDatosDadoDiaAgresionSexoVictima(String circuito, String tViolencia) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_dia_agresion_sexo_victima(?,?)";
+            lstP.add(new Parametro(1, circuito));
+            lstP.add(new Parametro(2, tViolencia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    
 }

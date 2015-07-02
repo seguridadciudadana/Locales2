@@ -28,6 +28,7 @@ public class Vif_2012ControladorDiaDenuncia {
      * Creates a new instance of Vif_2012ControladorDiaDenuncia
      */
     private CartesianChartModel lineModelDiaDenuncia;
+    private CartesianChartModel lineModelDiaDenunciaTotal;
     private PieChartModel pieModel;
     private Vif_2012 objDatos;
     private Vif_2012 datoSel;
@@ -53,6 +54,14 @@ public class Vif_2012ControladorDiaDenuncia {
     private ArrayList<Vif_2012> lstDatosViernesF;
     private ArrayList<Vif_2012> lstDatosSabadoF;
     private ArrayList<Vif_2012> lstDatosDomingoF;
+
+    public CartesianChartModel getLineModelDiaDenunciaTotal() {
+        return lineModelDiaDenunciaTotal;
+    }
+
+    public void setLineModelDiaDenunciaTotal(CartesianChartModel lineModelDiaDenunciaTotal) {
+        this.lineModelDiaDenunciaTotal = lineModelDiaDenunciaTotal;
+    }
 
     public PieChartModel getPieModel() {
         return pieModel;
@@ -271,6 +280,7 @@ public class Vif_2012ControladorDiaDenuncia {
         //lineModelCircuitoViolencia = graficaCircuitoViolencia();
         lineModelDiaDenuncia = graficaDiaDenuncia();
         pieModel = graficaSemanaDenuncia();
+        lineModelDiaDenunciaTotal=graficaDiaDenunciaTotal();
 
     }
 
@@ -307,19 +317,17 @@ public class Vif_2012ControladorDiaDenuncia {
         this.reinit();
     }
 
-
     private CartesianChartModel graficaDiaDenuncia() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            //lstDatos24MayoF = FVif_2012.ObtenerDatosDadoCircuitoSexoVictima("F", "24 DE MAYO");
-            lstDatosLunes = FVif_2012.ObtenerDatosDiaDenuncia(1);
-            lstDatosMartes = FVif_2012.ObtenerDatosDiaDenuncia(2);
-            lstDatosMiercoles = FVif_2012.ObtenerDatosDiaDenuncia(3);
-            lstDatosJueves = FVif_2012.ObtenerDatosDiaDenuncia(4);
-            lstDatosViernes = FVif_2012.ObtenerDatosDiaDenuncia(5);
-            lstDatosSabado = FVif_2012.ObtenerDatosDiaDenuncia(6);
-            lstDatosDomingo = FVif_2012.ObtenerDatosDiaDenuncia(0);
 
+//            lstDatosLunes = FVif_2012.ObtenerDatosDiaDenuncia(1);
+//            lstDatosMartes = FVif_2012.ObtenerDatosDiaDenuncia(2);
+//            lstDatosMiercoles = FVif_2012.ObtenerDatosDiaDenuncia(3);
+//            lstDatosJueves = FVif_2012.ObtenerDatosDiaDenuncia(4);
+//            lstDatosViernes = FVif_2012.ObtenerDatosDiaDenuncia(5);
+//            lstDatosSabado = FVif_2012.ObtenerDatosDiaDenuncia(6);
+//            lstDatosDomingo = FVif_2012.ObtenerDatosDiaDenuncia(0);
             //victimas sexo masculino
             lstDatosLunesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(1, "M");
             lstDatosMartesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(2, "M");
@@ -372,7 +380,74 @@ public class Vif_2012ControladorDiaDenuncia {
             model.addSeries(Masculino);
 
         } catch (Exception e) {
-             Util.addErrorMessage(e, "Error");
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    private CartesianChartModel graficaDiaDenunciaTotal() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            //lstDatos24MayoF = FVif_2012.ObtenerDatosDadoCircuitoSexoVictima("F", "24 DE MAYO");
+            lstDatosLunes = FVif_2012.ObtenerDatosDiaDenuncia(1);
+            lstDatosMartes = FVif_2012.ObtenerDatosDiaDenuncia(2);
+            lstDatosMiercoles = FVif_2012.ObtenerDatosDiaDenuncia(3);
+            lstDatosJueves = FVif_2012.ObtenerDatosDiaDenuncia(4);
+            lstDatosViernes = FVif_2012.ObtenerDatosDiaDenuncia(5);
+            lstDatosSabado = FVif_2012.ObtenerDatosDiaDenuncia(6);
+            lstDatosDomingo = FVif_2012.ObtenerDatosDiaDenuncia(0);
+
+//            //victimas sexo masculino
+//            lstDatosLunesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(1, "M");
+//            lstDatosMartesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(2, "M");
+//            lstDatosMiercolesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(3, "M");
+//            lstDatosJuevesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(4, "M");
+//            lstDatosViernesM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(5, "M");
+//            lstDatosSabadoM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(6, "M");
+//            lstDatosDomingoM = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(0, "M");
+//            lstDatosLunesF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(1, "F");
+//            lstDatosMartesF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(2, "F");
+//            lstDatosMiercolesF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(3, "F");
+//            lstDatosJuevesF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(4, "F");
+//            lstDatosViernesF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(5, "F");
+//            lstDatosSabadoF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(6, "F");
+//            lstDatosDomingoF = FVif_2012.ObtenerDatosDiaDenunciaSexoVictima(0, "F");
+            ChartSeries Semana = new ChartSeries();
+            Semana.setLabel("Semana");
+            //Fisica.set("24 DE MAYO", lstDatos24MayoFisica.size());
+            Semana.set("Lunes", lstDatosLunes.size());
+            Semana.set("Martes", lstDatosMartes.size());
+            Semana.set("Miercoles", lstDatosMiercoles.size());
+            Semana.set("Jueves", lstDatosJueves.size());
+            Semana.set("Viernes", lstDatosViernes.size());
+            Semana.set("Sabado", lstDatosSabado.size());
+            Semana.set("Domingo", lstDatosDomingo.size());
+
+//            ChartSeries Masculino = new ChartSeries();
+//            Masculino.setLabel("Victimas Sexo Masculino");
+//            Masculino.set("Lunes", lstDatosLunesM.size());
+//            Masculino.set("Martes", lstDatosMartesM.size());
+//            Masculino.set("Miercoles", lstDatosMiercolesM.size());
+//            Masculino.set("Jueves", lstDatosJuevesM.size());
+//            Masculino.set("Viernes", lstDatosViernesM.size());
+//            Masculino.set("Sabado", lstDatosSabadoM.size());
+//            Masculino.set("Domingo", lstDatosDomingoM.size());
+//
+//            ChartSeries Femenino = new ChartSeries();
+//            Femenino.setLabel("Victimas Sexo Femenino");
+//            Femenino.set("Lunes", lstDatosLunesF.size());
+//            Femenino.set("Martes", lstDatosMartesF.size());
+//            Femenino.set("Miercoles", lstDatosMiercolesF.size());
+//            Femenino.set("Jueves", lstDatosJuevesF.size());
+//            Femenino.set("Viernes", lstDatosViernesF.size());
+//            Femenino.set("Sabado", lstDatosSabadoF.size());
+//            Femenino.set("Domingo", lstDatosDomingoF.size());
+            model.addSeries(Semana);
+//            model.addSeries(Femenino);
+//            model.addSeries(Masculino);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
         }
         return model;
     }
