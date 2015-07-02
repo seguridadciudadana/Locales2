@@ -23,23 +23,36 @@ and open the template in the editor.
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />                    
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
+                        
                         <p:tab title="Agresiones efectuadas en el transcurso de la semana">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2011ControladorDiaAgresion.lineModelDiaDenuncia}" legendPosition="e" 
                                            title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
                                            xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Agresiones efectuadas en el transcurso de la semana">
+                        <p:tab title="Agresiones efectuadas en el transcurso de la semana (Gráfico de barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{vif_2011ControladorDiaAgresion.lineModelDiaDenuncia}" legendPosition="ne" 
                                           title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Agresiones efectuadas en el transcurso de la semana (Porcentajes)">
+                        <p:tab title="Agresiones efectuadas en el transcurso de la semana (Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{vif_2011ControladorDiaAgresion.pieModel}" legendPosition="ne" 
-                                        style="height:350px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
+                                        style="height:350px;width:650px;text-decoration-style:dashed" showDataLabels="true" /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        <p:tab title="Agresiones efectuadas en el transcurso de la semana de acuerdo al sexo de la víctima">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{vif_2011ControladorDiaAgresion.lineModelDiaDenunciaSexoVictima}" legendPosition="e" 
+                                           title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
+                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        <p:tab title="Agresiones efectuadas en el transcurso de la semana de acuerdo al sexo de la víctima (Gráfico de barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2011ControladorDiaAgresion.lineModelDiaDenunciaSexoVictima}" legendPosition="ne" 
+                                          title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
+                                          xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
                         <script type="text/javascript">
                             function my_ext() {
