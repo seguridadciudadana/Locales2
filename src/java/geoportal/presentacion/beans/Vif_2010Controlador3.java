@@ -177,18 +177,16 @@ public class Vif_2010Controlador3 implements Serializable {
             
             ChartSeries CircuitoSexoM = new ChartSeries();
             CircuitoSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatosControl1.size(); i++) {
-
-                lstDatosMes = FVif_2010.ObtenerDatosDadoCircuitoSexo("M", lstDatosControl1.get(i).getCircuito());
-                CircuitoSexoM.set(lstDatosControl1.get(i).getCircuito(), lstDatosMes.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatosMes = FVif_2010.ObtenerDatosDadoCircuitoSexo("M", lstDatosControl11.getCircuito());
+                CircuitoSexoM.set(lstDatosControl11.getCircuito(), lstDatosMes.size());
             }
 
             ChartSeries CircuitoSexoF = new ChartSeries();
             CircuitoSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatosControl1.size(); j++) {
-
-                lstDatosCir = FVif_2010.ObtenerDatosDadoCircuitoSexo("F", lstDatosControl1.get(j).getCircuito());
-                CircuitoSexoF.set(lstDatosControl1.get(j).getCircuito(), lstDatosCir.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatosCir = FVif_2010.ObtenerDatosDadoCircuitoSexo("F", lstDatosControl11.getCircuito());
+                CircuitoSexoF.set(lstDatosControl11.getCircuito(), lstDatosCir.size());
             }
             model.addSeries(CircuitoSexoM);
             model.addSeries(CircuitoSexoF);
@@ -207,18 +205,16 @@ public class Vif_2010Controlador3 implements Serializable {
             
             ChartSeries SubCircuitoSexoM = new ChartSeries();
             SubCircuitoSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatosControl1.size(); i++) {
-
-                lstDatos2 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("M", lstDatosControl1.get(i).getSubcircuit());
-                SubCircuitoSexoM.set(lstDatosControl1.get(i).getSubcircuit(), lstDatos2.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatos2 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("M", lstDatosControl11.getSubcircuit());
+                SubCircuitoSexoM.set(lstDatosControl11.getSubcircuit(), lstDatos2.size());
             }
 
             ChartSeries SubCircuitoSexoF = new ChartSeries();
             SubCircuitoSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatosControl1.size(); j++) {
-
-                lstDatos4 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("F", lstDatosControl1.get(j).getSubcircuit());
-                SubCircuitoSexoF.set(lstDatosControl1.get(j).getSubcircuit(), lstDatos4.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatos4 = FVif_2010.ObtenerDatosDadoSubCircuitoSexo("F", lstDatosControl11.getSubcircuit());
+                SubCircuitoSexoF.set(lstDatosControl11.getSubcircuit(), lstDatos4.size());
             }
             model.addSeries(SubCircuitoSexoM);
             model.addSeries(SubCircuitoSexoF);
@@ -236,18 +232,16 @@ public class Vif_2010Controlador3 implements Serializable {
             
             ChartSeries EdadSexoM = new ChartSeries();
             EdadSexoM.setLabel("Masculino");
-            for (int i = 0; i < lstDatosControl1.size(); i++) {
-
-                lstDatos6 = FVif_2010.ObtenerDatosDadoEdadSexo("M", lstDatosControl1.get(i).getEdad__agre());
-                EdadSexoM.set(lstDatosControl1.get(i).getEdad__agre(), lstDatos6.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatos6 = FVif_2010.ObtenerDatosDadoEdadSexo("M", lstDatosControl11.getEdad__agre());
+                EdadSexoM.set(lstDatosControl11.getEdad__agre(), lstDatos6.size());
             }
 
             ChartSeries EdadSexoF = new ChartSeries();
             EdadSexoF.setLabel("Femenino");
-            for (int j = 0; j < lstDatosControl1.size(); j++) {
-
-                lstDatos8 = FVif_2010.ObtenerDatosDadoEdadSexo("F", lstDatosControl1.get(j).getEdad__agre());
-                EdadSexoF.set(lstDatosControl1.get(j).getEdad__agre(), lstDatos8.size());
+            for (Vif_2010 lstDatosControl11 : lstDatosControl1) {
+                lstDatos8 = FVif_2010.ObtenerDatosDadoEdadSexo("F", lstDatosControl11.getEdad__agre());
+                EdadSexoF.set(lstDatosControl11.getEdad__agre(), lstDatos8.size());
             }
             model.addSeries(EdadSexoM);
             model.addSeries(EdadSexoF);
