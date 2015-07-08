@@ -12,30 +12,30 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Estadísticas</ui:define>
+            <ui:define name="Datos">Indicadores Agresiones Semanales</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Estadísticas</ui:define>
+            <ui:define name="top">Indicadores Agresiones Semanales</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />                    
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Agresiones efectuadas en el transcurso de la semana">
+                        <p:tab title="Variable días de las Agresiones">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{vif_2010ControladorDiaAgresion.lineModelDiaDenuncia}" legendPosition="e" 
                                            title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
                                            xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Agresiones efectuadas en el transcurso de la semana">
+                        <p:tab title="Variable días de las Agresiones">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{vif_2010ControladorDiaAgresion.lineModelDiaDenuncia}" legendPosition="e" 
                                           title="Dia de agresion" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Agresiones efectuadas en el transcurso de la semana (Porcentajes)">
+                        <p:tab title="Variable días de las Agresiones (Porcentajes)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{vif_2012ControladorDiaDenuncia.pieModel}" legendPosition="e" 
                                         style="height:350px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 

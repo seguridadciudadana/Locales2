@@ -12,37 +12,37 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Estadísticas</ui:define>
+            <ui:define name="Datos">Indicadores Victimas de acuerdo al sexo por circuito y subcircuito</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Estadísticas</ui:define>    
+            <ui:define name="top">Indicadores Victimas de acuerdo al sexo por circuito y subcircuito</ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Victimas de acuerdo al sexo por circuito" >
+                        <p:tab title="Variable Victimas de acuerdo al sexo por circuito" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2011ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="e" 
                                            title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
                         </p:tab>
-                        <p:tab title="Victimas de acuerdo al sexo por circuito (Gráfico Barras)" >
+                        <p:tab title="Variable Victimas de acuerdo al sexo por circuito (Gráfico Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2011ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="e" 
                                           title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias" stacked="true"/>   
                         </p:tab>
-                        <p:tab title="Victimas de acuerdo al sexo por subcircuito" >
+                        <p:tab title="Variable Victimas de acuerdo al sexo por subcircuito" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2011ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="e" 
                                            title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>  
                         </p:tab> 
-                        <p:tab title="Victimas de acuerdo al sexo por subcircuito (Gráfico Barras)" >
+                        <p:tab title="Variable Victimas de acuerdo al sexo por subcircuito (Gráfico Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2011ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="e" 
                                           title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"

@@ -12,12 +12,12 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Estadísticas</ui:define>
+            <ui:define name="Datos">Contrastes Indicador Total Denuncias</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Estadísticas</ui:define>
+            <ui:define name="top">Contrastes Indicador Total Denuncias</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -25,21 +25,21 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">                       
 
-                        <p:tab title="Estado Civil">
+                        <p:tab title="Contrastes de la Variable Estado Civil">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{contrasteTotalDenuncias.lineTotalDenuncias}" legendPosition="n" 
+                            <p:lineChart   value="#{contrasteTotalDenuncias.lineTotalDenuncias}" legendPosition="ne" 
                                            title="Denuncias de acuerdo al Estado Civil" style="height:350px;width:1000px;text-decoration-style: dashed"
                                            xaxisLabel="Estado Civil" xaxisAngle="0" yaxisLabel="#Víctimas"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>   
 
-                        <p:tab title="Estado Civil">
+                        <p:tab title="Contrastes de la Variable Estado Civil(Gráfico Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{contrasteTotalDenuncias.lineTotalDenuncias}" legendPosition="n" 
+                            <p:barChart   value="#{contrasteTotalDenuncias.lineTotalDenuncias}" legendPosition="ne" 
                                           title="Denuncias de acuerdo al Estado Civil" style="height:350px;width:1000px;text-decoration-style: dashed"
                                           xaxisLabel="Estado Civil" xaxisAngle="0" yaxisLabel="#Víctimas"  />                             
                         </p:tab>   
-                        <p:tab title="Casos de acuerdo al estado civil de la victima(Gráfico Circular)">
+                        <p:tab title="Contrastes de la Variable Estado Civil(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{contrasteTotalDenuncias.pieTotalDenuncias}" legendPosition="ne" 
                                         style="height:350px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
