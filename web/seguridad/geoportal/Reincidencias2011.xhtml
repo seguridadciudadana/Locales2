@@ -25,14 +25,14 @@ and open the template in the editor.
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Variable Reincidencias de las denuncias">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorReincidencias_2010.lineReincidencias_2011}" legendPosition="e" 
-                                           title="Reincidencias de las denuncias" style="height:350px;width:1100px;text-decoration-style:dashed"
-                                           xaxisLabel="Reincidencias" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
-
+                            <p:lineChart   value="#{controladorReiincidencias2011.lineReincidencias_2011}" legendPosition="e" 
+                                           title="Reincidencias de las denuncias" style="height:350px;width:1000px;text-decoration-style:dashed;column-fill: balance "
+                                           xaxisLabel="Reincidencias" xaxisAngle="0" yaxisLabel="# Denuncias" /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <p:tab title="Variable Reincidencias de las denuncias (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{controladorReincidencias_2010.lineReincidencias_2011}" legendPosition="e" 
+                            <p:barChart   value="#{controladorReiincidencias2011.lineReincidencias_2011}" legendPosition="e" 
                                           title="Reincidencias de las denuncias" style="height:350px;width:1100px;text-decoration-style:dashed"
                                           xaxisLabel="Reincidencias" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
