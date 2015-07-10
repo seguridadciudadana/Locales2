@@ -11,31 +11,31 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Estadísticas</ui:define>
+            <ui:define name="Datos">Indicadores Rangos de Edades</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Estadísticas</ui:define>    
+            <ui:define name="top">Indicadores Rangos de Edades</ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Victimas por rangos de edades" >
+                        <p:tab title="Variable Victimas por rangos de edades" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{vif_2011ControladorEdades.graficaEdadSV}" legendPosition="e" 
-                                           title="Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
+                                           title="Variable Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas"/>   
                         </p:tab>    
-                        <p:tab title="Victimas por rangos de edades (Gráfico de barras)" >
+                        <p:tab title="Variable Victimas por rangos de edades (Gráfico de barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2011ControladorEdades.graficaEdadSV}" legendPosition="e" 
-                                          title="Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
+                                          title="Variable Víctimas por rangos de edades" style="height:350px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Rango de Edades" xaxisAngle="0" yaxisLabel="# Víctimas"/>   
                         </p:tab> 
-                        <p:tab title="Denuncias efectuadas por meses del año(Gráfico Circular)">
+                        <p:tab title="Variable Victimas por rangos de edades(Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{vif_2011ControladorEdades.pieModel}" legendPosition="e" 
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 

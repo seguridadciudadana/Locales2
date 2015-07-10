@@ -12,12 +12,12 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Casos de Violencia Intrafamiliar 2010</ui:define>
+            <ui:define name="Datos">Indicadores Circuito Subcircuito</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Casos de Violencia Intrafamiliar 2010</ui:define>
+            <ui:define name="top">Indicadores Circuito Subcircuito</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -25,7 +25,7 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
                         <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                            <p:tab title="Violencia 2010">
+                            <p:tab title="Variable Violencia 2010">
                                 <p:panelGrid id="pngGraficar" columns="6">
                                     <h:outputText value="Circuito:" style="font-style: initial"/>
                                     <p:selectOneMenu id="cmbCircuito" value="#{vif_2010ControladorCircuitoTViolencia.valorSeleccionado}" 
@@ -55,7 +55,7 @@ and open the template in the editor.
                                 <p:separator style="border-color: background" />
                             </p:tab>
                             <!--2011-->
-                            <p:tab title="Violencia 2011">
+                            <p:tab title="VAriable Violencia 2011">
                                 <p:panelGrid id="pngGraficar2011" columns="6">
                                     <h:outputText value="Circuito:" style="font-style: initial"/>
                                     <p:selectOneMenu id="cmbCircuito2011" value="#{vif_2011ControladorCircuitoTViolencia.valorSeleccionado}" 
@@ -93,7 +93,7 @@ and open the template in the editor.
                             </p:tab>
 
                             <!--2012-->
-                            <p:tab title="Violencia 2012">
+                            <p:tab title="Variable Violencia 2012">
                                 <p:panelGrid id="pngGraficar2012" columns="6">
                                     <h:outputText value="Circuito:" style="font-style: initial"/>
                                     <p:selectOneMenu id="cmbCircuito2012" value="#{vif_2012ControladorCircuitoTViolencia.valorSeleccionado}" 

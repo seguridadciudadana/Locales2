@@ -121,6 +121,10 @@
                     <file>${file.reference.jquery.jqplot.1.0.8r1250.zip}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.1383067774_iReport-5.5.0-plugin.zip}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>
