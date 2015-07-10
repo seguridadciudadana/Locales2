@@ -465,7 +465,7 @@ public class Vif_2011MesesAgresion {
             lstDatosJulioM = FVif_2011.ObtenerDatosDadoMesSexoVictima("JULIO", "M");
             lstDatosAgostoM = FVif_2011.ObtenerDatosDadoMesSexoVictima("AGOSTO", "M");
             lstDatosSeptiembreM = FVif_2011.ObtenerDatosDadoMesSexoVictima("SEPTIEMBRE", "M");
-            lstDatosOctubreM = FVif_2011.ObtenerDatosDadoMesSexoVictima("OCTUMBRE", "M");
+            lstDatosOctubreM = FVif_2011.ObtenerDatosDadoMesSexoVictima("OCTUBRE", "M");
             lstDatosNoviembreM = FVif_2011.ObtenerDatosDadoMesSexoVictima("NOVIEMBRE", "M");
             lstDatosDiciembreM = FVif_2011.ObtenerDatosDadoMesSexoVictima("DICIEMBRE", "M");
 
@@ -478,7 +478,7 @@ public class Vif_2011MesesAgresion {
             lstDatosJulioF = FVif_2011.ObtenerDatosDadoMesSexoVictima("JULIO", "F");
             lstDatosAgostoF = FVif_2011.ObtenerDatosDadoMesSexoVictima("AGOSTO", "F");
             lstDatosSeptiembreF = FVif_2011.ObtenerDatosDadoMesSexoVictima("SEPTIEMBRE", "F");
-            lstDatosOctubreF = FVif_2011.ObtenerDatosDadoMesSexoVictima("OCTUMBRE", "F");
+            lstDatosOctubreF = FVif_2011.ObtenerDatosDadoMesSexoVictima("OCTUBRE", "F");
             lstDatosNoviembreF = FVif_2011.ObtenerDatosDadoMesSexoVictima("NOVIEMBRE", "F");
             lstDatosDiciembreF = FVif_2011.ObtenerDatosDadoMesSexoVictima("DICIEMBRE", "F");
 
