@@ -116,7 +116,9 @@ public class ControladorReiincidencias2011 {
         try {
 
             this.lstDatos2011 = FReincidencias2011.ObtenerDatosReincidencias();
-            this.datoSel_20111 = lstDatos2011.get(0);
+            this.datoSel_20111 = lstDatos2011.
+                    
+                    get(0);
             System.out.println(lstDatos2011.get(0).getVictima());
 
         } catch (Exception e) {
