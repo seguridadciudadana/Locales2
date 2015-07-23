@@ -69,6 +69,15 @@ and open the template in the editor.
                                 }                                
                             </script>
                     </p:accordionPanel>
+                    <p:commandButton id="ajax" value="Reporte" actionListener="#{vif_2010ControladorCircuitoTViolencia.generaReporte()}"
+                                     ajax="false">
+                        
+                    </p:commandButton>
+                    
+                    <p:commandButton id="btnCargar" value="CargarDatos"  action="#{vif_2010ControladorCircuitoTViolencia.cargarDatos()}"
+                                     >
+                        
+                    </p:commandButton>
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">

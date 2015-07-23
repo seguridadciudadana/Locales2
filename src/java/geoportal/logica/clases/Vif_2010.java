@@ -65,6 +65,8 @@ public class Vif_2010 {
 
     }
 
+     
+
     public Date getFecha__den() {
         return fecha__den;
     }
