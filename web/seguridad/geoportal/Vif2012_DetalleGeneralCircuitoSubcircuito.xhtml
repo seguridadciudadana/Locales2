@@ -6,40 +6,40 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Indicadores Circuitos, Subcircuitos, Sexo de la Victima</ui:define>
+            <ui:define name="Datos">Indicadores Circuitos y Subcircuitos</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Circuitos, Subcircuitos, Sexo de la Victima</ui:define>    
+            <ui:define name="top">Indicadores Circuitos y Subcircuitos</ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Variable sexo de la victima por circuito" >
+                        <p:tab title="Variable victimas por circuito" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="ne" 
+                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Circuito}" legendPosition="ne" 
                                            title="Variable sexo de la victima por circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="#Victimas"/>   
                         </p:tab>
-                         <p:tab title="Variable sexo de la victima por circuito (Gráfico de barras)" >
+                         <p:tab title="Variable victimas por circuito (Gráfico de barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Circuito}" legendPosition="ne" 
+                            <p:barChart   value="#{vif_2012ControladorVictimas2.lineModel_Circuito}" legendPosition="ne" 
                                            title="Variable sexo de la victima por circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="#Victimas"/>   
                         </p:tab>
-                        <p:tab title="Variable sexo de la victima por subcircuito " >
+                        <p:tab title="Variable victimas por subcircuito " >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="ne" 
+                            <p:lineChart   value="#{vif_2012ControladorVictimas2.lineModel_Subcircuito}" legendPosition="ne" 
                                            title="Variable sexo de la victima por subcircuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="#Victimas"/>   
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                        <p:tab title="Variable sexo de la victima por subcircuito (Gráfico de Barras)" >
+                        <p:tab title="Variable victimas por subcircuito(Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{vif_2012ControladorVictimas2.lineModel_Victima_Subcircuito}" legendPosition="ne" 
+                            <p:barChart   value="#{vif_2012ControladorVictimas2.lineModel_Subcircuito}" legendPosition="ne" 
                                            title="Variable sexo de la victima por subcircuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Subcircuito" xaxisAngle="90" yaxisLabel="#Victimas"/>                               
                         </p:tab>

@@ -752,6 +752,21 @@ public class FVif_2011 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDadoDiaAgresion2(String dia) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_dia_agresion2(?)";
+            lstP.add(new Parametro(1, dia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 
     public static ArrayList<Vif_2011> ObtenerDatosEnero() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
