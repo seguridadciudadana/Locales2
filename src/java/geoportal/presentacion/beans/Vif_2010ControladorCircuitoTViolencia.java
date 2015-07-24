@@ -5,16 +5,32 @@
  */
 package geoportal.presentacion.beans;
 
+import Reportes.generador.Report_;
+import Reportes.templates.prueba;
+import Reportes.templates.prueba1;
 import geoportal.logica.clases.Vif_2010;
 import geoportal.logica.funciones.FVif_2010;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 //import javafx.scene.chart.PieChart;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
@@ -42,9 +58,18 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
     private ArrayList<Vif_2010> lstDatosCircuitoTViolencia5;
     private ArrayList<Vif_2010> lstDatosCircuitoTViolencia6;
     private ArrayList<Vif_2010> lstDatosCircuitoTViolencia7;
+    private ArrayList<Vif_2010> lstDatosCircuitoTViolenciaReporte;
     private Vif_2010 datoSel;
     private String circuito;
     private String valorSeleccionado;
+
+    public ArrayList<Vif_2010> getLstDatosCircuitoTViolenciaReporte() {
+        return lstDatosCircuitoTViolenciaReporte;
+    }
+
+    public void setLstDatosCircuitoTViolenciaReporte(ArrayList<Vif_2010> lstDatosCircuitoTViolenciaReporte) {
+        this.lstDatosCircuitoTViolenciaReporte = lstDatosCircuitoTViolenciaReporte;
+    }
 
     public PieChartModel getGraficaTViolenciaCircuito() {
         return graficaTViolenciaCircuito;
@@ -165,8 +190,10 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         this.datoSel = new Vif_2010();
         this.lstDatos = new ArrayList<Vif_2010>();
         this.lstDatosCircuitoTViolencia = new ArrayList<Vif_2010>();
+        this.lstDatosCircuitoTViolenciaReporte = new ArrayList<Vif_2010>();
         this.init();
         this.cargarDatos();
+        this.cargarViplenciaTipoReporte();
 
     }
 
@@ -175,26 +202,37 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
         graficaTViolenciaCircuito = pastelGrafica();
     }
 
+    public void cargarViplenciaTipoReporte() {
+        try {
+            lstDatosCircuitoTViolenciaReporte = FVif_2010.ObtenerDatosCircuito();
+            //lstDatos = FVif_2010.ObtenerDatos();
+            //this.datoSel = lstDatos.get(0);
+            //System.out.println(lstDatos.get(0).getId());
+        } catch (Exception e) {
+            Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
+            System.out.println("private void cargarDatos dice: " + e.getMessage());
+        }
+    }
+
     private PieChartModel pastelGrafica() {
 
         PieChartModel model = new PieChartModel();
 
         try {
             model = new PieChartModel();
-            
-                
-                lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y PSICOLOGICA");
-                lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y SEXUAL");
-                lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA, PSICOLOGICA Y SEXUAL");
-                lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA");
-                lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "PSICOLOGICA");
 
-                model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
-                model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
-                model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
-                model.set("FISICA", lstDatosCircuitoTViolencia4.size());
-                model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
-            
+            lstDatosCircuitoTViolencia = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y PSICOLOGICA");
+            lstDatosCircuitoTViolencia2 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA Y SEXUAL");
+            lstDatosCircuitoTViolencia3 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA, PSICOLOGICA Y SEXUAL");
+            lstDatosCircuitoTViolencia4 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "FISICA");
+            lstDatosCircuitoTViolencia5 = FVif_2010.ObtenerDatosDadoCircuitoTipoViolencia(valorSeleccionado, "PSICOLOGICA");
+
+            model.set("FISICA Y PSICOLOGICA", lstDatosCircuitoTViolencia.size());
+            model.set("FISICA Y SEXUAL", lstDatosCircuitoTViolencia2.size());
+            model.set("FISICA, PSICOLOGICA Y SEXUAL", lstDatosCircuitoTViolencia3.size());
+            model.set("FISICA", lstDatosCircuitoTViolencia4.size());
+            model.set("PSICOLOGICA", lstDatosCircuitoTViolencia5.size());
+
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
@@ -205,9 +243,10 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
     public void cargarDatos() {
         try {
             lstDatosCircuito = FVif_2010.ObtenerDatosCircuito();
-            //lstDatos = FVif_2010.ObtenerDatos();
-            //this.datoSel = lstDatos.get(0);
-            //System.out.println(lstDatos.get(0).getId());
+            lstDatos = FVif_2010.ObtenerDatos();
+            this.datoSel = lstDatos.get(0);
+            System.out.println(lstDatos.get(0).getId());
+            System.out.println("TODO BIEN DATOS CARGADOS");
         } catch (Exception e) {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());
@@ -220,4 +259,57 @@ public class Vif_2010ControladorCircuitoTViolencia implements Serializable {
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
+
+    public String generaReporte() {
+        String redireccion = "";
+        try {
+            this.cargarDatos();
+            Reportes.generador.Report_ Vif_2010 = new Report_();
+            prueba1 datasource = new prueba1();
+            for (Vif_2010 detalle : lstDatosCircuito) {
+                datasource.addAsistente(detalle);
+
+            }
+            HashMap encabezado = new HashMap();
+            encabezado.put("Usuario", "Edison");
+            redireccion = Vif_2010.generaReporte("reporte01", datasource, encabezado);
+
+        } catch (Exception e) {
+            Util.addErrorMessage("VUELVA A INTENTAR" + e.getMessage());
+        }
+        return redireccion;
+    }
+
+//    public String GeneraReporte() {
+//        String redireccion = "";
+//        InputStream inputStream = null;
+//        JasperPrint jasperPrint = null;
+//        prueba1 datasource = new prueba1();
+//
+//        for (Vif_2010 detalle : lstDatosCircuito) {
+//            datasource.addAsistente(detalle);
+//
+//        }
+//
+//        try {
+//            inputStream = new FileInputStream("/reportes/reporte01.jrxml");
+//        } catch (FileNotFoundException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al leer el fichero de carga jasper report " + ex.getMessage());
+//        }
+//
+//        try {
+//            Reportes.generador.Report_ Vif_2010 = new Report_();
+//            JasperDesign jasperDesign = JRXmlLoader.load(inputStream);
+//            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//            jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
+//
+//            JasperExportManager.exportReportToPdfFile(jasperPrint, "/reportes/reporte01.pdf");
+//            HashMap encabezado = new HashMap();
+//            encabezado.put("Usuario", "Edison");
+//            redireccion = Vif_2010.generaReporte("reporte01", datasource, encabezado);
+//        } catch (JRException e) {
+//            JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
+//        }
+//        return redireccion;
+//    }
 }
