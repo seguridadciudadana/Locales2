@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 
 /**
@@ -28,7 +29,11 @@ public class Vif_2012ControladorVictimas2 {
      */
     private CartesianChartModel lineModel_Victima_Circuito;
     private CartesianChartModel lineModel_Victima_Subcircuito;
+    private CartesianChartModel lineModel_Circuito;
+    private CartesianChartModel lineModel_Subcircuito;
     private CartesianChartModel lineModel8;
+    private PieChartModel pieModel;
+    private PieChartModel pieModelSubCircuito;
     private Vif_2012 objDatos;
     private Vif_2012 datoSel;
     private ArrayList<Vif_2012> lstDatos;
@@ -102,6 +107,75 @@ public class Vif_2012ControladorVictimas2 {
     private ArrayList<Vif_2012> lstDatosTerminalTerrestre1F;
     private ArrayList<Vif_2012> lstDatosYaruquies1M;
     private ArrayList<Vif_2012> lstDatosYaruquies1F;
+
+    private ArrayList<Vif_2012> lstDatosS;
+    private ArrayList<Vif_2012> lstDatosDadoS;
+    private ArrayList<Vif_2012> lstDatosC;
+    private ArrayList<Vif_2012> lstDatosDadoC;
+
+    public CartesianChartModel getLineModel_Circuito() {
+        return lineModel_Circuito;
+    }
+
+    public void setLineModel_Circuito(CartesianChartModel lineModel_Circuito) {
+        this.lineModel_Circuito = lineModel_Circuito;
+    }
+
+    public CartesianChartModel getLineModel_Subcircuito() {
+        return lineModel_Subcircuito;
+    }
+
+    public void setLineModel_Subcircuito(CartesianChartModel lineModel_Subcircuito) {
+        this.lineModel_Subcircuito = lineModel_Subcircuito;
+    }
+
+    public PieChartModel getPieModel() {
+        return pieModel;
+    }
+
+    public void setPieModel(PieChartModel pieModel) {
+        this.pieModel = pieModel;
+    }
+
+    public PieChartModel getPieModelSubCircuito() {
+        return pieModelSubCircuito;
+    }
+
+    public void setPieModelSubCircuito(PieChartModel pieModelSubCircuito) {
+        this.pieModelSubCircuito = pieModelSubCircuito;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC() {
+        return lstDatosC;
+    }
+
+    public void setLstDatosC(ArrayList<Vif_2012> lstDatosC) {
+        this.lstDatosC = lstDatosC;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosDadoC() {
+        return lstDatosDadoC;
+    }
+
+    public void setLstDatosDadoC(ArrayList<Vif_2012> lstDatosDadoC) {
+        this.lstDatosDadoC = lstDatosDadoC;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosS() {
+        return lstDatosS;
+    }
+
+    public void setLstDatosS(ArrayList<Vif_2012> lstDatosS) {
+        this.lstDatosS = lstDatosS;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosDadoS() {
+        return lstDatosDadoS;
+    }
+
+    public void setLstDatosDadoS(ArrayList<Vif_2012> lstDatosDadoS) {
+        this.lstDatosDadoS = lstDatosDadoS;
+    }
 
     public CartesianChartModel getLineModel_Victima_Circuito() {
         return lineModel_Victima_Circuito;
@@ -719,6 +793,8 @@ public class Vif_2012ControladorVictimas2 {
     public void graficar() {
         lineModel_Victima_Circuito = graficaCircuitoSexoVictima();
         lineModel_Victima_Subcircuito = initCategoryModelSexoSubV();
+        lineModel_Circuito = initCategoryCircuito();
+        lineModel_Subcircuito = initCategorySubcircuito();
     }
 
     private void reinit() {
@@ -905,6 +981,58 @@ public class Vif_2012ControladorVictimas2 {
             model.addSeries(Masculino);
             model.addSeries(Femenino);
 
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    private CartesianChartModel initCategorySubcircuito() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+
+            lstDatosS = FVif_2012.ObtenerDatosSubcircuito();
+            ChartSeries SubCircuito = new ChartSeries();
+            SubCircuito.setLabel("SubCircuito");
+            for (int x = 0; x < lstDatosS.size(); x++) {
+                lstDatosDadoS = FVif_2012.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getPsubcircuito());
+                SubCircuito.set(lstDatosS.get(x).getPsubcircuito(), lstDatosDadoS.size());
+            }
+            model.addSeries(SubCircuito);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
+
+    private PieChartModel pieDenunciasSubCircuito() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+//            lstDatosDadoS = FVif_2011.ObtenerDatosSubcircuito();
+            lstDatosS = FVif_2012.ObtenerDatosSubcircuito();
+            for (int x = 0; x < lstDatosS.size(); x++) {
+                lstDatosDadoS = FVif_2012.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getPsubcircuito());
+                pieModel.set(lstDatosS.get(x).getPsubcircuito(), lstDatosDadoS.size());
+            }
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
+    }
+
+    private CartesianChartModel initCategoryCircuito() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            lstDatosC = FVif_2012.ObtenerDatosCircuito();
+            ChartSeries Circuito = new ChartSeries();
+            Circuito.setLabel("Circuito");
+            for (int x = 0; x < lstDatosC.size(); x++) {
+                lstDatosDadoC = FVif_2012.ObtenerDatosDadoCircuito(lstDatosC.get(x).getPcircuito());
+                Circuito.set(lstDatosC.get(x).getPcircuito(), lstDatosDadoC.size());
+            }
+            model.addSeries(Circuito);
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }

@@ -33,6 +33,7 @@ public class Vif_2010ControladorDiaAgresion {
      * Creates a new instance of Vif_2010ControladorDiaAgresion
      */
     private CartesianChartModel lineModelDiaDenuncia;
+    private CartesianChartModel lineModelDiaDenunciaSexo;
     private Vif_2010 objDatos;
     private Vif_2010 datoSel;
     private ArrayList<Vif_2010> lstDatos;
@@ -44,6 +45,140 @@ public class Vif_2010ControladorDiaAgresion {
     private ArrayList<Vif_2010> lstDatosViernes;
     private ArrayList<Vif_2010> lstDatosSabado;
     private ArrayList<Vif_2010> lstDatosDomingo;
+    private ArrayList<Vif_2010> lstDatosLunesM;
+    private ArrayList<Vif_2010> lstDatosMartesM;
+    private ArrayList<Vif_2010> lstDatosMiercolesM;
+    private ArrayList<Vif_2010> lstDatosJuevesM;
+    private ArrayList<Vif_2010> lstDatosViernesM;
+    private ArrayList<Vif_2010> lstDatosSabadoM;
+    private ArrayList<Vif_2010> lstDatosDomingoM;
+    private ArrayList<Vif_2010> lstDatosLunesF;
+    private ArrayList<Vif_2010> lstDatosMartesF;
+    private ArrayList<Vif_2010> lstDatosMiercolesF;
+    private ArrayList<Vif_2010> lstDatosJuevesF;
+    private ArrayList<Vif_2010> lstDatosViernesF;
+    private ArrayList<Vif_2010> lstDatosSabadoF;
+    private ArrayList<Vif_2010> lstDatosDomingoF;
+
+    public CartesianChartModel getLineModelDiaDenunciaSexo() {
+        return lineModelDiaDenunciaSexo;
+    }
+
+    public void setLineModelDiaDenunciaSexo(CartesianChartModel lineModelDiaDenunciaSexo) {
+        this.lineModelDiaDenunciaSexo = lineModelDiaDenunciaSexo;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLunesM() {
+        return lstDatosLunesM;
+    }
+
+    public void setLstDatosLunesM(ArrayList<Vif_2010> lstDatosLunesM) {
+        this.lstDatosLunesM = lstDatosLunesM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosMartesM() {
+        return lstDatosMartesM;
+    }
+
+    public void setLstDatosMartesM(ArrayList<Vif_2010> lstDatosMartesM) {
+        this.lstDatosMartesM = lstDatosMartesM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosMiercolesM() {
+        return lstDatosMiercolesM;
+    }
+
+    public void setLstDatosMiercolesM(ArrayList<Vif_2010> lstDatosMiercolesM) {
+        this.lstDatosMiercolesM = lstDatosMiercolesM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosJuevesM() {
+        return lstDatosJuevesM;
+    }
+
+    public void setLstDatosJuevesM(ArrayList<Vif_2010> lstDatosJuevesM) {
+        this.lstDatosJuevesM = lstDatosJuevesM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosViernesM() {
+        return lstDatosViernesM;
+    }
+
+    public void setLstDatosViernesM(ArrayList<Vif_2010> lstDatosViernesM) {
+        this.lstDatosViernesM = lstDatosViernesM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosSabadoM() {
+        return lstDatosSabadoM;
+    }
+
+    public void setLstDatosSabadoM(ArrayList<Vif_2010> lstDatosSabadoM) {
+        this.lstDatosSabadoM = lstDatosSabadoM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosDomingoM() {
+        return lstDatosDomingoM;
+    }
+
+    public void setLstDatosDomingoM(ArrayList<Vif_2010> lstDatosDomingoM) {
+        this.lstDatosDomingoM = lstDatosDomingoM;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosLunesF() {
+        return lstDatosLunesF;
+    }
+
+    public void setLstDatosLunesF(ArrayList<Vif_2010> lstDatosLunesF) {
+        this.lstDatosLunesF = lstDatosLunesF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosMartesF() {
+        return lstDatosMartesF;
+    }
+
+    public void setLstDatosMartesF(ArrayList<Vif_2010> lstDatosMartesF) {
+        this.lstDatosMartesF = lstDatosMartesF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosMiercolesF() {
+        return lstDatosMiercolesF;
+    }
+
+    public void setLstDatosMiercolesF(ArrayList<Vif_2010> lstDatosMiercolesF) {
+        this.lstDatosMiercolesF = lstDatosMiercolesF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosJuevesF() {
+        return lstDatosJuevesF;
+    }
+
+    public void setLstDatosJuevesF(ArrayList<Vif_2010> lstDatosJuevesF) {
+        this.lstDatosJuevesF = lstDatosJuevesF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosViernesF() {
+        return lstDatosViernesF;
+    }
+
+    public void setLstDatosViernesF(ArrayList<Vif_2010> lstDatosViernesF) {
+        this.lstDatosViernesF = lstDatosViernesF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosSabadoF() {
+        return lstDatosSabadoF;
+    }
+
+    public void setLstDatosSabadoF(ArrayList<Vif_2010> lstDatosSabadoF) {
+        this.lstDatosSabadoF = lstDatosSabadoF;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosDomingoF() {
+        return lstDatosDomingoF;
+    }
+
+    public void setLstDatosDomingoF(ArrayList<Vif_2010> lstDatosDomingoF) {
+        this.lstDatosDomingoF = lstDatosDomingoF;
+    }
 
     private PieChartModel pieModel;
 
@@ -174,6 +309,7 @@ public class Vif_2010ControladorDiaAgresion {
     public void graficar() {
         lineModelDiaDenuncia = graficaDiaDenuncia();
         pieModel = graficaAnioDenuncia();
+        lineModelDiaDenunciaSexo=graficaDiaDenunciaSexoVictima();
     }
 
     private CartesianChartModel graficaDiaDenuncia() {
@@ -181,13 +317,13 @@ public class Vif_2010ControladorDiaAgresion {
         try {
             ChartSeries semana = new ChartSeries();
             semana.setLabel("Dia de la Agresión");
-            lstDatosLunes = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
-            lstDatosMartes = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
+            lstDatosLunes = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosMartes = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
             lstDatosMiercoles = FVif_2010.ObtenerDatosDadoDiaAgresion("MIERCOLES");
             lstDatosJueves = FVif_2010.ObtenerDatosDadoDiaAgresion("DOMINGO");
             lstDatosViernes = FVif_2010.ObtenerDatosDadoDiaAgresion("SABADO");
             lstDatosSabado = FVif_2010.ObtenerDatosDadoDiaAgresion("VIERNES");
-            lstDatosDomingo = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosDomingo = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
 
             semana.set("Lunes", lstDatosLunes.size());
             semana.set("Martes", lstDatosMartes.size());
@@ -198,6 +334,52 @@ public class Vif_2010ControladorDiaAgresion {
             semana.set("Domingo", lstDatosDomingo.size());
 
             model.addSeries(semana);
+        } catch (Exception e) {
+        }
+        return model;
+    }
+
+    private CartesianChartModel graficaDiaDenunciaSexoVictima() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            ChartSeries masculino = new ChartSeries();
+            masculino.setLabel("Dia de la Agresión");
+            lstDatosLunesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "M");
+            lstDatosMartesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "M");
+            lstDatosMiercolesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "M");
+            lstDatosJuevesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("DOMINGO", "M");
+            lstDatosViernesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("SABADO", "M");
+            lstDatosSabadoM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("VIERNES", "M");
+            lstDatosDomingoM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("JUEVES", "M");
+
+            masculino.set("Lunes", lstDatosLunesM.size());
+            masculino.set("Martes", lstDatosMartesM.size());
+            masculino.set("Miercoles", lstDatosMiercolesM.size());
+            masculino.set("Jueves", lstDatosJuevesM.size());
+            masculino.set("Viernes", lstDatosViernesM.size());
+            masculino.set("Sabado", lstDatosSabadoM.size());
+            masculino.set("Domingo", lstDatosDomingoM.size());
+
+            ChartSeries femenino = new ChartSeries();
+            femenino.setLabel("Dia de la Agresión");
+            lstDatosLunesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "F");
+            lstDatosMartesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "F");
+            lstDatosMiercolesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "F");
+            lstDatosJuevesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("DOMINGO", "F");
+            lstDatosViernesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("SABADO", "F");
+            lstDatosSabadoF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("VIERNES", "F");
+            lstDatosDomingoF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("JUEVES", "F");
+
+            femenino.set("Lunes", lstDatosLunesF.size());
+            femenino.set("Martes", lstDatosMartesF.size());
+            femenino.set("Miercoles", lstDatosMiercolesF.size());
+            femenino.set("Jueves", lstDatosJuevesF.size());
+            femenino.set("Viernes", lstDatosViernesF.size());
+            femenino.set("Sabado", lstDatosSabadoF.size());
+            femenino.set("Domingo", lstDatosDomingoF.size());
+
+            model.addSeries(masculino);
+            model.addSeries(femenino);
         } catch (Exception e) {
         }
         return model;
