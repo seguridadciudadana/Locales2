@@ -107,11 +107,145 @@ public class Vif_2012ControladorVictimas2 {
     private ArrayList<Vif_2012> lstDatosTerminalTerrestre1F;
     private ArrayList<Vif_2012> lstDatosYaruquies1M;
     private ArrayList<Vif_2012> lstDatosYaruquies1F;
-
     private ArrayList<Vif_2012> lstDatosS;
     private ArrayList<Vif_2012> lstDatosDadoS;
     private ArrayList<Vif_2012> lstDatosC;
     private ArrayList<Vif_2012> lstDatosDadoC;
+    private ArrayList<Vif_2012> lstDatosCircuito;
+    private ArrayList<Vif_2012> lstDatosDadoCircuito;
+    private ArrayList<Vif_2012> lstDatosC1;
+    private ArrayList<Vif_2012> lstDatosC2;
+    private ArrayList<Vif_2012> lstDatosC3;
+    private ArrayList<Vif_2012> lstDatosC4;
+    private ArrayList<Vif_2012> lstDatosC5;
+    private ArrayList<Vif_2012> lstDatosC6;
+    private ArrayList<Vif_2012> lstDatosC7;
+    private ArrayList<Vif_2012> lstDatosC8;
+    private ArrayList<Vif_2012> lstDatosC9;
+    private ArrayList<Vif_2012> lstDatosC10;
+    private ArrayList<Vif_2012> lstDatosC11;
+    private ArrayList<Vif_2012> lstDatosC12;
+    private ArrayList<Vif_2012> lstDatosC13;
+
+    public ArrayList<Vif_2012> getLstDatosC1() {
+        return lstDatosC1;
+    }
+
+    public void setLstDatosC1(ArrayList<Vif_2012> lstDatosC1) {
+        this.lstDatosC1 = lstDatosC1;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC2() {
+        return lstDatosC2;
+    }
+
+    public void setLstDatosC2(ArrayList<Vif_2012> lstDatosC2) {
+        this.lstDatosC2 = lstDatosC2;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC3() {
+        return lstDatosC3;
+    }
+
+    public void setLstDatosC3(ArrayList<Vif_2012> lstDatosC3) {
+        this.lstDatosC3 = lstDatosC3;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC4() {
+        return lstDatosC4;
+    }
+
+    public void setLstDatosC4(ArrayList<Vif_2012> lstDatosC4) {
+        this.lstDatosC4 = lstDatosC4;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC5() {
+        return lstDatosC5;
+    }
+
+    public void setLstDatosC5(ArrayList<Vif_2012> lstDatosC5) {
+        this.lstDatosC5 = lstDatosC5;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC6() {
+        return lstDatosC6;
+    }
+
+    public void setLstDatosC6(ArrayList<Vif_2012> lstDatosC6) {
+        this.lstDatosC6 = lstDatosC6;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC7() {
+        return lstDatosC7;
+    }
+
+    public void setLstDatosC7(ArrayList<Vif_2012> lstDatosC7) {
+        this.lstDatosC7 = lstDatosC7;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC8() {
+        return lstDatosC8;
+    }
+
+    public void setLstDatosC8(ArrayList<Vif_2012> lstDatosC8) {
+        this.lstDatosC8 = lstDatosC8;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC9() {
+        return lstDatosC9;
+    }
+
+    public void setLstDatosC9(ArrayList<Vif_2012> lstDatosC9) {
+        this.lstDatosC9 = lstDatosC9;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC10() {
+        return lstDatosC10;
+    }
+
+    public void setLstDatosC10(ArrayList<Vif_2012> lstDatosC10) {
+        this.lstDatosC10 = lstDatosC10;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC11() {
+        return lstDatosC11;
+    }
+
+    public void setLstDatosC11(ArrayList<Vif_2012> lstDatosC11) {
+        this.lstDatosC11 = lstDatosC11;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC12() {
+        return lstDatosC12;
+    }
+
+    public void setLstDatosC12(ArrayList<Vif_2012> lstDatosC12) {
+        this.lstDatosC12 = lstDatosC12;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosC13() {
+        return lstDatosC13;
+    }
+
+    public void setLstDatosC13(ArrayList<Vif_2012> lstDatosC13) {
+        this.lstDatosC13 = lstDatosC13;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosCircuito() {
+        return lstDatosCircuito;
+    }
+
+    public void setLstDatosCircuito(ArrayList<Vif_2012> lstDatosCircuito) {
+        this.lstDatosCircuito = lstDatosCircuito;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosDadoCircuito() {
+        return lstDatosDadoCircuito;
+    }
+
+    public void setLstDatosDadoCircuito(ArrayList<Vif_2012> lstDatosDadoCircuito) {
+        this.lstDatosDadoCircuito = lstDatosDadoCircuito;
+    }
 
     public CartesianChartModel getLineModel_Circuito() {
         return lineModel_Circuito;
@@ -793,7 +927,7 @@ public class Vif_2012ControladorVictimas2 {
     public void graficar() {
         lineModel_Victima_Circuito = graficaCircuitoSexoVictima();
         lineModel_Victima_Subcircuito = initCategoryModelSexoSubV();
-        lineModel_Circuito = initCategoryCircuito();
+        lineModel_Circuito = graficoCircuito();
         lineModel_Subcircuito = initCategorySubcircuito();
     }
 
@@ -801,7 +935,8 @@ public class Vif_2012ControladorVictimas2 {
         this.datoSel = new Vif_2012();
         this.lstDatos24MayoF = new ArrayList<Vif_2012>();
         this.lstDatos24MayoM = new ArrayList<Vif_2012>();
-
+        this.lstDatosC = new ArrayList<Vif_2012>();
+        this.lstDatosDadoC = new ArrayList<Vif_2012>();
         this.cargarDatos();
         this.init();
     }
@@ -990,7 +1125,6 @@ public class Vif_2012ControladorVictimas2 {
     private CartesianChartModel initCategorySubcircuito() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-
             lstDatosS = FVif_2012.ObtenerDatosSubcircuito();
             ChartSeries SubCircuito = new ChartSeries();
             SubCircuito.setLabel("SubCircuito");
@@ -999,17 +1133,57 @@ public class Vif_2012ControladorVictimas2 {
                 SubCircuito.set(lstDatosS.get(x).getPsubcircuito(), lstDatosDadoS.size());
             }
             model.addSeries(SubCircuito);
-
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
         return model;
     }
 
+    private CartesianChartModel graficoCircuito() {
+        CartesianChartModel modelc = new CartesianChartModel();
+        try {
+            lstDatosC1 = FVif_2012.ObtenerDatosDadoCircuito("24 DE MAYO");
+            lstDatosC2 = FVif_2012.ObtenerDatosDadoCircuito("CAMILO PONCE");
+            lstDatosC3 = FVif_2012.ObtenerDatosDadoCircuito("CAMINO AL SOL");
+            lstDatosC4 = FVif_2012.ObtenerDatosDadoCircuito("LA CONDAMINE");
+            lstDatosC5 = FVif_2012.ObtenerDatosDadoCircuito("LA ESTACION");
+            lstDatosC6 = FVif_2012.ObtenerDatosDadoCircuito("LA PAZ");
+            lstDatosC7 = FVif_2012.ObtenerDatosDadoCircuito("LA PRIMAVERA");
+            lstDatosC8 = FVif_2012.ObtenerDatosDadoCircuito("POLITECNICA");
+            lstDatosC9 = FVif_2012.ObtenerDatosDadoCircuito("PUCARA");
+            lstDatosC10 = FVif_2012.ObtenerDatosDadoCircuito("SAN ALFONSO");
+            lstDatosC11 = FVif_2012.ObtenerDatosDadoCircuito("SHOPPING");
+            lstDatosC12 = FVif_2012.ObtenerDatosDadoCircuito("TERMINAL TERRESTRE");
+            lstDatosC13 = FVif_2012.ObtenerDatosDadoCircuito("YARUQUIES");
+
+            ChartSeries circuito = new ChartSeries();
+            circuito.setLabel("Circuitos");
+            circuito.set("24 DE MAYO", lstDatosC1.size());
+            circuito.set("CAMILO PONCE", lstDatosC2.size());
+            circuito.set("CAMINO AL SOL", lstDatosC3.size());
+            circuito.set("LA CONDAMINE", lstDatosC4.size());
+            circuito.set("LA ESTACION", lstDatosC5.size());
+            circuito.set("LA PAZ", lstDatosC6.size());
+            circuito.set("LA PRIMAVERA", lstDatosC7.size());
+            circuito.set("POLITECNICA", lstDatosC8.size());
+            circuito.set("PUCARA", lstDatosC9.size());
+            circuito.set("SAN ALFONSO", lstDatosC10.size());
+            circuito.set("SHOPPING", lstDatosC11.size());
+            circuito.set("TERMINAL TERRESTRE", lstDatosC12.size());
+            circuito.set("YARUQUIES", lstDatosC13.size());
+            
+            modelc.addSeries(circuito);
+            
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+
+        return modelc;
+    }
+
     private PieChartModel pieDenunciasSubCircuito() {
         PieChartModel pieModel = new PieChartModel();
         try {
-//            lstDatosDadoS = FVif_2011.ObtenerDatosSubcircuito();
             lstDatosS = FVif_2012.ObtenerDatosSubcircuito();
             for (int x = 0; x < lstDatosS.size(); x++) {
                 lstDatosDadoS = FVif_2012.ObtenerDatosDadoSubcircuito(lstDatosS.get(x).getPsubcircuito());
@@ -1022,30 +1196,13 @@ public class Vif_2012ControladorVictimas2 {
         return pieModel;
     }
 
-    private CartesianChartModel initCategoryCircuito() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatosC = FVif_2012.ObtenerDatosCircuito();
-            ChartSeries Circuito = new ChartSeries();
-            Circuito.setLabel("Circuito");
-            for (int x = 0; x < lstDatosC.size(); x++) {
-                lstDatosDadoC = FVif_2012.ObtenerDatosDadoCircuito(lstDatosC.get(x).getPcircuito());
-                Circuito.set(lstDatosC.get(x).getPcircuito(), lstDatosDadoC.size());
-            }
-            model.addSeries(Circuito);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-    }
-
     public void cargarDatos() {
         try {
-
-            this.lstDatos = FVif_2012.ObtenerDatos();
-            this.datoSel = lstDatos.get(0);
-            System.out.println(lstDatos.get(0).getPid());
-
+            this.lstDatosCircuito = FVif_2012.ObtenerDatosCircuito2();
+            //this.lstDatos = FVif_2012.ObtenerDatos();
+//            this.datoSel = lstDatos.get(0);
+//            System.out.println(lstDatos.get(0).getPid());
+            System.out.println(lstDatosCircuito.size());
         } catch (Exception e) {
             Util.addErrorMessage("private void cargarDatos dice: " + e.getMessage());
             System.out.println("private void cargarDatos dice: " + e.getMessage());

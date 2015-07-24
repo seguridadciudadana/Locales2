@@ -149,9 +149,22 @@ public class FVif_2012 {
         return lst;
     }
 
+    public static ArrayList<Vif_2012> ObtenerDatosCircuito2() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_busqueda_circuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     /*
      funciones circuitos
      */
+
     public static ArrayList<Vif_2012> ObtenerDatosSubcircuito() throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
@@ -169,7 +182,7 @@ public class FVif_2012 {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * geoportal.f_select_vif_2012_dado_circuito(?)";
+            String sql = "select * from geoportal.f_select_vif_2012_dado_circuito(?)";
             lstP.add(new Parametro(1, circuito));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
@@ -833,6 +846,21 @@ public class FVif_2012 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2012> ObtenerDatosDadoDiaAgresion2(String dia) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_dia_agresion2(?)";
+            lstP.add(new Parametro(1, dia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
 
     public static ArrayList<Vif_2012> ObtenerDatosDadoEstadoCivil(String pe) throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
@@ -860,8 +888,8 @@ public class FVif_2012 {
         }
         return lst;
     }
-    
-        //ocupaciones victimas
+
+    //ocupaciones victimas
     //
     //
     public static ArrayList<Vif_2012> ObtenerDatosVictimaComerciante() throws Exception {
@@ -980,7 +1008,7 @@ public class FVif_2012 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2012> ObtenerDatosVictimaDesempleado() throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
@@ -993,7 +1021,7 @@ public class FVif_2012 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2012> ObtenerDatosVictimaDiscapacitado() throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
