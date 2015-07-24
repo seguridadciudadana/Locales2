@@ -32,11 +32,17 @@ and open the template in the editor.
                                            title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
                         </p:tab>
-                        <p:tab title="Variables Circuitos y Sexo de las Víctimas (Cuadro de Barras)" >
+                        <p:tab title="Variables Circuitos y Sexo de las Víctimas (Cuadro de Barras apiladas)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2010ControladorVictimas.lineModel_Victima_Circuito}" legendPosition="ne" 
                                           title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias" stacked="true"/>   
+                        </p:tab>
+                        <p:tab title="Variables Circuitos y Sexo de las Víctimas (Cuadro de Barras)" >
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                            <p:barChart   value="#{vif_2010ControladorVictimas.lineModel_Victima_Circuito}" legendPosition="ne" 
+                                          title="CIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>   
                         </p:tab>
                         <p:tab title="Variables SubCircuitos y Sexo de las Víctimas" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
@@ -44,11 +50,18 @@ and open the template in the editor.
                                            title="SUBCIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  />   
                         </p:tab>
+                        <p:tab title="Variables SubCircuitos y Sexo de las Víctimas (Cuadro de Barras apiladas)" >
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
+                            <p:barChart   value="#{vif_2010ControladorVictimas.lineModel_Victima_Subcircuito}" legendPosition="ne" 
+                                          title="SUBCIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  stacked="true"/>                              
+                        </p:tab>
+                        
                         <p:tab title="Variables SubCircuitos y Sexo de las Víctimas (Cuadro de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{vif_2010ControladorVictimas.lineModel_Victima_Subcircuito}" legendPosition="ne" 
                                           title="SUBCIRCUITO Vs DENUNCIAS" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"  stacked="true"/>  
+                                          xaxisLabel="Circuito" xaxisAngle="90" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <script type="text/javascript">
