@@ -53,12 +53,17 @@ and open the template in the editor.
                                            title="Total de Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Meses" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Total de denuncias Variable Meses clasificadas al sexo de la víctima (Gráfico de Barras)">
+                        <p:tab title="Total de denuncias Variable Meses clasificadas al sexo de la víctima (Gráfico de Barras apiladas)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-
                             <p:barChart   value="#{vif_2010Controlador2.graficaEnero}" legendPosition="ne" 
                                            title="Total de Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Meses" yaxisLabel="# Denuncias" stacked="true"/> 
+                                           xaxisLabel="Meses" yaxisLabel="# Denuncias" stacked="true"/>                                
+                        </p:tab>
+                         <p:tab title="Total de denuncias Variable Meses clasificadas al sexo de la víctima (Gráfico de Barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2010Controlador2.graficaEnero}" legendPosition="ne" 
+                                           title="Total de Denuncias" style="height:400px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Meses" yaxisLabel="# Denuncias"/> 
                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <script type="text/javascript">
