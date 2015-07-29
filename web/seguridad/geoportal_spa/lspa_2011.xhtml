@@ -24,16 +24,86 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:panel id="pnldatos" >
-                        <p:dataTable id="tblDatos" value="#{vif_2011_spaControlador.lstVif_2011_spa}"  
+                        <p:dataTable id="tblDatos" value="#{datosVictimas2011.lstDatos}"  
                                      var="datos"  emptyMessage="No hay Registros"
-                                     paginator="true" rows="15" rowKey="#{datos.id}" selectionMode="single" 
-                                     selection="#{vif_2011_spaControlador.objVif_2011_spaSel}" style="alignment-adjust: initial" >
+                                     paginator="true" rows="15" rowKey="#{datos.n_denuncia}" selectionMode="single" 
+                                     selection="#{datosVictimas2011.datoSel}" style="alignment-adjust: initial" >
+                             <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Número de caso"/>
+                                </f:facet>
+                                 <h:outputText value="#{datos.n_denuncia}"/>                                
+                            </p:column>
+                                                        
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="Fecha Atencion"/>
                                 </f:facet>
-                                <h:outputText value="#{datos.fecha_atencion}"/>                                
+                                <h:outputText value="#{datos.fecha_agre}"/>                                
                             </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Sexo Victima"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.sexo}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Edad"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.edad}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Estado Civil"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.estado_civ}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo de Agresion / Violencia"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.tipos_de_a}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Frecuencia de agrecion"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.frecuencia}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Estado de conciencia del agresor"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.estado_de}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Agresion por parte de"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.relacion_d}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Atencion recibida"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.tratamient}"/>                                
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Caso Médico"/>
+                                </f:facet>
+                                <h:outputText value="#{datos.caso_medic}"/>                                
+                            </p:column>
+
                             <f:facet name="footer">
                                 <h:commandLink>
                                     <img src="../../resources/images/excel.png" alt=""/>

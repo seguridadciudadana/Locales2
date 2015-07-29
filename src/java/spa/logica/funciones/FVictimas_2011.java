@@ -7,6 +7,7 @@ package spa.logica.funciones;
 
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
+import accesodatos.Parametro;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import spa.logica.clases.Victimas_2011;
@@ -83,10 +84,96 @@ public class FVictimas_2011 {
         }
         return lst;
     }
+     
+     public static ArrayList<Victimas_2011> ObtenerDatosCircuitos() throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_circuitos()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     public static ArrayList<Victimas_2011> ObtenerDatosSubCircuitos() throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_subcircuitos()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
+     public static ArrayList<Victimas_2011> ObtenerDatosDadoCircuito(String circuito) throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_dado_circuito(?)";           
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+      public static ArrayList<Victimas_2011> ObtenerDatosDadoSubCircuito(String circuito) throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_dado_subcircuito(?)";           
+            lstP.add(new Parametro(1, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+     public static ArrayList<Victimas_2011> ObtenerDatosDadoSexoVictimaCircuito(String sexo, String circuito) throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_dado_circuito_sexo(?,?)";
+            lstP.add(new Parametro(1, sexo));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
-    
-    
+    public static ArrayList<Victimas_2011> ObtenerDatosDadoSexoVictimaSubCircuito(String sexo, String circuito) throws Exception {
+        ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_vif2011_spa_dado_subcircuito_sexo(?,?)";
+            lstP.add(new Parametro(1, sexo));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
     
     
