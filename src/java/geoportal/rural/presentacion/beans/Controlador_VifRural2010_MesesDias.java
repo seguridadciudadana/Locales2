@@ -67,6 +67,330 @@ public class Controlador_VifRural2010_MesesDias {
     private CartesianChartModel lineModelEstadoCivil;
     private CartesianChartModel lineModelEdades;
     private CartesianChartModel lineModelEdadesSV;
+    private ArrayList<VifRural2010> lstDatosEnero;
+    private ArrayList<VifRural2010> lstDatosFebrero;
+    private ArrayList<VifRural2010> lstDatosMarzo;
+    private ArrayList<VifRural2010> lstDatosAbril;
+    private ArrayList<VifRural2010> lstDatosMayo;
+    private ArrayList<VifRural2010> lstDatosJunio;
+    private ArrayList<VifRural2010> lstDatosJulio;
+    private ArrayList<VifRural2010> lstDatosAgosto;
+    private ArrayList<VifRural2010> lstDatosSeptiembre;
+    private ArrayList<VifRural2010> lstDatosOctubre;
+    private ArrayList<VifRural2010> lstDatosNoviembre;
+    private ArrayList<VifRural2010> lstDatosDieciembre;
+    private ArrayList<VifRural2010> lstDatosEneroM;
+    private ArrayList<VifRural2010> lstDatosFebreroM;
+    private ArrayList<VifRural2010> lstDatosMarzoM;
+    private ArrayList<VifRural2010> lstDatosAbrilM;
+    private ArrayList<VifRural2010> lstDatosMayoM;
+    private ArrayList<VifRural2010> lstDatosJunioM;
+    private ArrayList<VifRural2010> lstDatosJulioM;
+    private ArrayList<VifRural2010> lstDatosAgostoM;
+    private ArrayList<VifRural2010> lstDatosSeptiembreM;
+    private ArrayList<VifRural2010> lstDatosOctubreM;
+    private ArrayList<VifRural2010> lstDatosNoviembreM;
+    private ArrayList<VifRural2010> lstDatosDieciembreM;
+    private ArrayList<VifRural2010> lstDatosEneroF;
+    private ArrayList<VifRural2010> lstDatosFebreroF;
+    private ArrayList<VifRural2010> lstDatosMarzoF;
+    private ArrayList<VifRural2010> lstDatosAbrilF;
+    private ArrayList<VifRural2010> lstDatosMayoF;
+    private ArrayList<VifRural2010> lstDatosJunioF;
+    private ArrayList<VifRural2010> lstDatosJulioF;
+    private ArrayList<VifRural2010> lstDatosAgostoF;
+    private ArrayList<VifRural2010> lstDatosSeptiembreF;
+    private ArrayList<VifRural2010> lstDatosOctubreF;
+    private ArrayList<VifRural2010> lstDatosNoviembreF;
+    private ArrayList<VifRural2010> lstDatosDieciembreF;
+
+    public ArrayList<VifRural2010> getLstDatosEnero() {
+        return lstDatosEnero;
+    }
+
+    public void setLstDatosEnero(ArrayList<VifRural2010> lstDatosEnero) {
+        this.lstDatosEnero = lstDatosEnero;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosFebrero() {
+        return lstDatosFebrero;
+    }
+
+    public void setLstDatosFebrero(ArrayList<VifRural2010> lstDatosFebrero) {
+        this.lstDatosFebrero = lstDatosFebrero;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMarzo() {
+        return lstDatosMarzo;
+    }
+
+    public void setLstDatosMarzo(ArrayList<VifRural2010> lstDatosMarzo) {
+        this.lstDatosMarzo = lstDatosMarzo;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAbril() {
+        return lstDatosAbril;
+    }
+
+    public void setLstDatosAbril(ArrayList<VifRural2010> lstDatosAbril) {
+        this.lstDatosAbril = lstDatosAbril;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMayo() {
+        return lstDatosMayo;
+    }
+
+    public void setLstDatosMayo(ArrayList<VifRural2010> lstDatosMayo) {
+        this.lstDatosMayo = lstDatosMayo;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJunio() {
+        return lstDatosJunio;
+    }
+
+    public void setLstDatosJunio(ArrayList<VifRural2010> lstDatosJunio) {
+        this.lstDatosJunio = lstDatosJunio;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJulio() {
+        return lstDatosJulio;
+    }
+
+    public void setLstDatosJulio(ArrayList<VifRural2010> lstDatosJulio) {
+        this.lstDatosJulio = lstDatosJulio;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAgosto() {
+        return lstDatosAgosto;
+    }
+
+    public void setLstDatosAgosto(ArrayList<VifRural2010> lstDatosAgosto) {
+        this.lstDatosAgosto = lstDatosAgosto;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosSeptiembre() {
+        return lstDatosSeptiembre;
+    }
+
+    public void setLstDatosSeptiembre(ArrayList<VifRural2010> lstDatosSeptiembre) {
+        this.lstDatosSeptiembre = lstDatosSeptiembre;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosOctubre() {
+        return lstDatosOctubre;
+    }
+
+    public void setLstDatosOctubre(ArrayList<VifRural2010> lstDatosOctubre) {
+        this.lstDatosOctubre = lstDatosOctubre;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosNoviembre() {
+        return lstDatosNoviembre;
+    }
+
+    public void setLstDatosNoviembre(ArrayList<VifRural2010> lstDatosNoviembre) {
+        this.lstDatosNoviembre = lstDatosNoviembre;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosDieciembre() {
+        return lstDatosDieciembre;
+    }
+
+    public void setLstDatosDieciembre(ArrayList<VifRural2010> lstDatosDieciembre) {
+        this.lstDatosDieciembre = lstDatosDieciembre;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosEneroM() {
+        return lstDatosEneroM;
+    }
+
+    public void setLstDatosEneroM(ArrayList<VifRural2010> lstDatosEneroM) {
+        this.lstDatosEneroM = lstDatosEneroM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosFebreroM() {
+        return lstDatosFebreroM;
+    }
+
+    public void setLstDatosFebreroM(ArrayList<VifRural2010> lstDatosFebreroM) {
+        this.lstDatosFebreroM = lstDatosFebreroM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMarzoM() {
+        return lstDatosMarzoM;
+    }
+
+    public void setLstDatosMarzoM(ArrayList<VifRural2010> lstDatosMarzoM) {
+        this.lstDatosMarzoM = lstDatosMarzoM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAbrilM() {
+        return lstDatosAbrilM;
+    }
+
+    public void setLstDatosAbrilM(ArrayList<VifRural2010> lstDatosAbrilM) {
+        this.lstDatosAbrilM = lstDatosAbrilM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMayoM() {
+        return lstDatosMayoM;
+    }
+
+    public void setLstDatosMayoM(ArrayList<VifRural2010> lstDatosMayoM) {
+        this.lstDatosMayoM = lstDatosMayoM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJunioM() {
+        return lstDatosJunioM;
+    }
+
+    public void setLstDatosJunioM(ArrayList<VifRural2010> lstDatosJunioM) {
+        this.lstDatosJunioM = lstDatosJunioM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJulioM() {
+        return lstDatosJulioM;
+    }
+
+    public void setLstDatosJulioM(ArrayList<VifRural2010> lstDatosJulioM) {
+        this.lstDatosJulioM = lstDatosJulioM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAgostoM() {
+        return lstDatosAgostoM;
+    }
+
+    public void setLstDatosAgostoM(ArrayList<VifRural2010> lstDatosAgostoM) {
+        this.lstDatosAgostoM = lstDatosAgostoM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosSeptiembreM() {
+        return lstDatosSeptiembreM;
+    }
+
+    public void setLstDatosSeptiembreM(ArrayList<VifRural2010> lstDatosSeptiembreM) {
+        this.lstDatosSeptiembreM = lstDatosSeptiembreM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosOctubreM() {
+        return lstDatosOctubreM;
+    }
+
+    public void setLstDatosOctubreM(ArrayList<VifRural2010> lstDatosOctubreM) {
+        this.lstDatosOctubreM = lstDatosOctubreM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosNoviembreM() {
+        return lstDatosNoviembreM;
+    }
+
+    public void setLstDatosNoviembreM(ArrayList<VifRural2010> lstDatosNoviembreM) {
+        this.lstDatosNoviembreM = lstDatosNoviembreM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosDieciembreM() {
+        return lstDatosDieciembreM;
+    }
+
+    public void setLstDatosDieciembreM(ArrayList<VifRural2010> lstDatosDieciembreM) {
+        this.lstDatosDieciembreM = lstDatosDieciembreM;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosEneroF() {
+        return lstDatosEneroF;
+    }
+
+    public void setLstDatosEneroF(ArrayList<VifRural2010> lstDatosEneroF) {
+        this.lstDatosEneroF = lstDatosEneroF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosFebreroF() {
+        return lstDatosFebreroF;
+    }
+
+    public void setLstDatosFebreroF(ArrayList<VifRural2010> lstDatosFebreroF) {
+        this.lstDatosFebreroF = lstDatosFebreroF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMarzoF() {
+        return lstDatosMarzoF;
+    }
+
+    public void setLstDatosMarzoF(ArrayList<VifRural2010> lstDatosMarzoF) {
+        this.lstDatosMarzoF = lstDatosMarzoF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAbrilF() {
+        return lstDatosAbrilF;
+    }
+
+    public void setLstDatosAbrilF(ArrayList<VifRural2010> lstDatosAbrilF) {
+        this.lstDatosAbrilF = lstDatosAbrilF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosMayoF() {
+        return lstDatosMayoF;
+    }
+
+    public void setLstDatosMayoF(ArrayList<VifRural2010> lstDatosMayoF) {
+        this.lstDatosMayoF = lstDatosMayoF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJunioF() {
+        return lstDatosJunioF;
+    }
+
+    public void setLstDatosJunioF(ArrayList<VifRural2010> lstDatosJunioF) {
+        this.lstDatosJunioF = lstDatosJunioF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosJulioF() {
+        return lstDatosJulioF;
+    }
+
+    public void setLstDatosJulioF(ArrayList<VifRural2010> lstDatosJulioF) {
+        this.lstDatosJulioF = lstDatosJulioF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosAgostoF() {
+        return lstDatosAgostoF;
+    }
+
+    public void setLstDatosAgostoF(ArrayList<VifRural2010> lstDatosAgostoF) {
+        this.lstDatosAgostoF = lstDatosAgostoF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosSeptiembreF() {
+        return lstDatosSeptiembreF;
+    }
+
+    public void setLstDatosSeptiembreF(ArrayList<VifRural2010> lstDatosSeptiembreF) {
+        this.lstDatosSeptiembreF = lstDatosSeptiembreF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosOctubreF() {
+        return lstDatosOctubreF;
+    }
+
+    public void setLstDatosOctubreF(ArrayList<VifRural2010> lstDatosOctubreF) {
+        this.lstDatosOctubreF = lstDatosOctubreF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosNoviembreF() {
+        return lstDatosNoviembreF;
+    }
+
+    public void setLstDatosNoviembreF(ArrayList<VifRural2010> lstDatosNoviembreF) {
+        this.lstDatosNoviembreF = lstDatosNoviembreF;
+    }
+
+    public ArrayList<VifRural2010> getLstDatosDieciembreF() {
+        return lstDatosDieciembreF;
+    }
+
+    public void setLstDatosDieciembreF(ArrayList<VifRural2010> lstDatosDieciembreF) {
+        this.lstDatosDieciembreF = lstDatosDieciembreF;
+    }
 
     public ArrayList<VifRural2010> getLstDatosRangoEdad1() {
         return lstDatosRangoEdad1;
@@ -416,7 +740,7 @@ public class Controlador_VifRural2010_MesesDias {
         this.lineModelTipoViolencia = initCategoryTipoViolencia();
         this.lineModelEstadoCivil = initCategoryEstadoCivil();
         this.lineModelEdades = initCategoryRangoEdades();
-        this.lineModelEdadesSV=initCategoryRangoEdadesSexoVictima();
+        this.lineModelEdadesSV = initCategoryRangoEdadesSexoVictima();
     }
 
     private CartesianChartModel initCategoryDia() {
@@ -485,79 +809,184 @@ public class Controlador_VifRural2010_MesesDias {
         return model;
     }
 
+//    private CartesianChartModel initCategoryMes() {
+//        CartesianChartModel modelMeses = new CartesianChartModel();
+//        ArrayList mes = new ArrayList();
+//        mes.add("ENERO");
+//        mes.add("FEBRERO");
+//        mes.add("MARZO");
+//        mes.add("ABRIL");
+//        mes.add("MAYO");
+//        mes.add("JUNIO");
+//        mes.add("AGOSTO");
+//        mes.add("SEPTIEMBRE");
+//        mes.add("OCTUBRE");
+//        mes.add("NOVIEMBRE");
+//        mes.add("DICIEMBRE");
+//        try {
+//            this.lstDatos = FVifRural2010.ObtenerDatos();
+//            ChartSeries Meses = new ChartSeries();
+//            Meses.setLabel("Meses de agresiones");
+//            for (int i = 0; i < mes.size(); i++) {
+//                for (int j = 0; j < lstDatos.size(); j++) {
+//                    this.lstDatosDadoMes = FVifRural2010.ObtenerDatosDadoMes(mes.get(i).toString());
+//                    Meses.set(mes.get(i).toString(), this.lstDatosDadoMes.size());
+//                }
+//            }
+//            modelMeses.addSeries(Meses);
+//
+//        } catch (Exception e) {
+//            Util.addErrorMessage(e, "Error");
+//        }
+//        return modelMeses;
+//    }
     private CartesianChartModel initCategoryMes() {
-        CartesianChartModel model2 = new CartesianChartModel();
-        ArrayList mes = new ArrayList();
-        mes.add("ENERO");
-        mes.add("FEBRERO");
-        mes.add("MARZO");
-        mes.add("ABRIL");
-        mes.add("MAYO");
-        mes.add("JUNIO");
-        mes.add("AGOSTO");
-        mes.add("SEPTIEMBRE");
-        mes.add("OCTUBRE");
-        mes.add("NOVIEMBRE");
-        mes.add("DICIEMBRE");
+        CartesianChartModel modelMeses = new CartesianChartModel();
         try {
-            this.lstDatos = FVifRural2010.ObtenerDatos();
+            this.lstDatosEnero = FVifRural2010.ObtenerDatosDadoMes("ENERO");
+            this.lstDatosFebrero = FVifRural2010.ObtenerDatosDadoMes("FEBRERO");
+            this.lstDatosMarzo = FVifRural2010.ObtenerDatosDadoMes("MARZO");
+            this.lstDatosAbril = FVifRural2010.ObtenerDatosDadoMes("ABRIL");
+            this.lstDatosMayo = FVifRural2010.ObtenerDatosDadoMes("MAYO");
+            this.lstDatosJunio = FVifRural2010.ObtenerDatosDadoMes("JUNIO");
+            this.lstDatosJulio = FVifRural2010.ObtenerDatosDadoMes("JULIO");
+            this.lstDatosAgosto = FVifRural2010.ObtenerDatosDadoMes("AGOSTO");
+            this.lstDatosSeptiembre = FVifRural2010.ObtenerDatosDadoMes("SEPTIEMBRE");
+            this.lstDatosOctubre = FVifRural2010.ObtenerDatosDadoMes("OCTUBRE");
+            this.lstDatosNoviembre = FVifRural2010.ObtenerDatosDadoMes("NOVIEMBRE");
+            this.lstDatosDieciembre = FVifRural2010.ObtenerDatosDadoMes("DICIEMBRE");
+
             ChartSeries Meses = new ChartSeries();
             Meses.setLabel("Meses de agresiones");
-            for (int i = 0; i < mes.size(); i++) {
-                for (int j = 0; j < lstDatos.size(); j++) {
-                    this.lstDatosDadoMes = FVifRural2010.ObtenerDatosDadoMes(mes.get(i).toString());
-                    Meses.set(mes.get(i), this.lstDatosDadoMes.size());
-                }
-            }
-            model2.addSeries(Meses);
+
+            Meses.set("Enero", this.lstDatosEnero.size());
+            Meses.set("Febrero", this.lstDatosFebrero.size());
+            Meses.set("Marzo", this.lstDatosMarzo.size());
+            Meses.set("Abril", this.lstDatosAbril.size());
+            Meses.set("Mayo", this.lstDatosMayo.size());
+            Meses.set("Junio", this.lstDatosJunio.size());
+            Meses.set("Julio", this.lstDatosJulio.size());
+            Meses.set("Agosto", this.lstDatosAgosto.size());
+            Meses.set("Septiembre", this.lstDatosSeptiembre.size());
+            Meses.set("Octubre", this.lstDatosOctubre.size());
+            Meses.set("Noviembre", this.lstDatosNoviembre.size());
+            Meses.set("Diciembre", this.lstDatosDieciembre.size());
+
+            modelMeses.addSeries(Meses);
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
-        return model2;
+        return modelMeses;
     }
 
+//    private CartesianChartModel initCategoryMesSexo() {
+//        CartesianChartModel modelMesesSV = new CartesianChartModel();
+//        ArrayList meses = new ArrayList();
+//        meses.add("ENERO");
+//        meses.add("FEBRERO");
+//        meses.add("MARZO");
+//        meses.add("ABRIL");
+//        meses.add("MAYO");
+//        meses.add("JUNIO");
+//        meses.add("AGOSTO");
+//        meses.add("SEPTIEMBRE");
+//        meses.add("OCTUBRE");
+//        meses.add("NOVIEMBRE");
+//        meses.add("DICIEMBRE");
+//        try {
+//            this.lstDatos = FVifRural2010.ObtenerDatos();
+//            ChartSeries Masculino = new ChartSeries();
+//            Masculino.setLabel("Masculino");
+//            for (int i = 0; i < meses.size(); i++) {
+//                for (int j = 0; j < lstDatos.size(); j++) {
+//                    this.lstDatosDadoMesSM = FVifRural2010.ObtenerDatosDadoMesSexo(meses.get(i).toString(), "M");
+//                    Masculino.set(meses.get(i).toString(), this.lstDatosDadoMesSM.size());
+//                }
+//            }
+//
+//            ChartSeries Femenino = new ChartSeries();
+//            Femenino.setLabel("Femenino");
+//            for (int i = 0; i < meses.size(); i++) {
+//                for (int j = 0; j < lstDatos.size(); j++) {
+//                    this.lstDatosDadoMesSF = FVifRural2010.ObtenerDatosDadoMesSexo(meses.get(i).toString(), "F");
+//                    Femenino.set(meses.get(i).toString(), this.lstDatosDadoMesSF.size());
+//                }
+//            }
+//
+//            modelMesesSV.addSeries(Femenino);
+//            modelMesesSV.addSeries(Masculino);
+//
+//        } catch (Exception e) {
+//            Util.addErrorMessage(e, "Error");
+//        }
+//        return modelMesesSV;
+//    }
     private CartesianChartModel initCategoryMesSexo() {
-        CartesianChartModel model3 = new CartesianChartModel();
-        ArrayList mes = new ArrayList();
-        mes.add("ENERO");
-        mes.add("FEBRERO");
-        mes.add("MARZO");
-        mes.add("ABRIL");
-        mes.add("MAYO");
-        mes.add("JUNIO");
-        mes.add("AGOSTO");
-        mes.add("SEPTIEMBRE");
-        mes.add("OCTUBRE");
-        mes.add("NOVIEMBRE");
-        mes.add("DICIEMBRE");
+        CartesianChartModel modelMesesSV = new CartesianChartModel();
         try {
-            this.lstDatos = FVifRural2010.ObtenerDatos();
+            this.lstDatosEneroM = FVifRural2010.ObtenerDatosDadoMesSexo("ENERO", "M");
+            this.lstDatosFebreroM = FVifRural2010.ObtenerDatosDadoMesSexo("FEBRERO", "M");
+            this.lstDatosMarzoM = FVifRural2010.ObtenerDatosDadoMesSexo("MARZO", "M");
+            this.lstDatosAbrilM = FVifRural2010.ObtenerDatosDadoMesSexo("ABRIL", "M");
+            this.lstDatosMayoM = FVifRural2010.ObtenerDatosDadoMesSexo("MAYO", "M");
+            this.lstDatosJunioM = FVifRural2010.ObtenerDatosDadoMesSexo("JUNIO", "M");
+            this.lstDatosJulioM = FVifRural2010.ObtenerDatosDadoMesSexo("JULIO", "M");
+            this.lstDatosAgostoM = FVifRural2010.ObtenerDatosDadoMesSexo("AGOSTO", "M");
+            this.lstDatosSeptiembreM = FVifRural2010.ObtenerDatosDadoMesSexo("SEPTIEMBRE", "M");
+            this.lstDatosOctubreM = FVifRural2010.ObtenerDatosDadoMesSexo("OCTUBRE", "M");
+            this.lstDatosNoviembreM = FVifRural2010.ObtenerDatosDadoMesSexo("NOVIEMBRE", "M");
+            this.lstDatosDieciembreM = FVifRural2010.ObtenerDatosDadoMesSexo("DICIEMBRE", "M");
             ChartSeries Masculino = new ChartSeries();
             Masculino.setLabel("Masculino");
-            for (int i = 0; i < mes.size(); i++) {
-                for (int j = 0; j < lstDatos.size(); j++) {
-                    this.lstDatosDadoMesSM = FVifRural2010.ObtenerDatosDadoMesSexo(mes.get(i).toString(), "M");
-                    Masculino.set(mes.get(i), this.lstDatosDadoMesSM.size());
-                }
-            }
+            Masculino.set("Enero", this.lstDatosEneroM.size());
+            Masculino.set("Febrero", this.lstDatosFebreroM.size());
+            Masculino.set("Marzo", this.lstDatosMarzoM.size());
+            Masculino.set("Abril", this.lstDatosAbrilM.size());
+            Masculino.set("Mayo", this.lstDatosMayoM.size());
+            Masculino.set("Junio", this.lstDatosJunioM.size());
+            Masculino.set("Julio", this.lstDatosJulioM.size());
+            Masculino.set("Agosto", this.lstDatosAgostoM.size());
+            Masculino.set("Septiembre", this.lstDatosSeptiembreM.size());
+            Masculino.set("Octubre", this.lstDatosOctubreM.size());
+            Masculino.set("Noviembre", this.lstDatosNoviembreM.size());
+            Masculino.set("Diciembre", this.lstDatosDieciembreM.size());
 
+            this.lstDatosEneroF = FVifRural2010.ObtenerDatosDadoMesSexo("ENERO", "F");
+            this.lstDatosFebreroF = FVifRural2010.ObtenerDatosDadoMesSexo("FEBRERO", "F");
+            this.lstDatosMarzoF = FVifRural2010.ObtenerDatosDadoMesSexo("MARZO", "F");
+            this.lstDatosAbrilF = FVifRural2010.ObtenerDatosDadoMesSexo("ABRIL", "F");
+            this.lstDatosMayoF = FVifRural2010.ObtenerDatosDadoMesSexo("MAYO", "F");
+            this.lstDatosJunioF = FVifRural2010.ObtenerDatosDadoMesSexo("JUNIO", "F");
+            this.lstDatosJulioF = FVifRural2010.ObtenerDatosDadoMesSexo("JULIO", "F");
+            this.lstDatosAgostoF = FVifRural2010.ObtenerDatosDadoMesSexo("AGOSTO", "F");
+            this.lstDatosSeptiembreF = FVifRural2010.ObtenerDatosDadoMesSexo("SEPTIEMBRE", "F");
+            this.lstDatosOctubreF = FVifRural2010.ObtenerDatosDadoMesSexo("OCTUBRE", "F");
+            this.lstDatosNoviembreF = FVifRural2010.ObtenerDatosDadoMesSexo("NOVIEMBRE", "F");
+            this.lstDatosDieciembreF = FVifRural2010.ObtenerDatosDadoMesSexo("DICIEMBRE", "F");
+            
             ChartSeries Femenino = new ChartSeries();
             Femenino.setLabel("Femenino");
-            for (int i = 0; i < mes.size(); i++) {
-                for (int j = 0; j < lstDatos.size(); j++) {
-                    this.lstDatosDadoMesSF = FVifRural2010.ObtenerDatosDadoMesSexo(mes.get(i).toString(), "F");
-                    Femenino.set(mes.get(i), this.lstDatosDadoMesSF.size());
-                }
-            }
+            Femenino.set("Enero", this.lstDatosEneroF.size());
+            Femenino.set("Febrero", this.lstDatosFebreroF.size());
+            Femenino.set("Marzo", this.lstDatosMarzoF.size());
+            Femenino.set("Abril", this.lstDatosAbrilF.size());
+            Femenino.set("Mayo", this.lstDatosMayoF.size());
+            Femenino.set("Junio", this.lstDatosJunioF.size());
+            Femenino.set("Julio", this.lstDatosJulioF.size());
+            Femenino.set("Agosto", this.lstDatosAgostoF.size());
+            Femenino.set("Septiembre", this.lstDatosSeptiembreF.size());
+            Femenino.set("Octubre", this.lstDatosOctubreF.size());
+            Femenino.set("Noviembre", this.lstDatosNoviembreF.size());
+            Femenino.set("Diciembre", this.lstDatosDieciembreF.size());
 
-            model3.addSeries(Femenino);
-            model3.addSeries(Masculino);
+            modelMesesSV.addSeries(Femenino);
+            modelMesesSV.addSeries(Masculino);
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }
-        return model3;
+        return modelMesesSV;
     }
 
     //tipo de violencia
@@ -653,7 +1082,7 @@ public class Controlador_VifRural2010_MesesDias {
             EdadesSM.set("desde 40 hasta 50", lstDatosRangoEdad5M.size());
             EdadesSM.set("desde 50 hasta 65", lstDatosRangoEdad6M.size());
             EdadesSM.set("mayores de 65", lstDatosRangoEdad7M.size());
-            
+
             ChartSeries EdadesSF = new ChartSeries();
             EdadesSF.setLabel("Sexo Masculino");
             EdadesSF.set("desde 0 hasta 12", lstDatosRangoEdad1F.size());
@@ -666,7 +1095,7 @@ public class Controlador_VifRural2010_MesesDias {
 
             modelRE.addSeries(EdadesSM);
             modelRE.addSeries(EdadesSF);
-            
+
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
         }

@@ -26,39 +26,39 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">                        
-                         <p:tab title="Denuncias presentadas de acuerdo al día de la semana" >
+                         <p:tab title="Denuncias clasificadas por meses." >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{controlador_VifRural2010_MesesDias.lineModelMeses}" legendPosition="n" 
-                                           title="Denuncias presentadas de acuerdo al día de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                                           title="Denuncias clasificadas por meses" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
                         </p:tab>                                                                                           
-                        <p:tab title="Denuncias presentadas de acuerdo al día de la semana(Gráfico de Barras" >
+                        <p:tab title="Denuncias clasificadas por meses(Gráfico de Barras" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{controlador_VifRural2010_MesesDias.lineModelMeses}" legendPosition="n" 
-                                          title="Denuncias presentadas de acuerdo al día de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
+                                          title="Denuncias clasificadas por meses" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         
-                         <p:tab title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima" >
+                         <p:tab title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{controlador_VifRural2010_MesesDias.lineModelMesesSV}" legendPosition="n" 
-                                           title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                                           title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
                         </p:tab>  
                         
-                        <p:tab title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima(Gráfico de barras apiladas)" >
+                        <p:tab title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima(Gráfico de barras apiladas)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{controlador_VifRural2010_MesesDias.lineModelMesesSV}" legendPosition="n" 
-                                           title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias" stacked="true"/>   
+                                           title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias" stacked="true"/>   
                         </p:tab> 
                         
-                        <p:tab title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima(Gráfico de barras)" >
+                        <p:tab title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima(Gráfico de barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{controlador_VifRural2010_MesesDias.lineModelMesesSV}" legendPosition="n" 
-                                           title="Denuncias presentadas por día de la semana de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Días de la semana" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                                           title="Denuncias clasificadas por meses de acuerdo al sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
                         </p:tab> 
                         
                         <script type="text/javascript">
@@ -72,7 +72,6 @@ and open the template in the editor.
                         </script>
 
                     </p:accordionPanel>
-
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">
