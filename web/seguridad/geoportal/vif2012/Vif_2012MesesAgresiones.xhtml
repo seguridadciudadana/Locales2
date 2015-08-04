@@ -25,32 +25,32 @@ and open the template in the editor.
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Agresiones clasificadas por meses (Gráfico de series)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2010ControladorFechaAgresion.lineModelMes}" legendPosition="n" 
+                            <p:lineChart   value="#{vif_2012ControladorDiaAnioAgresion.lineModelMesAgresion}" legendPosition="n" 
                                            title="Agresiones clasificadas por meses" style="height:350px;width:1000px;text-decoration-style:dashed"
                                            xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
                         <p:tab title="Agresiones clasificadas por meses">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaAgresion.lineModelMes}" legendPosition="n" 
+                            <p:barChart   value="#{vif_2012ControladorDiaAnioAgresion.lineModelMesAgresion}" legendPosition="n" 
                                           title="Agresiones clasificadas por meses" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
                         
                         <p:tab title="Agresiones clasificadas por meses de acuerdo al sexo de la victima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2010ControladorFechaAgresion.lineModelMesSV}" legendPosition="n" 
+                            <p:lineChart   value="#{vif_2012ControladorDiaAnioAgresion.lineModelMesAgresionSexo}" legendPosition="n" 
                                            title="Agresiones clasificadas por meses de acuerdo al sexo de la victima" style="height:350px;width:1000px;text-decoration-style:dashed"
                                            xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
                          <p:tab title="Agresiones clasificadas por meses de acuerdo al sexo de la victima (Gráfico de Barras apiladas)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaAgresion.lineModelMesSV}" legendPosition="n" 
+                            <p:barChart   value="#{vif_2012ControladorDiaAnioAgresion.lineModelMesAgresionSexo}" legendPosition="n" 
                                           title="Agresiones clasificadas por meses de acuerdo al sexo de la victima" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias" stacked="true" /> 
                         </p:tab>
                         <p:tab title="Agresiones clasificadas por meses de acuerdo al sexo de la victima (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaAgresion.lineModelMesSV}" legendPosition="n" 
+                            <p:barChart   value="#{vif_2012ControladorDiaAnioAgresion.lineModelMesAgresionSexo}" legendPosition="n" 
                                           title="Agresiones clasificadas por meses de acuerdo al sexo de la victima" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
