@@ -6,12 +6,12 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Indicadores Instruccion</ui:define>
+            <ui:define name="Datos">Indicadores Instrucción</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Instruccion</ui:define>    
+            <ui:define name="top">Indicadores Instrucción</ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -21,15 +21,15 @@
                         <p:tab title="Variable  Instruccion" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:lineChart   value="#{controladorVictimas2011Instruccion.instruccionGrafico}" legendPosition="e" 
-                                           title="Variable Instruccion" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Instruccion" xaxisAngle="45" yaxisLabel="#Victimas"/>   
+                                           title="Variable Instrucción" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Instrucción" xaxisAngle="45" yaxisLabel="#Victimas"/>   
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                        <p:tab title="Variable Instruccion (Gráfico de Barras)" >
+                        <p:tab title="Variable Instrucción (Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                             <p:barChart   value="#{controladorVictimas2011Instruccion.instruccionGrafico}" legendPosition="e" 
-                                          title="Variable Instruccion" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Instruccion" xaxisAngle="45" yaxisLabel="#Victimas"/>                                  
+                                          title="Variable Instrucción" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Instrucción" xaxisAngle="45" yaxisLabel="#Victimas"/>                                  
                         </p:tab>
                         <script type="text/javascript">
                             function my_ext() {

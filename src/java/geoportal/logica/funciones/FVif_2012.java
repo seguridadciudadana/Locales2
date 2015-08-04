@@ -1037,4 +1037,22 @@ public class FVif_2012 {
  //
     //   
 //FIN DE OCUPACIONES
+    //--------------------------------------------------TIPO VIOLENCIA - SEXO-------------------------------------------------
+    
+    public static ArrayList<Vif_2012> ObtenerDatosDadoTipoViolenciaSexo(String violencia,String sexo) throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_tipo_violencia_sexo(?,?)";
+            lstP.add(new Parametro(1, violencia));
+            lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+    //--------------------------------------------------TIPO VIOLENCIA - SEXO-------------------------------------------------
 }

@@ -30,10 +30,86 @@ and open the template in the editor.
                                            title="Contrastes Tipo de Violencia" style="height:400px;width:800px;text-decoration-style: dashed"
                                            xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
+                        
+                         <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2010">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesTipoViolencia.grafico2010}" legendPosition="e" 
+                                           title="Contrastes Tipo de Violencia" style="height:400px;width:800px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2011">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesTipoViolencia.grafico2011}" legendPosition="e" 
+                                           title="Contrastes Tipo de Violencia Por Sexo" style="height:400px;width:800px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2012">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesTipoViolencia.grafico2012}" legendPosition="e" 
+                                           title="Contrastes Tipo de Violencia Por Sexo" style="height:400px;width:800px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Masculino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesTipoViolencia.graficoContrastesHombres}" legendPosition="e" 
+                                           title="Contrastes Tipo de Violencia Masculino" style="height:400px;width:800px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Femenino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesTipoViolencia.graficoContrastesMujeres}" legendPosition="e" 
+                                           title="Contrastes Tipo de Violencia Femenino" style="height:400px;width:800px;text-decoration-style: dashed"
+                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                        </p:tab>
+                        
                         <p:tab title="Contrastes de la Variable Tipo de Violencia (Cuadro de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorContrastesTipoViolencia.lineModel}" legendPosition="e" 
                                           title="Contraste Tipo de Violencia (Barras)" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2010">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesTipoViolencia.grafico2010}" legendPosition="e" 
+                                          title="Contraste Tipo de Violencia Por Sexo" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2011">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesTipoViolencia.grafico2011}" legendPosition="e" 
+                                          title="Contraste Tipo de Violencia Por Sexo" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        
+                         <p:tab title="Contrastes de la Variable Tipo de Violencia Por Sexo 2012">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesTipoViolencia.grafico2012}" legendPosition="e" 
+                                          title="Contraste Tipo de Violencia Por Sexo" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Masculino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesTipoViolencia.graficoContrastesHombres}" legendPosition="e" 
+                                          title="Contraste Tipo de Violencia Masculino" style="height:400px;width:750px;text-decoration-style: dashed"
+                                          xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>
+                        
+                        <p:tab title="Contrastes de la Variable Tipo de Violencia Femenino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesTipoViolencia.graficoContrastesMujeres}" legendPosition="e" 
+                                          title="Contraste Tipo de Violencia Femenino" style="height:400px;width:750px;text-decoration-style: dashed"
                                           xaxisLabel="Tipo de Violencia" xaxisAngle="45" yaxisLabel="# Denuncias"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
