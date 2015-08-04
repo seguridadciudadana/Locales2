@@ -63,7 +63,7 @@ public class ControladorContrastesTipoViolencia {
     private ArrayList<Vif_2011> lstDatosSexualF2011;
 
     //----------------------------2011---------------------------------
-    // ----------------------------2012--------------------------------
+    // ---------------------------2012--------------------------------
     private ArrayList<Vif_2012> lstDatosSexual_2012;
     private ArrayList<Vif_2012> lstDatosFisica_2012;
     private ArrayList<Vif_2012> lstDatosFisicaPsicologica_2012;

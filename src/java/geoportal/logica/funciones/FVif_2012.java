@@ -84,6 +84,60 @@ public class FVif_2012 {
         return lst;
     }
 
+    //---------------------------------------PARA CONTRASTES DATOS 2012 ---------------------------------------------
+    public static ArrayList<Vif_2012> ObtenerDatosMujerHombre() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_mujer_hombre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2012> ObtenerDatosMujerMujer() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_mujer_mujer()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2012> ObtenerDatosHombreHombre() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_hombre_hombre()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Vif_2012> ObtenerDatosHombreMujer() throws Exception {
+        ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2012_hombre_mujer()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    //---------------------------------------PARA CONTRASTES DATOS 2012 ---------------------------------------------
+
     /*public static ArrayList<Vif_2012> ObtenerDatosDadoCircuitoTipoViolencia(String circuito, String tViolencia) throws Exception {
      ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
      try {
@@ -846,7 +900,7 @@ public class FVif_2012 {
         }
         return lst;
     }
-    
+
     public static ArrayList<Vif_2012> ObtenerDatosDadoDiaAgresion2(String dia) throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
@@ -860,7 +914,6 @@ public class FVif_2012 {
         }
         return lst;
     }
-
 
     public static ArrayList<Vif_2012> ObtenerDatosDadoEstadoCivil(String pe) throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
@@ -1038,8 +1091,8 @@ public class FVif_2012 {
     //   
 //FIN DE OCUPACIONES
     //--------------------------------------------------TIPO VIOLENCIA - SEXO-------------------------------------------------
-    
-    public static ArrayList<Vif_2012> ObtenerDatosDadoTipoViolenciaSexo(String violencia,String sexo) throws Exception {
+
+    public static ArrayList<Vif_2012> ObtenerDatosDadoTipoViolenciaSexo(String violencia, String sexo) throws Exception {
         ArrayList<Vif_2012> lst = new ArrayList<Vif_2012>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -1053,6 +1106,6 @@ public class FVif_2012 {
         }
         return lst;
     }
-    
+
     //--------------------------------------------------TIPO VIOLENCIA - SEXO-------------------------------------------------
 }
