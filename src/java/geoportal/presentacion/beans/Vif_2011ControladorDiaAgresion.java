@@ -38,8 +38,6 @@ public class Vif_2011ControladorDiaAgresion {
     private ArrayList<Vif_2011> lstDatosDomingo;
     private PieChartModel pieModel;
     private CartesianChartModel lineModelDiaDenunciaSexoVictima;
-    private CartesianChartModel lineModelDiaAgresionSexoVictima;
-    private CartesianChartModel lineModelDiaAgresion;
     private ArrayList<Vif_2011> lstDatosLunesM;
     private ArrayList<Vif_2011> lstDatosMartesM;
     private ArrayList<Vif_2011> lstDatosMiercolesM;
@@ -54,22 +52,6 @@ public class Vif_2011ControladorDiaAgresion {
     private ArrayList<Vif_2011> lstDatosViernesF;
     private ArrayList<Vif_2011> lstDatosSabadoF;
     private ArrayList<Vif_2011> lstDatosDomingoF;
-
-    public CartesianChartModel getLineModelDiaAgresionSexoVictima() {
-        return lineModelDiaAgresionSexoVictima;
-    }
-
-    public void setLineModelDiaAgresionSexoVictima(CartesianChartModel lineModelDiaAgresionSexoVictima) {
-        this.lineModelDiaAgresionSexoVictima = lineModelDiaAgresionSexoVictima;
-    }
-
-    public CartesianChartModel getLineModelDiaAgresion() {
-        return lineModelDiaAgresion;
-    }
-
-    public void setLineModelDiaAgresion(CartesianChartModel lineModelDiaAgresion) {
-        this.lineModelDiaAgresion = lineModelDiaAgresion;
-    }
 
     public CartesianChartModel getLineModelDiaDenunciaSexoVictima() {
         return lineModelDiaDenunciaSexoVictima;
@@ -315,12 +297,12 @@ public class Vif_2011ControladorDiaAgresion {
     }
 
     public void graficar() {
-        lineModelDiaAgresion = graficaDiaAgresion();
-        lineModelDiaAgresionSexoVictima = graficaDiaAgresionSexoVictima();
-        pieModel = graficaAnioAgresion();
+        lineModelDiaDenuncia = graficaDiaDenuncia();
+        lineModelDiaDenunciaSexoVictima = graficaDiaDenunciaSexoVictima();
+        pieModel = graficaAnioDenuncia();
     }
 
-    private CartesianChartModel graficaDiaAgresion() {
+    private CartesianChartModel graficaDiaDenuncia() {
         CartesianChartModel model = new CartesianChartModel();
         try {
             ChartSeries semana = new ChartSeries();
@@ -347,7 +329,7 @@ public class Vif_2011ControladorDiaAgresion {
         return model;
     }
 
-    private PieChartModel graficaAnioAgresion() {
+    private PieChartModel graficaAnioDenuncia() {
         PieChartModel semana = new PieChartModel();
         try {
 
@@ -374,7 +356,7 @@ public class Vif_2011ControladorDiaAgresion {
         return semana;
     }
 
-    private CartesianChartModel graficaDiaAgresionSexoVictima() {
+    private CartesianChartModel graficaDiaDenunciaSexoVictima() {
         CartesianChartModel model = new CartesianChartModel();
         try {
             //victimas sexo masculino

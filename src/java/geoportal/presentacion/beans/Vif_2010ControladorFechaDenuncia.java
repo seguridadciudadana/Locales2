@@ -27,10 +27,9 @@ public class Vif_2010ControladorFechaDenuncia {
     /**
      * Creates a new instance of Vif_2010ControladorFechaDenuncia
      */
+    
     private CartesianChartModel lineModelDiaDenuncia;
     private CartesianChartModel lineModelDiaDenunciaSexo;
-    private CartesianChartModel lineModelMesDenuncia;
-    private CartesianChartModel lineModelMesDenunciaSexo;
     private Vif_2010 objDatos;
     private Vif_2010 datoSel;
     private ArrayList<Vif_2010> lstDatos;
@@ -56,348 +55,6 @@ public class Vif_2010ControladorFechaDenuncia {
     private ArrayList<Vif_2010> lstDatosViernesF;
     private ArrayList<Vif_2010> lstDatosSabadoF;
     private ArrayList<Vif_2010> lstDatosDomingoF;
-    private ArrayList<Vif_2010> lstDatosEnero;
-    private ArrayList<Vif_2010> lstDatosFebrero;
-    private ArrayList<Vif_2010> lstDatosMarzo;
-    private ArrayList<Vif_2010> lstDatosAbril;
-    private ArrayList<Vif_2010> lstDatosMayo;
-    private ArrayList<Vif_2010> lstDatosJunio;
-    private ArrayList<Vif_2010> lstDatosJulio;
-    private ArrayList<Vif_2010> lstDatosAgosto;
-    private ArrayList<Vif_2010> lstDatosSeptiembre;
-    private ArrayList<Vif_2010> lstDatosOctubre;
-    private ArrayList<Vif_2010> lstDatosNoviembre;
-    private ArrayList<Vif_2010> lstDatosDiciembre;
-
-    private ArrayList<Vif_2010> lstDatosEneroM;
-    private ArrayList<Vif_2010> lstDatosFebreroM;
-    private ArrayList<Vif_2010> lstDatosMarzoM;
-    private ArrayList<Vif_2010> lstDatosAbrilM;
-    private ArrayList<Vif_2010> lstDatosMayoM;
-    private ArrayList<Vif_2010> lstDatosJunioM;
-    private ArrayList<Vif_2010> lstDatosJulioM;
-    private ArrayList<Vif_2010> lstDatosAgostoM;
-    private ArrayList<Vif_2010> lstDatosSeptiembreM;
-    private ArrayList<Vif_2010> lstDatosOctubreM;
-    private ArrayList<Vif_2010> lstDatosNoviembreM;
-    private ArrayList<Vif_2010> lstDatosDiciembreM;
-
-    private ArrayList<Vif_2010> lstDatosEneroF;
-    private ArrayList<Vif_2010> lstDatosFebreroF;
-    private ArrayList<Vif_2010> lstDatosMarzoF;
-    private ArrayList<Vif_2010> lstDatosAbrilF;
-    private ArrayList<Vif_2010> lstDatosMayoF;
-    private ArrayList<Vif_2010> lstDatosJunioF;
-    private ArrayList<Vif_2010> lstDatosJulioF;
-    private ArrayList<Vif_2010> lstDatosAgostoF;
-    private ArrayList<Vif_2010> lstDatosSeptiembreF;
-    private ArrayList<Vif_2010> lstDatosOctubreF;
-    private ArrayList<Vif_2010> lstDatosNoviembreF;
-    private ArrayList<Vif_2010> lstDatosDiciembreF;
-
-    public CartesianChartModel getLineModelMesDenuncia() {
-        return lineModelMesDenuncia;
-    }
-
-    public void setLineModelMesDenuncia(CartesianChartModel lineModelMesDenuncia) {
-        this.lineModelMesDenuncia = lineModelMesDenuncia;
-    }
-
-    public CartesianChartModel getLineModelMesDenunciaSexo() {
-        return lineModelMesDenunciaSexo;
-    }
-
-    public void setLineModelMesDenunciaSexo(CartesianChartModel lineModelMesDenunciaSexo) {
-        this.lineModelMesDenunciaSexo = lineModelMesDenunciaSexo;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosEnero() {
-        return lstDatosEnero;
-    }
-
-    public void setLstDatosEnero(ArrayList<Vif_2010> lstDatosEnero) {
-        this.lstDatosEnero = lstDatosEnero;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosFebrero() {
-        return lstDatosFebrero;
-    }
-
-    public void setLstDatosFebrero(ArrayList<Vif_2010> lstDatosFebrero) {
-        this.lstDatosFebrero = lstDatosFebrero;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMarzo() {
-        return lstDatosMarzo;
-    }
-
-    public void setLstDatosMarzo(ArrayList<Vif_2010> lstDatosMarzo) {
-        this.lstDatosMarzo = lstDatosMarzo;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAbril() {
-        return lstDatosAbril;
-    }
-
-    public void setLstDatosAbril(ArrayList<Vif_2010> lstDatosAbril) {
-        this.lstDatosAbril = lstDatosAbril;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMayo() {
-        return lstDatosMayo;
-    }
-
-    public void setLstDatosMayo(ArrayList<Vif_2010> lstDatosMayo) {
-        this.lstDatosMayo = lstDatosMayo;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJunio() {
-        return lstDatosJunio;
-    }
-
-    public void setLstDatosJunio(ArrayList<Vif_2010> lstDatosJunio) {
-        this.lstDatosJunio = lstDatosJunio;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJulio() {
-        return lstDatosJulio;
-    }
-
-    public void setLstDatosJulio(ArrayList<Vif_2010> lstDatosJulio) {
-        this.lstDatosJulio = lstDatosJulio;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAgosto() {
-        return lstDatosAgosto;
-    }
-
-    public void setLstDatosAgosto(ArrayList<Vif_2010> lstDatosAgosto) {
-        this.lstDatosAgosto = lstDatosAgosto;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosSeptiembre() {
-        return lstDatosSeptiembre;
-    }
-
-    public void setLstDatosSeptiembre(ArrayList<Vif_2010> lstDatosSeptiembre) {
-        this.lstDatosSeptiembre = lstDatosSeptiembre;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosOctubre() {
-        return lstDatosOctubre;
-    }
-
-    public void setLstDatosOctubre(ArrayList<Vif_2010> lstDatosOctubre) {
-        this.lstDatosOctubre = lstDatosOctubre;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosNoviembre() {
-        return lstDatosNoviembre;
-    }
-
-    public void setLstDatosNoviembre(ArrayList<Vif_2010> lstDatosNoviembre) {
-        this.lstDatosNoviembre = lstDatosNoviembre;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosDiciembre() {
-        return lstDatosDiciembre;
-    }
-
-    public void setLstDatosDiciembre(ArrayList<Vif_2010> lstDatosDiciembre) {
-        this.lstDatosDiciembre = lstDatosDiciembre;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosEneroM() {
-        return lstDatosEneroM;
-    }
-
-    public void setLstDatosEneroM(ArrayList<Vif_2010> lstDatosEneroM) {
-        this.lstDatosEneroM = lstDatosEneroM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosFebreroM() {
-        return lstDatosFebreroM;
-    }
-
-    public void setLstDatosFebreroM(ArrayList<Vif_2010> lstDatosFebreroM) {
-        this.lstDatosFebreroM = lstDatosFebreroM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMarzoM() {
-        return lstDatosMarzoM;
-    }
-
-    public void setLstDatosMarzoM(ArrayList<Vif_2010> lstDatosMarzoM) {
-        this.lstDatosMarzoM = lstDatosMarzoM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAbrilM() {
-        return lstDatosAbrilM;
-    }
-
-    public void setLstDatosAbrilM(ArrayList<Vif_2010> lstDatosAbrilM) {
-        this.lstDatosAbrilM = lstDatosAbrilM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMayoM() {
-        return lstDatosMayoM;
-    }
-
-    public void setLstDatosMayoM(ArrayList<Vif_2010> lstDatosMayoM) {
-        this.lstDatosMayoM = lstDatosMayoM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJunioM() {
-        return lstDatosJunioM;
-    }
-
-    public void setLstDatosJunioM(ArrayList<Vif_2010> lstDatosJunioM) {
-        this.lstDatosJunioM = lstDatosJunioM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJulioM() {
-        return lstDatosJulioM;
-    }
-
-    public void setLstDatosJulioM(ArrayList<Vif_2010> lstDatosJulioM) {
-        this.lstDatosJulioM = lstDatosJulioM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAgostoM() {
-        return lstDatosAgostoM;
-    }
-
-    public void setLstDatosAgostoM(ArrayList<Vif_2010> lstDatosAgostoM) {
-        this.lstDatosAgostoM = lstDatosAgostoM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosSeptiembreM() {
-        return lstDatosSeptiembreM;
-    }
-
-    public void setLstDatosSeptiembreM(ArrayList<Vif_2010> lstDatosSeptiembreM) {
-        this.lstDatosSeptiembreM = lstDatosSeptiembreM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosOctubreM() {
-        return lstDatosOctubreM;
-    }
-
-    public void setLstDatosOctubreM(ArrayList<Vif_2010> lstDatosOctubreM) {
-        this.lstDatosOctubreM = lstDatosOctubreM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosNoviembreM() {
-        return lstDatosNoviembreM;
-    }
-
-    public void setLstDatosNoviembreM(ArrayList<Vif_2010> lstDatosNoviembreM) {
-        this.lstDatosNoviembreM = lstDatosNoviembreM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosDiciembreM() {
-        return lstDatosDiciembreM;
-    }
-
-    public void setLstDatosDiciembreM(ArrayList<Vif_2010> lstDatosDiciembreM) {
-        this.lstDatosDiciembreM = lstDatosDiciembreM;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosEneroF() {
-        return lstDatosEneroF;
-    }
-
-    public void setLstDatosEneroF(ArrayList<Vif_2010> lstDatosEneroF) {
-        this.lstDatosEneroF = lstDatosEneroF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosFebreroF() {
-        return lstDatosFebreroF;
-    }
-
-    public void setLstDatosFebreroF(ArrayList<Vif_2010> lstDatosFebreroF) {
-        this.lstDatosFebreroF = lstDatosFebreroF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMarzoF() {
-        return lstDatosMarzoF;
-    }
-
-    public void setLstDatosMarzoF(ArrayList<Vif_2010> lstDatosMarzoF) {
-        this.lstDatosMarzoF = lstDatosMarzoF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAbrilF() {
-        return lstDatosAbrilF;
-    }
-
-    public void setLstDatosAbrilF(ArrayList<Vif_2010> lstDatosAbrilF) {
-        this.lstDatosAbrilF = lstDatosAbrilF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosMayoF() {
-        return lstDatosMayoF;
-    }
-
-    public void setLstDatosMayoF(ArrayList<Vif_2010> lstDatosMayoF) {
-        this.lstDatosMayoF = lstDatosMayoF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJunioF() {
-        return lstDatosJunioF;
-    }
-
-    public void setLstDatosJunioF(ArrayList<Vif_2010> lstDatosJunioF) {
-        this.lstDatosJunioF = lstDatosJunioF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosJulioF() {
-        return lstDatosJulioF;
-    }
-
-    public void setLstDatosJulioF(ArrayList<Vif_2010> lstDatosJulioF) {
-        this.lstDatosJulioF = lstDatosJulioF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosAgostoF() {
-        return lstDatosAgostoF;
-    }
-
-    public void setLstDatosAgostoF(ArrayList<Vif_2010> lstDatosAgostoF) {
-        this.lstDatosAgostoF = lstDatosAgostoF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosSeptiembreF() {
-        return lstDatosSeptiembreF;
-    }
-
-    public void setLstDatosSeptiembreF(ArrayList<Vif_2010> lstDatosSeptiembreF) {
-        this.lstDatosSeptiembreF = lstDatosSeptiembreF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosOctubreF() {
-        return lstDatosOctubreF;
-    }
-
-    public void setLstDatosOctubreF(ArrayList<Vif_2010> lstDatosOctubreF) {
-        this.lstDatosOctubreF = lstDatosOctubreF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosNoviembreF() {
-        return lstDatosNoviembreF;
-    }
-
-    public void setLstDatosNoviembreF(ArrayList<Vif_2010> lstDatosNoviembreF) {
-        this.lstDatosNoviembreF = lstDatosNoviembreF;
-    }
-
-    public ArrayList<Vif_2010> getLstDatosDiciembreF() {
-        return lstDatosDiciembreF;
-    }
-
-    public void setLstDatosDiciembreF(ArrayList<Vif_2010> lstDatosDiciembreF) {
-        this.lstDatosDiciembreF = lstDatosDiciembreF;
-    }
 
     public CartesianChartModel getLineModelDiaDenuncia() {
         return lineModelDiaDenuncia;
@@ -614,7 +271,7 @@ public class Vif_2010ControladorFechaDenuncia {
     public void setLstDatosDomingoF(ArrayList<Vif_2010> lstDatosDomingoF) {
         this.lstDatosDomingoF = lstDatosDomingoF;
     }
-
+    
     @PostConstruct
     public void init() {
         graficar();
@@ -631,16 +288,16 @@ public class Vif_2010ControladorFechaDenuncia {
     }
 
     public void graficar() {
-        lineModelDiaDenuncia = graficaDiaDenuncia();        
-        lineModelDiaDenunciaSexo = graficaDiaDenunciaSexoVictima();
-        lineModelMesDenuncia=graficaMesDenuncia();
-        lineModelMesDenunciaSexo=graficaMesesSexoVictima();
+        lineModelDiaDenuncia = graficaDiaDenuncia();
+        //pieModel = graficaAnioDenuncia();
+        lineModelDiaDenunciaSexo=graficaDiaDenunciaSexoVictima();
     }
-
+    
+    
     public Vif_2010ControladorFechaDenuncia() {
         this.reinit();
     }
-
+    
     private CartesianChartModel graficaDiaDenuncia() {
         CartesianChartModel model = new CartesianChartModel();
         try {
@@ -709,117 +366,37 @@ public class Vif_2010ControladorFechaDenuncia {
 
             model.addSeries(femenino);
             model.addSeries(masculino);
-
+            
         } catch (Exception e) {
         }
         return model;
     }
 
-    private CartesianChartModel graficaMesDenuncia() {
-        CartesianChartModel modelMeses = new CartesianChartModel();
+    private PieChartModel graficaAnioDenuncia() {
+        PieChartModel semana = new PieChartModel();
         try {
 
-            this.lstDatosEnero = FVif_2010.ObtenerDatosDadoMesDenuncia("ENERO");
-            this.lstDatosFebrero = FVif_2010.ObtenerDatosDadoMesDenuncia("FEBRERO");
-            this.lstDatosMarzo = FVif_2010.ObtenerDatosDadoMesDenuncia("MARZO");
-            this.lstDatosAbril = FVif_2010.ObtenerDatosDadoMesDenuncia("ABRIL");
-            this.lstDatosMayo = FVif_2010.ObtenerDatosDadoMesDenuncia("MAYO");
-            this.lstDatosJunio = FVif_2010.ObtenerDatosDadoMesDenuncia("JUNIO");
-            this.lstDatosJulio = FVif_2010.ObtenerDatosDadoMesDenuncia("JULIO");
-            this.lstDatosAgosto = FVif_2010.ObtenerDatosDadoMesDenuncia("AGOSTO");
-            this.lstDatosSeptiembre = FVif_2010.ObtenerDatosDadoMesDenuncia("SEPTIEMBRE");
-            this.lstDatosOctubre = FVif_2010.ObtenerDatosDadoMesDenuncia("OCTUBRE");
-            this.lstDatosNoviembre = FVif_2010.ObtenerDatosDadoMesDenuncia("NOVIEMBRE");
-            this.lstDatosDiciembre = FVif_2010.ObtenerDatosDadoMesDenuncia("DICIEMBRE");
+            lstDatosLunes = FVif_2010.ObtenerDatosDadoDiaAgresion("LUNES");
+            lstDatosMartes = FVif_2010.ObtenerDatosDadoDiaAgresion("MARTES");
+            lstDatosMiercoles = FVif_2010.ObtenerDatosDadoDiaAgresion("MIERCOLES");
+            lstDatosJueves = FVif_2010.ObtenerDatosDadoDiaAgresion("JUEVES");
+            lstDatosViernes = FVif_2010.ObtenerDatosDadoDiaAgresion("VIERNES");
+            lstDatosSabado = FVif_2010.ObtenerDatosDadoDiaAgresion("SABADO");
+            lstDatosDomingo = FVif_2010.ObtenerDatosDadoDiaAgresion("DOMINGO");
 
-            ChartSeries Meses = new ChartSeries();
-            Meses.setLabel("Meses de las Agresiones");
-            Meses.set("Enero", lstDatosEnero.size());
-            Meses.set("Febrero", lstDatosFebrero.size());
-            Meses.set("Marzo", lstDatosMarzo.size());
-            Meses.set("Abril", lstDatosAbril.size());
-            Meses.set("Mayo", lstDatosMayo.size());
-            Meses.set("Junio", lstDatosJunio.size());
-            Meses.set("Julio", lstDatosJulio.size());
-            Meses.set("Agosto", lstDatosAgosto.size());
-            Meses.set("Septiembre", lstDatosSeptiembre.size());
-            Meses.set("Octubre", lstDatosOctubre.size());
-            Meses.set("Noviembre", lstDatosNoviembre.size());
-            Meses.set("Diciembre", lstDatosDiciembre.size());
-
-            modelMeses.addSeries(Meses);
-        } catch (Exception e) {
-        }
-
-        return modelMeses;
-    }
-
-    private CartesianChartModel graficaMesesSexoVictima() {
-        CartesianChartModel modelMesesSV = new CartesianChartModel();
-        try {
-            this.lstDatosEneroM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("ENERO", "M");
-            this.lstDatosFebreroM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("FEBRERO", "M");
-            this.lstDatosMarzoM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("MARZO", "M");
-            this.lstDatosAbrilM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("ABRIL", "M");
-            this.lstDatosMayoM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("MAYO", "M");
-            this.lstDatosJunioM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("JUNIO", "M");
-            this.lstDatosJulioM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("JULIO", "M");
-            this.lstDatosAgostoM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("AGOSTO", "M");
-            this.lstDatosSeptiembreM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("SEPTIEMBRE", "M");
-            this.lstDatosOctubreM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("OCTUBRE", "M");
-            this.lstDatosNoviembreM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("NOVIEMBRE", "M");
-            this.lstDatosDiciembreM = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("DICIEMBRE", "M");
-
-            this.lstDatosEneroF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("ENERO", "F");
-            this.lstDatosFebreroF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("FEBRERO", "F");
-            this.lstDatosMarzoF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("MARZO", "F");
-            this.lstDatosAbrilF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("ABRIL", "F");
-            this.lstDatosMayoF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("MAYO", "F");
-            this.lstDatosJunioF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("JUNIO", "F");
-            this.lstDatosJulioF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("JULIO", "F");
-            this.lstDatosAgostoF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("AGOSTO", "F");
-            this.lstDatosSeptiembreF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("SEPTIEMBRE", "F");
-            this.lstDatosOctubreF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("OCTUBRE", "F");
-            this.lstDatosNoviembreF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("NOVIEMBRE", "F");
-            this.lstDatosDiciembreF = FVif_2010.ObtenerDatosDadoMesDenunciaSexoVictima("DICIEMBRE", "F");
-            
-            ChartSeries Meses1 = new ChartSeries();
-            Meses1.setLabel("Masculino");
-            Meses1.set("Enero", lstDatosEneroM.size());
-            Meses1.set("Febrero", lstDatosFebreroM.size());
-            Meses1.set("Marzo", lstDatosMarzoM.size());
-            Meses1.set("Abril", lstDatosAbrilM.size());
-            Meses1.set("Mayo", lstDatosMayoM.size());
-            Meses1.set("Junio", lstDatosJunioM.size());
-            Meses1.set("Julio", lstDatosJulioM.size());
-            Meses1.set("Agosto", lstDatosAgostoM.size());
-            Meses1.set("Septiembre", lstDatosSeptiembreM.size());
-            Meses1.set("Octubre", lstDatosOctubreM.size());
-            Meses1.set("Noviembre", lstDatosNoviembreM.size());
-            Meses1.set("Diciembre", lstDatosDiciembreM.size());
-            
-            ChartSeries Meses2 = new ChartSeries();
-            Meses2.setLabel("Femenino");
-            Meses2.set("Enero", lstDatosEneroF.size());
-            Meses2.set("Febrero", lstDatosFebreroF.size());
-            Meses2.set("Marzo", lstDatosMarzoF.size());
-            Meses2.set("Abril", lstDatosAbrilF.size());
-            Meses2.set("Mayo", lstDatosMayoF.size());
-            Meses2.set("Junio", lstDatosJunioF.size());
-            Meses2.set("Julio", lstDatosJulioF.size());
-            Meses2.set("Agosto", lstDatosAgostoF.size());
-            Meses2.set("Septiembre", lstDatosSeptiembreF.size());
-            Meses2.set("Octubre", lstDatosOctubreF.size());
-            Meses2.set("Noviembre", lstDatosNoviembreF.size());
-            Meses2.set("Diciembre", lstDatosDiciembreF.size());
-
-            modelMesesSV.addSeries(Meses2);
-            modelMesesSV.addSeries(Meses1);
-            
+            semana = new PieChartModel();
+            semana.set("Lunes", lstDatosLunes.size());
+            semana.set("Martes", lstDatosMartes.size());
+            semana.set("Miercoles", lstDatosMiercoles.size());
+            semana.set("Jueves", lstDatosJueves.size());
+            semana.set("Viernes", lstDatosViernes.size());
+            semana.set("Sabado", lstDatosSabado.size());
+            semana.set("Domingo", lstDatosDomingo.size());
 
         } catch (Exception e) {
+
         }
-        return modelMesesSV;
+        return semana;
     }
 
     public void cargarDatos() {
@@ -835,4 +412,7 @@ public class Vif_2010ControladorFechaDenuncia {
         }
     }
 
+    
+    
+    
 }

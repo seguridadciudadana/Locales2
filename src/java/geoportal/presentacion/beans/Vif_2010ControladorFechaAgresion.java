@@ -725,7 +725,7 @@ public class Vif_2010ControladorFechaAgresion {
     private CartesianChartModel graficaMesesAgresionSV() {
         CartesianChartModel model3 = new CartesianChartModel();
         try {
-            this.lstDatosEneroM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "enero");
+            lstDatosEneroM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "enero");
             lstDatosFebreroM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "febrero");
             lstDatosMarzoM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "marzo");
             lstDatosAbrilM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "abril");
@@ -740,18 +740,18 @@ public class Vif_2010ControladorFechaAgresion {
 
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
-            masculino.set("Enero", this.lstDatosEneroM.size());
-            masculino.set("Febrero", this.lstDatosFebreroM.size());
-            masculino.set("Marzo", lstDatosMarzoM.size());
-            masculino.set("Abril", lstDatosAbrilM.size());
-            masculino.set("Mayo", lstDatosMayoM.size());
-            masculino.set("Junio", lstDatosJunioM.size());
-            masculino.set("Julio", lstDatosJulioM.size());
-            masculino.set("Agosto", lstDatosAgostoM.size());
-            masculino.set("Septiembre", lstDatosSeptiembreM.size());
-            masculino.set("Octubre", lstDatosOctubreM.size());
-            masculino.set("Noviembre", lstDatosNoviembreM.size());
-            masculino.set("Diciembre", lstDatosDiciembreM.size());
+            masculino.set("Enero", lstDatosEnero.size());
+            masculino.set("Febrero", lstDatosFebrero.size());
+            masculino.set("Marzo", lstDatosMarzo.size());
+            masculino.set("Abril", lstDatosAbril.size());
+            masculino.set("Mayo", lstDatosMayo.size());
+            masculino.set("Junio", lstDatosJunio.size());
+            masculino.set("Julio", lstDatosJulio.size());
+            masculino.set("Agosto", lstDatosAgosto.size());
+            masculino.set("Septiembre", lstDatosSeptiembre.size());
+            masculino.set("Octubre", lstDatosOctubre.size());
+            masculino.set("Noviembre", lstDatosNoviembre.size());
+            masculino.set("Diciembre", lstDatosDiciembre.size());
 
             lstDatosEneroF = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("F", "enero");
             lstDatosFebreroF = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("F", "febrero");
@@ -768,18 +768,18 @@ public class Vif_2010ControladorFechaAgresion {
 
             ChartSeries femenino = new ChartSeries();
             femenino.setLabel("femenino");
-            femenino.set("Enero", lstDatosEneroF.size());
-            femenino.set("Febrero", lstDatosFebreroF.size());
-            femenino.set("Marzo", lstDatosMarzoF.size());
-            femenino.set("Abril", lstDatosAbrilF.size());
-            femenino.set("Mayo", lstDatosMayoF.size());
-            femenino.set("Junio", lstDatosJunioF.size());
-            femenino.set("Julio", lstDatosJulioF.size());
-            femenino.set("Agosto", lstDatosAgostoF.size());
-            femenino.set("Septiembre", lstDatosSeptiembreF.size());
-            femenino.set("Octubre", lstDatosOctubreF.size());
-            femenino.set("Noviembre", lstDatosNoviembreF.size());
-            femenino.set("Diciembre", lstDatosDiciembreF.size());
+            femenino.set("Enero", lstDatosEnero.size());
+            femenino.set("Febrero", lstDatosFebrero.size());
+            femenino.set("Marzo", lstDatosMarzo.size());
+            femenino.set("Abril", lstDatosAbril.size());
+            femenino.set("Mayo", lstDatosMayo.size());
+            femenino.set("Junio", lstDatosJunio.size());
+            femenino.set("Julio", lstDatosJulio.size());
+            femenino.set("Agosto", lstDatosAgosto.size());
+            femenino.set("Septiembre", lstDatosSeptiembre.size());
+            femenino.set("Octubre", lstDatosOctubre.size());
+            femenino.set("Noviembre", lstDatosNoviembre.size());
+            femenino.set("Diciembre", lstDatosDiciembre.size());
 
             model3.addSeries(femenino);
             model3.addSeries(masculino);

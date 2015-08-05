@@ -35,6 +35,12 @@ and open the template in the editor.
                                           title="Dia de Denuncias" style="height:350px;width:1000px;text-decoration-style:dashed"
                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
+                        <!--<p:tab title="Variable días de las Agresiones (Porcentajes)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:pieChart value="#{vif_2010ControladorDiaAgresion.pieModel}" legendPosition="e" 
+                                        style="height:350px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
+                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                        </p:tab>-->
                         
                         <p:tab title="Variable días de las Denuncias de acuerdo al sexo de la victima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
