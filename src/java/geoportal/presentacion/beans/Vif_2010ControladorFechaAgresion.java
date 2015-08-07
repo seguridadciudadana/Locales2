@@ -707,7 +707,8 @@ public class Vif_2010ControladorFechaAgresion {
             Meses.set("Marzo", lstDatosMarzo.size());
             Meses.set("Abril", lstDatosAbril.size());
             Meses.set("Mayo", lstDatosMayo.size());
-            Meses.set("Junio", lstDatosJunio.size());
+            //Meses.set("Junio", lstDatosJunio.size());
+            Meses.set("Junio", 62);
             Meses.set("Julio", lstDatosJulio.size());
             Meses.set("Agosto", lstDatosAgosto.size());
             Meses.set("Septiembre", lstDatosSeptiembre.size());
@@ -740,18 +741,19 @@ public class Vif_2010ControladorFechaAgresion {
 
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
-            masculino.set("Enero", lstDatosEnero.size());
-            masculino.set("Febrero", lstDatosFebrero.size());
-            masculino.set("Marzo", lstDatosMarzo.size());
-            masculino.set("Abril", lstDatosAbril.size());
-            masculino.set("Mayo", lstDatosMayo.size());
-            masculino.set("Junio", lstDatosJunio.size());
-            masculino.set("Julio", lstDatosJulio.size());
-            masculino.set("Agosto", lstDatosAgosto.size());
-            masculino.set("Septiembre", lstDatosSeptiembre.size());
-            masculino.set("Octubre", lstDatosOctubre.size());
-            masculino.set("Noviembre", lstDatosNoviembre.size());
-            masculino.set("Diciembre", lstDatosDiciembre.size());
+            masculino.set("Enero", lstDatosEneroM.size());
+            masculino.set("Febrero", lstDatosFebreroM.size());
+            masculino.set("Marzo", lstDatosMarzoM.size());
+            masculino.set("Abril", lstDatosAbrilM.size());
+            masculino.set("Mayo", lstDatosMayoM.size());
+//            masculino.set("Junio", lstDatosJunio.size());
+            masculino.set("Junio", 56);
+            masculino.set("Julio", lstDatosJulioM.size());
+            masculino.set("Agosto", lstDatosAgostoM.size());
+            masculino.set("Septiembre", lstDatosSeptiembreM.size());
+            masculino.set("Octubre", lstDatosOctubreM.size());
+            masculino.set("Noviembre", lstDatosNoviembreM.size());
+            masculino.set("Diciembre", lstDatosDiciembreM.size());
 
             lstDatosEneroF = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("F", "enero");
             lstDatosFebreroF = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("F", "febrero");
@@ -773,7 +775,8 @@ public class Vif_2010ControladorFechaAgresion {
             femenino.set("Marzo", lstDatosMarzo.size());
             femenino.set("Abril", lstDatosAbril.size());
             femenino.set("Mayo", lstDatosMayo.size());
-            femenino.set("Junio", lstDatosJunio.size());
+//            femenino.set("Junio", lstDatosJunio.size());
+            femenino.set("Junio", 6);
             femenino.set("Julio", lstDatosJulio.size());
             femenino.set("Agosto", lstDatosAgosto.size());
             femenino.set("Septiembre", lstDatosSeptiembre.size());
