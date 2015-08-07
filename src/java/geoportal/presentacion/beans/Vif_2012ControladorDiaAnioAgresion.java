@@ -6,12 +6,15 @@
 package geoportal.presentacion.beans;
 
 import geoportal.logica.clases.Vif_2012;
+import geoportal.logica.funciones.FVif_2011;
 import geoportal.logica.funciones.FVif_2012;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
+import org.primefaces.model.chart.ChartSeries;
+import recursos.Util;
 
 @ManagedBean
 @RequestScoped
@@ -595,19 +598,198 @@ public class Vif_2012ControladorDiaAnioAgresion {
     }
 
     public void graficar() {
-//        this.lineModelDiaAgresion = graficaDiaDenuncia();
-//        this.lineModelDiaAgresionSexoVictima = graficaDiaAgresionSexoVictima();
-//        this.lineModelMesesAgresion = graficaMesesAgresion();
-//        this.lineModelMesesAgresionSexoVictima = graficaMesesAgresionSexoVictima();
-
+        this.lineModelDiaAgresion = graficaDiaAgresion();
+        this.lineModelDiaAgresionSexoVictima = graficaDiaAgresionSexoVictima();
+        this.lineModelMesesAgresion = graficaMesesAgresion();
+        this.lineModelMesesAgresionSexoVictima = graficaMesesAgresionSexoVictima();
     }
 
     public Vif_2012ControladorDiaAnioAgresion() {
         this.reinit();
-        
+
     }
 
+    private CartesianChartModel graficaDiaAgresion() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            ChartSeries semana = new ChartSeries();
+            semana.setLabel("Dia de la Agresión");
+            lstDatosLunes = FVif_2012.ObtenerDatosDadoDiaAgresion2("LUNES");
+            lstDatosMartes = FVif_2012.ObtenerDatosDadoDiaAgresion2("MARTES");
+            lstDatosMiercoles = FVif_2012.ObtenerDatosDadoDiaAgresion2("MIERCOLES");
+            lstDatosJueves = FVif_2012.ObtenerDatosDadoDiaAgresion2("JUEVES");
+            lstDatosViernes = FVif_2012.ObtenerDatosDadoDiaAgresion2("VIERNES");
+            lstDatosSabado = FVif_2012.ObtenerDatosDadoDiaAgresion2("SABADO");
+            lstDatosDomingo = FVif_2012.ObtenerDatosDadoDiaAgresion2("DOMINGO");
+
+            semana.set("Lunes", lstDatosLunes.size());
+            semana.set("Martes", lstDatosMartes.size());
+            semana.set("Miercoles", lstDatosMiercoles.size());
+            semana.set("Jueves", lstDatosJueves.size());
+            semana.set("Viernes", lstDatosViernes.size());
+            semana.set("Sabado", lstDatosSabado.size());
+            semana.set("Domingo", lstDatosDomingo.size());
+
+            model.addSeries(semana);
+        } catch (Exception e) {
+        }
+        return model;
+    }
+
+    private CartesianChartModel graficaDiaAgresionSexoVictima() {
+        CartesianChartModel model1 = new CartesianChartModel();
+        try {
+            //victimas sexo masculino
+            lstDatosLunesM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "M");
+            lstDatosMartesM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "M");
+            lstDatosMiercolesM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "M");
+            lstDatosJuevesM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("JUEVES", "M");
+            lstDatosViernesM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("VIERNES", "M");
+            lstDatosSabadoM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("SABADO", "M");
+            lstDatosDomingoM = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("DOMINGO", "M");
+
+            //VICTIMAS DEL SEXO FEMENINO
+            lstDatosLunesF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "F");
+            lstDatosMartesF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "F");
+            lstDatosMiercolesF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "F");
+            lstDatosJuevesF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("JUEVES", "F");
+            lstDatosViernesF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("VIERNES", "F");
+            lstDatosSabadoF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("SABADO", "F");
+            lstDatosDomingoF = FVif_2012.ObtenerDatosDadoDiaAgresionSexoVictima("DOMINGO", "F");
+
+            ChartSeries Masculino = new ChartSeries();
+            Masculino.setLabel("Victimas Sexo Masculino");
+            Masculino.set("Lunes", lstDatosLunesM.size());
+            Masculino.set("Martes", lstDatosMartesM.size());
+            Masculino.set("Miercoles", lstDatosMiercolesM.size());
+            Masculino.set("Jueves", lstDatosJuevesM.size());
+            Masculino.set("Viernes", lstDatosViernesM.size());
+            Masculino.set("Sabado", lstDatosSabadoM.size());
+            Masculino.set("Domingo", lstDatosDomingoM.size());
+
+            ChartSeries Femenino = new ChartSeries();
+            Femenino.setLabel("Victimas Sexo Femenino");
+            Femenino.set("Lunes", lstDatosLunesF.size());
+            Femenino.set("Martes", lstDatosMartesF.size());
+            Femenino.set("Miercoles", lstDatosMiercolesF.size());
+            Femenino.set("Jueves", lstDatosJuevesF.size());
+            Femenino.set("Viernes", lstDatosViernesF.size());
+            Femenino.set("Sabado", lstDatosSabadoF.size());
+            Femenino.set("Domingo", lstDatosDomingoF.size());
+
+            model1.addSeries(Femenino);
+            model1.addSeries(Masculino);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
+    }
+
+    private CartesianChartModel graficaMesesAgresion() {
+        CartesianChartModel model2 = new CartesianChartModel();
+        try {
+            lstDatosEnero = FVif_2012.ObtenerDatosDadoMesAgresion("ENERO");
+            lstDatosFebrero = FVif_2012.ObtenerDatosDadoMesAgresion("FEBRERO");
+            lstDatosMarzo = FVif_2012.ObtenerDatosDadoMesAgresion("MARZO");
+            lstDatosAbril = FVif_2012.ObtenerDatosDadoMesAgresion("ABRIL");
+            lstDatosMayo = FVif_2012.ObtenerDatosDadoMesAgresion("MAYO");
+            lstDatosJunio = FVif_2012.ObtenerDatosDadoMesAgresion("JUNIO");
+            lstDatosJulio = FVif_2012.ObtenerDatosDadoMesAgresion("JULIO");
+            lstDatosAgosto = FVif_2012.ObtenerDatosDadoMesAgresion("AGOSTO");
+            lstDatosSeptiembre = FVif_2012.ObtenerDatosDadoMesAgresion("SEPTIEMBRE");
+            lstDatosOctubre = FVif_2012.ObtenerDatosDadoMesAgresion("OCTUBRE");
+            lstDatosNoviembre = FVif_2012.ObtenerDatosDadoMesAgresion("NOVIEMBRE");
+            lstDatosDiciembre = FVif_2012.ObtenerDatosDadoMesAgresion("DICIEMBRE");
+
+            ChartSeries Meses = new ChartSeries();
+            Meses.setLabel("Meses");
+            Meses.set("Enero", lstDatosEnero.size());
+            Meses.set("Febrero", lstDatosFebrero.size());
+            Meses.set("Marzo", lstDatosMarzo.size());
+            Meses.set("Abril", lstDatosAbril.size());
+            Meses.set("Mayo", lstDatosMayo.size());
+            Meses.set("Junio", lstDatosJunio.size());
+            Meses.set("Julio", lstDatosJulio.size());
+            Meses.set("Agosto", lstDatosAgosto.size());
+            Meses.set("Septiembre", lstDatosSeptiembre.size());
+            Meses.set("Octubre", lstDatosOctubre.size());
+            Meses.set("Noviembre", lstDatosNoviembre.size());
+            Meses.set("Diciembre", lstDatosDiciembre.size());
+
+            model2.addSeries(Meses);
+
+        } catch (Exception e) {
+        }
+        return model2;
+    }
     
+    private CartesianChartModel graficaMesesAgresionSexoVictima() {
+        CartesianChartModel model3 = new CartesianChartModel();
+        try {
+            lstDatosEneroM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("ENERO", "M");
+            lstDatosFebreroM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("FEBRERO", "M");
+            lstDatosMarzoM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("MARZO", "M");
+            lstDatosAbrilM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("ABRIL", "M");
+            lstDatosMayoM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("MAYO", "M");
+            lstDatosJunioM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("JUNIO", "M");
+            lstDatosJulioM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("JULIO", "M");
+            lstDatosAgostoM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("AGOSTO", "M");
+            lstDatosSeptiembreM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("SEPTIEMBRE", "M");
+            lstDatosOctubreM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("OCTUBRE", "M");
+            lstDatosNoviembreM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("NOVIEMBRE", "M");
+            lstDatosDiciembreM = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("DICIEMBRE", "M");
+
+            lstDatosEneroF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("ENERO", "F");
+            lstDatosFebreroF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("FEBRERO", "F");
+            lstDatosMarzoF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("MARZO", "F");
+            lstDatosAbrilF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("ABRIL", "F");
+            lstDatosMayoF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("MAYO", "F");
+            lstDatosJunioF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("JUNIO", "F");
+            lstDatosJulioF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("JULIO", "F");
+            lstDatosAgostoF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("AGOSTO", "F");
+            lstDatosSeptiembreF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("SEPTIEMBRE", "F");
+            lstDatosOctubreF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("OCTUBRE", "F");
+            lstDatosNoviembreF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("NOVIEMBRE", "F");
+            lstDatosDiciembreF = FVif_2012.ObtenerDatosDadoMesAgresionSexoVictima("DICIEMBRE", "F");
+
+            ChartSeries Meses1 = new ChartSeries();
+            Meses1.setLabel("Masculino");
+            Meses1.set("Enero", lstDatosEneroM.size());
+            Meses1.set("Febrero", lstDatosFebreroM.size());
+            Meses1.set("Marzo", lstDatosMarzoM.size());
+            Meses1.set("Abril", lstDatosAbrilM.size());
+            Meses1.set("Mayo", lstDatosMayoM.size());
+            Meses1.set("Junio", lstDatosJunioM.size());
+            Meses1.set("Julio", lstDatosJulioM.size());
+            Meses1.set("Agosto", lstDatosAgostoM.size());
+            Meses1.set("Septiembre", lstDatosSeptiembreM.size());
+            Meses1.set("Octubre", lstDatosOctubreM.size());
+            Meses1.set("Noviembre", lstDatosNoviembreM.size());
+            Meses1.set("Diciembre", lstDatosDiciembreM.size());
+
+            ChartSeries Meses2 = new ChartSeries();
+            Meses2.setLabel("Femenino");
+            Meses2.set("Enero", lstDatosEneroF.size());
+            Meses2.set("Febrero", lstDatosFebreroF.size());
+            Meses2.set("Marzo", lstDatosMarzoF.size());
+            Meses2.set("Abril", lstDatosAbrilF.size());
+            Meses2.set("Mayo", lstDatosMayoF.size());
+            Meses2.set("Junio", lstDatosJunioF.size());
+            Meses2.set("Julio", lstDatosJulioF.size());
+            Meses2.set("Agosto", lstDatosAgostoF.size());
+            Meses2.set("Septiembre", lstDatosSeptiembreF.size());
+            Meses2.set("Octubre", lstDatosOctubreF.size());
+            Meses2.set("Noviembre", lstDatosNoviembreF.size());
+            Meses2.set("Diciembre", lstDatosDiciembreF.size());
+
+            model3.addSeries(Meses2);
+            model3.addSeries(Meses1);
+
+        } catch (Exception e) {
+        }
+        return model3;
+    }
     
     
 }
