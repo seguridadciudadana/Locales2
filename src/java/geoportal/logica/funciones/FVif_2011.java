@@ -821,6 +821,23 @@ public class FVif_2011 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDadoDiaDenuncia(String dia) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_vif_2012_dado_dia_denuncia(?)";
+            lstP.add(new Parametro(1, dia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    
 
     public static ArrayList<Vif_2011> ObtenerDatosEnero() throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
@@ -1007,12 +1024,12 @@ public class FVif_2011 {
         return lst;
     }  
     
-    public static ArrayList<Vif_2011> ObtenerDatosDadoMes(String dia) throws Exception {
+    public static ArrayList<Vif_2011> ObtenerDatosDadoMesAgresion(String mes) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
             String sql = "select * from geoportal.select_vif2011_dado_mes(?)";
-            lstP.add(new Parametro(1, dia));
+            lstP.add(new Parametro(1, mes));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
 
             lst = llenarDatos(rs);
@@ -1022,6 +1039,24 @@ public class FVif_2011 {
         }
         return lst;
     }  
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDadoMesDenuncia(String mes) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_mes_denuncia(?)";
+            lstP.add(new Parametro(1, mes));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }  
+    
+    
     
     public static ArrayList<Vif_2011> ObtenerDatosDadoParentesco(String dia) throws Exception {
         ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
@@ -1058,6 +1093,23 @@ public class FVif_2011 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDadoDiaDenunciaSexoVictima(String dia, String sexo) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_dia_denuncia_sexo_victima(?,?)";
+            lstP.add(new Parametro(1, dia));
+            lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 
     
     
@@ -1078,6 +1130,24 @@ public class FVif_2011 {
         }
         return lst;
     }
+    
+    public static ArrayList<Vif_2011> ObtenerDatosDadoMesDenunciaSexoVictima(String mes, String sexo) throws Exception {
+        ArrayList<Vif_2011> lst = new ArrayList<Vif_2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.select_vif2011_dado_mes_denuncia_sexo_victima(?,?)";
+            lstP.add(new Parametro(1, mes));
+            lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
     
     //------------------------------- TIPO VIOLENCIA - SEXO ------------------------------------------------------------------
     
