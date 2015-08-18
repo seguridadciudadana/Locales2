@@ -6,30 +6,30 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Indicadores Estado de Conciencia del Agresor</ui:define>
+            <ui:define name="Datos">Indicadores Objeto de Agresión </ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Estado de Conciiencia del Agresor</ui:define>    
+            <ui:define name="top">Indicadores Objeto de Agresión </ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Variable Estado de Conciiencia del Agresor" >
+                        <p:tab title="Variable Objeto de Agresion" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorVictimas2011Estado.estadoGrafico}" legendPosition="e" 
-                                           title="Variable Estado de Conciencia del Agresor" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Estado" xaxisAngle="45" yaxisLabel="#Victimas"/>   
+                            <p:lineChart   value="#{controladorVictimas2012Objeto.objetoGrafico}" legendPosition="e" 
+                                           title="Variable Objeto de Agresion" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Objeto" xaxisAngle="45" yaxisLabel="#Victimas"/>   
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                        <p:tab title="Variable Estado de Conciencia del Agresor (Gráfico de Barras)" >
+                        <p:tab title="Variable Objeto de Agresión (Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorVictimas2011Estado.estadoGrafico}" legendPosition="e" 
-                                          title="Variable Estado de Conciencia del Agresor" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Estado" xaxisAngle="45" yaxisLabel="#Victimas"/>                                  
+                            <p:barChart   value="#{controladorVictimas2012Objeto.objetoGrafico}" legendPosition="e" 
+                                          title="Variable Objeto de Agresión" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Objeto" xaxisAngle="45" yaxisLabel="#Victimas"/>                                  
                         </p:tab>
                         <script type="text/javascript">
                             function my_ext() {

@@ -11,23 +11,23 @@
     </h:head>
     <h:body>
         <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Estado de Conciiencia del Agresor</ui:define>    
+            <ui:define name="top">Indicadores Estado de Conciencia del Agresor</ui:define>    
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Variable Estado de Conciiencia del Agresor" >
+                        <p:tab title="Variable Estado de Conciencia del Agresor" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorVictimas2011Estado.estadoGrafico}" legendPosition="e" 
+                            <p:lineChart   value="#{controladorVictimas2012Estado.estadoGrafico}" legendPosition="n" 
                                            title="Variable Estado de Conciencia del Agresor" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Estado" xaxisAngle="45" yaxisLabel="#Victimas"/>   
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <p:tab title="Variable Estado de Conciencia del Agresor (Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorVictimas2011Estado.estadoGrafico}" legendPosition="e" 
+                            <p:barChart   value="#{controladorVictimas2012Estado.estadoGrafico}" legendPosition="n" 
                                           title="Variable Estado de Conciencia del Agresor" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Estado" xaxisAngle="45" yaxisLabel="#Victimas"/>                                  
                         </p:tab>

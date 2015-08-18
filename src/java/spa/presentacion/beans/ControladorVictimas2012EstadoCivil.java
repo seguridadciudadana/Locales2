@@ -12,8 +12,8 @@ import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
-import spa.logica.clases.Victimas_2011;
-import spa.logica.funciones.FVictimas_2011;
+import spa.logica.clases.Victimas_2012;
+import spa.logica.funciones.FVictimas_2012;
 
 /**
  *
@@ -21,14 +21,15 @@ import spa.logica.funciones.FVictimas_2011;
  */
 @ManagedBean
 @RequestScoped
-public class ControladorVictimas2011EstadoCivil {
+public class ControladorVictimas2012EstadoCivil {
 
     /**
-     * Creates a new instance of ControladorVictimas2011EstadoCivil
+     * Creates a new instance of ControladorVictimas2012EstadoCivil
      */
+    
     private CartesianChartModel estadoCivilGrafico;
-    private ArrayList<Victimas_2011> lstDatosEstadoCivil;
-    private ArrayList<Victimas_2011> lstDatosDadoEstadoCivil;
+    private ArrayList<Victimas_2012> lstDatosEstadoCivil;
+    private ArrayList<Victimas_2012> lstDatosDadoEstadoCivil;
 
     public CartesianChartModel getEstadoCivilGrafico() {
         return estadoCivilGrafico;
@@ -38,24 +39,23 @@ public class ControladorVictimas2011EstadoCivil {
         this.estadoCivilGrafico = estadoCivilGrafico;
     }
 
-    public ArrayList<Victimas_2011> getLstDatosEstadoCivil() {
+    public ArrayList<Victimas_2012> getLstDatosEstadoCivil() {
         return lstDatosEstadoCivil;
     }
 
-    public void setLstDatosEstadoCivil(ArrayList<Victimas_2011> lstDatosEstadoCivil) {
+    public void setLstDatosEstadoCivil(ArrayList<Victimas_2012> lstDatosEstadoCivil) {
         this.lstDatosEstadoCivil = lstDatosEstadoCivil;
     }
 
-    public ArrayList<Victimas_2011> getLstDatosDadoEstadoCivil() {
+    public ArrayList<Victimas_2012> getLstDatosDadoEstadoCivil() {
         return lstDatosDadoEstadoCivil;
     }
 
-    public void setLstDatosDadoEstadoCivil(ArrayList<Victimas_2011> lstDatosDadoEstadoCivil) {
+    public void setLstDatosDadoEstadoCivil(ArrayList<Victimas_2012> lstDatosDadoEstadoCivil) {
         this.lstDatosDadoEstadoCivil = lstDatosDadoEstadoCivil;
     }
-    
-    
-    public ControladorVictimas2011EstadoCivil() {
+        
+    public ControladorVictimas2012EstadoCivil() {
         reinit();
     }
     
@@ -71,8 +71,8 @@ public class ControladorVictimas2011EstadoCivil {
 
     private void reinit() {
 
-        this.lstDatosDadoEstadoCivil = new ArrayList<Victimas_2011>();
-        this.lstDatosEstadoCivil = new ArrayList<Victimas_2011>();
+        this.lstDatosDadoEstadoCivil = new ArrayList<Victimas_2012>();
+        this.lstDatosEstadoCivil = new ArrayList<Victimas_2012>();
         this.init();
 
     }
@@ -80,11 +80,11 @@ public class ControladorVictimas2011EstadoCivil {
     private CartesianChartModel initCategoryEstadoCivil() {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatosEstadoCivil = FVictimas_2011.ObtenerDatosEstadoCivil();
+            lstDatosEstadoCivil = FVictimas_2012.ObtenerDatosEstadoCivil();
             ChartSeries estado = new ChartSeries();
             estado.setLabel("Estado Civil Victima - Agresor");
-            for (Victimas_2011 lstDatosP1 : lstDatosEstadoCivil) {
-                lstDatosDadoEstadoCivil = FVictimas_2011.ObtenerDatosDadoEstadoCivil(lstDatosP1.getEstado_civ());
+            for (Victimas_2012 lstDatosP1 : lstDatosEstadoCivil) {
+                lstDatosDadoEstadoCivil = FVictimas_2012.ObtenerDatosDadoEstadoCivil(lstDatosP1.getEstado_civ());
                 estado.set(lstDatosP1.getEstado_civ(), lstDatosDadoEstadoCivil.size());
             }
             model.addSeries(estado);
@@ -94,4 +94,5 @@ public class ControladorVictimas2011EstadoCivil {
         }
         return model;
     }
+    
 }
