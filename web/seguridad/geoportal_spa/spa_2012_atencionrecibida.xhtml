@@ -27,13 +27,13 @@ and open the template in the editor.
                         <p:tab title="Casos de acuerdo al tipo de violencia">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="ne" 
-                                           title="Total de Denuncias por Circuito" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           title="Total de Denuncias por Circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
                         <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineTipoViolencia2}" legendPosition="ne" 
-                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
                         <p:tab title="Casos de acuerdo al tipo de violencia(Gráfico Circular)">
@@ -46,27 +46,27 @@ and open the template in the editor.
                         <p:tab title="Frecuencia de agresion">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="ne" 
-                                           title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>  
 
                         <p:tab title="Frecuencia de agresion (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012_Tratamiento.lineFrecuenciaAGresion}" legendPosition="ne" 
-                                          title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          title="Frecuencia de agresion (Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Frecuencia de agresion" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="percent"  />                             
                         </p:tab>  
 
                         <p:tab title="Frecuencia de Agresión (Gráfico Circular)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:pieChart value="#{controladorVictimas2012_Tratamiento.pieFrecuenciaAgresion}" legendPosition="ne" 
-                                        style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true"  /> 
+                                        style="height:450px;width:1100px;text-decoration-style:dashed" showDataLabels="true"  /> 
                         </p:tab>
 
                         <p:tab title="Tratamientos recibidos por las victimas">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012_Tratamiento.lineTratamiento}" legendPosition="ne" 
-                                           title="Tratamientos recibidos por las victimas" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           title="Tratamientos recibidos por las victimas" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="#Víctimas" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>

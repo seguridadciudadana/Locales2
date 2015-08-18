@@ -329,7 +329,7 @@ public class Vif_2010ControladorFechaDenuncia {
         CartesianChartModel model = new CartesianChartModel();
         try {
             ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("Dia de la Agresión");
+            masculino.setLabel("Masculino");
             lstDatosLunesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "M");
             lstDatosMartesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "M");
             lstDatosMiercolesM = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "M");
@@ -347,7 +347,7 @@ public class Vif_2010ControladorFechaDenuncia {
             masculino.set("Domingo", lstDatosDomingoM.size());
 
             ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("Dia de la Agresión");
+            femenino.setLabel("Femenino");
             lstDatosLunesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("LUNES", "F");
             lstDatosMartesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MARTES", "F");
             lstDatosMiercolesF = FVif_2010.ObtenerDatosDadoDiaAgresionSexoVictima("MIERCOLES", "F");

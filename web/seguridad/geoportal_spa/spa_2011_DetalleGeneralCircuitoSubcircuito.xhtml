@@ -27,26 +27,26 @@ and open the template in the editor.
                         <p:tab title="Total de Denuncias por Circuito">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{datosVictimas2011.lineModelCircuito}" legendPosition="e" 
-                                           title="Total de Denuncias por Circuito" style="height:450px;width:1150px;text-decoration-style: dashed"
+                                           title="Total de Denuncias por Circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>                                                
                         <p:tab title="Total de Denuncias por Circuito(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{datosVictimas2011.lineModelCircuito}" legendPosition="e" 
-                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1150px;text-decoration-style: dashed"
+                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="SubCircuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                              
                         </p:tab>                                                
                         
                         <p:tab title="Total de Denuncias por SubCircuito">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{datosVictimas2011.lineModelSubCircuito}" legendPosition="n" 
-                                           title="Total de Denuncias por Circuito" style="height:450px;width:1150px;text-decoration-style: dashed"
+                                           title="Total de Denuncias por Circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="270" yaxisLabel="# Denuncias"  />                             
                         </p:tab>                        
                         <p:tab title="Total de Denuncias por SubCircuito(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{datosVictimas2011.lineModelSubCircuito}" legendPosition="n" 
-                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1150px;text-decoration-style: dashed"
+                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="SubCircuito" xaxisAngle="90"/>    
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
