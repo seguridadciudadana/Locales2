@@ -354,11 +354,11 @@ public class FLocales {
         return lst;
     }
 
-    public static ArrayList<Locales> ObtenerDatosDadoParroquia(String dp) throws Exception {
+    public static ArrayList<Locales> ObtenerDatosDadoParroquia(int dp) throws Exception {
         ArrayList<Locales> lst = new ArrayList<Locales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from select locales.f_select_locales_dado_parroquia(?)";
+            String sql = "select * from locales.f_select_locales_dado_parroquia(?)";
             lstP.add(new Parametro(1, dp));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
