@@ -428,6 +428,7 @@ public class FVictimas_2011 {
         return lst;
     }
     // ---------------------------------------ESTADO DE CIVIL --------------------------------------------------------------------------------
+    
      // ---------------------------------------INSTRUCCION----------------------------------------------------------------------------------
     public static ArrayList<Victimas_2011> ObtenerDatosInstruccion() throws Exception {
         ArrayList<Victimas_2011> lst = new ArrayList<Victimas_2011>();
