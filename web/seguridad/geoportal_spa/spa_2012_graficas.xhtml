@@ -27,13 +27,13 @@ and open the template in the editor.
                         <p:tab title="Total de Denuncias por Circuito">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012.graficaCasosCircuito}" legendPosition="e" 
-                                           title="Total de Denuncias por Circuito" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           title="Total de Denuncias por Circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="label"  />                             
                         </p:tab>
                         <p:tab title="Total de Denuncias por Circuito(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012.graficaCasosCircuito}" legendPosition="e" 
-                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          title="Total de Denuncias por Circuito(Gráfico de Barras)" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" datatipFormat="percent"  />                             
                         </p:tab>
                         <p:tab title="Total de Denuncias por Circuito(Gráfico Circular)">
@@ -41,7 +41,7 @@ and open the template in the editor.
                             <p:pieChart value="#{controladorVictimas2012.pieCircuito}" legendPosition="ne" 
                                         style="height:450px;width:1000px;text-decoration-style:dashed" showDataLabels="true" /> 
                             <p:pieChart value="#{controladorVictimas2012.pieCircuito}" legendPosition="ne" fill="false" showDataLabels="true"
-                                        style="width:1000px; height:450px" 
+                                        style="width:1100px; height:450px" 
                                         dataFormat="label" shadow="false" 
                                         styleClass="pieLabels" />
                         </p:tab>
@@ -65,13 +65,13 @@ and open the template in the editor.
                         <p:tab title="Denuncias por circuito clasificadas por sexo de la víctima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorVictimas2012.graficaCircuitoSexoVictima}" legendPosition="e" 
-                                           title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                           title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias"  />                             
                         </p:tab>
                         <p:tab title="Denuncias por circuito clasificadas por sexo de la víctima(Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorVictimas2012.graficaCircuitoSexoVictima}" legendPosition="e" 
-                                          title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1000px;text-decoration-style: dashed"
+                                          title="Denuncias por circuito clasificadas por sexo de la víctima" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="45" yaxisLabel="# Denuncias" legendCols="" />                             
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
 

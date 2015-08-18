@@ -650,7 +650,7 @@ public class Vif_2010ControladorFechaAgresion {
             lstDatosDomingoM = FAuxtblFechas2010.ObtenerDatosDadoMesDiaSexo("M", "domingo");
 
             ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("Dia de la Agresión");
+            masculino.setLabel("Masculino");
             masculino.set("Lunes", lstDatosLunesM.size());
             masculino.set("Martes", lstDatosMartesM.size());
             masculino.set("Miercoles", lstDatosMiercolesM.size());
