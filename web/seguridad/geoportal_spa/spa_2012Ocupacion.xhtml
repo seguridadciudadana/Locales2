@@ -20,14 +20,14 @@
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
                         <p:tab title="Variable Ocupación de la Victima" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorVictimas2011OcupacionVictima.graficaOcupacionVictima}" legendPosition="ne" 
+                            <p:lineChart   value="#{controladorVictimas2012Ocupacion.graficaOcupacionVictima}" legendPosition="ne" 
                                            title="Variable Ocupación de la Victima" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Ocupación" xaxisAngle="0" yaxisLabel="#Victimas"/>   
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         <p:tab title="Variable Ocupación de la Victima (Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorVictimas2011OcupacionVictima.graficaOcupacionVictima}" legendPosition="ne" 
+                            <p:barChart   value="#{controladorVictimas2012Ocupacion.graficaOcupacionVictima}" legendPosition="ne" 
                                           title="Variable Ocupación de la Victima" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Ocupación" xaxisAngle="0" yaxisLabel="#Victimas"/>                                  
                         </p:tab>
