@@ -186,6 +186,7 @@ public class ControladorReincidencias_2010 {
         try {
             lstDatos = FReincidencias2010.ObtenerDatos();
             ChartSeries Reincidencias = new ChartSeries();
+            
             Reincidencias.setLabel("Reincidencias");
             for (Reincidencias2010 lstDato : lstDatos) {
                 lstDatosDadoReincidencia = FReincidencias2010.ObtenerDatosDadoReincidencias(lstDato.getReincidencias());
