@@ -1456,6 +1456,31 @@ public class FVif_2010 {
     
     //--------------------------------------------- TIPO VIOLENCIA - SEXO --------------------
     
+    public static ArrayList<Vif_2010> ObtenerDatosVictimaHombre() throws Exception {
+        ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_hombres()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+        public static ArrayList<Vif_2010> ObtenerDatosVictimaMujer() throws Exception {
+        ArrayList<Vif_2010> lst = new ArrayList<Vif_2010>();
+        try {
+            String sql = "select * from geoportal.f_select_vif_2010_2_mujeres()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
     
     
