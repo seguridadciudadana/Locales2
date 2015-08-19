@@ -29,13 +29,40 @@ public class Vif_2012ControladorParentesco {
      */
     private CartesianChartModel parentescoGrafico;
     private CartesianChartModel lineEstadoCivil;
+    private CartesianChartModel lineEstadoCivilSexoVictima;
     private ArrayList<Vif_2012> lstDatosControl;
     private Vif_2012 datoSel;
     private ArrayList<Vif_2012> lstDatosP;
     private ArrayList<Vif_2012> lstDatosEC;
     private ArrayList<Vif_2012> lstDatosDadoP;
     private ArrayList<Vif_2012> lstDatosDadoEC;
+    private ArrayList<Vif_2012> lstDatosDadoECM;
+    private ArrayList<Vif_2012> lstDatosDadoECF;
     private PieChartModel pieEstadoCivil;
+
+    public CartesianChartModel getLineEstadoCivilSexoVictima() {
+        return lineEstadoCivilSexoVictima;
+    }
+
+    public void setLineEstadoCivilSexoVictima(CartesianChartModel lineEstadoCivilSexoVictima) {
+        this.lineEstadoCivilSexoVictima = lineEstadoCivilSexoVictima;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosDadoECM() {
+        return lstDatosDadoECM;
+    }
+
+    public void setLstDatosDadoECM(ArrayList<Vif_2012> lstDatosDadoECM) {
+        this.lstDatosDadoECM = lstDatosDadoECM;
+    }
+
+    public ArrayList<Vif_2012> getLstDatosDadoECF() {
+        return lstDatosDadoECF;
+    }
+
+    public void setLstDatosDadoECF(ArrayList<Vif_2012> lstDatosDadoECF) {
+        this.lstDatosDadoECF = lstDatosDadoECF;
+    }
 
     public PieChartModel getPieEstadoCivil() {
         return pieEstadoCivil;
@@ -112,7 +139,8 @@ public class Vif_2012ControladorParentesco {
     public void graficar() {
         parentescoGrafico = initCategoryParentesco();
         lineEstadoCivil = initEstadoCivil();
-        pieEstadoCivil=pieEstadoCivil();
+        pieEstadoCivil = pieEstadoCivil();
+        lineEstadoCivilSexoVictima=initEstadoCivilSexoVictima();
     }
 
     @PostConstruct
@@ -170,6 +198,33 @@ public class Vif_2012ControladorParentesco {
             Util.addErrorMessage(e, "Error");
         }
         return model;
+    }
+
+    private CartesianChartModel initEstadoCivilSexoVictima() {
+        CartesianChartModel model1 = new CartesianChartModel();
+        try {
+            lstDatosEC = FVif_2012.ObtenerDatosEstadoCivil();
+            ChartSeries Masculino = new ChartSeries();
+            Masculino.setLabel("Masculino");
+            for (int i = 0; i < lstDatosEC.size(); i++) {
+                lstDatosDadoECM = FVif_2012.ObtenerDatosDadoEstadoCivilSexoVictima(lstDatosEC.get(i).getPestado_civil_victima(), "M");
+                Masculino.set(lstDatosEC.get(i).getPestado_civil_victima(), lstDatosDadoECM.size());
+            }
+            
+            ChartSeries Femenino = new ChartSeries();
+            Femenino.setLabel("Femenino");
+            for (int i = 0; i < lstDatosEC.size(); i++) {
+                lstDatosDadoECF = FVif_2012.ObtenerDatosDadoEstadoCivilSexoVictima(lstDatosEC.get(i).getPestado_civil_victima(), "F");
+                Femenino.set(lstDatosEC.get(i).getPestado_civil_victima(), lstDatosDadoECF.size());
+            }
+            
+            model1.addSeries(Femenino);
+            model1.addSeries(Masculino);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
     }
 
     private PieChartModel pieEstadoCivil() {

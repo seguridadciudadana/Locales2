@@ -39,6 +39,34 @@ and open the template in the editor.
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
 
+                        <p:tab title="Contraste según el día de la agresión de las victimas de sexo femenino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesDiaAgresion.lineContrasteFemenino}" legendPosition="n" 
+                                           title="Días de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisAngle="0" yaxisLabel="# Denuncias"  />                             
+                        </p:tab>
+                        
+                        <p:tab title="Contraste según el día de la agresión de las victimas de sexo femenino (Gráfico de barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesDiaAgresion.lineContrasteFemenino}" legendPosition="n" 
+                                           title="Días de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisAngle="0" yaxisLabel="# Denuncias"  />                             
+                        </p:tab>
+                        
+                        <p:tab title="Contraste según el día de la agresión de las victimas de sexo Masculino">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{controladorContrastesDiaAgresion.lineContrasteMasculino}" legendPosition="n" 
+                                           title="Días de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisAngle="0" yaxisLabel="# Denuncias"  />                             
+                        </p:tab>
+                        
+                        <p:tab title="Contraste según el día de la agresión de las victimas de sexo Masculino (Gráfico de barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{controladorContrastesDiaAgresion.lineContrasteMasculino}" legendPosition="n" 
+                                           title="Días de la semana" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisAngle="0" yaxisLabel="# Denuncias"  />                             
+                        </p:tab>
+                        
                         <p:tab title="Desglozado por días">
                             <p:panel id="pnldatos" >
                                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
@@ -47,53 +75,48 @@ and open the template in the editor.
                                     <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
                                     <h:outputText value="Gráfico de barras" style="font-style: initial"/>
                                     <h:outputText value="Lunes" style="font-style: initial"/>
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieLunes}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/> 
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineLunesSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineLunes}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                     <h:outputText value="Martes" style="font-style: initial"/>
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieMartes}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/>
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineMartesSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineMartes}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                    
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                     <h:outputText value="Miercoles" style="font-style: initial"/>                                    
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieMiercoles}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/>
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineMiercolesSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineMiercoles}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                    
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
+
                                     <h:outputText value="Jueves" style="font-style: initial"/>                                    
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieJueves}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/>
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineJuevesSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineJueves}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                   
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                     <h:outputText value="Viernes" style="font-style: initial"/>
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieViernes}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/> 
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineViernesSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineViernes}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                   
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                     <h:outputText value="Sabado" style="font-style: initial"/>
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieSabado}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/> 
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineSabadoSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineSabado}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                    
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                     <h:outputText value="Domingo" style="font-style: initial"/>
-                                    <p:pieChart value="#{controladorContrastesDiaAgresion.pieDomingo}" legendPosition="e" 
-                                                style="height:300px;width:400px;text-decoration-style:dashed" showDataLabels="true"/> 
+                                    <p:barChart   value="#{controladorContrastesDiaAgresion.lineDomingoSV}" 
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
                                     <p:barChart   value="#{controladorContrastesDiaAgresion.lineDomingo}" 
-                                           style="height:300px;width:600px;text-decoration-style: dashed"/> 
-                                    
-                                    
+                                                  style="height:300px;width:450px;text-decoration-style: dashed" legendPosition="ne"/> 
+
                                 </p:panelGrid>
                             </p:panel>
                         </p:tab>
