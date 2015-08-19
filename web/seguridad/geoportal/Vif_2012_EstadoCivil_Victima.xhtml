@@ -46,6 +46,20 @@ and open the template in the editor.
                                         style="height:450px;width:1100px;text-decoration-style:dashed" showDataLabels="true" /> 
                         </p:tab>
                         
+                         <p:tab title="Variable Estado Civil de Acuerdo al sexo de la victima">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:lineChart   value="#{vif_2012ControladorParentesco.lineEstadoCivilSexoVictima}" legendPosition="n" 
+                                           title="Variable Estado Civil" style="height:350px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Estado Civil" xaxisAngle="0" yaxisLabel="#Víctimas"  />                             
+                        </p:tab>
+                        
+                        <p:tab title="Variable Estado Civil de Acuerdo al sexo de la victima (Gráfico de barras)">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:barChart   value="#{vif_2012ControladorParentesco.lineEstadoCivilSexoVictima}" legendPosition="n" 
+                                           title="Variable Estado Civil" style="height:350px;width:1000px;text-decoration-style: dashed"
+                                           xaxisLabel="Estado Civil" xaxisAngle="0" yaxisLabel="#Víctimas"  />                             
+                        </p:tab>
+                        
                         <script type="text/javascript">
                             function my_ext() {
                                 this.cfg.seriesDefaults = {
