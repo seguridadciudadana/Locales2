@@ -778,7 +778,7 @@ public class FLocales {
         ArrayList<Locales> lst = new ArrayList<Locales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from locales.f_select_locales_dado_permiso_bombneros_parroquia(?,?)";
+            String sql = "select * from locales.f_select_locales_dado_permiso_bomberos_parroquia(?,?)";
             lstP.add(new Parametro(1, permiso_bomberos));
             lstP.add(new Parametro(2, parroquia));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
