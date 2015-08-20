@@ -23,13 +23,14 @@
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:lineChart   value="#{controladorParroquiaPermisoMunicipio.lineLocalesParroquias}" legendPosition="e" 
                                            title="Establecimientos comerciales clasificados por parroquias" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel=">Parroquias" xaxisAngle="45" yaxisLabel="Total de Locales"  />                             
+                                           xaxisLabel=">Parroquias" xaxisAngle="0" yaxisLabel="Total de Locales"  />                             
                         </p:tab> 
                         <p:tab title="Total de locales clasificadas por permiso del municipio de las parroquias">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:barChart   value="#{controladorParroquiaPermisoMunicipio.lineLocalesParroquias}" legendPosition="e" 
                                            title="Establecimientos comerciales clasificados por parroquias" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel=">Parroquias" xaxisAngle="45" yaxisLabel="Total de Locales"  />                             
+                                           xaxisLabel=">Parroquias" xaxisAngle="0" yaxisLabel="Total de Locales"  />                             
+                         <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>                
 
                         
