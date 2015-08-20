@@ -21,42 +21,18 @@ import recursos.Util;
  */
 @ManagedBean
 @RequestScoped
-public class ControladorEstadoCircuito {
+public class ControladorPermisosMICircuito {
 
     /**
-     * Creates a new instance of ControladorEstadoCircuito
+     * Creates a new instance of ControladorPermisosMICircuito
      */
     private CartesianChartModel lineLocalesCircuitos;
     private ArrayList<Locales> lstLocales;
     private ArrayList<Locales> lstLocalesDadoCircuito;
     private ArrayList<Locales> lstLocalesCircuito;
-    private ArrayList<Locales> lstLocalesDadoCircuitoAbierto;
-    private ArrayList<Locales> lstLocalesDadoCircuitoCerrado;
-    private ArrayList<Locales> lstLocalesDadoCircuitoSinEspecificar;
-
-    public ArrayList<Locales> getLstLocalesDadoCircuitoAbierto() {
-        return lstLocalesDadoCircuitoAbierto;
-    }
-
-    public void setLstLocalesDadoCircuitoAbierto(ArrayList<Locales> lstLocalesDadoCircuitoAbierto) {
-        this.lstLocalesDadoCircuitoAbierto = lstLocalesDadoCircuitoAbierto;
-    }
-
-    public ArrayList<Locales> getLstLocalesDadoCircuitoCerrado() {
-        return lstLocalesDadoCircuitoCerrado;
-    }
-
-    public void setLstLocalesDadoCircuitoCerrado(ArrayList<Locales> lstLocalesDadoCircuitoCerrado) {
-        this.lstLocalesDadoCircuitoCerrado = lstLocalesDadoCircuitoCerrado;
-    }
-
-    public ArrayList<Locales> getLstLocalesDadoCircuitoSinEspecificar() {
-        return lstLocalesDadoCircuitoSinEspecificar;
-    }
-
-    public void setLstLocalesDadoCircuitoSinEspecificar(ArrayList<Locales> lstLocalesDadoCircuitoSinEspecificar) {
-        this.lstLocalesDadoCircuitoSinEspecificar = lstLocalesDadoCircuitoSinEspecificar;
-    }
+    private ArrayList<Locales> lstLocalesDadoCircuitoSi;
+    private ArrayList<Locales> lstLocalesDadoCircuitoNo;
+    private ArrayList<Locales> lstLocalesDadoCircuitoNoPresenta;
 
     public CartesianChartModel getLineLocalesCircuitos() {
         return lineLocalesCircuitos;
@@ -90,7 +66,31 @@ public class ControladorEstadoCircuito {
         this.lstLocalesCircuito = lstLocalesCircuito;
     }
 
-    @PostConstruct
+    public ArrayList<Locales> getLstLocalesDadoCircuitoSi() {
+        return lstLocalesDadoCircuitoSi;
+    }
+
+    public void setLstLocalesDadoCircuitoSi(ArrayList<Locales> lstLocalesDadoCircuitoSi) {
+        this.lstLocalesDadoCircuitoSi = lstLocalesDadoCircuitoSi;
+    }
+
+    public ArrayList<Locales> getLstLocalesDadoCircuitoNo() {
+        return lstLocalesDadoCircuitoNo;
+    }
+
+    public void setLstLocalesDadoCircuitoNo(ArrayList<Locales> lstLocalesDadoCircuitoNo) {
+        this.lstLocalesDadoCircuitoNo = lstLocalesDadoCircuitoNo;
+    }
+
+    public ArrayList<Locales> getLstLocalesDadoCircuitoNoPresenta() {
+        return lstLocalesDadoCircuitoNoPresenta;
+    }
+
+    public void setLstLocalesDadoCircuitoNoPresenta(ArrayList<Locales> lstLocalesDadoCircuitoNoPresenta) {
+        this.lstLocalesDadoCircuitoNoPresenta = lstLocalesDadoCircuitoNoPresenta;
+    }
+    
+     @PostConstruct
     public void init() {
         graficar();
     }
@@ -104,38 +104,39 @@ public class ControladorEstadoCircuito {
         this.init();
     }
 
-    public ControladorEstadoCircuito() {
+    public ControladorPermisosMICircuito() {
         this.reinit();
     }
-
+    
     private CartesianChartModel graficaCircuitos() {
         CartesianChartModel model = new CartesianChartModel();
         try {
+
             lstLocalesCircuito = FLocales.ObtenerDatosCircuito();
-            ChartSeries Abiertos = new ChartSeries();
-            Abiertos.setLabel("Abiertos");
+            ChartSeries Si = new ChartSeries();
+            Si.setLabel("Si");
             for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoAbierto = FLocales.ObtenerDatosDadoEstadoCircuito("ABIERTO", lstLocalesCircuito.get(i).getCircuito());
-                Abiertos.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoAbierto.size());
+                lstLocalesDadoCircuitoSi = FLocales.ObtenerDatosDadoPermisoMiCircuito("Si", lstLocalesCircuito.get(i).getCircuito());
+                Si.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoSi.size());
             }
 
-            ChartSeries Cerrados = new ChartSeries();
-            Cerrados.setLabel("Cerrados");
+            ChartSeries No = new ChartSeries();
+            No.setLabel("No");
             for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoCerrado = FLocales.ObtenerDatosDadoEstadoCircuito("CERRADO", lstLocalesCircuito.get(i).getCircuito());
-                Cerrados.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoCerrado.size());
+                lstLocalesDadoCircuitoNo = FLocales.ObtenerDatosDadoPermisoMiCircuito("No", lstLocalesCircuito.get(i).getCircuito());
+                No.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoNo.size());
             }
 
-            ChartSeries SinEspecificar = new ChartSeries();
-            SinEspecificar.setLabel("Cerrados");
+            ChartSeries NoPresenta = new ChartSeries();
+            NoPresenta.setLabel("No Presenta");
             for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoSinEspecificar = FLocales.ObtenerDatosDadoEstadoCircuito("SIN ESPECIFICAR", lstLocalesCircuito.get(i).getCircuito());
-                SinEspecificar.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoSinEspecificar.size());
+                lstLocalesDadoCircuitoNoPresenta = FLocales.ObtenerDatosDadoPermisoMiCircuito("No Presenta", lstLocalesCircuito.get(i).getCircuito());
+                NoPresenta.set(lstLocalesCircuito.get(i).getCircuito(), lstLocalesDadoCircuitoNoPresenta.size());
             }
 
-            model.addSeries(Cerrados);
-            model.addSeries(Abiertos);
-            model.addSeries(SinEspecificar);
+            model.addSeries(Si);
+            model.addSeries(No);
+            model.addSeries(NoPresenta);
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");

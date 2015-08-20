@@ -778,7 +778,7 @@ public class FLocales {
         ArrayList<Locales> lst = new ArrayList<Locales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from locales.f_select_locales_dado_permiso_bombneros_parroquia(?,?)";
+            String sql = "select * from locales.f_select_locales_dado_permiso_bomberos_parroquia(?,?)";
             lstP.add(new Parametro(1, permiso_bomberos));
             lstP.add(new Parametro(2, parroquia));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
@@ -1006,6 +1006,32 @@ public class FLocales {
             String sql = "select * from locales.f_select_locales_dado_permiso_mt_subcircuito(?,?)";
             lstP.add(new Parametro(1, permiso_mt));
             lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    public static ArrayList<Locales> ObtenerDatosBarrios() throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            String sql = "select * from locales.f_select_locales_busqueda_barrio()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Locales> ObtenerDatosDadoBarrio(String barrio) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_barrio(?,?)";
+            lstP.add(new Parametro(1, barrio));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
