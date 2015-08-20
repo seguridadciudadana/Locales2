@@ -173,7 +173,7 @@ public class ControladorContrastesAgesionesPorSexo {
     }
 
     @PostConstruct
-    public void init() {
+    private void init() {
         graficar();
     }
 
