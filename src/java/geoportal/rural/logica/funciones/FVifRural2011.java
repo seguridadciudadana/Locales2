@@ -85,7 +85,6 @@ public class FVifRural2011 {
             String sql = "select * from geoportal_rural.f_select_vif_rural_dado_anio(?)";
             lstP.add(new Parametro(1, anio));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
-
             lst = llenarDatos(rs);
             rs = null;
         } catch (SQLException exConec) {
@@ -93,6 +92,9 @@ public class FVifRural2011 {
         }
         return lst;
     }
+    
+    
+    
     
     
     
