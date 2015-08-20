@@ -2,6 +2,7 @@ package geoportal.rural.logica.funciones;
 
 import accesodatos.AccesoDatos;
 import accesodatos.ConjuntoResultado;
+import accesodatos.Parametro;
 import geoportal.rural.logica.clases.VifRural2011;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -76,6 +77,23 @@ public class FVifRural2011 {
         }
         return lst;
     }
+    
+    public static  ArrayList<VifRural2011> ObtenerDatosDadoAnio(int anio) throws Exception {
+        ArrayList<VifRural2011> lst = new ArrayList<VifRural2011>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_rural.f_select_vif_rural_dado_anio(?)";
+            lstP.add(new Parametro(1, anio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
     
     
 }

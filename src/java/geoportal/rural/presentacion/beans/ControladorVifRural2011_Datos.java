@@ -6,10 +6,12 @@
 package geoportal.rural.presentacion.beans;
 
 import geoportal.rural.logica.clases.VifRural2011;
+import geoportal.rural.logica.funciones.FVifRural2011;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
+import recursos.Util;
 
 /**
  *
@@ -147,11 +149,29 @@ public class ControladorVifRural2011_Datos {
         this.lineModelSubcircuitoSV = lineModelSubcircuitoSV;
     }
     
-    
+    public void reinit() {
+        this.obtenerDatosVif_2011();
+        
+    }
     
     
     
     public ControladorVifRural2011_Datos() {
+        this.reinit();
     }
+    
+    public void obtenerDatosVif_2011() {
+        try {
+            this.lstVifRural2011=FVifRural2011.ObtenerDatosDadoAnio(2011);            
+            this.objVifRural2011 = lstVifRural2011.get(0);
+            System.out.println(lstVifRural2011.get(0).getId());
+        } catch (Exception e) {
+            Util.addErrorMessage("public void obtenerDatosVif2012 dice: " + e.getMessage());
+            System.out.println("public void obtenerDatosVif2012 dice: " + e.getMessage());
+        }
+
+    }
+    
+    
     
 }
