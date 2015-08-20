@@ -1013,6 +1013,32 @@ public class FLocales {
         }
         return lst;
     }
+    public static ArrayList<Locales> ObtenerDatosBarrios() throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            String sql = "select * from locales.f_select_locales_busqueda_barrio()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<Locales> ObtenerDatosDadoBarrio(String barrio) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_barrio(?,?)";
+            lstP.add(new Parametro(1, barrio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
 
 
 }
