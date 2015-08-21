@@ -73,8 +73,6 @@ and open the template in the editor.
 
                         </p:tab> 
 
-
-
                         <p:tab title="Porcentaje de Locales segun los Permisos otorgados del MSP ">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                             <p:panelGrid id="pngGraficarMSP" columns="2">                                
@@ -84,7 +82,7 @@ and open the template in the editor.
                                             legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
                                             showDataLabels="true" > 
                                 </p:pieChart> 
-                                 <p:barChart   value="#{controladorEstadisticasGenerales.linePermisoMSP}" legendPosition="n" 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.linePermisoMSP}" legendPosition="n" 
                                               title="" style="height:350px;width:475px;text-decoration-style: dashed" 
                                               xaxisLabel="Permisos MSP" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
                                 <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
@@ -97,10 +95,10 @@ and open the template in the editor.
                             <p:panelGrid id="pngGraficarMT" columns="2">                                
                                 <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
                                 <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
-                            <p:pieChart id="GraficaPasteMT" value="#{controladorEstadisticasGenerales.piePermisosMT}" 
-                                        legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
-                                        showDataLabels="true" > 
-                            </p:pieChart> 
+                                <p:pieChart id="GraficaPasteMT" value="#{controladorEstadisticasGenerales.piePermisosMT}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
                                 <p:barChart   value="#{controladorEstadisticasGenerales.linePermisoMT}" legendPosition="n" 
                                               title="" style="height:350px;width:475px;text-decoration-style: dashed" 
                                               xaxisLabel="Permisos MT" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
@@ -109,6 +107,126 @@ and open the template in the editor.
 
                         </p:tab> 
 
+                        <p:tab title="Porcentaje de Locales segun el RUC o RISE ">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarRR" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelRR" value="#{controladorEstadisticasGenerales.pieRucoRise}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineRucoRise}" legendPosition="n" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="RUC o RISE" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                         <p:tab title="Porcentaje de Locales segun Terrenos Valdios ">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarTV" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelTV" value="#{controladorEstadisticasGenerales.pieTerrenosValdios}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineTerrenosValdios}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Terrenos Valdios" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                        <p:tab title="Porcentaje de Locales segun Espacios Abiertos ">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarEA" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelEA" value="#{controladorEstadisticasGenerales.pieEspaciosAbiertos}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineEspaciosAbiertos}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Espacios Abiertos" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                        <p:tab title="Porcentaje de Locales segun Visualizacion ">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarV" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelV" value="#{controladorEstadisticasGenerales.pieVisualizacion}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineVisualizacion}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Visualizacion" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                         <p:tab title="Porcentaje de Locales segun Iluminacion">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarI" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelI" value="#{controladorEstadisticasGenerales.pieIluminacion}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineIluminacion}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Iluminacion" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                        <p:tab title="Porcentaje de Locales segun Entrada y Salida de Emergencia">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarE" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelE" value="#{controladorEstadisticasGenerales.pieEntSalEmergencia}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineEntSalEmergencia}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Ent y Sal Emergencia" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                         <p:tab title="Porcentaje de Locales segun Escondites">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarEs" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelEs" value="#{controladorEstadisticasGenerales.pieEscondites}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineEscondites}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Escondites" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
+                        
 
                         <script>
                             function my_ext() {
