@@ -150,8 +150,7 @@ public class ControladorVifRural2011_Datos {
     }
     
     public void reinit() {
-        this.obtenerDatosVif_2011();
-        
+        this.obtenerDatosVif_2011();        
     }
     
     
