@@ -721,6 +721,7 @@ public class Controlador_VifRural2010_MesesDias {
     }
 
     public Controlador_VifRural2010_MesesDias() {
+        this.reinit();
     }
 
     public void reinit() {
