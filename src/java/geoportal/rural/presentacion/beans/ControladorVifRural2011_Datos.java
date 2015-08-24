@@ -21,9 +21,10 @@ import recursos.Util;
 @RequestScoped
 public class ControladorVifRural2011_Datos {
 
-    
     private VifRural2011 objVifRural2011;
+    private VifRural2011 objVifRural2012;
     private ArrayList<VifRural2011> lstVifRural2011;
+    private ArrayList<VifRural2011> lstVifRural2012;
     private ArrayList<VifRural2011> lstDatosCircuito;
     private ArrayList<VifRural2011> lstDatosDadoCircuito;
     private ArrayList<VifRural2011> lstDatosCircuitoSM;
@@ -36,6 +37,22 @@ public class ControladorVifRural2011_Datos {
     private CartesianChartModel lineModelSubcircuito;
     private CartesianChartModel lineModelCircuitoSV;
     private CartesianChartModel lineModelSubcircuitoSV;
+
+    public VifRural2011 getObjVifRural2012() {
+        return objVifRural2012;
+    }
+
+    public void setObjVifRural2012(VifRural2011 objVifRural2012) {
+        this.objVifRural2012 = objVifRural2012;
+    }
+
+    public ArrayList<VifRural2011> getLstVifRural2012() {
+        return lstVifRural2012;
+    }
+
+    public void setLstVifRural2012(ArrayList<VifRural2011> lstVifRural2012) {
+        this.lstVifRural2012 = lstVifRural2012;
+    }
 
     public VifRural2011 getObjVifRural2011() {
         return objVifRural2011;
@@ -148,20 +165,19 @@ public class ControladorVifRural2011_Datos {
     public void setLineModelSubcircuitoSV(CartesianChartModel lineModelSubcircuitoSV) {
         this.lineModelSubcircuitoSV = lineModelSubcircuitoSV;
     }
-    
+
     public void reinit() {
-        this.obtenerDatosVif_2011();        
+        this.obtenerDatosVif_2011();
+        this.obtenerDatosVif_2012();
     }
-    
-    
-    
+
     public ControladorVifRural2011_Datos() {
         this.reinit();
     }
-    
+
     public void obtenerDatosVif_2011() {
         try {
-            this.lstVifRural2011=FVifRural2011.ObtenerDatosDadoAnio(2011);            
+            this.lstVifRural2011 = FVifRural2011.ObtenerDatosDadoAnio(2011);
             this.objVifRural2011 = lstVifRural2011.get(0);
             System.out.println(lstVifRural2011.get(0).getId());
         } catch (Exception e) {
@@ -170,7 +186,17 @@ public class ControladorVifRural2011_Datos {
         }
 
     }
-    
-    
-    
+
+    public void obtenerDatosVif_2012() {
+        try {
+            this.lstVifRural2012 = FVifRural2011.ObtenerDatosDadoAnio(2012);
+            this.objVifRural2012 = lstVifRural2012.get(0);
+            System.out.println(lstVifRural2012.get(0).getId());
+        } catch (Exception e) {
+            Util.addErrorMessage("public void obtenerDatosVif2012 dice: " + e.getMessage());
+            System.out.println("public void obtenerDatosVif2012 dice: " + e.getMessage());
+        }
+
+    }
+
 }

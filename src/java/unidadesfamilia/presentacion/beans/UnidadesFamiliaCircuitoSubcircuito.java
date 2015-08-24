@@ -327,7 +327,7 @@ public class UnidadesFamiliaCircuitoSubcircuito {
     private CartesianChartModel graficaSubcircuitos2014() {
         CartesianChartModel modelTP = new CartesianChartModel();
         try {
-            lstSubcircuitos2014 = FUnidadesFamilia.ObtenerSubcircuitosDadoAnio(2013);
+            lstSubcircuitos2014 = FUnidadesFamilia.ObtenerSubcircuitosDadoAnio(2014);
             ChartSeries subcircuitos = new ChartSeries();
             subcircuitos.setLabel("Denuncias generales por circuitos");
             for (int i = 0; i < lstSubcircuitos2014.size(); i++) {
