@@ -5,6 +5,8 @@
  */
 package unidadesfamilia.logica.clases;
 
+import java.sql.Date;
+
 /**
  *
  * @author Geovanny Cudco
@@ -12,7 +14,7 @@ package unidadesfamilia.logica.clases;
 public class UnidadesFamilia {
 
     private int id;
-    private String fecha_de_recepcion;
+    private Date fecha_de_recepcion;
     private String sexo_agresor;
     private String sexo_victima;
     private String barrio_agresor;
@@ -40,7 +42,7 @@ public class UnidadesFamilia {
     public UnidadesFamilia() {
     }
 
-    public UnidadesFamilia(int id, String fecha_de_recepcion, String sexo_agresor, String sexo_victima, String barrio_agresor, String barrio_victima, String edad_agresor, String edad_victima, String instruccion_agresor, String instruccion_victima, String parentesco_victima_agresor, int numero_de_hijos, String lugar_agresion, double x, double y, String subcircuito, String circuito, String tipo_de_violencia, String fecha_agresion, String medidas_de_amparo, String sentencia, String apelacion, String boletas_anteriores, String boletas_de_remision, String observaciones) {
+    public UnidadesFamilia(int id, Date fecha_de_recepcion, String sexo_agresor, String sexo_victima, String barrio_agresor, String barrio_victima, String edad_agresor, String edad_victima, String instruccion_agresor, String instruccion_victima, String parentesco_victima_agresor, int numero_de_hijos, String lugar_agresion, double x, double y, String subcircuito, String circuito, String tipo_de_violencia, String fecha_agresion, String medidas_de_amparo, String sentencia, String apelacion, String boletas_anteriores, String boletas_de_remision, String observaciones) {
         this.id = id;
         this.fecha_de_recepcion = fecha_de_recepcion;
         this.sexo_agresor = sexo_agresor;
@@ -76,11 +78,11 @@ public class UnidadesFamilia {
         this.id = id;
     }
 
-    public String getFecha_de_recepcion() {
+    public Date getFecha_de_recepcion() {
         return fecha_de_recepcion;
     }
 
-    public void setFecha_de_recepcion(String fecha_de_recepcion) {
+    public void setFecha_de_recepcion(Date fecha_de_recepcion) {
         this.fecha_de_recepcion = fecha_de_recepcion;
     }
 
