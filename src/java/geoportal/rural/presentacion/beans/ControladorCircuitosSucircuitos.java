@@ -54,9 +54,6 @@ public class ControladorCircuitosSucircuitos {
     public void setLineSubCircuitos2012(CartesianChartModel lineSubCircuitos2012) {
         this.lineSubCircuitos2012 = lineSubCircuitos2012;
     }
-    
-    
-    
 
     public CartesianChartModel getLineCircuitos2010() {
         return lineCircuitos2010;
@@ -148,10 +145,11 @@ public class ControladorCircuitosSucircuitos {
     }
 
     public void graficar() {
-        
+
         lineCircuitos2011 = graficoDetalleGeneralCircuitos2011();
         lineCircuitos2012 = graficoDetalleGeneralCircuitos2012();
-         lineSubCircuitos2011=graficoDetalleGeneralSubCircuitos2011();
+        lineSubCircuitos2011 = graficoDetalleGeneralSubCircuitos2011();
+        lineSubCircuitos2012 = graficoDetalleGeneralSubCircuitos2012();
     }
 
     public ControladorCircuitosSucircuitos() {
@@ -197,16 +195,16 @@ public class ControladorCircuitosSucircuitos {
         }
         return model;
     }
-    
+
     private CartesianChartModel graficoDetalleGeneralSubCircuitos2011() {
         CartesianChartModel model = new CartesianChartModel();
         try {
 
             ChartSeries SubCircuitos2011 = new ChartSeries();
-            SubCircuitos2011.setLabel("Detalle por Circuitos");
+            SubCircuitos2011.setLabel("Detalle por SubCircuitos");
             lstDatosSubCircuitos = FVifRural2011.ObtenerDatosDadoAnioSubcircuito(2011);
-            for (int i = 0; i < lstDatosCircuitos.size(); i++) {
-                lstDatosDadoSubCircuitos = FVifRural2011.ObtenerDatosDadoSubcircuitoDadoAnio(lstDatosSubCircuitos.get(i).getSubcircuito(),2011);
+            for (int i = 0; i < lstDatosSubCircuitos.size(); i++) {
+                lstDatosDadoSubCircuitos = FVifRural2011.ObtenerDatosDadoSubcircuitoDadoAnio(lstDatosSubCircuitos.get(i).getSubcircuito(), 2011);
                 SubCircuitos2011.set(lstDatosSubCircuitos.get(i).getSubcircuito(), lstDatosDadoSubCircuitos.size());
             }
 
@@ -217,6 +215,25 @@ public class ControladorCircuitosSucircuitos {
         }
         return model;
     }
-    
+
+    private CartesianChartModel graficoDetalleGeneralSubCircuitos2012() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+
+            ChartSeries SubCircuitos2012 = new ChartSeries();
+            SubCircuitos2012.setLabel("Detalle por SubCircuitos");
+            lstDatosSubCircuitos = FVifRural2011.ObtenerDatosDadoAnioSubcircuito(2012);
+            for (int i = 0; i < lstDatosSubCircuitos.size(); i++) {
+                lstDatosDadoSubCircuitos = FVifRural2011.ObtenerDatosDadoSubcircuitoDadoAnio(lstDatosSubCircuitos.get(i).getSubcircuito(), 2012);
+                SubCircuitos2012.set(lstDatosSubCircuitos.get(i).getSubcircuito(), lstDatosDadoSubCircuitos.size());
+            }
+
+            model.addSeries(SubCircuitos2012);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+    }
 
 }
