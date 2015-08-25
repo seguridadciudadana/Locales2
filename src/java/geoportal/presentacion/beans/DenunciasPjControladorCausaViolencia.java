@@ -26,12 +26,11 @@ public class DenunciasPjControladorCausaViolencia {
     /**
      * Creates a new instance of DenunciasPjControladorCausaViolencia
      */
-    
     private CartesianChartModel causaGrafico2014;
     private CartesianChartModel causaGrafico2015;
     private ArrayList<DenunciasPj> lstDatosCausaViolencia;
     private ArrayList<DenunciasPj> lstDatosDadoAnioCausaViolencia;
-    //private String Anio;
+
     private int AnioInteger;
 
     public CartesianChartModel getCausaGrafico2014() {
@@ -73,13 +72,11 @@ public class DenunciasPjControladorCausaViolencia {
     public void setAnioInteger(int AnioInteger) {
         this.AnioInteger = AnioInteger;
     }
-    
-    
-    
+
     public DenunciasPjControladorCausaViolencia() {
         reinit();
     }
-    
+
     public void graficar() {
         causaGrafico2014 = initCategoryCausa2014();
         causaGrafico2015 = initCategoryCausa2015();
@@ -94,7 +91,7 @@ public class DenunciasPjControladorCausaViolencia {
     private void reinit() {
 
         this.lstDatosCausaViolencia = new ArrayList<DenunciasPj>();
-        //this.lstDatosRelacion = new ArrayList<Victimas_2011>();
+
         this.init();
 
     }
@@ -102,9 +99,9 @@ public class DenunciasPjControladorCausaViolencia {
     private CartesianChartModel initCategoryCausa2014() {
 
         CartesianChartModel model = new CartesianChartModel();
-        //AnioInteger = 2014;
+
         try {
-            
+
             lstDatosCausaViolencia = FDenunciasPj.ObtenerDatosCausaViolencia();
             ChartSeries causa = new ChartSeries();
             causa.setLabel("Causa Violencia");
@@ -123,9 +120,9 @@ public class DenunciasPjControladorCausaViolencia {
     private CartesianChartModel initCategoryCausa2015() {
 
         CartesianChartModel model = new CartesianChartModel();
-        //AnioInteger = 2014;
+
         try {
-            
+
             lstDatosCausaViolencia = FDenunciasPj.ObtenerDatosCausaViolencia();
             ChartSeries causa = new ChartSeries();
             causa.setLabel("Causa Violencia");
