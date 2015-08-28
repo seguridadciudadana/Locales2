@@ -12,49 +12,46 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Indicadores Circuitos, Subcircuitos y Sexo de la Victima</ui:define>
+            <ui:define name="Datos">Variable Tipo de Violencia</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Circuitos, Subcircuitos y Sexo de la Victima</ui:define>
+            <ui:define name="top">Variable Parentesco</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
-
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-
-                    <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Detalle general por circuitos" >
+                    <p:accordionPanel style="max-height: 800px;max-width: 1200px">                        
+                         <p:tab title="Variable Parentesco víctima agresor" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
-                                           title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                            <p:lineChart   value="#{controlador_VifRuralParentesco.lineParentesco2011}" legendPosition="n" 
+                                           title="Variable Parentesco" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Parentesco" xaxisAngle="270" yaxisLabel="# Denuncias"/>   
                         </p:tab>                                                                                           
-                        <p:tab title="Detalle general por circuito (Cuadro de Barras)" >
+                        <p:tab title="Variable Parentesco víctima agresor(Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
-                                          title="Detalle general por circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
+                            <p:barChart   value="#{controlador_VifRuralParentesco.lineParentesco2011}" legendPosition="n" 
+                                          title="Variable Parentesco" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Parentesco" xaxisAngle="270" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                                      
-                        <p:tab title="Detalle general por subcircuitos" >
+                        
+                        <p:tab title="Variable Parentesco víctima agresor clasficada por sexo de la victima" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
-                                           title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
-                        </p:tab>  
-                                                
-                        <p:tab title="Detalle general por subcircuito (Cuadro de Barras)" >
+                            <p:lineChart   value="#{controlador_VifRuralParentesco.lineParentescoSexoVictima2011}" legendPosition="n" 
+                                           title="Variable Parentesco" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Parentesco" xaxisAngle="270" yaxisLabel="# Denuncias"/>   
+                        </p:tab>                                                                                           
+                        <p:tab title="Variable Parentesco víctima agresor clasficada por sexo de la victima(Gráfico de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
-                                          title="Detalle general por subcircuito" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Subcircuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
+                            <p:barChart   value="#{controlador_VifRuralParentesco.lineParentescoSexoVictima2011}" legendPosition="n" 
+                                          title="Variable Parentesco" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Parentesco" xaxisAngle="270" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-
+                                                                                                               
                         <script type="text/javascript">
                             function my_ext() {
                                 this.cfg.seriesDefaults = {
@@ -64,8 +61,9 @@ and open the template in the editor.
                                 this.cfg.stackSeries: true;
                             }
                         </script>
-                        
+
                     </p:accordionPanel>
+
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">

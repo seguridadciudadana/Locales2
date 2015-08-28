@@ -12,12 +12,12 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
-            <ui:define name="Datos">Indicadores Circuitos, Subcircuitos y Sexo de la Victima</ui:define>
+            <ui:define name="Datos">Variable Ocupaciones de las Víctimas</ui:define>
         </title>
     </h:head>
     <h:body>
         <ui:composition template="../../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Circuitos, Subcircuitos y Sexo de la Victima</ui:define>
+            <ui:define name="top">Variable Ocupaciones de las Víctimas</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -25,36 +25,35 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
-                    <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Detalle general por circuitos" >
+                    <p:accordionPanel style="max-height: 800px;max-width: 1200px">                        
+                         <p:tab title="Ocupaciones de las Víctimas" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
-                                           title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                            <p:lineChart   value="#{controlador_VifRuralOcupacion.lineOcupaciones2012}" legendPosition="n" 
+                                           title="Ocupaciones de las Víctimas" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Ocupaciones" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
                         </p:tab>                                                                                           
-                        <p:tab title="Detalle general por circuito (Cuadro de Barras)" >
+                        <p:tab title="Ocupaciones de las Víctimas(Gráfico de Barras" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
-                                          title="Detalle general por circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
+                            <p:barChart   value="#{controlador_VifRuralOcupacion.lineOcupaciones2012}" legendPosition="n" 
+                                          title="Ocupaciones de las Víctimas" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Ocupaciones" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                                      
-                        <p:tab title="Detalle general por subcircuitos" >
+                                           
+                        <p:tab title="Ocupaciones clasficiadas de acuerdo al sexo de las Víctimas" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
-                                           title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
-                        </p:tab>  
-                                                
-                        <p:tab title="Detalle general por subcircuito (Cuadro de Barras)" >
+                            <p:lineChart   value="#{controlador_VifRuralOcupacion.lineOcupacionesSexoVictima2012}" legendPosition="n" 
+                                           title="Ocupaciones de las Víctimas clasficiadas de acuerdo al sexo de las Víctimas" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Ocupaciones" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                        </p:tab>                                                                                           
+                        <p:tab title="Ocupaciones clasficiadas de acuerdo al sexo de las Víctimas(Gráfico de Barras" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
-                                          title="Detalle general por subcircuito" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Subcircuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
+                            <p:barChart   value="#{controlador_VifRuralOcupacion.lineOcupacionesSexoVictima2012}" legendPosition="n" 
+                                          title="Ocupaciones de las Víctimas clasficiadas de acuerdo al sexo de las Víctimas" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Ocupaciones" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-
+                        
                         <script type="text/javascript">
                             function my_ext() {
                                 this.cfg.seriesDefaults = {
@@ -64,8 +63,9 @@ and open the template in the editor.
                                 this.cfg.stackSeries: true;
                             }
                         </script>
-                        
+
                     </p:accordionPanel>
+
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">

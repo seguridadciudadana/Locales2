@@ -17,7 +17,7 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="../../../templates/plantillaInternaCenter.xhtml">
-            <ui:define name="top">Indicadores Circuitos, Subcircuitos y Sexo de la Victima</ui:define>
+            <ui:define name="top">Indicadores Estado Civil</ui:define>
             <ui:define name="contenido">
                 <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
                 <h:form id="frmdatos" style="alignment-adjust: central">
@@ -26,35 +26,31 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
 
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Detalle general por circuitos" >
+                        <p:tab title="Variable Estado Civil" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
+                            <p:lineChart   value="#{controlador_VifRuralEstadoCivil.lineEstadoCivil2011}" legendPosition="n" 
                                            title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
                         </p:tab>                                                                                           
-                        <p:tab title="Detalle general por circuito (Cuadro de Barras)" >
+                        <p:tab title="Variable Estado Civil(Cuadro de Barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineCircuitos2011}" legendPosition="n" 
+                            <p:barChart   value="#{controlador_VifRuralEstadoCivil.lineEstadoCivil2011}" legendPosition="n" 
                                           title="Detalle general por circuito" style="height:450px;width:1100px;text-decoration-style: dashed"
                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
-                                      
-                        <p:tab title="Detalle general por subcircuitos" >
+                        <p:tab title="Variable Estado Civil de acuerdo al sexo de la vícitima" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:lineChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
+                            <p:lineChart   value="#{controlador_VifRuralEstadoCivil.lineEstadoCivilSexoVictima2011}" legendPosition="n" 
                                            title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
                                            xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
-                        </p:tab>  
-                                                
-                        <p:tab title="Detalle general por subcircuito (Cuadro de Barras)" >
+                        </p:tab> 
+                        <p:tab title="Variable Estado Civil de acuerdo al sexo de la vícitima (Gráfico de barras)" >
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
-                            <p:barChart   value="#{controladorCircuitosSucircuitos.lineSubCircuitos2011}" legendPosition="n" 
-                                          title="Detalle general por subcircuito" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Subcircuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>  
-                            <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
-                        </p:tab>
-
+                            <p:barChart   value="#{controlador_VifRuralEstadoCivil.lineEstadoCivilSexoVictima2011}" legendPosition="n" 
+                                           title="Detalle general por circuitos" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Circuito" xaxisAngle="0" yaxisLabel="# Denuncias"/>   
+                        </p:tab> 
                         <script type="text/javascript">
                             function my_ext() {
                                 this.cfg.seriesDefaults = {
@@ -64,8 +60,9 @@ and open the template in the editor.
                                 this.cfg.stackSeries: true;
                             }
                         </script>
-                        
+
                     </p:accordionPanel>
+
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">
