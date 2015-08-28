@@ -184,7 +184,7 @@ public class FDenunciasPj {
         }
         return lst;
     }
-    
+
     public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioMesInfraccion(int anio, String mes) throws Exception {
         ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
         try {
@@ -192,7 +192,7 @@ public class FDenunciasPj {
             String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_mes_infraccion(?,?)";
             lstP.add(new Parametro(1, anio));
             lstP.add(new Parametro(2, mes));
-            
+
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
@@ -200,7 +200,87 @@ public class FDenunciasPj {
         }
         return lst;
     }
-     //OBTENER DATOS DISCTICT
+
+    public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioRangoHora(int anio, String hora) throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_rango_hora(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, hora));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioTipoViolencia(int anio, String violencia) throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_tipo_violencia(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, violencia));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioDiaInfraccion(int anio, String dia) throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_dia_infraccion(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, dia));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioRangoEdad(int anio, String rango) throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_rango_edad_victima(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, rango));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+    public static ArrayList<DenunciasPj> ObtenerDatosDenunciasPjDadoAnioRangoEdadAgresor(int anio, String rango) throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal.f_select_denunciaspj_dado_anio_rango_edad_agresor(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, rango));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    //OBTENER DATOS DISCTICT
 
     public static ArrayList<DenunciasPj> ObtenerDatosCircuito() throws Exception {
         ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
@@ -271,6 +351,71 @@ public class FDenunciasPj {
         ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
         try {
             String sql = "select * from geoportal.f_select_denunciaspj_mes()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosRangoHora() throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            String sql = "select * from geoportal.f_select_denunciaspj_rango_hora()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosTipoViolencia() throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            String sql = "select * from geoportal.f_select_denunciaspj_tipo_violencia()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosDiaInfraccion() throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            String sql = "select * from geoportal.f_select_denunciaspj_dia()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<DenunciasPj> ObtenerDatosRangoEdad() throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            String sql = "select * from geoportal.f_select_denunciaspj_rango_edad_victima()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<DenunciasPj> ObtenerDatosRangoEdadAgresor() throws Exception {
+        ArrayList<DenunciasPj> lst = new ArrayList<DenunciasPj>();
+        try {
+            String sql = "select * from geoportal.f_select_denunciaspj_rango_edad_agresor()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
