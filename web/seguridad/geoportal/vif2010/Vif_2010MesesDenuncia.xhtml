@@ -23,36 +23,35 @@ and open the template in the editor.
                 <h:form id="frmdatos" style="alignment-adjust: central">
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />                    
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Variable días de las Denuncias (Gráfico de series)">
+                        <p:tab title="Variable meses de las Denuncias (Gráfico de series)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2010ControladorFechaDenuncia.lineModelDiaDenuncia}" legendPosition="n" 
-                                           title="Dia de Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
-                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                            <p:lineChart   value="#{vif_2010ControladorFechaDenuncia.lineModelMesDenuncia}" legendPosition="n" 
+                                           title="Meses de las Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        <p:tab title="Variable días de las Denuncias">
+                        <p:tab title="Variable meses de las Denuncias (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelDiaDenuncia}" legendPosition="n" 
-                                          title="Dia de Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
-                                          xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelMesDenuncia}" legendPosition="n" 
+                                          title="Meses de las Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
+                                          xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                        
-                        <p:tab title="Variable días de las Denuncias de acuerdo al sexo de la victima">
+                        <p:tab title="Variable meses de las Denuncias de acuerdo al sexo de la victima">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{vif_2010ControladorFechaDenuncia.lineModelDiaDenunciaSexo}" legendPosition="ne" 
-                                           title="Dia de Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
-                                           xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                            <p:lineChart   value="#{vif_2010ControladorFechaDenuncia.lineModelMesDenunciaSexo}" legendPosition="ne" 
+                                           title="Meses de las Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
+                                           xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                         </p:tab>
-                         <p:tab title="Variable días de las Denuncias de acuerdo al sexo de la victima (Gráfico de Barras apiladas)">
+                        <p:tab title="Variable meses de las Denuncias de acuerdo al sexo de la victima (Gráfico de Barras apiladas)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelDiaDenunciaSexo}" legendPosition="ne" 
-                                          title="Dia de Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
-                                          xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias" stacked="true" /> 
+                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelMesDenunciaSexo}" legendPosition="ne" 
+                                          title="Meses de las Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
+                                          xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias" stacked="true" /> 
                         </p:tab>
-                        <p:tab title="Variable días de las Denuncias de acuerdo al sexo de la victima (Gráfico de Barras)">
+                        <p:tab title="Variable meses de las Denuncias de acuerdo al sexo de la victima (Gráfico de Barras)">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelDiaDenunciaSexo}" legendPosition="ne" 
-                                          title="Dia de Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
-                                          xaxisLabel="Días de la Semana" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
+                            <p:barChart   value="#{vif_2010ControladorFechaDenuncia.lineModelMesDenunciaSexo}" legendPosition="ne" 
+                                          title="Meses de las Denuncias" style="height:450px;width:1100px;text-decoration-style:dashed"
+                                          xaxisLabel="Meses" xaxisAngle="0" yaxisLabel="# Denuncias"  /> 
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
                         
@@ -66,6 +65,11 @@ and open the template in the editor.
                             }
                         </script>             
                     </p:accordionPanel>
+
+                    <p:commandButton value="cargardatos" onclick="#{vif_2010ControladorFechaDenuncia.lstDatosEneroF}"
+                                     process="@this" update=":frmdatos">
+
+                    </p:commandButton> 
                 </h:form>
             </ui:define>
             <ui:define name="dialogos">

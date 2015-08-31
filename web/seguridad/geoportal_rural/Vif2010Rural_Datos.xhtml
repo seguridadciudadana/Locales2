@@ -98,7 +98,6 @@ and open the template in the editor.
                             </p:column>
 
                             <f:facet name="footer">  
-
                                 <h:commandLink>
                                     <img src="../../resources/images/excel.png" alt=""/>
                                     <p:dataExporter type="xls" target="tblDatos" fileName="datos" pageOnly="true" />
@@ -118,26 +117,22 @@ and open the template in the editor.
                                     <img src="../../resources/images/xml.png" alt=""/>
                                     <p:dataExporter type="xml" target="tblDatos" fileName="datos" pageOnly="true" />
                                 </h:commandLink>
-
                             </f:facet>
-                        </p:dataTable>
-                        
-                        <p:commandButton value="cargardatos" onclick="#{controlador_VifRural2010_Datos.lstVifRural2010}"
-                                         process="@this" update=":frmdatos">
                             
-                        </p:commandButton>
+                        </p:dataTable>                        
                         
                     </p:panel>
 
                 </h:form>
             </ui:define>
+            
             <ui:define name="dialogos">
-
                 <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
                           resizable="false"> 
                     <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
                 </p:dialog>
             </ui:define>
+            
         </ui:composition>
     </h:body>
 </html>
