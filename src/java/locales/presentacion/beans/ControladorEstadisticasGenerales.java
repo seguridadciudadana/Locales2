@@ -1022,7 +1022,8 @@ public class ControladorEstadisticasGenerales {
         this.lineEntSalEmergencia = graficaEntSalEmergencia();
         this.pieEscondites = pieEscondites();
         this.lineEscondites = graficaEscondites();
-        
+        this.pieLimpieza = pieLimpieza();
+        this.lineLimpieza = graficaLimpieza();
 
     }
 
@@ -1473,8 +1474,8 @@ public class ControladorEstadisticasGenerales {
         return model;
 
     }
-    
-     private PieChartModel pieEscondites() {
+
+    private PieChartModel pieEscondites() {
         PieChartModel pieModel = new PieChartModel();
         try {
             pieModel = new PieChartModel();
@@ -1499,12 +1500,51 @@ public class ControladorEstadisticasGenerales {
             lstLocalesDadoNoEscondites = FLocales.ObtenerDatosDadoEscondites("No");
             lstLocalesDadoSinEspecificarEscondites = FLocales.ObtenerDatosDadoEscondites("Sin especificar");
 
-
             ChartSeries escond = new ChartSeries();
-            escond.setLabel("Visualizacion");
+            escond.setLabel("Escondites");
             escond.set("Si", lstLocalesDadoSiEscondites.size());
             escond.set("No", lstLocalesDadoNoEscondites.size());
             escond.set("Sin especificar", lstLocalesDadoSinEspecificarEscondites.size());
+
+            model.addSeries(escond);
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model;
+
+    }
+
+    private PieChartModel pieLimpieza() {
+        PieChartModel pieModel = new PieChartModel();
+        try {
+            pieModel = new PieChartModel();
+            lstLocalesDadoSiLimpieza = FLocales.ObtenerDatosDadoLimpieza("Si");
+            lstLocalesDadoNoLimpieza = FLocales.ObtenerDatosDadoLimpieza("No");
+            lstLocalesDadoSinEspecificarLimpieza = FLocales.ObtenerDatosDadoLimpieza("Sin especificar");
+
+            pieModel.set("Si", lstLocalesDadoSiLimpieza.size());
+            pieModel.set("No", lstLocalesDadoNoLimpieza.size());
+            pieModel.set("Sin especificar", lstLocalesDadoSinEspecificarLimpieza.size());
+
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return pieModel;
+    }
+
+    private CartesianChartModel graficaLimpieza() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            lstLocalesDadoSiLimpieza = FLocales.ObtenerDatosDadoLimpieza("Si");
+            lstLocalesDadoNoLimpieza = FLocales.ObtenerDatosDadoLimpieza("No");
+            lstLocalesDadoSinEspecificarLimpieza = FLocales.ObtenerDatosDadoLimpieza("Sin especificar");
+
+            ChartSeries escond = new ChartSeries();
+            escond.setLabel("Limpieza");
+            escond.set("Si", lstLocalesDadoSiLimpieza.size());
+            escond.set("No", lstLocalesDadoNoLimpieza.size());
+            escond.set("Sin especificar", lstLocalesDadoSinEspecificarLimpieza.size());
 
             model.addSeries(escond);
 

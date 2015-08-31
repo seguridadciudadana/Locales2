@@ -226,6 +226,23 @@ and open the template in the editor.
 
                         </p:tab> 
                         
+                         <p:tab title="Porcentaje de Locales segun Limpieza">
+                            <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                            <p:panelGrid id="pngGraficarLi" columns="2">                                
+                                <h:outputText value="Gráfico Pastel" style="font-style: initial"/>                            
+                                <h:outputText value="Gráfico de barras" style="font-style: initial"/>  
+                                <p:pieChart id="GraficaPastelLi" value="#{controladorEstadisticasGenerales.pieLimpieza}" 
+                                            legendPosition="e" style="height:350px;width:475px;text-decoration-style:dashed"
+                                            showDataLabels="true" > 
+                                </p:pieChart> 
+                                <p:barChart   value="#{controladorEstadisticasGenerales.lineLimpieza}" legendPosition="ne" 
+                                              title="" style="height:350px;width:475px;text-decoration-style: dashed" 
+                                              xaxisLabel="Limpieza" xaxisAngle="0" yaxisLabel="Total de Locales"  />    
+                                <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
+                            </p:panelGrid>
+
+                        </p:tab> 
+                        
                         
 
                         <script>
