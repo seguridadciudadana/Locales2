@@ -1300,5 +1300,64 @@ public class FLocales {
         }
         return lst;
     }
+    
+     public static ArrayList<Locales> ObtenerDatosDadoRucoRiseParroquias(String ruc, int parroquia) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_permiso_ruc_parroquia(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, parroquia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+    
+     public static ArrayList<Locales> ObtenerDatosDadoRucoRiseCircuito(String ruc, String circuito) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_permiso_ruc_circuito(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+     
+     public static ArrayList<Locales> ObtenerDatosDadoRucoRiseSubcircuito(String ruc, String subcircuito) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_permiso_ruc_subcircuito(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+     
+     public static ArrayList<Locales> obtenerDatosDadoRangoDistancia(String rangoDistancia) throws Exception {
+        ArrayList<Locales> lst = new ArrayList<Locales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_rango_distancia(?)";
+            lstP.add(new Parametro(1,rangoDistancia));            
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
 
 }
