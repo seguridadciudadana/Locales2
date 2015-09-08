@@ -134,14 +134,14 @@ public class ControladorReincidentes2010 {
             //lstDatos = FReincidencias2010.ObtenerDatos();
             lstDatos=FVictimasReincidentes.ObtenerDatos();
             ChartSeries Masculino = new ChartSeries();            
-            Masculino.setLabel("Reincidencias");
+            Masculino.setLabel("Masculino");
             for (int i=0;i<lstDatos.size();i++) {
                 lstDatosDadoReincidenciaSM = FVictimasReincidentes.ObtenerDatosDadoReincidenciasSexo(lstDatos.get(i).getReincidencia(), "M");
                 Masculino.set(lstDatos.get(i).getReincidencia(), lstDatosDadoReincidenciaSM.size());
             }
             
             ChartSeries Femenino = new ChartSeries();            
-            Femenino.setLabel("Reincidencias");
+            Femenino.setLabel("Femenino");
             for (int i=0;i<lstDatos.size();i++) {
                 lstDatosDadoReincidenciaSF = FVictimasReincidentes.ObtenerDatosDadoReincidenciasSexo(lstDatos.get(i).getReincidencia(), "F");
                 Femenino.set(lstDatos.get(i).getReincidencia(), lstDatosDadoReincidenciaSF.size());

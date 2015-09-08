@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.apache.poi.hssf.record.formula.functions.Char;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
@@ -19,10 +20,10 @@ import recursos.Util;
  *
  * @author servidor
  */
-
 @ManagedBean
 @RequestScoped
 public class Vif_2010ControladorEdades {
+
     private CartesianChartModel graficaEdadSV;
 
     private Vif_2010 datoSel;
@@ -43,6 +44,87 @@ public class Vif_2010ControladorEdades {
     private ArrayList<Vif_2010> lstDatosRango7F;
     private ArrayList<Vif_2010> lstDatosRangoNaM;
     private ArrayList<Vif_2010> lstDatosRangoNaF;
+    private ArrayList<Vif_2010> lstDatosRangoNa;
+    private ArrayList<Vif_2010> lstDatosRango1;
+    private ArrayList<Vif_2010> lstDatosRango2;
+    private ArrayList<Vif_2010> lstDatosRango3;
+    private ArrayList<Vif_2010> lstDatosRango4;
+    private ArrayList<Vif_2010> lstDatosRango5;
+    private ArrayList<Vif_2010> lstDatosRango6;
+    private ArrayList<Vif_2010> lstDatosRango7;
+    private CartesianChartModel graficaEdadesSexoVictima;
+
+    public ArrayList<Vif_2010> getLstDatosRangoNa() {
+        return lstDatosRangoNa;
+    }
+
+    public void setLstDatosRangoNa(ArrayList<Vif_2010> lstDatosRangoNa) {
+        this.lstDatosRangoNa = lstDatosRangoNa;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango1() {
+        return lstDatosRango1;
+    }
+
+    public void setLstDatosRango1(ArrayList<Vif_2010> lstDatosRango1) {
+        this.lstDatosRango1 = lstDatosRango1;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango2() {
+        return lstDatosRango2;
+    }
+
+    public void setLstDatosRango2(ArrayList<Vif_2010> lstDatosRango2) {
+        this.lstDatosRango2 = lstDatosRango2;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango3() {
+        return lstDatosRango3;
+    }
+
+    public void setLstDatosRango3(ArrayList<Vif_2010> lstDatosRango3) {
+        this.lstDatosRango3 = lstDatosRango3;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango4() {
+        return lstDatosRango4;
+    }
+
+    public void setLstDatosRango4(ArrayList<Vif_2010> lstDatosRango4) {
+        this.lstDatosRango4 = lstDatosRango4;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango5() {
+        return lstDatosRango5;
+    }
+
+    public void setLstDatosRango5(ArrayList<Vif_2010> lstDatosRango5) {
+        this.lstDatosRango5 = lstDatosRango5;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango6() {
+        return lstDatosRango6;
+    }
+
+    public void setLstDatosRango6(ArrayList<Vif_2010> lstDatosRango6) {
+        this.lstDatosRango6 = lstDatosRango6;
+    }
+
+    public ArrayList<Vif_2010> getLstDatosRango7() {
+        return lstDatosRango7;
+    }
+
+    public void setLstDatosRango7(ArrayList<Vif_2010> lstDatosRango7) {
+        this.lstDatosRango7 = lstDatosRango7;
+    }
+
+    public CartesianChartModel getGraficaEdadesSexoVictima() {
+        return graficaEdadesSexoVictima;
+    }
+
+    public void setGraficaEdadesSexoVictima(CartesianChartModel graficaEdadesSexoVictima) {
+        this.graficaEdadesSexoVictima = graficaEdadesSexoVictima;
+    }
 
     public ArrayList<Vif_2010> getLstDatosRangoNaM() {
         return lstDatosRangoNaM;
@@ -59,8 +141,7 @@ public class Vif_2010ControladorEdades {
     public void setLstDatosRangoNaF(ArrayList<Vif_2010> lstDatosRangoNaF) {
         this.lstDatosRangoNaF = lstDatosRangoNaF;
     }
-    
-    
+
     public CartesianChartModel getGraficaEdadSV() {
         return graficaEdadSV;
     }
@@ -200,7 +281,7 @@ public class Vif_2010ControladorEdades {
     public Vif_2010ControladorEdades() {
         reinit();
     }
-    
+
     @PostConstruct
     public void init() {
         graficar();
@@ -208,6 +289,8 @@ public class Vif_2010ControladorEdades {
 
     public void graficar() {
         graficaEdadSV = graficaEdadSexoVictima();
+        graficaEdadesSexoVictima=graficaEdadesSexoVictima();
+        
     }
 
     private void reinit() {
@@ -231,7 +314,7 @@ public class Vif_2010ControladorEdades {
         this.cargarDatos();
         this.init();
     }
-    
+
     private CartesianChartModel graficaEdadSexoVictima() {
         CartesianChartModel model = new CartesianChartModel();
         try {
@@ -279,6 +362,36 @@ public class Vif_2010ControladorEdades {
 
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
+        }
+        return model;
+
+    }
+
+    private CartesianChartModel graficaEdadesSexoVictima() {
+        CartesianChartModel model = new CartesianChartModel();
+        try {
+            ChartSeries edades = new ChartSeries();
+            edades.setLabel("Edades");
+            this.lstDatosRango1 = FVif_2010.obtenerEdadRango1();
+            this.lstDatosRango2 = FVif_2010.obtenerEdadRango2();
+            this.lstDatosRango3 = FVif_2010.obtenerEdadRango3();
+            this.lstDatosRango4 = FVif_2010.obtenerEdadRango4();
+            this.lstDatosRango5 = FVif_2010.obtenerEdadRango5();
+            this.lstDatosRango6 = FVif_2010.obtenerEdadRango6();
+            this.lstDatosRango7 = FVif_2010.obtenerEdadRango7();
+            this.lstDatosRangoNa = FVif_2010.obtenerEdadRangoNA();
+
+            edades.set("desde 0 hasta 12", lstDatosRango1.size());
+            edades.set("desde 12 hasta 18", lstDatosRango2.size());
+            edades.set("desde 18 hasta 30", lstDatosRango3.size());
+            edades.set("desde 30 hasta 40", lstDatosRango4.size());
+            edades.set("desde 40 hasta 50", lstDatosRango5.size());
+            edades.set("desde 50 hasta 65", lstDatosRango6.size());
+            edades.set("mayores de 65", lstDatosRango7.size());
+            edades.set("NA", lstDatosRangoNa.size());
+            
+            model.addSeries(edades);
+        } catch (Exception e) {
         }
         return model;
 

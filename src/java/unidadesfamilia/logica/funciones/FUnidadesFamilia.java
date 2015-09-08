@@ -183,5 +183,53 @@ public class FUnidadesFamilia {
         }
         return lst;
     }
+    
+    public static ArrayList<UnidadesFamilia> obtenerDatosDadoTipoViolenciaSexoVictima(int anio, String tviolencia, String sexo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_violencia_sexo(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, tviolencia));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 
+     public static ArrayList<UnidadesFamilia> obtenerDatosDadoTipoViolencia(int anio, String tviolencia) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_violencia(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, tviolencia));            
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+     public static ArrayList<UnidadesFamilia> obtenerDatosTipoViolencia(int anio) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_tipo_violencia_dado_anio(?)";
+            lstP.add(new Parametro(1, anio));                     
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
 }
