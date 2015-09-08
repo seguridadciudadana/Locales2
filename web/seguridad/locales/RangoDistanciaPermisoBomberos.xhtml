@@ -24,18 +24,18 @@ and open the template in the editor.
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                     <p:accordionPanel style="max-height: 800px;max-width: 1200px">
-                        <p:tab title="Rango de Distancias">
+                        <p:tab title="Rango de Distancias y Permisos del Bomberos">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:lineChart   value="#{controladorRangosDistancias.lineLOcales}" legendPosition="n" 
-                                           title="Rangos de Distancias" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                           xaxisLabel="Distancias" xaxisAngle="0" yaxisLabel="Total de Locales"  />                             
+                            <p:lineChart   value="#{controladorRangoDistanciaPermisoBomberos.lineLocales}" legendPosition="n" 
+                                           title="Rangos de Distancias y Permisos del Bomberos" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                           xaxisLabel="Rango de Distancia" xaxisAngle="0" yaxisLabel="Total de Locales"  />                             
 
                         </p:tab>
-                        <p:tab title="Rango de Distancias">
+                        <p:tab title="Rango de Distancias y Permisos de los locales">
                             <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
-                            <p:barChart   value="#{controladorRangosDistancias.lineLOcales}" legendPosition="n" 
-                                          title="Rangos de Distancias" style="height:450px;width:1100px;text-decoration-style: dashed"
-                                          xaxisLabel="Distancias" xaxisAngle="0" yaxisLabel="Total de Locales"  />  
+                            <p:barChart   value="#{controladorRangoDistanciaPermisoBomberos.lineLocales}" legendPosition="n" 
+                                          title="Rangos de Distancias y Estados del Bomberos" style="height:450px;width:1100px;text-decoration-style: dashed"
+                                          xaxisLabel="Rango de Distancia" xaxisAngle="0" yaxisLabel="Total de Locales"  />  
                             <h:outputScript  library="jqplot-plugins" name="jqplot.pointLabels.min.js" />
                         </p:tab>
 

@@ -77,18 +77,27 @@ public class ControladorRangosDistancias {
         CartesianChartModel model = new CartesianChartModel();
         try {
             lstDistancias = Distancia.obtenerDistancias();
-            lstLocales = FLocales.ObtenerDatos();
+//            lstLocales = FLocales.ObtenerDatos();
             ChartSeries distancias = new ChartSeries();
             distancias.setLabel("Distancias");
-            for (int i = 0; i < lstDistancias.size(); i++) {
-                for (int j = 0; j < lstLocales.size(); j++) {
 
-                    System.out.println(lstDistancias.get(i));
-                    lstDadoRango = FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(i));
-                    System.out.println(FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(i)));
-                    distancias.set(lstDistancias.get(i), lstDadoRango.size());
-                }
-            }
+//           for (int i = 0; i < lstDistancias.size(); i++) {
+//            for (int j = 0; j < lstLocales.size(); j++) {                
+//                    System.out.println(lstDistancias.get(i));
+//                    lstDadoRango = FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(i));
+//                    System.out.println(FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(i)));
+//                    distancias.set(lstDistancias.get(i), lstDadoRango.size());
+//                }
+//            }
+            distancias.set(lstDistancias.get(0), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(0)).size());
+            distancias.set(lstDistancias.get(1), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(1)).size());
+            distancias.set(lstDistancias.get(2), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(2)).size());
+            distancias.set(lstDistancias.get(3), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(3)).size());
+            distancias.set(lstDistancias.get(4), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(4)).size());
+            distancias.set(lstDistancias.get(5), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(5)).size());
+            distancias.set(lstDistancias.get(6), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(6)).size());
+            distancias.set(lstDistancias.get(7), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(7)).size());
+            distancias.set(lstDistancias.get(8), FLocales.obtenerDatosDadoRangoDistancia(lstDistancias.get(8)).size());
             model.addSeries(distancias);
         } catch (Exception e) {
             System.out.println(e.getMessage());
