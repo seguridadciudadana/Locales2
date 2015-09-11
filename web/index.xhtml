@@ -9,7 +9,56 @@
         <ui:define name="tituloNavegador">OSCUNACH</ui:define>
         <ui:define name="content">
             <h:form id="frmIndex">
+
                 <h:panelGrid id="pnlIndexPrincipal" columns="1" class="center_content">
+                    <h:panelGrid cellpadding="0" cellspacing="10" columns="1">
+                        <p:panel id="basic" header="DETALLES DEL SISTEMA"  style="margin-bottom:20px">
+                            <h:panelGrid columns="1" cellpadding="5">                                
+                                <h:outputText
+                                    value="El Sistema de Gestión del Eje de Investigación de Seguridad Ciudadana y Género de la UNACH
+                                    permite que la ciudadanía observe los resultados de las Proyectos de Investigación que se realizan
+                                    dentro de esta Institución." />
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:panelGrid>
+                    <h:panelGrid cellpadding="0" cellspacing="10" columns="2">
+                        <p:panel id="vif" header="IDENTIFICACIÓN SOCIOECONÓMICA Y GEOREFERENCIADA DE LAS VÍCTIMAS DE 
+                                 VIOLENCIA INTRAFAMILIAR PARA  LA APLICACIÓN DE POLÍTICAS PÚBLICAS EN LA CIUDAD DE 
+                                 RIOBAMBA, EN UN PERÍODO DE TIEMPO COMPRENDIDO ENTRE ENERO DEL 2010 A DICIEMBRE 2012" style="margin-bottom:20px">
+                            <h:panelGrid columns="1" cellpadding="10">                                
+                                <h:outputText
+                                    value="El Sistema de Gestión del Eje de Investigación de Seguridad Ciudadana y Género de la UNACH
+                                    permite que la ciudadanía observe los resultados de las Proyectos de Investigación que se realizan
+                                    dentro de esta Institución." />
+                            </h:panelGrid>
+                        </p:panel>
+                        
+                        <p:imageSwitch effect="shuffle" >
+                            <ui:repeat value="#{galeriasBean.imagesVif}" var="imagesVif">
+                                <p:graphicImage value="/resources/images/vif/#{imagesVif}" title="#{imagesVif}" 
+                                                alt="Eje de Investigación de Seguridad Ciudadana y Género - UNACH #{imagesVif}" />
+                            </ui:repeat>
+                        </p:imageSwitch>
+                        
+                        <p:imageSwitch effect="turnDown" >
+                            <ui:repeat value="#{galeriasBean.imagesVif}" var="imagesVif">
+                                <p:graphicImage value="/resources/images/vif/#{imagesVif}" title="#{imagesVif}" 
+                                                alt="Eje de Investigación de Seguridad Ciudadana y Género - UNACH #{imagesVif}" />
+                            </ui:repeat>
+                        </p:imageSwitch>
+                        
+                        <p:panel id="locales" header="GEOREFERENCIACIÓN E IDENTIFICACIÓN DE LOS ESTABLECIMIENTOS 
+                                 CONTROLADOS POR EL MINISTERIO DEL INTERIOR Y SU INCIDENCIA EN LA INSEGURIDAD 
+                                 CIUDADANA EN LA CIUDAD  DE RIOBAMBA"  style="margin-bottom:20px">
+                            <h:panelGrid columns="1" cellpadding="10">                                
+                                <h:outputText
+                                    value="El Sistema de Gestión del Eje de Investigación de Seguridad Ciudadana y Género de la UNACH
+                                    permite que la ciudadanía observe los resultados de las Proyectos de Investigación que se realizan
+                                    dentro de esta Institución." />
+                            </h:panelGrid>
+                        </p:panel>
+
+                    </h:panelGrid>
                 </h:panelGrid>                           
             </h:form>           
         </ui:define>
