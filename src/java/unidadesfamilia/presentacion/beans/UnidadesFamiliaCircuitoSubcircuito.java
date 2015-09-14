@@ -14,6 +14,7 @@ import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
 import unidadesfamilia.logica.clases.UnidadesFamilia;
 import unidadesfamilia.logica.funciones.FUnidadesFamilia;
+import recursos.CircuitosSubcircuitos;
 
 /**
  *
@@ -247,14 +248,15 @@ public class UnidadesFamiliaCircuitoSubcircuito {
     private CartesianChartModel graficaCircuitos2013() {
         CartesianChartModel modelTP = new CartesianChartModel();
         try {
-            lstCircuitos2013 = FUnidadesFamilia.ObtenerCircuitosDadoAnio(2013);
+
             ChartSeries circuitos = new ChartSeries();
             circuitos.setLabel("Denuncias generales por circuitos");
-            for (int i = 0; i < lstCircuitos2013.size(); i++) {
-                lstDadoCircuitos2013 = FUnidadesFamilia.ObtenerDadoCircuitos(2013, lstCircuitos2013.get(i).getCircuito());
-                circuitos.set(lstCircuitos2013.get(i).getCircuito(), lstDadoCircuitos2013.size());
-            }
-
+            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(0), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(0)).size());
+            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(1), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(1)).size());
+            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(2), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(2)).size());
+            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(3), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(3)).size());
+            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(4), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(4)).size());
+            
             modelTP.addSeries(circuitos);
         } catch (Exception e) {
             Util.addErrorMessage(e, "Error");
