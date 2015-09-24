@@ -231,5 +231,86 @@ public class FUnidadesFamilia {
         }
         return lst;
     }
+    public static ArrayList<UnidadesFamilia> obtenerDatosDadoMedidasAmparo(String medidas_amparo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_medidas_de_amparo(?)";
+            
+            lstP.add(new Parametro(1, medidas_amparo));            
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    public static ArrayList<UnidadesFamilia> obtenerDatosDadoMedidasAmparoSexoVictima(String medidas_amparo, String sexo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_medidas_de_amparo_dado_sexo(?,?)";
+            
+            lstP.add(new Parametro(1, medidas_amparo));            
+            lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
+    public static ArrayList<UnidadesFamilia> obtenerDatosDadoMedidasAmparoDadoAnio(Integer anio, String medidas_amparo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_medidas_de_amparo_dado_anio(?,?)";
+            
+            lstP.add(new Parametro(1, anio));            
+            lstP.add(new Parametro(2, medidas_amparo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> ObtenerDadoAnioMedidasAmparoCircuito(int anio, String medidas, String circuito) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_anio_dado_medidas_de_amparo_dado_circuito(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, medidas));
+            lstP.add(new Parametro(3, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> ObtenerDadoAnioMedidasAmparoSubcircuito(int anio, String medidas, String subcircuito) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_anio_dado_medidas_de_amparo_dado_subcircuito(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, medidas));
+            lstP.add(new Parametro(3, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
 }
