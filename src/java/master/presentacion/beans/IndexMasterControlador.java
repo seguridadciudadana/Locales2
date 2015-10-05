@@ -25,7 +25,6 @@ public class IndexMasterControlador {
 
     @ManagedProperty(value = "#{sesionUsuarioDataManager}")
     private SesionUsuarioDataManager dm;
-    
 
     public IndexMasterControlador() {
     }
