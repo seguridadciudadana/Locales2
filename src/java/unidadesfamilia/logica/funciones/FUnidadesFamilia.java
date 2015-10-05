@@ -188,7 +188,7 @@ public class FUnidadesFamilia {
         ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_violencia_sexo(?,?,?)";
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_de_violencia_dado_anio_dado_sexo(?,?,?)";
             lstP.add(new Parametro(1, anio));
             lstP.add(new Parametro(2, tviolencia));
             lstP.add(new Parametro(3, sexo));
@@ -205,7 +205,7 @@ public class FUnidadesFamilia {
         ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_violencia(?,?)";
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_tipo_de_violencia_dado_anio(?,?)";
             lstP.add(new Parametro(1, anio));
             lstP.add(new Parametro(2, tviolencia));            
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
@@ -231,6 +231,72 @@ public class FUnidadesFamilia {
         }
         return lst;
     }
+     
+    public static ArrayList<UnidadesFamilia> obtenerDatosMedidasAmparo(int anio) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_medidas_de_amparo_dado_anio(?)";
+            lstP.add(new Parametro(1, anio));                     
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> obtenerDatosParentesco(int anio) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_parentesco_dado_anio(?)";
+            lstP.add(new Parametro(1, anio));                     
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> ObtenerDatosDadoAnioParentescoSexoVictima(int anio, String parentesco, String sexo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_parentesco_dado_sexo_dado_anio(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, parentesco));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    
+    public static ArrayList<UnidadesFamilia> ObtenerDatosDadoAnioMedidasAmparoSexoVictima(int anio, String medidas_amparo, String sexo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_medidas_de_amparo_dado_anio_dado_sexo(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, medidas_amparo));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
     public static ArrayList<UnidadesFamilia> obtenerDatosDadoMedidasAmparo(String medidas_amparo) throws Exception {
         ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
         try {
@@ -254,6 +320,24 @@ public class FUnidadesFamilia {
             
             lstP.add(new Parametro(1, medidas_amparo));            
             lstP.add(new Parametro(2, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> obtenerDatosDadoParentescoSexoVictima(int anio, String parentesco, String sexo) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_parentesco_dado_sexo_dado_anio(?,?,?)";
+            
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, parentesco));            
+            lstP.add(new Parametro(3, sexo));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
@@ -305,6 +389,22 @@ public class FUnidadesFamilia {
             lstP.add(new Parametro(1, anio));
             lstP.add(new Parametro(2, medidas));
             lstP.add(new Parametro(3, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+    public static ArrayList<UnidadesFamilia> ObtenerDatosDadoAnioParentesco(int anio, String parentesco) throws Exception {
+        ArrayList<UnidadesFamilia> lst = new ArrayList<UnidadesFamilia>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_unidades_familia.f_select_dado_parentesco_dado_anio(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, parentesco));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
