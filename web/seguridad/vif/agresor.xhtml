@@ -145,7 +145,7 @@ and open the template in the editor.
                             <h:outputText value="Edad:"/>
                             <p:spinner   value="#{agresorControlador.objAgresor.edad}" title="ej: 25" placeholder="ej: 25"
                                          requiredMessage="Ingrese la edad de la víctima" min="5" max="100"/>
-                            
+
                             <h:outputText value="Estado Civil:"/>
                             <p:inputText value="#{agresorControlador.objAgresor.estado_civil}" title="ej: Casado"
                                          required="true" requiredMessage="Ingrese el estado civil de la víctima" 
@@ -223,17 +223,17 @@ and open the template in the editor.
 
 
 
-<p:dialog id="dlgEliminarAgresor" header="Eliminar Agresor" widgetVar="wdlgEliminarAgresor" 
+                <p:dialog id="dlgEliminarAgresor" header="Eliminar Agresor" widgetVar="wdlgEliminarAgresor" 
                           modal="true" closable="false" resizable="false" showEffect="clip" hideEffect="fold">  
                     <h:form id="frmEliminarAgresor">
                         <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();"/>
                         <h:outputText value="¿Desea Eliminar a esta persona?"/>
                         <p:panelGrid id="pngEliminarAgresor" columns="2">
-                            
-                             <h:outputText value="Cedula:"/>
-                             <p:inputText value="#{agresorControlador.agresorSel.cedula_identidad}" title="ej: 0604017897"
+
+                            <h:outputText value="Cedula:"/>
+                            <p:inputText value="#{agresorControlador.agresorSel.cedula_identidad}" title="ej: 0604017897"
                                          required="true" requiredMessage="Ingrese la cedula" disabled="true"/>
-                            
+
                             <h:outputText value="Nombres:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.pnombres}" title="ej: Sandra" 
                                          required="true" requiredMessage="Ingrese el nombre" disabled="true"/>
@@ -242,10 +242,10 @@ and open the template in the editor.
                             <p:inputText value="#{agresorControlador.agresorSel.papellidos}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
 
-                             <h:outputText value="Sexo:"/>
-                             <p:inputText value="#{agresorControlador.agresorSel.sexo}" title="ej: Contento"
+                            <h:outputText value="Sexo:"/>
+                            <p:inputText value="#{agresorControlador.agresorSel.sexo}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                             
+
                             <h:outputText value="Direccion:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.direccion}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
@@ -253,23 +253,23 @@ and open the template in the editor.
                             <h:outputText value="Domiciliado:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.pdomiciliado}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                            
+
                             <h:outputText value="Edad:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.edad}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                            
+
                             <h:outputText value="Estado Civil:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.estado_civil}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                                                        
+
                             <h:outputText value="Nivel Educación:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.nivel_educacion}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                                                                                    
+
                             <h:outputText value="Ocupacion:"/>
                             <p:inputText value="#{agresorControlador.agresorSel.ocupacion}" title="ej: Contento"
                                          required="true" requiredMessage="Ingrese el apellido" disabled="true"/>
-                            
+
                         </p:panelGrid>
                         <p:commandButton value="Aceptar" action="#{agresorControlador.eliminarAgresor()}" 
                                          update=":frmagresor:pnlAgresor"/>
