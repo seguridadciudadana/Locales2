@@ -6,8 +6,12 @@
 package recursos;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import recursos.MesesDias;
 import recursos.Distancia;
+import spa.logica.clases.Global;
+import spa.logica.funciones.FGlobal;
 
 /**
  *
@@ -18,12 +22,13 @@ public class Test {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ArrayList<String> lst = new ArrayList<String>();
         ArrayList<String> lstMes = new ArrayList<String>();
         ArrayList<String> lstDistancia = new ArrayList<String>();
         ArrayList<String> lstEspecificar = new ArrayList<String>();
         ArrayList<String> lstEsatdo = new ArrayList<String>();
+        ArrayList<Global> lstDatos = new ArrayList<Global>();
 
 //        lst = MesesDias.obtenerDias();
 //        lstMes = MesesDias.obtenerMeses();
@@ -50,9 +55,15 @@ public class Test {
 //        lst = CircuitosSubcircuitos.obtenerCircuitosUrbanos();
 //        for (int i = 0; i < lst.size(); i++) {
 //            System.out.println(lst.get(i) + " posicion: " + i);}
-        lst = CircuitosSubcircuitos.obtenerSubcircuitosUrbanos();
-        for (int i = 0; i < lst.size(); i++) {
-            System.out.println(lst.get(i) + " posicion: " + i);
+        //lst = CircuitoSubcircuitoRural.obtenerCircuitoRural();
+        // for (int i = 0; i < lst.size(); i++) {
+        //        System.out.println(lst.get(i) + " posicion: " + i);
+        //     }
+        //lstDatos = FGlobal.ObtenerDatosDadoAnioTipoAgresion(2013);
+        lstDatos = FGlobal.ObtenerDatosDadoAnioDadoCircuito(2013,"CAMINO AL SOL");
+        for (int i = 0; i < lstDatos.size(); i++) {
+            System.out.println(lstDatos.get(i).getCircuito()+ " posicion: " + i);
+
         }
 
     }
