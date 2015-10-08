@@ -89,6 +89,7 @@ public class FAgresor {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            
             String sql = "select * from vif.f_update_agresor(?,?,?,?,?,?,?,?,?,?,?)";
             lstP.add(new Parametro(1, agresor.getCedula_identidad()));
             lstP.add(new Parametro(2, agresor.getPnombres()));

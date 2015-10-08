@@ -11,8 +11,6 @@ import vif.logica.clases.Subcircuito;
 import accesodatos.AccesoDatos;
 import accesodatos.Parametro;
 import java.sql.SQLException;
-import vif.logica.clases.Circuito;
-import vif.logica.funciones.FCircuito;
 
 /**
  *
