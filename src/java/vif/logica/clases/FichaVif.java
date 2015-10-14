@@ -56,12 +56,13 @@ public class FichaVif {
     private String boletas_anteriores;
     private String observaciones;
     private String boletas_remision;
+    private String agresor;
 
 //CONTRUCTOR 
     public FichaVif() {
     }
 
-    public FichaVif(int id_ficha, String nombres_victima, String apellidos_victima, String sexo_victima, String direccion_victima, String domiciliado_victima, int edad_victima, String estado_civil_victima, String nivel_instruccion_victima, String ocupacion_victima, String sexo_agresor, String direccion_agresor, int edad_agresor, String domiciliado_agresor, String estado_civil_agresor, String nivel_instruccion_agresor, String ocupaccion_agresor, String parentesco_victima_agresor, int numero_hijos_comun, String tiempo_convivencia, String lugar_agresion, String tipo_violencia, Date fecha_agresion, Time hora_agresion, String reincidencia_agresion, String objeto_agresion, String estado_conciencia_agresor, String direccion_agresion, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, Date fecha_denuncia, String denunciante, String medidas_amparo, String sentencia, String apelacion, String boletas_anteriores, String observaciones, String boletas_remision) {
+    public FichaVif(int id_ficha, String nombres_victima, String apellidos_victima, String sexo_victima, String direccion_victima, String domiciliado_victima, int edad_victima, String estado_civil_victima, String nivel_instruccion_victima, String ocupacion_victima, String sexo_agresor, String direccion_agresor, int edad_agresor, String domiciliado_agresor, String estado_civil_agresor, String nivel_instruccion_agresor, String ocupaccion_agresor, String parentesco_victima_agresor, int numero_hijos_comun, String tiempo_convivencia, String lugar_agresion, String tipo_violencia, Date fecha_agresion, Time hora_agresion, String reincidencia_agresion, String objeto_agresion, String estado_conciencia_agresor, String direccion_agresion, Double x, Double y, String circuito, String codigo_circuito, String subcircuito, String codigo_subcircuito, Date fecha_denuncia, String denunciante, String medidas_amparo, String sentencia, String apelacion, String boletas_anteriores, String observaciones, String boletas_remision, String agresor) {
         this.id_ficha = id_ficha;
         this.nombres_victima = nombres_victima;
         this.apellidos_victima = apellidos_victima;
@@ -104,6 +105,15 @@ public class FichaVif {
         this.boletas_anteriores = boletas_anteriores;
         this.observaciones = observaciones;
         this.boletas_remision = boletas_remision;
+        this.agresor = agresor;
+    }
+
+    public String getAgresor() {
+        return agresor;
+    }
+
+    public void setAgresor(String agresor) {
+        this.agresor = agresor;
     }
 
     public int getId_ficha() {
