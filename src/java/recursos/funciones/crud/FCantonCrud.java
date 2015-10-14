@@ -10,24 +10,26 @@ import accesodatos.ConjuntoResultado;
 import accesodatos.Parametro;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import recursos.Zona;
+import recursos.Canton;
 
 /**
  *
  * @author ICITS SALA5
  */
-public class FZonaCrud {
+public class FCantonCrud {
 
-    public static ArrayList<Zona> llenarDatos(ConjuntoResultado rs) throws Exception {
-        ArrayList<Zona> lst = new ArrayList<Zona>();
-        Zona zona = null;
+    public static ArrayList<Canton> llenarDatos(ConjuntoResultado rs) throws Exception {
+        ArrayList<Canton> lst = new ArrayList<Canton>();
+        Canton canton = null;
         try {
             while (rs.next()) {
-                zona = new Zona(
-                        rs.getInt("pid_zona"),
-                        rs.getString("pdescripcion")
+                canton = new Canton(
+                        rs.getInt("pid_canton"),
+                        rs.getString("pnombre"),
+                        rs.getString("pdescripcion"),
+                        FProvinciaCrud.obtenerProvinciaDadoId(rs.getInt("pid_provincia"))
                 );
-                lst.add(zona);
+                lst.add(canton);
             }
         } catch (Exception e) {
             lst.clear();
@@ -36,10 +38,10 @@ public class FZonaCrud {
         return lst;
     }
 
-    public static ArrayList<Zona> obtenerZona() throws Exception {
-        ArrayList<Zona> lst = new ArrayList<Zona>();
+    public static ArrayList<Canton> obtenerZona() throws Exception {
+        ArrayList<Canton> lst = new ArrayList<Canton>();
         try {
-            String sql = "select * from  utiles.f_select_zona()";
+            String sql = "select * from  utiles.f_select_caton()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
@@ -51,14 +53,14 @@ public class FZonaCrud {
         return lst;
     }
 
-    public static Zona obtenerZonaDadoId(int id_zona) throws Exception {
-        Zona lst;
+    public static Canton obtenerZonaDadoId(int id_canton) throws Exception {
+        Canton lst;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from utiles.f_select_zona_dado_codigo(?)";
-            lstP.add(new Parametro(1, id_zona));
+            String sql = "select * from utiles.f_select_caton_dado_id(?)";
+            lstP.add(new Parametro(1, id_canton));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
-            lst = new Zona();
+            lst = new Canton();
             lst = llenarDatos(rs).get(0);
             rs = null;
         } catch (SQLException exConec) {
@@ -67,12 +69,16 @@ public class FZonaCrud {
         return lst;
     }
 
-    public static boolean insertarZona(Zona zona) throws Exception {
+    
+     public static boolean insertarCanton(Canton canton) throws Exception {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from utiles.f_insert_zona(?)";
-            lstP.add(new Parametro(1, zona.getDescripcion()));
+            String sql = "select * from utiles.f_insert_canton(?)";
+            lstP.add(new Parametro(1, canton.getNombre()));
+            lstP.add(new Parametro(2, canton.getDescripcion()));
+            lstP.add(new Parametro(3, canton.getId_provincia().getId_provincia()));
+ 
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             while (rs.next()) {
                 if (rs.getString(0).equals("true"));
@@ -84,14 +90,16 @@ public class FZonaCrud {
         return eje;
 
     }
-
-    public static boolean actualizarZona(Zona zona) throws Exception {
+    
+     public static boolean actualizarCanton(Canton canton) throws Exception {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from utiles.f_update_zona(?,?)";
-            lstP.add(new Parametro(1, zona.getDescripcion()));
-            lstP.add(new Parametro(2, zona.getId_zona()));
+            String sql = "select * from utiles.f_update_canton(?,?,?,?)";
+            lstP.add(new Parametro(1, canton.getNombre()));
+            lstP.add(new Parametro(2, canton.getDescripcion()));
+            lstP.add(new Parametro(3, canton.getId_provincia().getId_provincia()));
+            lstP.add(new Parametro(4, canton.getId_canton()));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             while (rs.next()) {
                 if (rs.getString(0).equals("true"));
@@ -102,13 +110,14 @@ public class FZonaCrud {
         }
         return eje;
     }
-
-    public static boolean eliminar(int id_zona) throws Exception {
+     
+     
+     public static boolean eliminarCanton(int id_canton) throws Exception {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from utiles.f_delete_zona(?)";
-            lstP.add(new Parametro(1, id_zona));
+            String sql = "select * from utiles.f_delete_canton(?)";
+            lstP.add(new Parametro(1, id_canton));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             while (rs.next()) {
                 if (rs.getString(0).equals("true"));
@@ -118,6 +127,8 @@ public class FZonaCrud {
             throw new Exception(exConec.getMessage());
         }
         return eje;
-    }
-
+    } 
+     
+     
+     
 }

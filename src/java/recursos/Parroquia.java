@@ -22,12 +22,14 @@ public class Parroquia {
     public Parroquia() {
     }
 
-    public Parroquia(int id_parroquia, String nombre_parroquia, String descripcion_parroquia) {
+    public Parroquia(int id_parroquia, String nombre_parroquia, String descripcion_parroquia, Canton id_canton) {
         this.id_parroquia = id_parroquia;
         this.nombre_parroquia = nombre_parroquia;
         this.descripcion_parroquia = descripcion_parroquia;
+        this.id_canton = id_canton;
     }
 
+   
     /*
     metodos get y set
     */
