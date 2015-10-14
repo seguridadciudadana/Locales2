@@ -18,11 +18,14 @@ public class Canton {
     public Canton() {
     }
 
-    public Canton(int id_canton, String nombre, String descripcion) {
+    public Canton(int id_canton, String nombre, String descripcion, Provincia id_provincia) {
         this.id_canton = id_canton;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.id_provincia = id_provincia;
     }
+
+
      
     /*
     metodos get set
