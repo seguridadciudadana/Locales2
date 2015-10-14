@@ -100,7 +100,7 @@ public class FFichaLocalesCrud {
         return lst;
     }
 
-    public static FichasLocales obtenerFichasLocales_DadoId(int id_ficha) throws Exception {
+    public static FichasLocales obtenerFichasLocalesDadoId(int id_ficha) throws Exception {
         FichasLocales lst;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -176,15 +176,86 @@ public class FFichaLocalesCrud {
         }
         return eje;
 
-        
-        
-        
-        
-               
     }
-    
-    
-    
-    
+
+    public static boolean actualizarFichasLocales(FichasLocales fichasLocales) throws Exception {
+        boolean eje = false;
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_update_ficha(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            lstP.add(new Parametro(1, fichasLocales.getCarga_trabajo()));
+            lstP.add(new Parametro(2, fichasLocales.getGrupo()));
+            lstP.add(new Parametro(3, fichasLocales.getId_usuario().getCodigo()));
+            lstP.add(new Parametro(4, fichasLocales.getId_provincia().getId_provincia()));
+            lstP.add(new Parametro(5, fichasLocales.getId_canton().getId_canton()));
+            lstP.add(new Parametro(6, fichasLocales.getId_parroquia().getId_parroquia()));
+            lstP.add(new Parametro(7, fichasLocales.getZona()));
+            lstP.add(new Parametro(8, fichasLocales.getSector()));
+            lstP.add(new Parametro(9, fichasLocales.getManzana()));
+            lstP.add(new Parametro(10, fichasLocales.getFormulario()));
+            lstP.add(new Parametro(11, fichasLocales.getDireccion()));
+            lstP.add(new Parametro(12, fichasLocales.getBarrio()));
+            lstP.add(new Parametro(13, fichasLocales.getId_circuito().getId_circuito()));
+            lstP.add(new Parametro(14, fichasLocales.getId_subcircuito().getId_subcircuito()));
+            lstP.add(new Parametro(15, fichasLocales.getCategoria()));
+            lstP.add(new Parametro(16, fichasLocales.getRazon_social()));
+            lstP.add(new Parametro(17, fichasLocales.getTipo_establecimiento()));
+            lstP.add(new Parametro(18, fichasLocales.getNombre_propietario()));
+            lstP.add(new Parametro(19, fichasLocales.getCedula_cuidadania()));
+            lstP.add(new Parametro(20, fichasLocales.getPermiso_municipio()));
+            lstP.add(new Parametro(21, fichasLocales.getPermiso_bombero()));
+            lstP.add(new Parametro(22, fichasLocales.getPermiso_msp()));
+            lstP.add(new Parametro(23, fichasLocales.getPermiso_mi()));
+            lstP.add(new Parametro(24, fichasLocales.getHorario_diurno()));
+            lstP.add(new Parametro(25, fichasLocales.getHorario_noctuno()));
+            lstP.add(new Parametro(26, fichasLocales.getObservacion_horario()));
+            lstP.add(new Parametro(27, fichasLocales.getTerrenos_valdios()));
+            lstP.add(new Parametro(28, fichasLocales.getEspacio_abiertos()));
+            lstP.add(new Parametro(29, fichasLocales.getObservacion_entorno_visual()));
+            lstP.add(new Parametro(30, fichasLocales.getVisualizacion_interna()));
+            lstP.add(new Parametro(31, fichasLocales.getIluminacion()));
+            lstP.add(new Parametro(32, fichasLocales.getEntrada_salidasemergencia()));
+            lstP.add(new Parametro(33, fichasLocales.getEscondites()));
+            lstP.add(new Parametro(34, fichasLocales.getLimpieza_local()));
+            lstP.add(new Parametro(35, fichasLocales.getSenializacion()));
+            lstP.add(new Parametro(36, fichasLocales.getExtintor()));
+            lstP.add(new Parametro(37, fichasLocales.getObservacion_emergenciapxley()));
+            lstP.add(new Parametro(38, fichasLocales.getSistema_seguridad()));
+            lstP.add(new Parametro(39, fichasLocales.getTipo_sseg()));
+            lstP.add(new Parametro(40, fichasLocales.getObservacio_seguridad()));
+            lstP.add(new Parametro(41, fichasLocales.getNombre_unidadeducativa()));
+            lstP.add(new Parametro(42, fichasLocales.getDistancia()));
+            lstP.add(new Parametro(43, fichasLocales.getDireccion_ie()));
+            lstP.add(new Parametro(44, fichasLocales.getObservaciones_generales()));
+            lstP.add(new Parametro(45, fichasLocales.getId_ficha()));
+
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            while (rs.next()) {
+                if (rs.getString(0).equals("true"));
+                eje = true;
+            }
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return eje;
+
+    }
+
+    public static boolean eliminarFichaLocales(int id_ficha) throws Exception {
+        boolean eje = false;
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_delete_ficha(?)";
+            lstP.add(new Parametro(1, id_ficha));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            while (rs.next()) {
+                if (rs.getString(0).equals("true"));
+                eje = true;
+            }
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return eje;
+    }
 
 }
