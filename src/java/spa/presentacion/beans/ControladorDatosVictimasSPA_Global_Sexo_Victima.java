@@ -22,33 +22,39 @@ import spa.logica.funciones.FGlobal;
  */
 @ManagedBean
 @RequestScoped
-public class ControladorDatosVictimasSPA_Global_TipoAgresion {
+public class ControladorDatosVictimasSPA_Global_Sexo_Victima {
 
     private ArrayList<Global> lstDatos;
-    private CartesianChartModel lineSPATipoAgresionGlobal;
+    private CartesianChartModel lineSPASexoGlobal;
     private ArrayList<Global> lstDatosSF;
-    private ArrayList<Global> lstTipoAgresion;
-    private ArrayList<Global> lstTipoAgresionGlobal;
+    private ArrayList<Global> lstSexo;
+    private ArrayList<Global> lstSexoGlobal;
     private Global datoSel;
     private PieChartModel pieCircuito;
     private int anioSel;
-    
-    
 
-    public ArrayList<Global> getLstTipoAgresionGlobal() {
-        return lstTipoAgresionGlobal;
+    public CartesianChartModel getLineSPASexoGlobal() {
+        return lineSPASexoGlobal;
     }
 
-    public void setLstTipoAgresionGlobal(ArrayList<Global> lstTipoAgresionGlobal) {
-        this.lstTipoAgresionGlobal = lstTipoAgresionGlobal;
+    public void setLineSPASexoGlobal(CartesianChartModel lineSPASexoGlobal) {
+        this.lineSPASexoGlobal = lineSPASexoGlobal;
     }
 
-    public CartesianChartModel getLineSPATipoAgresionGlobal() {
-        return lineSPATipoAgresionGlobal;
+    public ArrayList<Global> getLstSexo() {
+        return lstSexo;
     }
 
-    public void setLineSPATipoAgresionGlobal(CartesianChartModel lineSPATipoAgresionGlobal) {
-        this.lineSPATipoAgresionGlobal = lineSPATipoAgresionGlobal;
+    public void setLstSexo(ArrayList<Global> lstSexo) {
+        this.lstSexo = lstSexo;
+    }
+
+    public ArrayList<Global> getLstSexoGlobal() {
+        return lstSexoGlobal;
+    }
+
+    public void setLstSexoGlobal(ArrayList<Global> lstSexoGlobal) {
+        this.lstSexoGlobal = lstSexoGlobal;
     }
 
     public int getAnioSel() {
@@ -57,18 +63,6 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
 
     public void setAnioSel(int anioSel) {
         this.anioSel = anioSel;
-    }
-
-  
-
-    
-
-    public ArrayList<Global> getLstTipoAgresion() {
-        return lstTipoAgresion;
-    }
-
-    public void setLstTipoAgresion(ArrayList<Global> lstTipoAgresion) {
-        this.lstTipoAgresion = lstTipoAgresion;
     }
 
     private Global objSPA2013;
@@ -111,7 +105,7 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
 
     @PostConstruct
     public void init() {
-        this.lineSPATipoAgresionGlobal = graficaTipoAgresionGlobal(anioSel);
+        this.lineSPASexoGlobal = graficaSexoGlobal(anioSel);
     }
 
     //public void graficar() {
@@ -119,7 +113,7 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
     //lineModelSubCircuito = graficaSubcircuito();
     //GraficaCircuitoSexoVictima = graficaCircuitoSV();
     //lineModelSubcircuitoSexoVictima=graficaSubCircuitoSV();
-       // this.lineSPATipoAgresion13 = graficaTipoAgresion13(anioSel);
+    // this.lineSPATipoAgresion13 = graficaTipoAgresion13(anioSel);
     //   this.lineSPATipoAgresion14 = graficaTipoAgresion14();
     //}
     private void reinit() {
@@ -127,19 +121,19 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
         this.init();
     }
 
-    public ControladorDatosVictimasSPA_Global_TipoAgresion() {
+    public ControladorDatosVictimasSPA_Global_Sexo_Victima() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaTipoAgresionGlobal(int anio) {
+    private CartesianChartModel graficaSexoGlobal(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatos = FGlobal.ObtenerDatosDadoAnioTipoAgresion(anioSel);
+            lstDatos = FGlobal.ObtenerDatosDadoAnioSexo(2013);
             ChartSeries anio13 = new ChartSeries();
 
             for (int i = 0; i < lstDatos.size(); i++) {
-                lstTipoAgresionGlobal = FGlobal.ObtenerDatosDadoAnioDadoTipoAgresion(anio, lstDatos.get(i).getTipo_agresion());
-                anio13.set(lstDatos.get(i).getTipo_agresion(), lstTipoAgresionGlobal.size());
+                lstSexoGlobal = FGlobal.ObtenerDatosDadoAnioDadoSexo(2013, lstDatos.get(i).getSexo_victima());
+                anio13.set(lstDatos.get(i).getSexo_victima(), lstSexoGlobal.size());
             }
             model.addSeries(anio13);
         } catch (Exception e) {

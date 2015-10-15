@@ -27,6 +27,15 @@ public class ControladorUnidadesFamiliaParentesco {
     private CartesianChartModel lineParentescoSexoVictima;
     private CartesianChartModel lineParentescoSexoVictima2015;
     private CartesianChartModel lineParentescoSexoVictima2016;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
 
     public ArrayList<UnidadesFamilia> getLstParentescos() {
         return lstParentescos;
@@ -111,31 +120,31 @@ public class ControladorUnidadesFamiliaParentesco {
     }
 
     @PostConstruct
-    private void graficar() {
-        this.lineParentescos = graficaParentescos();
-        this.lineParentescoSexoVictima = graficaParentescoSexoVictima();
-        this.lineParentescos2015 = graficaParentescos2015();
+    public void init() {
+        this.lineParentescos = graficaParentescos(anioSel);
+        this.lineParentescoSexoVictima = graficaParentescoSexoVictima(anioSel);
+        /*this.lineParentescos2015 = graficaParentescos2015();
         this.lineParentescoSexoVictima2015 = graficaParentescoSexoVictima2015();
         this.lineParentescos2016 = graficaParentescos2016();
-        this.lineParentescoSexoVictima2016 = graficaParentescoSexoVictima2016();
+        this.lineParentescoSexoVictima2016 = graficaParentescoSexoVictima2016();*/
     }
     
     public void reinit(){
-    this.graficar();
+    this.init();
     }
     public ControladorUnidadesFamiliaParentesco() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaParentescos() {
+    private CartesianChartModel graficaParentescos(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstParentescos = FUnidadesFamilia.obtenerDatosParentesco(2014);
+            lstParentescos = FUnidadesFamilia.obtenerDatosParentesco(anioSel);
             ChartSeries parentesco = new ChartSeries();
             
             parentesco.setLabel("Parentesco");
             for (int i = 0; i < lstParentescos.size(); i++) {
-                lstDatosDadoParentescos = FUnidadesFamilia.ObtenerDatosDadoAnioParentesco(2014, lstParentescos.get(i).getParentesco_victima_agresor());
+                lstDatosDadoParentescos = FUnidadesFamilia.ObtenerDatosDadoAnioParentesco(anio, lstParentescos.get(i).getParentesco_victima_agresor());
                 parentesco.set(lstParentescos.get(i).getParentesco_victima_agresor(), lstDatosDadoParentescos.size());
             }
             model.addSeries(parentesco);
@@ -145,20 +154,20 @@ public class ControladorUnidadesFamiliaParentesco {
         return model;
     }
     
-    private CartesianChartModel graficaParentescoSexoVictima(){
+    private CartesianChartModel graficaParentescoSexoVictima(int anio){
     CartesianChartModel model = new CartesianChartModel();
         try {
-            lstParentescos = FUnidadesFamilia.obtenerDatosParentesco(2014);
+            lstParentescos = FUnidadesFamilia.obtenerDatosParentesco(anioSel);
             ChartSeries femenino = new ChartSeries();
             femenino.setLabel("femenino");
             for (int i = 0; i < lstParentescos.size(); i++) {
-                lstDatosDadoParentescoSF = FUnidadesFamilia.ObtenerDatosDadoAnioParentescoSexoVictima(2014, lstParentescos.get(i).getParentesco_victima_agresor(), "F");
+                lstDatosDadoParentescoSF = FUnidadesFamilia.ObtenerDatosDadoAnioParentescoSexoVictima(anio, lstParentescos.get(i).getParentesco_victima_agresor(), "F");
                 femenino.set(lstParentescos.get(i).getParentesco_victima_agresor(), lstDatosDadoParentescoSF.size());
             }
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
             for (int i = 0; i < lstParentescos.size(); i++) {
-                lstDatosDadoParentescoSM = FUnidadesFamilia.ObtenerDatosDadoAnioParentescoSexoVictima(2014, lstParentescos.get(i).getParentesco_victima_agresor(), "M");
+                lstDatosDadoParentescoSM = FUnidadesFamilia.ObtenerDatosDadoAnioParentescoSexoVictima(anio, lstParentescos.get(i).getParentesco_victima_agresor(), "M");
                 masculino.set(lstParentescos.get(i).getParentesco_victima_agresor(), lstDatosDadoParentescoSM.size());
             }
 
