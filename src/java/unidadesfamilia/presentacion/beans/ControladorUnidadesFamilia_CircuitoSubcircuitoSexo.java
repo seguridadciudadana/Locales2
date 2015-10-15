@@ -39,6 +39,15 @@ public class ControladorUnidadesFamilia_CircuitoSubcircuitoSexo {
     private CartesianChartModel lineSubcircuitos;
     private CartesianChartModel lineCircuitos2014;
     private CartesianChartModel lineSubcircuitos2014;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
 
     public CartesianChartModel getLineCircuitos2014() {
         return lineCircuitos2014;
@@ -145,32 +154,35 @@ public class ControladorUnidadesFamilia_CircuitoSubcircuitoSexo {
     }
 
     @PostConstruct
-    private void graficar() {
-        this.lineCircuitos = graficaCircuitos();
-        this.lineCircuitos2014 = graficaCircuitos2014();
+    public void init() {
+        this.lineCircuitos = graficaCircuitos(anioSel);
+       /* this.lineCircuitos2014 = graficaCircuitos2014();
         this.lineSubcircuitos = graficaSubcircuitos();
-        this.lineSubcircuitos2014 = graficaSubcircuitos2014();
+        this.lineSubcircuitos2014 = graficaSubcircuitos2014();*/
     }
 
+   private void reinit() {
+        this.init();
+    }
     public ControladorUnidadesFamilia_CircuitoSubcircuitoSexo() {
-        this.graficar();
+        this.reinit();
     }
 
-    private CartesianChartModel graficaCircuitos() {
+    private CartesianChartModel graficaCircuitos(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstCircuitos = FUnidadesFamilia.ObtenerCircuitosDadoAnio(2013);
+            lstCircuitos = FUnidadesFamilia.ObtenerCircuitosDadoAnio(2014);
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
             for (int i = 0; i < lstCircuitos.size(); i++) {
-                lstDadoCircuitosSexoM = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2013, lstCircuitos.get(i).getCircuito(), "M");
+                lstDadoCircuitosSexoM = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2014, lstCircuitos.get(i).getCircuito(), "M");
                 masculino.set(lstCircuitos.get(i).getCircuito(), lstDadoCircuitosSexoM.size());
             }
 
             ChartSeries femenino = new ChartSeries();
             femenino.setLabel("femenino");
             for (int i = 0; i < lstCircuitos.size(); i++) {
-                lstDadoCircuitosSexoF = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2013, lstCircuitos.get(i).getCircuito(), "F");
+                lstDadoCircuitosSexoF = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2014, lstCircuitos.get(i).getCircuito(), "F");
                 femenino.set(lstCircuitos.get(i).getCircuito(), lstDadoCircuitosSexoF.size());
             }
             model.addSeries(femenino);
@@ -181,7 +193,7 @@ public class ControladorUnidadesFamilia_CircuitoSubcircuitoSexo {
         return model;
     }
 
-    private CartesianChartModel graficaSubcircuitos() {
+    /*private CartesianChartModel graficaSubcircuitos() {
         CartesianChartModel model = new CartesianChartModel();
         try {
             lstCircuitos = FUnidadesFamilia.ObtenerSubcircuitosDadoAnio(2013);
@@ -255,7 +267,7 @@ public class ControladorUnidadesFamilia_CircuitoSubcircuitoSexo {
         }
         return model;
     }
-    
+    */
     
 
 }

@@ -37,7 +37,16 @@ public class ControladorUnidadesFamilia_TipoViolencia {
     private CartesianChartModel lineTipoViolenciaSexoVictima2015;
     private CartesianChartModel lineTipoViolencia2016;
     private CartesianChartModel lineTipoViolenciaSexoVictima2016;
+    private int anioSel;
 
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+     
     public ArrayList<UnidadesFamilia> getLstTipoViolencia() {
         return lstTipoViolencia;
     }
@@ -130,56 +139,63 @@ public class ControladorUnidadesFamilia_TipoViolencia {
 
     
     @PostConstruct
-    private void graficar() {
+    public void init() {
+        this.lineTipoViolencia = graficaTipoViolencia(anioSel);
+        this.lineTipoViolenciaSexoVictima = graficoTipoViolenciaSexoVictima(anioSel);
+        
+    }
+
+    /*private void graficar() {
         this.lineTipoViolencia = graficaTipoViolencia();
         this.lineTipoViolenciaSexoVictima = graficoTipoViolenciaSexoVictima();
         this.lineTipoViolencia2015 = graficaTipoViolencia2015();
         this.lineTipoViolenciaSexoVictima2015 = graficoTipoViolenciaSexoVictima2015();
         this.lineTipoViolencia2016 = graficaTipoViolencia2016();
         this.lineTipoViolenciaSexoVictima2016 = graficoTipoViolenciaSexoVictima2016();
-    }
+    }*/
 
     private void reinit() {
-        this.graficar();
+        this.init();
     }
     
     public ControladorUnidadesFamilia_TipoViolencia() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaTipoViolencia() {
+   
+    
+     private CartesianChartModel graficaTipoViolencia(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatos =FUnidadesFamilia.obtenerDatosTipoViolencia(2014);
-            ChartSeries tipoViolencia = new ChartSeries();
-            tipoViolencia.setLabel("Tipos de Violencia");
-            for(int j=0; j< lstDatos.size(); j++){
-            lstDadoTipoViolencia =FUnidadesFamilia.obtenerDatosDadoTipoViolencia(2014, lstDatos.get(j).getTipo_de_violencia());
-            tipoViolencia.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolencia.size());
+            lstDatos =FUnidadesFamilia.obtenerDatosTipoViolencia(anioSel);
+            ChartSeries anio13 = new ChartSeries();
+
+            for (int i = 0; i < lstDatos.size(); i++) {
+                lstDadoTipoViolencia = FUnidadesFamilia.obtenerDatosDadoTipoViolencia(anio, lstDatos.get(i).getTipo_de_violencia());
+                anio13.set(lstDatos.get(i).getTipo_de_violencia(), lstDadoTipoViolencia.size());
             }
-            model.addSeries(tipoViolencia);
+            model.addSeries(anio13);
         } catch (Exception e) {
-            Util.addErrorMessage(e, "Error"); 
+            Util.addErrorMessage(e, "Error");
         }
         return model;
-
     }
     
     
-    private CartesianChartModel graficoTipoViolenciaSexoVictima(){
+   private CartesianChartModel graficoTipoViolenciaSexoVictima(int anio){
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatos = FUnidadesFamilia.obtenerDatosTipoViolencia(2014);
+            lstDatos = FUnidadesFamilia.obtenerDatosTipoViolencia(anioSel);
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
             for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoM = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2014, lstDatos.get(j).getTipo_de_violencia(), "F");
+                lstDadoTipoViolenciaSexoM = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(anio, lstDatos.get(j).getTipo_de_violencia(), "M");
                 masculino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoM.size());
             }
             ChartSeries femenino = new ChartSeries();
             femenino.setLabel("femenino");
             for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoF = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2014, lstDatos.get(j).getTipo_de_violencia(), "F");
+                lstDadoTipoViolenciaSexoF = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(anio, lstDatos.get(j).getTipo_de_violencia(), "F");
                 femenino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoF.size());
             }
             model.addSeries(femenino);
@@ -190,90 +206,6 @@ public class ControladorUnidadesFamilia_TipoViolencia {
                 return model;
     }
     
-    private CartesianChartModel graficaTipoViolencia2015() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatos =FUnidadesFamilia.obtenerDatosTipoViolencia(2015);
-            ChartSeries tipoViolencia = new ChartSeries();
-            tipoViolencia.setLabel("Tipos de Violencia");
-            for(int j=0; j< lstDatos.size(); j++){
-            lstDadoTipoViolencia =FUnidadesFamilia.obtenerDatosDadoTipoViolencia(2015, lstDatos.get(j).getTipo_de_violencia());
-            tipoViolencia.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolencia.size());
-            }
-            model.addSeries(tipoViolencia);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error"); 
-        }
-        return model;
-
-    }
     
-    
-    private CartesianChartModel graficoTipoViolenciaSexoVictima2015(){
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatos = FUnidadesFamilia.obtenerDatosTipoViolencia(2015);
-            ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("masculino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoM = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2015, lstDatos.get(j).getTipo_de_violencia(), "F");
-                masculino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoM.size());
-            }
-            ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoF = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2015, lstDatos.get(j).getTipo_de_violencia(), "F");
-                femenino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoF.size());
-            }
-            model.addSeries(femenino);
-            model.addSeries(masculino);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-                return model;
-    }
-    
-    private CartesianChartModel graficaTipoViolencia2016() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatos =FUnidadesFamilia.obtenerDatosTipoViolencia(2016);
-            ChartSeries tipoViolencia = new ChartSeries();
-            tipoViolencia.setLabel("Tipos de Violencia");
-            for(int j=0; j< lstDatos.size(); j++){
-            lstDadoTipoViolencia =FUnidadesFamilia.obtenerDatosDadoTipoViolencia(2016, lstDatos.get(j).getTipo_de_violencia());
-            tipoViolencia.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolencia.size());
-            }
-            model.addSeries(tipoViolencia);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error"); 
-        }
-        return model;
-
-    }
-    
-    
-    private CartesianChartModel graficoTipoViolenciaSexoVictima2016(){
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstDatos = FUnidadesFamilia.obtenerDatosTipoViolencia(2016);
-            ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("masculino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoM = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2016, lstDatos.get(j).getTipo_de_violencia(), "F");
-                masculino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoM.size());
-            }
-            ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("femenino");
-            for (int j = 0; j < lstDatos.size(); j++) {
-                lstDadoTipoViolenciaSexoF = FUnidadesFamilia.obtenerDatosDadoTipoViolenciaSexoVictima(2016, lstDatos.get(j).getTipo_de_violencia(), "F");
-                femenino.set(lstDatos.get(j).getTipo_de_violencia(), lstDadoTipoViolenciaSexoF.size());
-            }
-            model.addSeries(femenino);
-            model.addSeries(masculino);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-                return model;
-    }
 
 }

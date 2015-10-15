@@ -18,7 +18,7 @@ and open the template in the editor.
         </title>
     </h:head>
 
-   
+
     <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
         <ui:define name="top">Descripción de las denuncias de la Sala de Primera Acogida</ui:define>
         <ui:define name="contenido">
@@ -26,11 +26,18 @@ and open the template in the editor.
             <h:form id="frmdatos" style="alignment-adjust: central">
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                <p:panel id="pnlAnio">
+                    <p:panelGrid columns="3" id="pngAnio">
+                        <p:outputLabel value="Seleccione el año...."/>
+                        <p:inputText value="#{controladorDatosVictimasSPA_2014.anioSel}" placeholder="Ej. 2013"/>
+                        <p:commandButton value="Buscar" process="@this" action="#{controladorDatosVictimasSPA_2014.cargarDatosDadoAnio()}"
+                                         update="tblDatos"/>
+
+                    </p:panelGrid>
+                </p:panel>
+
                 <p:panel id="pnldatos" >
-                    <p:dataTable id="tblDatos" value="#{controladorDatosVictimasSPA_Global.lstDatos}"  
-                                 var="datos"  emptyMessage="No hay Registros"
-                                 paginator="true" rows="15" rowKey="#{datos.numero_ficha}" selectionMode="single" 
-                                 selection="#{controladorDatosVictimasSPA_Global.datoSel}" style="alignment-adjust: initial" >
+                    <p:dataTable id="tblDatos" value="#{controladorDatosVictimasSPA_2014.lstDatos}" var="datos">
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="Número de caso"/>
@@ -130,7 +137,7 @@ and open the template in the editor.
                 </p:panel>
             </h:form>
         </ui:define>
-        
+
         <ui:define name="dialogos">
             <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
                       resizable="false">

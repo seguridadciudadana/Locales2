@@ -11,6 +11,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
+import recursos.CircuitoSubcircuitoRural;
+import recursos.CircuitoSubcircuitoUrbano;
 import recursos.Util;
 import unidadesfamilia.logica.clases.UnidadesFamilia;
 import unidadesfamilia.logica.funciones.FUnidadesFamilia;
@@ -24,324 +26,279 @@ import recursos.CircuitosSubcircuitos;
 @RequestScoped
 public class UnidadesFamiliaCircuitoSubcircuito {
 
-    private ArrayList<UnidadesFamilia> lstDatos2013;
-    private ArrayList<UnidadesFamilia> lstDatos2014;
-    private ArrayList<UnidadesFamilia> lstCircuitos2013;
-    private ArrayList<UnidadesFamilia> lstCircuitos2013DadoSexo;
-    private ArrayList<UnidadesFamilia> lstCircuitos2013DadoSexoF;
-    private ArrayList<UnidadesFamilia> lstCircuitos2014;
-    private ArrayList<UnidadesFamilia> lstCircuitos2014DadoSexo;
-    private ArrayList<UnidadesFamilia> lstCircuitos2014DadoSexoF;
-    private ArrayList<UnidadesFamilia> lstDadoCircuitos2013;
-    private ArrayList<UnidadesFamilia> lstDadoCircuitos2014;
-    private ArrayList<UnidadesFamilia> lstSubcircuitos2013;
-    private ArrayList<UnidadesFamilia> lstSubcircuitos2014;
-    private ArrayList<UnidadesFamilia> lstDadoSubcircuitos2013;
-    private ArrayList<UnidadesFamilia> lstDadoSubcircuitos2014;
-    private CartesianChartModel lineCircuitos2013;
-    private CartesianChartModel lineSubCircuitos2013;
-    private CartesianChartModel lineCircuitos2014;
-    private CartesianChartModel lineSubCircuitos2014;
+    private ArrayList<UnidadesFamilia> lstDatos;
+    private CartesianChartModel lineCircuitosRurales;
+    private CartesianChartModel lineCircuitos;
+    private CartesianChartModel lineCircuitosSexoVictima;
+    private CartesianChartModel lineSubCircuitos;
+    private CartesianChartModel lineSubCircuitosRurales;
+    private int anioSel;
+    private ArrayList<String> lstCircuitos;
+    private ArrayList<String> lstSubCircuitos;
+    private ArrayList<UnidadesFamilia> lstCircuitoGlobal;
+    private ArrayList<UnidadesFamilia> lstSubCircuitoGlobal;
+    private ArrayList<UnidadesFamilia> lstCircuitoSexoVictimaGlobalM;
+    private ArrayList<UnidadesFamilia> lstCircuitoSexoVictimaGlobalF;
+private ArrayList<UnidadesFamilia> lstCircuitosSFM;
 
-    private CartesianChartModel lineCircuitos2013SV;
-    private CartesianChartModel lineSubCircuitos2013SV;
-    private CartesianChartModel lineCircuitos2014SV;
-    private CartesianChartModel lineSubCircuitos2014SV;
-
-    public ArrayList<UnidadesFamilia> getLstCircuitos2013DadoSexoF() {
-        return lstCircuitos2013DadoSexoF;
+    public ArrayList<UnidadesFamilia> getLstCircuitoSexoVictimaGlobalM() {
+        return lstCircuitoSexoVictimaGlobalM;
     }
 
-    public void setLstCircuitos2013DadoSexoF(ArrayList<UnidadesFamilia> lstCircuitos2013DadoSexoF) {
-        this.lstCircuitos2013DadoSexoF = lstCircuitos2013DadoSexoF;
+    public void setLstCircuitoSexoVictimaGlobalM(ArrayList<UnidadesFamilia> lstCircuitoSexoVictimaGlobalM) {
+        this.lstCircuitoSexoVictimaGlobalM = lstCircuitoSexoVictimaGlobalM;
     }
 
-    public ArrayList<UnidadesFamilia> getLstCircuitos2014DadoSexoF() {
-        return lstCircuitos2014DadoSexoF;
+    public ArrayList<UnidadesFamilia> getLstCircuitoSexoVictimaGlobalF() {
+        return lstCircuitoSexoVictimaGlobalF;
     }
 
-    public void setLstCircuitos2014DadoSexoF(ArrayList<UnidadesFamilia> lstCircuitos2014DadoSexoF) {
-        this.lstCircuitos2014DadoSexoF = lstCircuitos2014DadoSexoF;
+    public void setLstCircuitoSexoVictimaGlobalF(ArrayList<UnidadesFamilia> lstCircuitoSexoVictimaGlobalF) {
+        this.lstCircuitoSexoVictimaGlobalF = lstCircuitoSexoVictimaGlobalF;
     }
 
-    public CartesianChartModel getLineCircuitos2013SV() {
-        return lineCircuitos2013SV;
+    public ArrayList<UnidadesFamilia> getLstCircuitosSFM() {
+        return lstCircuitosSFM;
     }
 
-    public void setLineCircuitos2013SV(CartesianChartModel lineCircuitos2013SV) {
-        this.lineCircuitos2013SV = lineCircuitos2013SV;
+    public void setLstCircuitosSFM(ArrayList<UnidadesFamilia> lstCircuitosSFM) {
+        this.lstCircuitosSFM = lstCircuitosSFM;
     }
 
-    public CartesianChartModel getLineSubCircuitos2013SV() {
-        return lineSubCircuitos2013SV;
+    public ArrayList<UnidadesFamilia> getLstCircutosSFM() {
+        return lstCircuitosSFM;
     }
 
-    public void setLineSubCircuitos2013SV(CartesianChartModel lineSubCircuitos2013SV) {
-        this.lineSubCircuitos2013SV = lineSubCircuitos2013SV;
+    public void setLstCircutosSFM(ArrayList<UnidadesFamilia> lstCircuitosSFM) {
+        this.lstCircuitosSFM = lstCircuitosSFM;
     }
 
-    public CartesianChartModel getLineCircuitos2014SV() {
-        return lineCircuitos2014SV;
+    public ArrayList<UnidadesFamilia> getLstCircuitoSexoVictimaGlobal() {
+        return lstCircuitoSexoVictimaGlobalM;
     }
 
-    public void setLineCircuitos2014SV(CartesianChartModel lineCircuitos2014SV) {
-        this.lineCircuitos2014SV = lineCircuitos2014SV;
+    public void setLstCircuitoSexoVictimaGlobal(ArrayList<UnidadesFamilia> lstCircuitoSexoVictimaGlobalM) {
+        this.lstCircuitoSexoVictimaGlobalM = lstCircuitoSexoVictimaGlobalM;
+    }
+    
+
+    public CartesianChartModel getLineCircuitosSexoVictima() {
+        return lineCircuitosSexoVictima;
     }
 
-    public CartesianChartModel getLineSubCircuitos2014SV() {
-        return lineSubCircuitos2014SV;
+    public void setLineCircuitosSexoVictima(CartesianChartModel lineCircuitosSexoVictima) {
+        this.lineCircuitosSexoVictima = lineCircuitosSexoVictima;
     }
 
-    public void setLineSubCircuitos2014SV(CartesianChartModel lineSubCircuitos2014SV) {
-        this.lineSubCircuitos2014SV = lineSubCircuitos2014SV;
+    public CartesianChartModel getLineSubCircuitosRurales() {
+        return lineSubCircuitosRurales;
     }
 
-    public ArrayList<UnidadesFamilia> getLstCircuitos2013DadoSexo() {
-        return lstCircuitos2013DadoSexo;
+    public void setLineSubCircuitosRurales(CartesianChartModel lineSubCircuitosRurales) {
+        this.lineSubCircuitosRurales = lineSubCircuitosRurales;
     }
 
-    public void setLstCircuitos2013DadoSexo(ArrayList<UnidadesFamilia> lstCircuitos2013DadoSexo) {
-        this.lstCircuitos2013DadoSexo = lstCircuitos2013DadoSexo;
+    public ArrayList<UnidadesFamilia> getLstSubCircuitoGlobal() {
+        return lstSubCircuitoGlobal;
     }
 
-    public ArrayList<UnidadesFamilia> getLstCircuitos2014DadoSexo() {
-        return lstCircuitos2014DadoSexo;
+    public void setLstSubCircuitoGlobal(ArrayList<UnidadesFamilia> lstSubCircuitoGlobal) {
+        this.lstSubCircuitoGlobal = lstSubCircuitoGlobal;
     }
 
-    public void setLstCircuitos2014DadoSexo(ArrayList<UnidadesFamilia> lstCircuitos2014DadoSexo) {
-        this.lstCircuitos2014DadoSexo = lstCircuitos2014DadoSexo;
+    public CartesianChartModel getLineCircuitosRurales() {
+        return lineCircuitosRurales;
     }
 
-    public ArrayList<UnidadesFamilia> getLstDatos2013() {
-        return lstDatos2013;
+    public void setLineCircuitosRurales(CartesianChartModel lineCircuitosRurales) {
+        this.lineCircuitosRurales = lineCircuitosRurales;
     }
 
-    public void setLstDatos2013(ArrayList<UnidadesFamilia> lstDatos2013) {
-        this.lstDatos2013 = lstDatos2013;
+    public ArrayList<UnidadesFamilia> getLstCircuitoGlobal() {
+        return lstCircuitoGlobal;
     }
 
-    public ArrayList<UnidadesFamilia> getLstDatos2014() {
-        return lstDatos2014;
+    public void setLstCircuitoGlobal(ArrayList<UnidadesFamilia> lstCircuitoGlobal) {
+        this.lstCircuitoGlobal = lstCircuitoGlobal;
     }
 
-    public void setLstDatos2014(ArrayList<UnidadesFamilia> lstDatos2014) {
-        this.lstDatos2014 = lstDatos2014;
+    public ArrayList<UnidadesFamilia> getLstDatos() {
+        return lstDatos;
     }
 
-    public ArrayList<UnidadesFamilia> getLstCircuitos2013() {
-        return lstCircuitos2013;
+    public void setLstDatos(ArrayList<UnidadesFamilia> lstDatos) {
+        this.lstDatos = lstDatos;
     }
 
-    public void setLstCircuitos2013(ArrayList<UnidadesFamilia> lstCircuitos2013) {
-        this.lstCircuitos2013 = lstCircuitos2013;
+    public CartesianChartModel getLineCircuitos() {
+        return lineCircuitos;
     }
 
-    public ArrayList<UnidadesFamilia> getLstCircuitos2014() {
-        return lstCircuitos2014;
+    public void setLineCircuitos(CartesianChartModel lineCircuitos) {
+        this.lineCircuitos = lineCircuitos;
     }
 
-    public void setLstCircuitos2014(ArrayList<UnidadesFamilia> lstCircuitos2014) {
-        this.lstCircuitos2014 = lstCircuitos2014;
+    public CartesianChartModel getLineSubCircuitos() {
+        return lineSubCircuitos;
     }
 
-    public ArrayList<UnidadesFamilia> getLstDadoCircuitos2013() {
-        return lstDadoCircuitos2013;
+    public void setLineSubCircuitos(CartesianChartModel lineSubCircuitos) {
+        this.lineSubCircuitos = lineSubCircuitos;
     }
 
-    public void setLstDadoCircuitos2013(ArrayList<UnidadesFamilia> lstDadoCircuitos2013) {
-        this.lstDadoCircuitos2013 = lstDadoCircuitos2013;
+    public int getAnioSel() {
+        return anioSel;
     }
 
-    public ArrayList<UnidadesFamilia> getLstDadoCircuitos2014() {
-        return lstDadoCircuitos2014;
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
     }
 
-    public void setLstDadoCircuitos2014(ArrayList<UnidadesFamilia> lstDadoCircuitos2014) {
-        this.lstDadoCircuitos2014 = lstDadoCircuitos2014;
+    public ArrayList<String> getLstCircuitos() {
+        return lstCircuitos;
     }
 
-    public ArrayList<UnidadesFamilia> getLstSubcircuitos2013() {
-        return lstSubcircuitos2013;
+    public void setLstCircuitos(ArrayList<String> lstCircuitos) {
+        this.lstCircuitos = lstCircuitos;
     }
 
-    public void setLstSubcircuitos2013(ArrayList<UnidadesFamilia> lstSubcircuitos2013) {
-        this.lstSubcircuitos2013 = lstSubcircuitos2013;
+    public ArrayList<String> getLstSubCircuitos() {
+        return lstSubCircuitos;
     }
 
-    public ArrayList<UnidadesFamilia> getLstSubcircuitos2014() {
-        return lstSubcircuitos2014;
-    }
-
-    public void setLstSubcircuitos2014(ArrayList<UnidadesFamilia> lstSubcircuitos2014) {
-        this.lstSubcircuitos2014 = lstSubcircuitos2014;
-    }
-
-    public ArrayList<UnidadesFamilia> getLstDadoSubcircuitos2013() {
-        return lstDadoSubcircuitos2013;
-    }
-
-    public void setLstDadoSubcircuitos2013(ArrayList<UnidadesFamilia> lstDadoSubcircuitos2013) {
-        this.lstDadoSubcircuitos2013 = lstDadoSubcircuitos2013;
-    }
-
-    public ArrayList<UnidadesFamilia> getLstDadoSubcircuitos2014() {
-        return lstDadoSubcircuitos2014;
-    }
-
-    public void setLstDadoSubcircuitos2014(ArrayList<UnidadesFamilia> lstDadoSubcircuitos2014) {
-        this.lstDadoSubcircuitos2014 = lstDadoSubcircuitos2014;
-    }
-
-    public CartesianChartModel getLineCircuitos2013() {
-        return lineCircuitos2013;
-    }
-
-    public void setLineCircuitos2013(CartesianChartModel lineCircuitos2013) {
-        this.lineCircuitos2013 = lineCircuitos2013;
-    }
-
-    public CartesianChartModel getLineSubCircuitos2013() {
-        return lineSubCircuitos2013;
-    }
-
-    public void setLineSubCircuitos2013(CartesianChartModel lineSubCircuitos2013) {
-        this.lineSubCircuitos2013 = lineSubCircuitos2013;
-    }
-
-    public CartesianChartModel getLineCircuitos2014() {
-        return lineCircuitos2014;
-    }
-
-    public void setLineCircuitos2014(CartesianChartModel lineCircuitos2014) {
-        this.lineCircuitos2014 = lineCircuitos2014;
-    }
-
-    public CartesianChartModel getLineSubCircuitos2014() {
-        return lineSubCircuitos2014;
-    }
-
-    public void setLineSubCircuitos2014(CartesianChartModel lineSubCircuitos2014) {
-        this.lineSubCircuitos2014 = lineSubCircuitos2014;
-    }
-
-    public void reinit() {
-        this.init();
+    public void setLstSubCircuitos(ArrayList<String> lstSubCircuitos) {
+        this.lstSubCircuitos = lstSubCircuitos;
     }
 
     @PostConstruct
     public void init() {
-        graficar();
+        this.lineCircuitos = graficaCircuitos(anioSel);
+        this.lineCircuitosRurales = graficaCircuitosRurales(anioSel);
+        this.lineSubCircuitos = graficaSubCircuitos(anioSel);
+        this.lineSubCircuitosRurales = graficaSubCircuitosRurales(anioSel);
+     //   this.lineCircuitosSexoVictima = graficaCircuitosSexoVictima(anioSel);
+        /*this.lineSubCircuitos2013 = graficaSubcircuitos2013();
+         this.lineSubCircuitos2014 = graficaSubcircuitos2014();*/
+
     }
 
-    private void graficar() {
-        this.lineCircuitos2013 = graficaCircuitos2013();
-        this.lineCircuitos2014 = graficaCircuitos2014();
-        this.lineSubCircuitos2013 = graficaSubcircuitos2013();
-        this.lineSubCircuitos2014 = graficaSubcircuitos2014();
-
+    private void reinit() {
+        this.init();
     }
 
     public UnidadesFamiliaCircuitoSubcircuito() {
         this.reinit();
     }
-
-    private CartesianChartModel graficaCircuitos2013() {
-        CartesianChartModel modelTP = new CartesianChartModel();
+        
+    //GRAFICA PARA CIRCUITOS URBANOS - Cristhian Moreno
+    
+    private CartesianChartModel graficaCircuitos(int anio) {
+        CartesianChartModel model1 = new CartesianChartModel();
         try {
+            this.lstCircuitos = CircuitoSubcircuitoUrbano.obtenerCircuitoUrbano();
+            ChartSeries anios = new ChartSeries();
+            for (int i = 0; i < lstCircuitos.size(); i++) {
+                lstCircuitoGlobal = FUnidadesFamilia.ObtenerDadoCircuitos(anio, lstCircuitos.get(i));
+                System.out.println(lstCircuitos.get(i) + "Dimension: " + lstCircuitoGlobal.size());
+                anios.set(lstCircuitos.get(i), lstCircuitoGlobal.size());
+            }
 
-            ChartSeries circuitos = new ChartSeries();
-            circuitos.setLabel("Denuncias generales por circuitos");
-            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(0), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(0)).size());
-            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(1), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(1)).size());
-            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(2), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(2)).size());
-            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(3), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(3)).size());
-            circuitos.set(CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(4), FUnidadesFamilia.ObtenerDadoCircuitos(2014, CircuitosSubcircuitos.obtenerCircuitosUrbanos().get(4)).size());
+            model1.addSeries(anios);
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
+    }
+
+    //GRAFICA PARA CIRCUITOS RURALES - Cristhian Moreno
+    
+    private CartesianChartModel graficaCircuitosRurales(int anio) {
+        CartesianChartModel model1 = new CartesianChartModel();
+        try {
+            this.lstCircuitos = CircuitoSubcircuitoRural.obtenerCircuitoRural();
+            ChartSeries anios = new ChartSeries();
+            for (int i = 0; i < lstCircuitos.size(); i++) {
+                lstCircuitoGlobal = FUnidadesFamilia.ObtenerDadoCircuitos(anio, lstCircuitos.get(i));
+                System.out.println(lstCircuitos.get(i) + "Dimension: " + lstCircuitoGlobal.size());
+                anios.set(lstCircuitos.get(i), lstCircuitoGlobal.size());
+            }
+
+            model1.addSeries(anios);
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
+    }
+
+    //GRAFICA PARA SUBCIRCUITOS URBANOS - Cristhian Moreno
+    
+    private CartesianChartModel graficaSubCircuitos(int anio) {
+        CartesianChartModel model1 = new CartesianChartModel();
+        try {
+            this.lstSubCircuitos = CircuitoSubcircuitoUrbano.obtenerSubcircuitoUrbano();
+            ChartSeries anios = new ChartSeries();
+            for (int i = 0; i < lstSubCircuitos.size(); i++) {
+                lstSubCircuitoGlobal = FUnidadesFamilia.ObtenerDadoSubCircuitos(anio, lstSubCircuitos.get(i));
+                System.out.println(lstSubCircuitos.get(i) + "Dimension: " + lstSubCircuitoGlobal.size());
+                anios.set(lstSubCircuitos.get(i), lstSubCircuitoGlobal.size());
+            }
+
+            model1.addSeries(anios);
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
+    }
+
+    //GRAFICA PARA SUBCIRCUITOS RURALES - Cristhian Moreno
+    
+         private CartesianChartModel graficaSubCircuitosRurales(int anio) {
+        CartesianChartModel model1 = new CartesianChartModel();
+        try {
+            this.lstSubCircuitos = CircuitoSubcircuitoRural.obtenerSubcircuitoRural();
+            ChartSeries anios = new ChartSeries();
+            for (int i = 0; i < lstSubCircuitos.size(); i++) {
+                lstSubCircuitoGlobal = FUnidadesFamilia.ObtenerDadoSubCircuitos(anio, lstSubCircuitos.get(i));
+                System.out.println(lstSubCircuitos.get(i) + "Dimension: " + lstSubCircuitoGlobal.size());
+                anios.set(lstSubCircuitos.get(i), lstSubCircuitoGlobal.size());
+            }
+
+            model1.addSeries(anios);
+        } catch (Exception e) {
+            Util.addErrorMessage(e, "Error");
+        }
+        return model1;
+    }
+         
+    //GRAFICA PARA CIRCUITOS sexovictima - Cristhian Moreno
+         
+    
+     /*private CartesianChartModel graficaCircuitosSexoVictimma(int anio) {
+     CartesianChartModel modelTP = new CartesianChartModel();
+     try {
+     lstDatos = FUnidadesFamilia.ObtenerCircuitosDadoAnio(anioSel);
+     ChartSeries masculino = new ChartSeries();
+     masculino.setLabel("Masculino");
+     for (int i = 0; i < lstDatos.size(); i++) {
+     lstCircuitoSexoVictimaGlobalM = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2014,lstDatos.get(i).getCircuito(),"M");
+     masculino.set(lstDatos.get(i).getCircuito(),  lstCircuitoSexoVictimaGlobalM.size());
+     }
             
-            modelTP.addSeries(circuitos);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return modelTP;
-    }
+     ChartSeries femenino = new ChartSeries();
+     femenino.setLabel("Femenino");
+     for (int i = 0; i < lstDatos.size(); i++) {
+     lstCircuitoSexoVictimaGlobalF = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2014,lstDatos.get(i).getCircuito(),"F");
+     femenino.set(lstDatos.get(i).getCircuito(), lstCircuitoSexoVictimaGlobalF.size());
+     }
 
-    private CartesianChartModel graficaSubcircuitos2013() {
-        CartesianChartModel modelTP = new CartesianChartModel();
-        try {
-            lstSubcircuitos2013 = FUnidadesFamilia.ObtenerSubcircuitosDadoAnio(2013);
-            ChartSeries subcircuitos = new ChartSeries();
-            subcircuitos.setLabel("Denuncias generales por circuitos");
-            for (int i = 0; i < lstSubcircuitos2013.size(); i++) {
-                lstDadoSubcircuitos2013 = FUnidadesFamilia.ObtenerDadoSubCircuitos(2013, lstSubcircuitos2013.get(i).getSubcircuito());
-                subcircuitos.set(lstSubcircuitos2013.get(i).getSubcircuito(), lstDadoSubcircuitos2013.size());
-            }
-
-            modelTP.addSeries(subcircuitos);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return modelTP;
-    }
-
-    private CartesianChartModel graficaCircuitosSexoVictima2013() {
-        CartesianChartModel modelTP = new CartesianChartModel();
-        try {
-            lstCircuitos2013 = FUnidadesFamilia.ObtenerCircuitosDadoAnio(2013);
-            ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("Masculino");
-            for (int i = 0; i < lstCircuitos2013.size(); i++) {
-                lstCircuitos2013DadoSexo = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2013, "M", lstCircuitos2013.get(i).getCircuito());
-                masculino.set(lstCircuitos2013.get(i).getCircuito(), lstCircuitos2013DadoSexo.size());
-            }
-            
-            ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("Femenino");
-            for (int i = 0; i < lstCircuitos2013.size(); i++) {
-                lstCircuitos2013DadoSexoF = FUnidadesFamilia.ObtenerDadoCircuitosSexoVictima(2013, "F", lstCircuitos2013.get(i).getCircuito());
-                femenino.set(lstCircuitos2013.get(i).getCircuito(), lstCircuitos2013DadoSexoF.size());
-            }
-
-            modelTP.addSeries(masculino);
-            modelTP.addSeries(femenino);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return modelTP;
-    }
-
-    private CartesianChartModel graficaCircuitos2014() {
-        CartesianChartModel modelTP = new CartesianChartModel();
-        try {
-            lstCircuitos2014 = FUnidadesFamilia.ObtenerCircuitosDadoAnio(2014);
-            ChartSeries circuitos = new ChartSeries();
-            circuitos.setLabel("Denuncias generales por circuitos");
-            for (int i = 0; i < lstCircuitos2014.size(); i++) {
-                lstDadoCircuitos2014 = FUnidadesFamilia.ObtenerDadoCircuitos(2014, lstCircuitos2014.get(i).getCircuito());
-                circuitos.set(lstCircuitos2014.get(i).getCircuito(), lstDadoCircuitos2014.size());
-            }
-
-            modelTP.addSeries(circuitos);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return modelTP;
-    }
-
-    private CartesianChartModel graficaSubcircuitos2014() {
-        CartesianChartModel modelTP = new CartesianChartModel();
-        try {
-            lstSubcircuitos2014 = FUnidadesFamilia.ObtenerSubcircuitosDadoAnio(2014);
-            ChartSeries subcircuitos = new ChartSeries();
-            subcircuitos.setLabel("Denuncias generales por circuitos");
-            for (int i = 0; i < lstSubcircuitos2014.size(); i++) {
-                lstDadoSubcircuitos2014 = FUnidadesFamilia.ObtenerDadoSubCircuitos(2014, lstSubcircuitos2014.get(i).getSubcircuito());
-                subcircuitos.set(lstSubcircuitos2014.get(i).getSubcircuito(), lstDadoSubcircuitos2014.size());
-            }
-
-            modelTP.addSeries(subcircuitos);
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return modelTP;
-    }
-
+     modelTP.addSeries(masculino);
+     modelTP.addSeries(femenino);
+     } catch (Exception e) {
+     Util.addErrorMessage(e, "Error");
+     }
+     return modelTP;
+     }*/
+     
+     
+    
 }

@@ -27,7 +27,16 @@ public class ControladorUnidadesFamiliaMedidasAmparo {
     private CartesianChartModel lineMedidasAmparoSexoVictima2015;
     private CartesianChartModel lineMedidasAmparo2016;
     private CartesianChartModel lineMedidasAmparoSexoVictima2016;
+    private int anioSel;
 
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+    
     public ArrayList<UnidadesFamilia> getLstMedidasAmparo() {
         return lstMedidasAmparo;
     }
@@ -111,31 +120,29 @@ public class ControladorUnidadesFamiliaMedidasAmparo {
     }
 
     @PostConstruct
-    private void graficar() {
-        this.lineMedidasAmparo = graficaMedidasAmparo();
-        this.lineMedidasAmparoSexoVictima = graficaMedidasAmparoSexoVictima();
-        this.lineMedidasAmparo = graficaMedidasAmparo2015();
-        this.lineMedidasAmparoSexoVictima = graficaMedidasAmparoSexoVictima2015();
-        this.lineMedidasAmparo = graficaMedidasAmparo2016();
-        this.lineMedidasAmparoSexoVictima = graficaMedidasAmparoSexoVictima2016();
+   public void init() {
+        this.lineMedidasAmparo = graficaMedidasAmparo(anioSel);
+        this.lineMedidasAmparoSexoVictima = graficaMedidasAmparoSexoVictima(anioSel);
+        
     }
     
-    public void reinit(){
-    this.graficar();
+    private void reinit(){
+    this.init();
     }
+    
     public ControladorUnidadesFamiliaMedidasAmparo() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaMedidasAmparo() {
+    private CartesianChartModel graficaMedidasAmparo(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2014);
+            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(anioSel);
             ChartSeries medidas_amparo = new ChartSeries();
             
             medidas_amparo.setLabel("Medidas Amparo");
             for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparo = FUnidadesFamilia.obtenerDatosDadoMedidasAmparoDadoAnio(2014, lstMedidasAmparo.get(i).getMedidas_de_amparo());
+                lstDatosDadoMedidasAmparo = FUnidadesFamilia.obtenerDatosDadoMedidasAmparoDadoAnio(anio, lstMedidasAmparo.get(i).getMedidas_de_amparo());
                 medidas_amparo.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparo.size());
             }
             model.addSeries(medidas_amparo);
@@ -145,20 +152,20 @@ public class ControladorUnidadesFamiliaMedidasAmparo {
         return model;
     }
     
-    private CartesianChartModel graficaMedidasAmparoSexoVictima(){
+    private CartesianChartModel graficaMedidasAmparoSexoVictima(int anio){
     CartesianChartModel model = new CartesianChartModel();
         try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2014);
+            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(anioSel);
             ChartSeries femenino = new ChartSeries();
             femenino.setLabel("femenino");
             for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSF = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2014, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "F");
+                lstDatosDadoMedidasAmparoSF = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(anio, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "F");
                 femenino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSF.size());
             }
             ChartSeries masculino = new ChartSeries();
             masculino.setLabel("masculino");
             for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSM = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2014, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "M");
+                lstDatosDadoMedidasAmparoSM = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(anio, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "M");
                 masculino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSM.size());
             }
 
@@ -172,92 +179,5 @@ public class ControladorUnidadesFamiliaMedidasAmparo {
     }
     
     
-    private CartesianChartModel graficaMedidasAmparo2015() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2015);
-            ChartSeries medidas_amparo = new ChartSeries();
-            
-            medidas_amparo.setLabel("Medidas Amparo");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparo = FUnidadesFamilia.obtenerDatosDadoMedidasAmparoDadoAnio(2015, lstMedidasAmparo.get(i).getMedidas_de_amparo());
-                medidas_amparo.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparo.size());
-            }
-            model.addSeries(medidas_amparo);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return model;
-    }
-    
-    private CartesianChartModel graficaMedidasAmparoSexoVictima2015(){
-    CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2015);
-            ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("femenino");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSF = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2015, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "F");
-                femenino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSF.size());
-            }
-            ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("masculino");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSM = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2015, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "M");
-                masculino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSM.size());
-            }
-
-            model.addSeries(femenino);
-            model.addSeries(masculino);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return model;
-    }
-    
-    private CartesianChartModel graficaMedidasAmparo2016() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2016);
-            ChartSeries medidas_amparo = new ChartSeries();
-            
-            medidas_amparo.setLabel("Medidas Amparo");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparo = FUnidadesFamilia.obtenerDatosDadoMedidasAmparoDadoAnio(2016, lstMedidasAmparo.get(i).getMedidas_de_amparo());
-                medidas_amparo.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparo.size());
-            }
-            model.addSeries(medidas_amparo);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return model;
-    }
-    
-    private CartesianChartModel graficaMedidasAmparoSexoVictima2016(){
-    CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstMedidasAmparo = FUnidadesFamilia.obtenerDatosMedidasAmparo(2016);
-            ChartSeries femenino = new ChartSeries();
-            femenino.setLabel("femenino");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSF = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2016, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "F");
-                femenino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSF.size());
-            }
-            ChartSeries masculino = new ChartSeries();
-            masculino.setLabel("masculino");
-            for (int i = 0; i < lstMedidasAmparo.size(); i++) {
-                lstDatosDadoMedidasAmparoSM = FUnidadesFamilia.ObtenerDatosDadoAnioMedidasAmparoSexoVictima(2016, lstMedidasAmparo.get(i).getMedidas_de_amparo(), "M");
-                masculino.set(lstMedidasAmparo.get(i).getMedidas_de_amparo(), lstDatosDadoMedidasAmparoSM.size());
-            }
-
-            model.addSeries(femenino);
-            model.addSeries(masculino);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return model;
-    }
     
 }
