@@ -32,6 +32,16 @@ public class DenunciasPjContraladorCircuito {
     private ArrayList<DenunciasPj> lstDatosDadoAnioCircuito;
     private String Anio;
     private int AnioInteger;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+    
 
     public CartesianChartModel getCircuitoGrafico2014() {
         return circuitoGrafico2014;
@@ -108,12 +118,12 @@ public class DenunciasPjContraladorCircuito {
 
         CartesianChartModel model = new CartesianChartModel();
         try {
-            AnioInteger = 2014;
+            int anio = anioSel;
             lstDatosCircuito = FDenunciasPj.ObtenerDatosCircuito();
             ChartSeries circuito = new ChartSeries();
             circuito.setLabel("Circuito");
             for (DenunciasPj lstDatosP1 : lstDatosCircuito) {
-                lstDatosDadoAnioCircuito = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuito(AnioInteger, lstDatosP1.getCircuito());
+                lstDatosDadoAnioCircuito = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuito(anio, lstDatosP1.getCircuito());
                 circuito.set(lstDatosP1.getCircuito(), lstDatosDadoAnioCircuito.size());
             }
             model.addSeries(circuito);

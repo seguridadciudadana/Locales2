@@ -30,6 +30,16 @@ public class DenunciasPjControladorCausaViolencia {
     private CartesianChartModel causaGrafico2015;
     private ArrayList<DenunciasPj> lstDatosCausaViolencia;
     private ArrayList<DenunciasPj> lstDatosDadoAnioCausaViolencia;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+    
 
     private int AnioInteger;
 
@@ -106,7 +116,7 @@ public class DenunciasPjControladorCausaViolencia {
             ChartSeries causa = new ChartSeries();
             causa.setLabel("Causa Violencia");
             for (DenunciasPj lstDatosP1 : lstDatosCausaViolencia) {
-                lstDatosDadoAnioCausaViolencia = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCausaViolencia(2014, lstDatosP1.getCausa_de_violencia());
+                lstDatosDadoAnioCausaViolencia = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCausaViolencia(anioSel, lstDatosP1.getCausa_de_violencia());
                 causa.set(lstDatosP1.getCausa_de_violencia(), lstDatosDadoAnioCausaViolencia.size());
             }
             model.addSeries(causa);
