@@ -108,10 +108,6 @@ public class FGlobal {
         return lst;
     }
     
-
-    public static ArrayList<Global> ObtenerDatosDadoAnio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public static ArrayList<Global> ObtenerDatosDadoAnioTipoAgresion(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();

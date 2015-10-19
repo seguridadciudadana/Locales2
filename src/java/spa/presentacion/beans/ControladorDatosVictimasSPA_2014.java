@@ -50,7 +50,7 @@ public class ControladorDatosVictimasSPA_2014 {
 
     public void cargarDatos() {
         try {
-            this.lstDatos = FGlobal.ObtenerDatosDadoAnio();
+            this.lstDatos = FGlobal.ObtenerDatos();
             System.out.println(lstDatos.get(0).getCodigo());
         } catch (Exception e) {
             Util.addErrorMessage("public void cargarDatos dice: " + e.getMessage());

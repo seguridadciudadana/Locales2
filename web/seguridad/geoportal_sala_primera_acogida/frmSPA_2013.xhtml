@@ -29,17 +29,10 @@ and open the template in the editor.
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                 <p:panel id="pnlAnio">
                         <p:panelGrid columns="3" id="pngAnio">
-                            <p:outputLabel value="Seleccione el año...."/>
-                            <p:selectOneMenu value="#{controladorDatosVictimasSPA_2013.anioSel}">
-                                <f:selectItem itemLabel="Seleccione un año..." itemValue="#{null}"/>
-                                <f:selectItem itemLabel="2011" itemValue="2011"/>
-                                <f:selectItem itemLabel="2012" itemValue="2012"/>
-                                <f:selectItem itemLabel="2013" itemValue="2013"/>
-                                <f:selectItem itemLabel="2014" itemValue="2014"/>
-                                <f:selectItem itemLabel="2015" itemValue="2015"/>
-                            </p:selectOneMenu>
-                            <p:commandButton value="Buscar" process="@this" action="#{controladorDatosVictimasSPA_2013.cargarDatos}"
-                                             update="frmdatos:pnldatos"/>
+                            <p:outputLabel value="Seleccione el año...."/>                            
+                            <p:inputText value="#{controladorDatosVictimasSPA_2013.anioSel}" placeholder="Ej. 2014" />
+                            <p:commandButton value="Buscar" process="@this" action="#{controladorDatosVictimasSPA_2013.cargarDatosDadoAnio()}"
+                                             update=":frmdatos:tblDatos"/>
                            
                         </p:panelGrid>
                     </p:panel>

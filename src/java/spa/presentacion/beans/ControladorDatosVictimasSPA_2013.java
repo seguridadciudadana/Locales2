@@ -6,12 +6,8 @@
 package spa.presentacion.beans;
 
 import java.util.ArrayList;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import org.primefaces.model.chart.CartesianChartModel;
-import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.chart.PieChartModel;
 import recursos.Util;
 import spa.logica.clases.Global;
 import spa.logica.funciones.FGlobal;
@@ -20,15 +16,14 @@ import spa.logica.funciones.FGlobal;
  *
  * @author Cristhian Moreno
  */
-
 @ManagedBean
 @RequestScoped
 public class ControladorDatosVictimasSPA_2013 {
-    
+
     private ArrayList<Global> lstDatos;
- 
+
     private Global datoSel;
-    
+
     private Global objSPA2013;
     private int anioSel;
 
@@ -39,7 +34,6 @@ public class ControladorDatosVictimasSPA_2013 {
     public void setAnioSel(int anioSel) {
         this.anioSel = anioSel;
     }
-    
 
     public Global getObjSPA2013() {
         return objSPA2013;
@@ -57,7 +51,6 @@ public class ControladorDatosVictimasSPA_2013 {
         this.lstDatos = lstDatos;
     }
 
-
     public Global getDatoSel() {
         return datoSel;
     }
@@ -66,33 +59,35 @@ public class ControladorDatosVictimasSPA_2013 {
         this.datoSel = datoSel;
     }
 
-  
-    @PostConstruct
-    public void init() {
-      this.lstDatos = new ArrayList<Global>(anioSel);
-      this.cargarDatos();
-    }
-
-    
-
     private void reinit() {
-        
-        this.init();
+        this.lstDatos = new ArrayList<Global>();
+        this.cargarDatos();
     }
-    
-    public ControladorDatosVictimasSPA_2013 () {
-      this.reinit();
+
+    public ControladorDatosVictimasSPA_2013() {
+        this.reinit();
     }
-    
-    
-     public void cargarDatos() {
+
+    public void cargarDatos() {
         try {
-            
-            this.lstDatos = FGlobal.ObtenerDatosDadoAnio(anioSel);
+
+            this.lstDatos = FGlobal.ObtenerDatos();
             System.out.println(lstDatos.get(0).getCodigo());
         } catch (Exception e) {
             Util.addErrorMessage("public void cargarDatos dice: " + e.getMessage());
             System.out.println("public void cargarDatos dice: " + e.getMessage());
+        }
+
+    }
+
+    public void cargarDatosDadoAnio() {
+        try {
+
+            this.lstDatos = FGlobal.ObtenerDatosDadoAnio(anioSel);
+            System.out.println(lstDatos.get(0).getCodigo());
+        } catch (Exception e) {
+            Util.addErrorMessage("public void cargarDatosDadoAnio() dice: " + e.getMessage());
+            System.out.println("public void cargarDatosDadoAnio() dice: " + e.getMessage());
         }
 
     }

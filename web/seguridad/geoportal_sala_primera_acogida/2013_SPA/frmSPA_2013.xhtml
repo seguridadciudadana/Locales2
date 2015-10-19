@@ -26,6 +26,15 @@ and open the template in the editor.
             <h:form id="frmdatos" style="alignment-adjust: central">
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
                 <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" />
+                <p:panel id="pnlBusquedad">
+                    <p:panelGrid id="pngBusquedas" columns="3">
+                        <p:inputText value="#{controladorDatosVictimasSPA_2013.anioSel}"/>
+                        <p:commandButton action="#{controladorDatosVictimasSPA_2013.cargarDatosDadoAnio()}" process="@this"
+                                         update=":frmdatos:tblDatos"/>
+                    </p:panelGrid>
+                        
+                    
+                </p:panel>
                 <p:panel id="pnldatos" >
                     <p:dataTable id="tblDatos" value="#{controladorDatosVictimasSPA_2013.lstDatos}"  
                                  var="datos"  emptyMessage="No hay Registros"

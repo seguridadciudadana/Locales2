@@ -219,6 +219,7 @@ public class FicheBean {
             Util.addErrorMessage("private void insertarFicha dice: " + e.getMessage());
             System.out.println("private void insertarFicha dice: " + e.getMessage());
         }
+        direccionSel = new Direcciones();
     }
 
     public void transferirDirecciones() {
