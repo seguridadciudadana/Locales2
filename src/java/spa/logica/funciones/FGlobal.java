@@ -108,10 +108,6 @@ public class FGlobal {
         return lst;
     }
     
-
-    public static ArrayList<Global> ObtenerDatosDadoAnio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public static ArrayList<Global> ObtenerDatosDadoAnioTipoAgresion(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
@@ -150,7 +146,7 @@ public class FGlobal {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_circuito";
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_circuito (?)";
             lstP.add(new Parametro(1, anio));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
@@ -178,8 +174,129 @@ public class FGlobal {
         return lst;
     }
     
+    public static ArrayList<Global> ObtenerDatosDadoAnioSubCircuito(int anio) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_subcircuito (?)";
+            lstP.add(new Parametro(1, anio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
+     public static ArrayList<Global> ObtenerDatosDadoAnioDadoSubCircuito(int anio , String subcircuito) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_subcircuito(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+     
+     public static ArrayList<Global> ObtenerDatosDadoAnioEstadoCivl(int anio) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_estado_civil_victima (?)";
+            lstP.add(new Parametro(1, anio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
+     public static ArrayList<Global> ObtenerDatosDadoAnioDadoEstadoCivil(int anio , String estado_civil_victima) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_estado_civil_victima(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, estado_civil_victima));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+      public static ArrayList<Global> ObtenerDatosDadoAnioSexo(int anio) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_sexo_victima (?)";
+            lstP.add(new Parametro(1, anio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+     public static ArrayList<Global> ObtenerDatosDadoAnioDadoSexo(int anio , String sexo_victima) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_sexo_victima(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, sexo_victima));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+     public static ArrayList<Global> ObtenerDatosDadoAnioParentescoVictimaAgresor(int anio) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_parentesco_victima_agresor (?)";
+            lstP.add(new Parametro(1, anio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+    
+     public static ArrayList<Global> ObtenerDatosDadoAnioDadoParentescoVictimaAgresor(int anio , String sexo_victima) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_parentesco_victima_agresor(?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, sexo_victima));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
     
 
 }

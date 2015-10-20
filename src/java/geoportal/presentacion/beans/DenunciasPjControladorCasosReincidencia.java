@@ -32,6 +32,16 @@ public class DenunciasPjControladorCasosReincidencia {
     private ArrayList<DenunciasPj> lstDatosDadoAnioCasoReincidencia;
     //private String Anio;
     private int AnioInteger;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+    
 
     public CartesianChartModel getCasoRGrafico2014() {
         return casoRGrafico2014;
@@ -107,7 +117,7 @@ public class DenunciasPjControladorCasosReincidencia {
             ChartSeries caso = new ChartSeries();
             caso.setLabel("Circuito");
             for (DenunciasPj lstDatosP1 : lstDatosCasoReincidencia) {
-                lstDatosDadoAnioCasoReincidencia = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCasoReincidente(2014, lstDatosP1.getCaso_reincidente());
+                lstDatosDadoAnioCasoReincidencia = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCasoReincidente(anioSel, lstDatosP1.getCaso_reincidente());
                 caso.set(lstDatosP1.getCaso(), lstDatosDadoAnioCasoReincidencia.size());
             }
             model.addSeries(caso);

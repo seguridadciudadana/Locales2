@@ -12,6 +12,7 @@ import javax.faces.bean.RequestScoped;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.PieChartModel;
+import recursos.CircuitoSubcircuitoRural;
 import recursos.CircuitoSubcircuitoUrbano;
 import recursos.Util;
 import spa.logica.clases.Global;
@@ -23,35 +24,61 @@ import spa.logica.funciones.FGlobal;
  */
 @ManagedBean
 @RequestScoped
-public class ControladorDatosVictimasSPA_Global_Circuito {
+public class ControladorDatosVictimasSPA_Global_SubCircuito_Rural {
 
     private ArrayList<Global> lstDatos;
-    private CartesianChartModel lineSPACircuitos;
+    private CartesianChartModel lineSPASubCircuitosRural;
     private ArrayList<Global> lstDatosSF;
-    private ArrayList<Global> lstCircuito;
-    private ArrayList<Global> lstCircuito2013;
-    private ArrayList<Global> lstCircuito2014;
+    private ArrayList<Global> lstSubCircuitoRural;
     private Global datoSel;
-    private PieChartModel pieCircuito;
+    private PieChartModel pieSubCircuitoRural;
     private int anioSel;
-    private ArrayList<String> lstCircuitos;
+    private ArrayList<String> lstSubCircuitosRural;
+    private ArrayList<Global> lstSubCircuitoGlobalRural;
 
-    public CartesianChartModel getLineSPACircuitos() {
-        return lineSPACircuitos;
+    public CartesianChartModel getLineSPASubCircuitosRural() {
+        return lineSPASubCircuitosRural;
     }
 
-    public void setLineSPACircuitos(CartesianChartModel lineSPACircuitos) {
-        this.lineSPACircuitos = lineSPACircuitos;
+    public void setLineSPASubCircuitosRural(CartesianChartModel lineSPASubCircuitosRural) {
+        this.lineSPASubCircuitosRural = lineSPASubCircuitosRural;
     }
+
+    public ArrayList<Global> getLstSubCircuitoRural() {
+        return lstSubCircuitoRural;
+    }
+
+    public void setLstSubCircuitoRural(ArrayList<Global> lstSubCircuitoRural) {
+        this.lstSubCircuitoRural = lstSubCircuitoRural;
+    }
+
+    public PieChartModel getPieSubCircuitoRural() {
+        return pieSubCircuitoRural;
+    }
+
+    public void setPieSubCircuitoRural(PieChartModel pieSubCircuitoRural) {
+        this.pieSubCircuitoRural = pieSubCircuitoRural;
+    }
+
+    public ArrayList<String> getLstSubCircuitosRural() {
+        return lstSubCircuitosRural;
+    }
+
+    public void setLstSubCircuitosRural(ArrayList<String> lstSubCircuitosRural) {
+        this.lstSubCircuitosRural = lstSubCircuitosRural;
+    }
+
+    public ArrayList<Global> getLstSubCircuitoGlobalRural() {
+        return lstSubCircuitoGlobalRural;
+    }
+
+    public void setLstSubCircuitoGlobalRural(ArrayList<Global> lstSubCircuitoGlobalRural) {
+        this.lstSubCircuitoGlobalRural = lstSubCircuitoGlobalRural;
+    }
+
     
 
-    public ArrayList<String> getLstCircuitos() {
-        return lstCircuitos;
-    }
-
-    public void setLstCircuitos(ArrayList<String> lstCircuitos) {
-        this.lstCircuitos = lstCircuitos;
-    }
+    
 
     public int getAnioSel() {
         return anioSel;
@@ -78,29 +105,7 @@ public class ControladorDatosVictimasSPA_Global_Circuito {
         this.lstDatosSF = lstDatosSF;
     }
 
-    public ArrayList<Global> getLstCircuito() {
-        return lstCircuito;
-    }
-
-    public void setLstCircuito(ArrayList<Global> lstCircuito) {
-        this.lstCircuito = lstCircuito;
-    }
-
-    public ArrayList<Global> getLstCircuito2013() {
-        return lstCircuito2013;
-    }
-
-    public void setLstCircuito2013(ArrayList<Global> lstCircuito2013) {
-        this.lstCircuito2013 = lstCircuito2013;
-    }
-
-    public ArrayList<Global> getLstCircuito2014() {
-        return lstCircuito2014;
-    }
-
-    public void setLstCircuito2014(ArrayList<Global> lstCircuito2014) {
-        this.lstCircuito2014 = lstCircuito2014;
-    }
+    
 
     public Global getDatoSel() {
         return datoSel;
@@ -110,37 +115,30 @@ public class ControladorDatosVictimasSPA_Global_Circuito {
         this.datoSel = datoSel;
     }
 
-    public PieChartModel getPieCircuito() {
-        return pieCircuito;
-    }
-
-    public void setPieCircuito(PieChartModel pieCircuito) {
-        this.pieCircuito = pieCircuito;
-    }
+    
 
     @PostConstruct
-    
     public void init() {
-        this.lineSPACircuitos = graficaCircuitos(anioSel);
+        this.lineSPASubCircuitosRural = graficaSubCircuitosRural(anioSel);
     }
 
     private void reinit() {
         this.init();
     }
 
-    public ControladorDatosVictimasSPA_Global_Circuito() {
+    public ControladorDatosVictimasSPA_Global_SubCircuito_Rural() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaCircuitos(int anio) {
+    private CartesianChartModel graficaSubCircuitosRural(int anio) {
         CartesianChartModel model1 = new CartesianChartModel();
         try {
-            this.lstCircuitos = CircuitoSubcircuitoUrbano.obtenerCircuitoUrbano();
+            this.lstSubCircuitosRural = CircuitoSubcircuitoRural.obtenerSubcircuitoRural();
             ChartSeries anios = new ChartSeries();
-            for (int i = 0; i < lstCircuitos.size(); i++) {
-                lstCircuito2013 = FGlobal.ObtenerDatosDadoAnioDadoCircuito(anio, lstCircuitos.get(i));
-                System.out.println(lstCircuitos.get(i) + "Dimension: " + lstCircuito2013.size());
-                anios.set(lstCircuitos.get(i), lstCircuito2013.size());
+            for (int i = 0; i < lstSubCircuitosRural.size(); i++) {
+                lstSubCircuitoGlobalRural = FGlobal.ObtenerDatosDadoAnioDadoSubCircuito(2013, lstSubCircuitosRural.get(i));
+                System.out.println(lstSubCircuitosRural.get(i) + "Dimension: " + lstSubCircuitoGlobalRural.size());
+                anios.set(lstSubCircuitosRural.get(i), lstSubCircuitoGlobalRural.size());
             }
 
             model1.addSeries(anios);

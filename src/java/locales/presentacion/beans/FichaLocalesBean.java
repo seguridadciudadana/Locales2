@@ -10,7 +10,7 @@ import javax.faces.bean.RequestScoped;
 
 /**
  *
- * @author ICITS SALA5
+ * @author Geovanny Cudco
  */
 @ManagedBean
 @RequestScoped
@@ -19,6 +19,9 @@ public class FichaLocalesBean {
     /**
      * Creates a new instance of FichaLocalesBean
      */
+    
+    
+    
     public FichaLocalesBean() {
         
         

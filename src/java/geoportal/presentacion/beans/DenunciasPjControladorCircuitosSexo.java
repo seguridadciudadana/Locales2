@@ -36,6 +36,16 @@ public class DenunciasPjControladorCircuitosSexo {
 
     private CartesianChartModel ModelCircuitoSexo2014;
     private CartesianChartModel ModelCircuitoSexo2015;
+    private int anioSel;
+
+    public int getAnioSel() {
+        return anioSel;
+    }
+
+    public void setAnioSel(int anioSel) {
+        this.anioSel = anioSel;
+    }
+    
 
     public ArrayList<DenunciasPj> getLstDatosDadoCircuitoSexoMasculino1() {
         return lstDatosDadoCircuitoSexoMasculino1;
@@ -146,10 +156,10 @@ public class DenunciasPjControladorCircuitosSexo {
             hombres.setLabel("Masculino");
             mujeres.setLabel("Femenino");
             for (DenunciasPj lstDatosP1 : lstDatosCircuito) {
-                lstDatosDadoCircuitoSexoMasculino = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuitoSexo(2014, lstDatosP1.getCircuito(), "MASCULINO");
+                lstDatosDadoCircuitoSexoMasculino = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuitoSexo(anioSel, lstDatosP1.getCircuito(), "MASCULINO");
                 hombres.set(lstDatosP1.getCircuito(), lstDatosDadoCircuitoSexoMasculino.size());
 
-                lstDatosDadoCircuitoSexoFemenino = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuitoSexo(2014, lstDatosP1.getCircuito(), "FEMENINO");
+                lstDatosDadoCircuitoSexoFemenino = FDenunciasPj.ObtenerDatosDenunciasPjDadoAnioCircuitoSexo(anioSel, lstDatosP1.getCircuito(), "FEMENINO");
                 mujeres.set(lstDatosP1.getCircuito(), lstDatosDadoCircuitoSexoFemenino.size());
 
             }
