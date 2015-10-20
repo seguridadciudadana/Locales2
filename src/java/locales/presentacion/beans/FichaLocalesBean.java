@@ -20,6 +20,8 @@ public class FichaLocalesBean {
      * Creates a new instance of FichaLocalesBean
      */
     public FichaLocalesBean() {
+        
+        
     }
     
 }
