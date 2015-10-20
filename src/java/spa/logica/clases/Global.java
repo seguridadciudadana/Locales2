@@ -20,6 +20,7 @@ public class Global {
     private String barrio;
     private String institucion;
     private Date fecha_atencion;
+    
     private String apellidos_victima;
     private String nombres_victima;
     private int edad_victima;

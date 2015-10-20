@@ -41,7 +41,7 @@ public class FFichaLocalesCrud {
                         rs.getInt("sector"),
                         rs.getInt("manzana"),
                         rs.getInt("formulario"),
-                        rs.getInt("direccion"),
+                        rs.getString("direccion"),
                         rs.getString("barrio"),
                         FCircuito.ObtenerCircuitoDadoId(rs.getInt("pid_circuito")),
                         FSubcircuito.ObtenerSubcircuitoDadoId(rs.getInt("pid_subcircuito")),

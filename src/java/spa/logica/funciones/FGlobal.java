@@ -92,8 +92,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnio(int anio) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnio(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -107,8 +107,7 @@ public class FGlobal {
         }
         return lst;
     }
-    
-    
+
     public static ArrayList<Global> ObtenerDatosDadoAnioTipoAgresion(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
@@ -123,9 +122,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-    
-    public static ArrayList<Global> ObtenerDatosDadoAnioDadoTipoAgresion(int anio , String tipo_agresion) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoTipoAgresion(int anio, String tipo_agresion) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -140,8 +138,7 @@ public class FGlobal {
         }
         return lst;
     }
-    
-    
+
     public static ArrayList<Global> ObtenerDatosDadoAnioCircuito(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
@@ -156,9 +153,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-    
-    public static ArrayList<Global> ObtenerDatosDadoAnioDadoCircuito(int anio , String circuito) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoCircuito(int anio, String circuito) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -173,7 +169,24 @@ public class FGlobal {
         }
         return lst;
     }
-    
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioCircuitoSexo(int anio, String circuito, String sexo) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_circuito_dado_sexo_victima(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, circuito));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
     public static ArrayList<Global> ObtenerDatosDadoAnioSubCircuito(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
@@ -188,8 +201,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnioDadoSubCircuito(int anio , String subcircuito) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoSubCircuito(int anio, String subcircuito) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -204,8 +217,25 @@ public class FGlobal {
         }
         return lst;
     }
-     
-     public static ArrayList<Global> ObtenerDatosDadoAnioEstadoCivl(int anio) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioSubcircuitoSexo(int anio, String subcircuito, String sexo) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_subcircuito_dado_sexo_victima(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, subcircuito));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioEstadoCivl(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -219,8 +249,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnioDadoEstadoCivil(int anio , String estado_civil_victima) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoEstadoCivil(int anio, String estado_civil_victima) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -235,8 +265,25 @@ public class FGlobal {
         }
         return lst;
     }
-    
-      public static ArrayList<Global> ObtenerDatosDadoAnioSexo(int anio) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoEstadoCivilGenero(int anio, String estado_civil_victima, String sexo) throws Exception {
+        ArrayList<Global> lst = new ArrayList<Global>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from geoportal_sala_primera_acogida.f_select_global_dado_anio_dado_estado_civil_dado_sexo_victima(?,?,?)";
+            lstP.add(new Parametro(1, anio));
+            lstP.add(new Parametro(2, estado_civil_victima));
+            lstP.add(new Parametro(3, sexo));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioSexo(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -250,8 +297,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnioDadoSexo(int anio , String sexo_victima) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoSexo(int anio, String sexo_victima) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -266,8 +313,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnioParentescoVictimaAgresor(int anio) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioParentescoVictimaAgresor(int anio) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -281,8 +328,8 @@ public class FGlobal {
         }
         return lst;
     }
-    
-     public static ArrayList<Global> ObtenerDatosDadoAnioDadoParentescoVictimaAgresor(int anio , String sexo_victima) throws Exception {
+
+    public static ArrayList<Global> ObtenerDatosDadoAnioDadoParentescoVictimaAgresor(int anio, String sexo_victima) throws Exception {
         ArrayList<Global> lst = new ArrayList<Global>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -297,6 +344,5 @@ public class FGlobal {
         }
         return lst;
     }
-    
 
 }

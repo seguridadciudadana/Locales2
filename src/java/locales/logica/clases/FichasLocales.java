@@ -10,7 +10,7 @@ import vif.logica.clases.Subcircuito;
 /**
  *
  * @author Morales Alex
-  */
+ */
 public class FichasLocales {
 
     private int id_ficha;
@@ -24,7 +24,7 @@ public class FichasLocales {
     private int sector;
     private int manzana;
     private int formulario;
-    private int direccion;
+    private String direccion;
     private String barrio;
     private Circuito id_circuito;
     private Subcircuito id_subcircuito;
@@ -65,7 +65,7 @@ public class FichasLocales {
     public FichasLocales() {
     }
 
-    public FichasLocales(int id_ficha, int carga_trabajo, int grupo, Usuario id_usuario, Provincia id_provincia, Canton id_canton, Parroquia id_parroquia, int zona, int sector, int manzana, int formulario, int direccion, String barrio, Circuito id_circuito, Subcircuito id_subcircuito, int categoria, String razon_social, String tipo_establecimiento, String nombre_propietario, String cedula_cuidadania, int permiso_municipio, int permiso_bombero, int permiso_msp, int permiso_mi, String horario_diurno, String horario_noctuno, String observacion_horario, int terrenos_valdios, int espacio_abiertos, String observacion_entorno_visual, int visualizacion_interna, int iluminacion, int entrada_salidasemergencia, int escondites, int limpieza_local, int senializacion, int extintor, String observacion_emergenciapxley, int sistema_seguridad, int tipo_sseg, String observacio_seguridad, String nombre_unidadeducativa, double distancia, String direccion_ie, String observaciones_generales) {
+    public FichasLocales(int id_ficha, int carga_trabajo, int grupo, Usuario id_usuario, Provincia id_provincia, Canton id_canton, Parroquia id_parroquia, int zona, int sector, int manzana, int formulario, String direccion, String barrio, Circuito id_circuito, Subcircuito id_subcircuito, int categoria, String razon_social, String tipo_establecimiento, String nombre_propietario, String cedula_cuidadania, int permiso_municipio, int permiso_bombero, int permiso_msp, int permiso_mi, String horario_diurno, String horario_noctuno, String observacion_horario, int terrenos_valdios, int espacio_abiertos, String observacion_entorno_visual, int visualizacion_interna, int iluminacion, int entrada_salidasemergencia, int escondites, int limpieza_local, int senializacion, int extintor, String observacion_emergenciapxley, int sistema_seguridad, int tipo_sseg, String observacio_seguridad, String nombre_unidadeducativa, double distancia, String direccion_ie, String observaciones_generales) {
         this.id_ficha = id_ficha;
         this.carga_trabajo = carga_trabajo;
         this.grupo = grupo;
@@ -112,9 +112,6 @@ public class FichasLocales {
         this.direccion_ie = direccion_ie;
         this.observaciones_generales = observaciones_generales;
     }
-    /*
-     metodos get y set
-     */
 
     public int getId_ficha() {
         return id_ficha;
@@ -204,11 +201,11 @@ public class FichasLocales {
         this.formulario = formulario;
     }
 
-    public int getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(int direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 

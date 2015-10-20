@@ -61,6 +61,7 @@ public class CircuitosSubcircuitos {
             lst.add("SAN ALFONSO 2");
             lst.add("SHOPPING 1");
             lst.add("TERMINAL TERRESTRE 1");
+            lst.add("YARUQUIES 1");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
