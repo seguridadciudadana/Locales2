@@ -22,34 +22,44 @@ import spa.logica.funciones.FGlobal;
  */
 @ManagedBean
 @RequestScoped
-public class ControladorDatosVictimasSPA_Global_TipoAgresion {
+public class ControladorDatosVictimasSPA_Global_EstadoCivil {
 
     private ArrayList<Global> lstDatos;
-    private CartesianChartModel lineSPATipoAgresionGlobal;
+    private CartesianChartModel lineSPAEstadoCivilGlobal;
     private ArrayList<Global> lstDatosSF;
-    private ArrayList<Global> lstTipoAgresion;
-    private ArrayList<Global> lstTipoAgresionGlobal;
+    private ArrayList<Global> lstEstadoCivil;
+    private ArrayList<Global> lstEstadoCivilGlobal;
     private Global datoSel;
     private PieChartModel pieCircuito;
     private int anioSel;
+
+    public CartesianChartModel getLineSPAEstadoCivilGlobal() {
+        return lineSPAEstadoCivilGlobal;
+    }
+
+    public void setLineSPAEstadoCivilGlobal(CartesianChartModel lineSPAEstadoCivilGlobal) {
+        this.lineSPAEstadoCivilGlobal = lineSPAEstadoCivilGlobal;
+    }
+
+    public ArrayList<Global> getLstEstadoCivil() {
+        return lstEstadoCivil;
+    }
+
+    public void setLstEstadoCivil(ArrayList<Global> lstEstadoCivil) {
+        this.lstEstadoCivil = lstEstadoCivil;
+    }
+
+    public ArrayList<Global> getLstEstadoCivilGlobal() {
+        return lstEstadoCivilGlobal;
+    }
+
+    public void setLstEstadoCivilGlobal(ArrayList<Global> lstEstadoCivilGlobal) {
+        this.lstEstadoCivilGlobal = lstEstadoCivilGlobal;
+    }
     
     
 
-    public ArrayList<Global> getLstTipoAgresionGlobal() {
-        return lstTipoAgresionGlobal;
-    }
-
-    public void setLstTipoAgresionGlobal(ArrayList<Global> lstTipoAgresionGlobal) {
-        this.lstTipoAgresionGlobal = lstTipoAgresionGlobal;
-    }
-
-    public CartesianChartModel getLineSPATipoAgresionGlobal() {
-        return lineSPATipoAgresionGlobal;
-    }
-
-    public void setLineSPATipoAgresionGlobal(CartesianChartModel lineSPATipoAgresionGlobal) {
-        this.lineSPATipoAgresionGlobal = lineSPATipoAgresionGlobal;
-    }
+    
 
     public int getAnioSel() {
         return anioSel;
@@ -63,13 +73,7 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
 
     
 
-    public ArrayList<Global> getLstTipoAgresion() {
-        return lstTipoAgresion;
-    }
-
-    public void setLstTipoAgresion(ArrayList<Global> lstTipoAgresion) {
-        this.lstTipoAgresion = lstTipoAgresion;
-    }
+    
 
     private Global objSPA2013;
 
@@ -111,14 +115,14 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
 
     @PostConstruct
     public void init() {
-        this.lineSPATipoAgresionGlobal = graficaTipoAgresionGlobal(anioSel);
+        this.lineSPAEstadoCivilGlobal = graficaEstadoCivilGlobal(anioSel);
     }
 
     //public void graficar() {
     //lineModelCircuito = graficaCircuito();
     //lineModelSubCircuito = graficaSubcircuito();
-    //GraficaCircuitoSexoVictima = graficaCircuitoSV();
-    //lineModelSubcircuitoSexoVictima=graficaSubCircuitoSV();
+    //GraficaCircuitoEstadoCivil = graficaCircuitoSV();
+    //lineModelSubcircuitoEstadoCivil=graficaSubCircuitoSV();
        // this.lineSPATipoAgresion13 = graficaTipoAgresion13(anioSel);
     //   this.lineSPATipoAgresion14 = graficaTipoAgresion14();
     //}
@@ -127,19 +131,19 @@ public class ControladorDatosVictimasSPA_Global_TipoAgresion {
         this.init();
     }
 
-    public ControladorDatosVictimasSPA_Global_TipoAgresion() {
+    public ControladorDatosVictimasSPA_Global_EstadoCivil() {
         this.reinit();
     }
 
-    private CartesianChartModel graficaTipoAgresionGlobal(int anio) {
+    private CartesianChartModel graficaEstadoCivilGlobal(int anio) {
         CartesianChartModel model = new CartesianChartModel();
         try {
-            lstDatos = FGlobal.ObtenerDatosDadoAnioTipoAgresion(anioSel);
+            lstDatos = FGlobal.ObtenerDatosDadoAnio(anioSel);
             ChartSeries anio13 = new ChartSeries();
 
             for (int i = 0; i < lstDatos.size(); i++) {
-                lstTipoAgresionGlobal = FGlobal.ObtenerDatosDadoAnioDadoTipoAgresion(anio, lstDatos.get(i).getTipo_agresion());
-                anio13.set(lstDatos.get(i).getTipo_agresion(), lstTipoAgresionGlobal.size());
+                lstEstadoCivilGlobal = FGlobal.ObtenerDatosDadoAnioDadoEstadoCivil(anio, lstDatos.get(i).getEstado_civil_agresor());
+                anio13.set(lstDatos.get(i).getEstado_civil_victima(), lstEstadoCivilGlobal.size());
             }
             model.addSeries(anio13);
         } catch (Exception e) {
