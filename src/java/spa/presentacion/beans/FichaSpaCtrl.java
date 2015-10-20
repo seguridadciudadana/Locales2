@@ -20,6 +20,8 @@ public class FichaSpaCtrl {
      * Creates a new instance of FichaSpaCtrl
      */
     public FichaSpaCtrl() {
+        
+        
     }
     
 }
