@@ -7,8 +7,9 @@ package locales.logica.clases;
 
 /**
  *
- * @author Oscunach
+ * @author Oscunach locales oficial
  */
+
 public class Locales {
     private String estado;
     private int parroquia;
