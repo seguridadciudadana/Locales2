@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>
+            <ui:define name="Datos">Indicadores Datos VIF 2010</ui:define>
+        </title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../../templates/plantillaInternaCenter.xhtml">
+            <ui:define name="top">Ficha de ingreso de establecimientos comerciales</ui:define>
+            <ui:define name="contenido">
+                <p:growl id="mensajes" autoUpdate="true" showDetail="true"/>
+                <h:form id="frmdatos" style="alignment-adjust: central">
+                    <p:ajaxStatus onstart="dlgStatus.show();" oncomplete="dlgStatus.hide();" /> 
+                    <p:panel>
+                        <p:panel header="1.- Ubicación Geográfica">
+                            <p:panelGrid columns="10">
+                                <p:outputLabel value="Parroquia:"/>
+                                <p:selectOneMenu value="#{ctrlFichaLocales.objlocales.parroquia}">
+                                    <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>
+                                    <f:selectItem itemLabel="Velasco" itemValue="1"/>
+                                    <f:selectItem itemLabel="Maldonado" itemValue="2"/>
+                                </p:selectOneMenu>
+
+                                <p:outputLabel value="Barrio:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.barrio}" placeholder="Ej. Sultana de los Andes"/>
+
+                                <p:outputLabel value="Circuito:"/>
+                                <p:selectOneMenu value="#{ctrlFichaLocales.codigoCircuito}">
+                                    <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>
+                                    <f:selectItems value="#{ctrlFichaLocales.lstCircuito}" var="circuitos"
+                                                   itemLabel="#{circuitos.descripcion}" itemValue="#{circuitos.id_circuito}"/>
+                                    <p:ajax event="change" update=":frmdatos"
+                                            listener="#{ctrlFichaLocales.lstSubcircuito}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel value="Subcircuito:"/>
+                                <p:selectOneMenu value="#{ctrlFichaLocales.codigoSubcircuito}">
+                                    <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>   
+                                    <f:selectItems value="#{ctrlFichaLocales.lstSubcircuito}" var="circuitos"
+                                                   itemLabel="#{circuitos.descripcion}" itemValue="#{circuitos.id_subcircuito}"/>
+                                </p:selectOneMenu>
+
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="2.- Datos del Establecimiento">
+                            <p:panelGrid columns="8">
+
+                                <p:outputLabel value="Estado del establecimiento"/>
+                                <p:selectOneMenu value="#{ctrlFichaLocales.objlocales.estado}">
+                                    <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>
+                                    <f:selectItem itemLabel="Abierto" itemValue="Abierto"/>
+                                    <f:selectItem itemLabel="Cerrado" itemValue="Cerrado"/>
+                                    <f:selectItem itemLabel="Clausurado" itemValue="Clausurado"/>
+                                    <f:selectItem itemLabel="Otro" itemValue="Otro"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Razón Social del establecimiento:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.razon_social}" placeholder="Ej. Billar Las Vegas"/>
+                                <p:outputLabel value="Categoría"/>
+                                <p:selectOneMenu value="#{ctrlFichaLocales.objlocales.categoria}">
+                                    <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>
+                                    <f:selectItem itemLabel="Categoría 1" itemValue="1"/>
+                                    <f:selectItem itemLabel="Categoría 2" itemValue="2"/>
+                                    <f:selectItem itemLabel="Categoría 3" itemValue="3"/>
+                                    <f:selectItem itemLabel="Categoría 4" itemValue="4"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Tipo de Establecimiento:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.tipo_establecimiento}" placeholder="Ej. Diversion Nocturna"/>
+                                <p:outputLabel value="Dirección:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.direccion}" required="true" 
+                                                 placeholder="Ej. Avda. 11 de Noviembre y Juan Salinas"/>
+
+                                <p:outputLabel value="Nombre del propietario:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.nombre_del}" required="true" placeholder="Ej. Marco Guapi"/>
+                                <p:outputLabel value="Cédula de ciudadanía:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.cc}" required="true" placeholder="Ej. 0601234567"/>
+
+                            </p:panelGrid>    
+                        </p:panel>
+                        
+                         <p:panel header="3.- Señalización en el croquis">
+                            <p:panelGrid columns="10">
+                                <p:outputLabel value="Coordenada X Local:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.x}" required="true"/>
+                                <p:outputLabel value="Coordenada Y Local:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.y}" required="true"/>
+
+                            </p:panelGrid>
+                                
+                        </p:panel>
+                        <p:panel header="4.- Cumplimiento de permisos">
+                            <p:panelGrid columns="6">
+                                <p:outputLabel value="Municipal:"/>
+                                <p:selectOneRadio id="permisoMunicipal" value="#{ctrlFichaLocales.objlocales.licencia_municipal}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Bomberos:"/>
+                                <p:selectOneRadio id="permisoBomberos" value="#{ctrlFichaLocales.objlocales.licencia_bomberos}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Ministerio de Salud:"/>
+                                <p:selectOneRadio id="permisoMSP" value="#{ctrlFichaLocales.objlocales.licencia_msp}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Ministerio del Interior:"/>
+                                <p:selectOneRadio id="permisoMi" value="#{ctrlFichaLocales.objlocales.licencia_mi}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Ministerio de Turismo:"/>
+                                <p:selectOneRadio id="permisoMt" value="#{ctrlFichaLocales.objlocales.licencia_mt}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="RUC/RISE:"/>
+                                <p:selectOneRadio id="ruc" value="#{ctrlFichaLocales.objlocales.ruc_rise}">
+                                    <f:selectItem itemLabel="RUC" itemValue="RUC" />
+                                    <f:selectItem itemLabel="RISE" itemValue="RISE" />                                
+                                    <f:selectItem itemLabel="Ninguno" itemValue="Ninguno" />     
+                                </p:selectOneRadio>                            
+                            </p:panelGrid>
+                        </p:panel>
+                        
+                        <p:panel header="5.- Horario de Funcionamiento">
+                            <p:panelGrid columns="6">
+                                <p:outputLabel value="Horario Diurno:"/>
+                                <p:calendar id="horarioDiurno" value="#{ctrlFichaLocales.horarioDiurno}" pattern="HH:mm:ss" timeOnly="true" placeholder="Ej. 07:00:00" />
+                                <p:outputLabel value="Horario Nocturno:"/>
+                                <p:calendar id="horarioNocturno" value="#{ctrlFichaLocales.horarioNocturno}" pattern="HH:mm:ss" timeOnly="true" placeholder="Ej. 23:30:00" />
+                                <p:outputLabel value="Observaciones:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.observaciones_jornada_laboral}" required="true" placeholder="Ej. Jornada de trabajo única"
+                                                 rows="3" cols="60"/>
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="6.- Visualización del Entorno Externo">
+                            <p:panelGrid columns="6">
+                                <p:outputLabel value="Terrenos Valdíos:"/>
+                                <p:selectOneRadio id="terrenosValdios" value="#{ctrlFichaLocales.objlocales.terrenos_valdios}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Espacios abiertos (parques, canchas, etc):"/>
+                                <p:selectOneRadio id="espaciosabiertos" value="#{ctrlFichaLocales.objlocales.espacios_abiertos}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Especificar:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.especificaciones_entorno_externo}" required="true" placeholder="Ej. Jornada de trabajo única"
+                                                 rows="3" cols="60"/>
+                            </p:panelGrid>                                               
+                        </p:panel>
+                        <p:panel header="7.- Visualización del entorno interno del establecimiento">
+                            <p:panelGrid columns="6">
+                                <p:outputLabel value="Visualización:"/>
+                                <p:selectOneRadio id="visualizacion" value="#{ctrlFichaLocales.objlocales.visualizacion}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Iluminación:"/>
+                                <p:selectOneRadio id="iluminacion" value="#{ctrlFichaLocales.objlocales.iluminacion}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Entradas y Salidas de emergencia:"/>
+                                <p:selectOneRadio id="esEmergencia" value="#{ctrlFichaLocales.objlocales.entradas_salidas_emergencia}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Recodos, muretes, posibles escondites:"/>
+                                <p:selectOneRadio id="recodos" value="#{ctrlFichaLocales.objlocales.recodos_muretes}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Limpieza del Local:"/>
+                                <p:selectOneRadio id="limpieza" value="#{ctrlFichaLocales.objlocales.limpieza_local}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="8.- Sistemas de emergencia previstos por la ley">
+                            <p:panelGrid columns="6">
+                                <p:outputLabel value="Esta señalizado"/>
+                                <p:selectOneRadio id="senializacion" value="#{ctrlFichaLocales.objlocales.senializacion}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Extintor de incendios"/>
+                                <p:selectOneRadio id="extintor" value="#{ctrlFichaLocales.objlocales.extintor_incendios}">
+                                    <f:selectItem itemLabel="SI" itemValue="Si" />
+                                    <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                </p:selectOneRadio>
+                                <p:outputLabel value="Observaciones:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.obsrv_sistemas_emergencia}" required="true" placeholder="Ej. No cuenta con extintor"
+                                                 rows="3" cols="60"/>
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="9.- Sistema de Seguridad">
+                            <p:panelGrid columns="2">
+                                <p:panelGrid columns="2">
+                                    <p:outputLabel value="Dispone de un sistema de seguridad:"/>
+                                    <p:selectOneRadio id="sistemaSeg" value="#{ctrlFichaLocales.objlocales.sistema_seguridad}">
+                                        <f:selectItem itemLabel="SI" itemValue="Si" />
+                                        <f:selectItem itemLabel="NO" itemValue="NO" />                                
+                                    </p:selectOneRadio>
+                                    <p:outputLabel value="Tipo sistema de seguridad:"/>
+                                    <p:selectOneRadio id="tiposistemaSeg" value="#{ctrlFichaLocales.objlocales.tipo}">
+                                        <f:selectItem itemLabel="Estatal" itemValue="Estatal" />
+                                        <f:selectItem itemLabel="Privado" itemValue="Privado" />                                
+                                    </p:selectOneRadio>
+                                                                      
+                                </p:panelGrid>
+                                <p:panelGrid columns="2">
+                                    <p:outputLabel value="Observaciones sobre el sistema de seguridad:"/>
+                                    <p:inputTextarea value="#{ctrlFichaLocales.objlocales.obsrvc_sistema_seguridad}" placeholder="Ej. El sistema de seguridad no funciona en su totalidad"
+                                                     rows="3" cols="60" required="true"/>
+                                </p:panelGrid>
+                            </p:panelGrid>
+                        </p:panel>
+                        
+                        <p:panel header="10.- Centros educativos">
+                            <p:panelGrid columns="4">
+                                <p:outputLabel value="Nombre institución educativa:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.inst_educativa}" required="true" placeholder="Ej. ESPOCH"
+                                                 rows="3" cols="60"/>
+                                <p:outputLabel value="Distancia entre el establecimiento y la Unidad Educativa (m)"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.distancia_ie}" required="true" placeholder="10" size="10"/>
+                                <p:outputLabel value="Dirección:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.direccion_ie}" required="true" placeholder="Ej. Avda. 11 de Noviembre y Milton Reyes"
+                                                 rows="3" cols="75"/>
+                                
+                            </p:panelGrid>
+                            <p:panel header="Cordenadas del centro educativo">
+                            <p:panelGrid columns="10">
+                                <p:outputLabel value="Coordenada X Local:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.x}" required="true"/>
+                                <p:outputLabel value="Coordenada Y Local:"/>
+                                <p:inputText value="#{ctrlFichaLocales.objlocales.y}" required="true"/>
+
+                            </p:panelGrid>
+                                
+                        </p:panel>
+                        </p:panel>
+                      
+                    </p:panel>
+                    <p:panel header="11. Persona encuestada">
+                        <p:panelGrid columns="6">
+                            <p:outputLabel value="Nombres y Apellidos:"/>
+                            <p:inputText value="#{ctrlFichaLocales.objlocales.carga_trabajo}"/>
+                            <p:outputLabel value="Cedula de Ciudadania:"/>
+                            <p:inputText value="#{ctrlFichaLocales.objlocales.grupo}" required="true"/>
+                            <p:outputLabel value="Teléfono:"/>
+                            <p:inputText value="#{ctrlFichaLocales.objlocales.digitador}" placeholder="Ej. Geovanny Cudco" required="true"
+                                         size="30"/>  
+                            
+                            <p:outputLabel value="Sugerencia de la persona entrevistada:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.observaciones_generales}" required="true" 
+                                                 placeholder="Ej.ejemplo"
+                                                 rows="3" cols="50"/>
+                        </p:panelGrid> 
+                         
+                    </p:panel>
+                    
+                      <p:panel header="12. Observaciones generales">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel value="Observaciones:"/>
+                                <p:inputTextarea value="#{ctrlFichaLocales.objlocales.observaciones_generales}" required="true" 
+                                                 placeholder="Ej. En el local se constató la presencia de menores de edad"
+                                                 rows="3" cols="160"/>
+                            </p:panelGrid>
+                        </p:panel>
+                    
+                    <p:panel id="pnlOpciones">
+                        <p:commandButton value="Guardar"/>
+                        <p:commandButton value="Limpiar" process="@this" />
+                    </p:panel>
+                </h:form>
+            </ui:define>
+            <ui:define name="dialogos">
+                <p:dialog modal="true" widgetVar="dlgStatus" header="Procesando" draggable="false" closable="false" 
+                          resizable="false"> 
+                    <p:graphicImage value="/resources/images/ajaxloadingbar.gif" />  
+                </p:dialog>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
