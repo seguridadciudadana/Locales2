@@ -23,6 +23,15 @@ public class CFichaLocales {
     private FichaLocales fichaSel;
     private FichaLocales fichaDel;
     private FichaLocales fichaMod;
+    private Circuito circuitoSel;
+
+    public Circuito getCircuitoSel() {
+        return circuitoSel;
+    }
+
+    public void setCircuitoSel(Circuito circuitoSel) {
+        this.circuitoSel = circuitoSel;
+    }
     
     private ArrayList<Circuito> listaCircuito;
     private String codCircuito;
@@ -102,22 +111,23 @@ public class CFichaLocales {
         
     }
     public void reint(){
+        this.circuitoSel=new Circuito();
     this.listaCircuito=new ArrayList<Circuito>();
     this.listaSubCircuito=new ArrayList<Subcircuito>();
    // this.obtnerCircuito();
     }
-//     public void obtnerCircuito() {
-//        try {
-//            this.listaCircuito = FCircuito.obtenerCircuito();
-//            this.fichaSel = listaCircuito.get(0);
-//            System.out.println(lstCircuito.get(0).getId_circuito());
-//        } catch (Exception e) {
-//            Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
-//            System.out.println("public void obtnerCircuito dice:" + e.getMessage());
-//        }
+     public void obtnerCircuito() {
+        try {
+            this.listaCircuito = FCircuito.obtenerCircuito();
+            this.circuitoSel = listaCircuito.get(0);
+            System.out.println(listaCircuito.get(0).getId_circuito());
+        } catch (Exception e) {
+            Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
+            System.out.println("public void obtnerCircuito dice:" + e.getMessage());
+        }
 
     }
-    
+}
     
     
     
