@@ -1,5 +1,5 @@
-
 package locales2.presentacion.beans;
+
 import java.sql.Array;
 import vif.logica.clases.Circuito;
 import vif.logica.funciones.FCircuito;
@@ -17,88 +17,37 @@ import recursos.Util;
 @SessionScoped
 public class CFichaLocales {
 
-
-    
-    private FichaLocales fichaNew;
-    private FichaLocales fichaSel;
-    private FichaLocales fichaDel;
-    private FichaLocales fichaMod;
-    private Circuito circuitoSel;
-    private Subcircuito subCircuitoSel;
-
-    public Subcircuito getSubCircuitoSel() {
-        return subCircuitoSel;
-    }
-
-    public void setSubCircuitoSel(Subcircuito subCircuitoSel) {
-        this.subCircuitoSel = subCircuitoSel;
-    }
-
-    public ArrayList<Subcircuito> getListaSubCircuito() {
-        return listaSubCircuito;
-    }
-
-    public void setListaSubCircuito(ArrayList<Subcircuito> listaSubCircuito) {
-        this.listaSubCircuito = listaSubCircuito;
-    }
-    
-    
-    
-    
-
-    public Circuito getCircuitoSel() {
-        return circuitoSel;
-    }
-
-    public void setCircuitoSel(Circuito circuitoSel) {
-        this.circuitoSel = circuitoSel;
-    }
-    
-    private ArrayList<Circuito> listaCircuito;
+    private FichaLocales fichanew;
     private String codCircuito;
-    
-    
-    private ArrayList<Subcircuito> listaSubCircuito;
     private String codSubCircuito;
 
-    public FichaLocales getFichaNew() {
-        return fichaNew;
+    private ArrayList<Circuito> circuitoLista;
+   private ArrayList<Subcircuito> subcircuitoLista;
+
+    public ArrayList<Circuito> getCircuitoLista() {
+        return circuitoLista;
     }
 
-    public void setFichaNew(FichaLocales fichaNew) {
-        this.fichaNew = fichaNew;
+    public void setCircuitoLista(ArrayList<Circuito> circuitoLista) {
+        this.circuitoLista = circuitoLista;
     }
 
-    public FichaLocales getFichaSel() {
-        return fichaSel;
+    public ArrayList<Subcircuito> getSubcircuitoLista() {
+        return subcircuitoLista;
     }
 
-    public void setFichaSel(FichaLocales fichaSel) {
-        this.fichaSel = fichaSel;
+    public void setSubcircuitoLista(ArrayList<Subcircuito> subcircuitoLista) {
+        this.subcircuitoLista = subcircuitoLista;
+    }
+   
+    
+    
+    public FichaLocales getFichanew() {
+        return fichanew;
     }
 
-    public FichaLocales getFichaDel() {
-        return fichaDel;
-    }
-
-    public void setFichaDel(FichaLocales fichaDel) {
-        this.fichaDel = fichaDel;
-    }
-
-    public FichaLocales getFichaMod() {
-        return fichaMod;
-    }
-
-    public void setFichaMod(FichaLocales fichaMod) {
-        this.fichaMod = fichaMod;
-    }
-
-    public ArrayList<Circuito> getListaCircuito() {
-        return listaCircuito;
-    }
-
-    public void setListaCircuito(ArrayList<Circuito> listaCircuito) {
-        this.listaCircuito = listaCircuito;
+    public void setFichanew(FichaLocales fichanew) {
+        this.fichanew = fichanew;
     }
 
     public String getCodCircuito() {
@@ -116,47 +65,22 @@ public class CFichaLocales {
     public void setCodSubCircuito(String codSubCircuito) {
         this.codSubCircuito = codSubCircuito;
     }
-    
-    
 
-    public CFichaLocales() {
-       this.reint();
-        
+    public CFichaLocales() throws Exception {
+        fichanew=new FichaLocales();
+        circuitoLista=FCircuito.obtenerCircuito();
+        subcircuitoLista=FSubcircuito.obtenerSubcircuito();
     }
-    public void reint(){
-    this.circuitoSel=new Circuito();
-    this.subCircuitoSel=new Subcircuito();
-    this.listaCircuito=new ArrayList<Circuito>();
-    this.listaSubCircuito=new ArrayList<Subcircuito>();
-   this.obtnerCircuito();
-   this.obtnerSubCircuito();
+
+    
+    public  String insertar() throws Exception{
+        fichanew.setId_circuito(FCircuito.ObtenerCircuitoDadoId(Integer.parseInt(codCircuito)));
+        fichanew.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(Integer.parseInt(codSubCircuito)));
+        FFichaLocales.insertarFichasLocales(fichanew);
+        return "frmFichaLocales?transition=slide";
     }
     
     
-     public void obtnerCircuito() {
-        try {
-            this.listaCircuito = FCircuito.obtenerCircuito();
-            this.circuitoSel = listaCircuito.get(0);
-            System.out.println(listaCircuito.get(0).getId_circuito());
-        } catch (Exception e) {
-            Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
-            System.out.println("public void obtnerCircuito dice:" + e.getMessage());
-        }
-    }
-     
-      public void obtnerSubCircuito() {
-        try {
-            this.listaSubCircuito = FSubcircuito.obtenerSubcircuito();
-            this.subCircuitoSel = listaSubCircuito.get(0);
-            System.out.println(listaSubCircuito.get(0).getId_circuito());
-        } catch (Exception e) {
-            Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
-            System.out.println("public void obtnerCircuito dice:" + e.getMessage());
-        }
-    }
+    
+    
 }
-    
-    
-    
-
-  

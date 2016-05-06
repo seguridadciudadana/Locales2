@@ -48,6 +48,7 @@ public class FCircuito {
 
         return lst;
     }
+   
 
     public static boolean insertarCircuito(Circuito circuito) throws Exception {
         boolean eje = false;

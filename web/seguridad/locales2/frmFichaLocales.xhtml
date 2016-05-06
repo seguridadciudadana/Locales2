@@ -36,19 +36,19 @@ and open the template in the editor.
                                 <p:inputText value="#{ctrlFichaLocales.objlocales.barrio}" placeholder="Ej. Sultana de los Andes"/>
 
                                 <p:outputLabel value="Circuito:"/>
-                                <p:selectOneMenu value="#{ctrlFichaLocales.codigoCircuito}">
+                                <p:selectOneMenu value="#{cFichaLocales.codCircuito}">
                                     <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>
-                                    <f:selectItems value="#{ctrlFichaLocales.lstCircuito}" var="circuitos"
+                                    <f:selectItems value="#{cFichaLocales.circuitoLista}" var="circuitos"
                                                    itemLabel="#{circuitos.descripcion}" itemValue="#{circuitos.id_circuito}"/>
-                                    <p:ajax event="change" update=":frmdatos"
+                                   <p:ajax event="change" update=":frmdatos"
                                             listener="#{ctrlFichaLocales.lstSubcircuito}" />
                                 </p:selectOneMenu>
 
                                 <p:outputLabel value="Subcircuito:"/>
-                                <p:selectOneMenu value="#{ctrlFichaLocales.codigoSubcircuito}">
+                                <p:selectOneMenu value="#{cFichaLocales.codSubCircuito}">
                                     <f:selectItem itemLabel="Seleccione.." itemValue="#{null}"/>   
-                                    <f:selectItems value="#{ctrlFichaLocales.lstSubcircuito}" var="circuitos"
-                                                   itemLabel="#{circuitos.descripcion}" itemValue="#{circuitos.id_subcircuito}"/>
+                                    <f:selectItems value="#{cFichaLocales.subcircuitoLista}" var="subcircuitos"
+                                                   itemLabel="#{subcircuitos.descripcion}" itemValue="#{subcircuitos.id_subcircuito}"/>
                                 </p:selectOneMenu>
 
                             </p:panelGrid>
@@ -284,7 +284,7 @@ and open the template in the editor.
                         </p:panel>
                     
                     <p:panel id="pnlOpciones">
-                        <p:commandButton value="Guardar"/>
+                        <p:commandButton action="#{cFichaLocales.insertar()}" value="Guardar"/>
                         <p:commandButton value="Limpiar" process="@this" />
                     </p:panel>
                 </h:form>

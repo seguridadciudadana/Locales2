@@ -511,6 +511,8 @@ public class FichaLocales {
         this.observaciones_generales = observaciones_generales;
     }
 
+  
+
     
     
     
