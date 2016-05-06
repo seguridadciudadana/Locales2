@@ -24,6 +24,27 @@ public class CFichaLocales {
     private FichaLocales fichaDel;
     private FichaLocales fichaMod;
     private Circuito circuitoSel;
+    private Subcircuito subCircuitoSel;
+
+    public Subcircuito getSubCircuitoSel() {
+        return subCircuitoSel;
+    }
+
+    public void setSubCircuitoSel(Subcircuito subCircuitoSel) {
+        this.subCircuitoSel = subCircuitoSel;
+    }
+
+    public ArrayList<Subcircuito> getListaSubCircuito() {
+        return listaSubCircuito;
+    }
+
+    public void setListaSubCircuito(ArrayList<Subcircuito> listaSubCircuito) {
+        this.listaSubCircuito = listaSubCircuito;
+    }
+    
+    
+    
+    
 
     public Circuito getCircuitoSel() {
         return circuitoSel;
@@ -37,7 +58,7 @@ public class CFichaLocales {
     private String codCircuito;
     
     
-    private List<Subcircuito> listaSubCircuito;
+    private ArrayList<Subcircuito> listaSubCircuito;
     private String codSubCircuito;
 
     public FichaLocales getFichaNew() {
@@ -88,14 +109,6 @@ public class CFichaLocales {
         this.codCircuito = codCircuito;
     }
 
-    public List<Subcircuito> getListaSubCircuito() {
-        return listaSubCircuito;
-    }
-
-    public void setListaSubCircuito(List<Subcircuito> listaSubCircuito) {
-        this.listaSubCircuito = listaSubCircuito;
-    }
-
     public String getCodSubCircuito() {
         return codSubCircuito;
     }
@@ -111,11 +124,15 @@ public class CFichaLocales {
         
     }
     public void reint(){
-        this.circuitoSel=new Circuito();
+    this.circuitoSel=new Circuito();
+    this.subCircuitoSel=new Subcircuito();
     this.listaCircuito=new ArrayList<Circuito>();
     this.listaSubCircuito=new ArrayList<Subcircuito>();
-   // this.obtnerCircuito();
+   this.obtnerCircuito();
+   this.obtnerSubCircuito();
     }
+    
+    
      public void obtnerCircuito() {
         try {
             this.listaCircuito = FCircuito.obtenerCircuito();
@@ -125,7 +142,17 @@ public class CFichaLocales {
             Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
             System.out.println("public void obtnerCircuito dice:" + e.getMessage());
         }
-
+    }
+     
+      public void obtnerSubCircuito() {
+        try {
+            this.listaSubCircuito = FSubcircuito.obtenerSubcircuito();
+            this.subCircuitoSel = listaSubCircuito.get(0);
+            System.out.println(listaSubCircuito.get(0).getId_circuito());
+        } catch (Exception e) {
+            Util.addErrorMessage("public void obtnerCircuito dice:" + e.getMessage());
+            System.out.println("public void obtnerCircuito dice:" + e.getMessage());
+        }
     }
 }
     
