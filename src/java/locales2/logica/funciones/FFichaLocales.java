@@ -21,7 +21,7 @@ public class FFichaLocales {
         try {
             while (rs.next()) {
                 datos = new FichaLocales(rs.getInt(null),
-                        rs.getString("pparroquia"), 
+                        rs.getInt("pparroquia"), 
                         rs.getString("pbarrio"), 
                         FCircuito.ObtenerCircuitoDadoId(rs.getInt("pid_circuito")),
                         FSubcircuito.ObtenerSubcircuitoDadoId(rs.getInt("pid_subcircuito")), 
@@ -147,5 +147,33 @@ public class FFichaLocales {
         return eje;
 
     }
+    public static ArrayList<FichaLocales> ObtenerDatosParroquia() throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            String sql = "select * from locales.f_select_locales_busqueda_parroquia()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+      public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseParroquias(String ruc, int parroquia) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_permiso_ruc_parroquia(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, parroquia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
     
 }
