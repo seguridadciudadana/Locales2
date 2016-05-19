@@ -11,6 +11,7 @@ import accesodatos.ConjuntoResultado;
 import accesodatos.Parametro;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -35,6 +36,21 @@ public class FCircuito {
     }
 
     public static ArrayList<Circuito> obtenerCircuito() throws Exception {
+        ArrayList<Circuito> lst = new ArrayList<Circuito>();
+        try {
+            String sql = "select * from vif.f_select_circuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarCircuito(rs);
+            rs = null;
+
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+
+        return lst;
+    }
+    // List
+    public static List<Circuito> obtenerC() throws Exception {
         ArrayList<Circuito> lst = new ArrayList<Circuito>();
         try {
             String sql = "select * from vif.f_select_circuito()";

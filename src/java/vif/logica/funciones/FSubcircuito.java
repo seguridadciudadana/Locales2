@@ -11,6 +11,7 @@ import vif.logica.clases.Subcircuito;
 import accesodatos.AccesoDatos;
 import accesodatos.Parametro;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -36,6 +37,21 @@ public class FSubcircuito {
     }
     
     public static ArrayList<Subcircuito> obtenerSubcircuito() throws Exception {
+        ArrayList<Subcircuito> lst = new ArrayList<Subcircuito>();
+        try {
+            String sql = "select * from vif.f_select_subcircuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+            
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        
+        return lst;
+    }
+    //List
+     public static List<Subcircuito> obtenerS() throws Exception {
         ArrayList<Subcircuito> lst = new ArrayList<Subcircuito>();
         try {
             String sql = "select * from vif.f_select_subcircuito()";
