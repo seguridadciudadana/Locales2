@@ -16,38 +16,41 @@ import recursos.Util;
 @ManagedBean
 @SessionScoped
 public class CFichaLocales {
-
-    private FichaLocales fichanew;
+    private FichaLocales fichaNew;
+    private List<Circuito> circuitoList;
+    private List<Subcircuito> subcircuitoList;
     private String codCircuito;
-    private String codSubCircuito;
+    private String codSubcircuito;
 
-    private ArrayList<Circuito> circuitoLista;
-   private ArrayList<Subcircuito> subcircuitoLista;
-
-    public ArrayList<Circuito> getCircuitoLista() {
-        return circuitoLista;
+    public CFichaLocales()throws Exception{
+        
+        circuitoList=FCircuito.obtenerC();
+        subcircuitoList=FSubcircuito.obtenerS();
+        fichaNew = new FichaLocales();
     }
 
-    public void setCircuitoLista(ArrayList<Circuito> circuitoLista) {
-        this.circuitoLista = circuitoLista;
+    public FichaLocales getFichaNew() {
+        return fichaNew;
     }
 
-    public ArrayList<Subcircuito> getSubcircuitoLista() {
-        return subcircuitoLista;
+    public void setFichaNew(FichaLocales fichaNew) {
+        this.fichaNew = fichaNew;
     }
 
-    public void setSubcircuitoLista(ArrayList<Subcircuito> subcircuitoLista) {
-        this.subcircuitoLista = subcircuitoLista;
-    }
-   
-    
-    
-    public FichaLocales getFichanew() {
-        return fichanew;
+    public List<Circuito> getCircuitoList() {
+        return circuitoList;
     }
 
-    public void setFichanew(FichaLocales fichanew) {
-        this.fichanew = fichanew;
+    public void setCircuitoList(List<Circuito> circuitoList) {
+        this.circuitoList = circuitoList;
+    }
+
+    public List<Subcircuito> getSubcircuitoList() {
+        return subcircuitoList;
+    }
+
+    public void setSubcircuitoList(List<Subcircuito> subcircuitoList) {
+        this.subcircuitoList = subcircuitoList;
     }
 
     public String getCodCircuito() {
@@ -58,29 +61,19 @@ public class CFichaLocales {
         this.codCircuito = codCircuito;
     }
 
-    public String getCodSubCircuito() {
-        return codSubCircuito;
+    public String getCodSubcircuito() {
+        return codSubcircuito;
     }
 
-    public void setCodSubCircuito(String codSubCircuito) {
-        this.codSubCircuito = codSubCircuito;
-    }
-
-    public CFichaLocales() throws Exception {
-        fichanew=new FichaLocales();
-        circuitoLista=FCircuito.obtenerCircuito();
-        subcircuitoLista=FSubcircuito.obtenerSubcircuito();
-    }
-
-    
-    public  String insertar() throws Exception{
-        fichanew.setId_circuito(FCircuito.ObtenerCircuitoDadoId(Integer.parseInt(codCircuito)));
-        fichanew.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(Integer.parseInt(codSubCircuito)));
-        FFichaLocales.insertarFichasLocales(fichanew);
-        return "frmFichaLocales?transition=slide";
+    public void setCodSubcircuito(String codSubcircuito) {
+        this.codSubcircuito = codSubcircuito;
     }
     
-    
-    
-    
+    public String insertar() throws Exception{
+        fichaNew.setId_ficha_locales(2);
+        fichaNew.setId_circuito(FCircuito.ObtenerCircuitoDadoId(Integer.parseInt(codCircuito)));
+        fichaNew.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(Integer.parseInt(codSubcircuito)));
+        FFichaLocales.insertarFichasLocales(fichaNew);
+        return "aplicacion?transition=slide";
+    }
 }
