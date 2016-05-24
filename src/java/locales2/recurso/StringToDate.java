@@ -1,6 +1,6 @@
 
 package locales2.recurso;
-
+//ejemplo
 import java.util.Date;
 
 public class StringToDate {
