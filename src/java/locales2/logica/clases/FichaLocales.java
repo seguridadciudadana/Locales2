@@ -1,6 +1,6 @@
 package locales2.logica.clases;
 
-import vif.logica.clases.*;
+import locales.logica.clases.*;
 
 public class FichaLocales {
 
@@ -8,7 +8,7 @@ public class FichaLocales {
     private int parroquia;
     private String barrio;
     private Circuito id_circuito;
-    private Subcircuito id_subcircuito;
+    private SubCircuito id_subcircuito;
     private String estado_local;
     private String razon_social;
     private int categoria;
@@ -58,7 +58,7 @@ public class FichaLocales {
     public FichaLocales() {
     }
 
-    public FichaLocales(int id_ficha_locales, int parroquia, String barrio, Circuito id_circuito, Subcircuito id_subcircuito, String estado_local, String razon_social, int categoria, String tipo_establecimiento, String direccion_establecimiento, String nombre_propietario, String cedula_propietario, String telefono_propietario, double x_local, double y_local, String permiso_municipio, String permiso_bomberos, String permiso_mds, String permiso_mi, String permiso_lt, String sri, String hora_inicio_diurno, String hora_fin_diurno, String hora_inicio_nocturno, String hora_fin_nocturno, String observaciones_hora, String terrenos_valdios, String espacios_abiertos, String especificaciones_entorno, String visualizacion, String iluminacion, String entrada_salida_emergencia, String escondites, String limpieza, String senializado, String extintores, String observaciones_sistema_emergencia, String sistema_seguridad, String tipo_sistema_seguridad, String observaciones_sistema_seguridad, String institucion_educativa, int distancia_local_centro_educativo, String direccion, double x_centro_educativo, double y_centro_educativo, String nombre_encuestada, String cedula_encuestada, String telefono_encuestada, String sugerencia_encuestada, String observaciones_generales) {
+    public FichaLocales(int id_ficha_locales, int parroquia, String barrio, Circuito id_circuito, SubCircuito id_subcircuito, String estado_local, String razon_social, int categoria, String tipo_establecimiento, String direccion_establecimiento, String nombre_propietario, String cedula_propietario, String telefono_propietario, double x_local, double y_local, String permiso_municipio, String permiso_bomberos, String permiso_mds, String permiso_mi, String permiso_lt, String sri, String hora_inicio_diurno, String hora_fin_diurno, String hora_inicio_nocturno, String hora_fin_nocturno, String observaciones_hora, String terrenos_valdios, String espacios_abiertos, String especificaciones_entorno, String visualizacion, String iluminacion, String entrada_salida_emergencia, String escondites, String limpieza, String senializado, String extintores, String observaciones_sistema_emergencia, String sistema_seguridad, String tipo_sistema_seguridad, String observaciones_sistema_seguridad, String institucion_educativa, int distancia_local_centro_educativo, String direccion, double x_centro_educativo, double y_centro_educativo, String nombre_encuestada, String cedula_encuestada, String telefono_encuestada, String sugerencia_encuestada, String observaciones_generales) {
         this.id_ficha_locales = id_ficha_locales;
         this.parroquia = parroquia;
         this.barrio = barrio;
@@ -143,11 +143,11 @@ public class FichaLocales {
         this.id_circuito = id_circuito;
     }
 
-    public Subcircuito getId_subcircuito() {
+    public SubCircuito getId_subcircuito() {
         return id_subcircuito;
     }
 
-    public void setId_subcircuito(Subcircuito id_subcircuito) {
+    public void setId_subcircuito(SubCircuito id_subcircuito) {
         this.id_subcircuito = id_subcircuito;
     }
 
@@ -511,10 +511,6 @@ public class FichaLocales {
         this.observaciones_generales = observaciones_generales;
     }
 
-  
-
-    
-    
-    
+   
     
 }

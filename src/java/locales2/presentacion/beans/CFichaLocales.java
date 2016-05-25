@@ -69,11 +69,5 @@ public class CFichaLocales {
         this.codSubcircuito = codSubcircuito;
     }
     
-    public String insertar() throws Exception{
-        fichaNew.setId_ficha_locales(2);
-        fichaNew.setId_circuito(FCircuito.ObtenerCircuitoDadoId(Integer.parseInt(codCircuito)));
-        fichaNew.setId_subcircuito(FSubcircuito.ObtenerSubcircuitoDadoId(Integer.parseInt(codSubcircuito)));
-        FFichaLocales.insertarFichasLocales(fichaNew);
-        return "aplicacion?transition=slide";
-    }
+    
 }

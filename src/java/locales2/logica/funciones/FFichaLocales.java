@@ -5,12 +5,10 @@ import accesodatos.ConjuntoResultado;
 import accesodatos.Parametro;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import locales2.logica.funciones.FCircuito;
+import locales2.logica.funciones.FSubCircuito;
+import locales2.logica.funciones.FFichaLocales;
 import locales2.logica.clases.*;
-import vif.logica.clases.*;
-import vif.logica.funciones.*;
-import locales2.logica.clases.FichaLocales;
-import vif.logica.funciones.FCircuito;
-import vif.logica.funciones.FSubcircuito;
 
 public class FFichaLocales {
 
@@ -20,11 +18,12 @@ public class FFichaLocales {
         FichaLocales datos = null;
         try {
             while (rs.next()) {
-                datos = new FichaLocales(rs.getInt(null),
+                datos = new FichaLocales(
+                        rs.getInt("pid_ficha_locales"),
                         rs.getInt("pparroquia"), 
                         rs.getString("pbarrio"), 
-                        FCircuito.ObtenerCircuitoDadoId(rs.getInt("pid_circuito")),
-                        FSubcircuito.ObtenerSubcircuitoDadoId(rs.getInt("pid_subcircuito")), 
+                        FCircuito.obtenerCircuitoCodigo(rs.getInt("pid_circuito")),
+                        FSubCircuito.obtenerSubCircuitoCodigo(rs.getInt("pid_subcircuito")), 
                         rs.getString("pestado_local"), 
                         rs.getString("prazon_social"), 
                         rs.getInt("pcategoria"), 
@@ -69,7 +68,7 @@ public class FFichaLocales {
                         rs.getString("pcedula_encuestada"),
                         rs.getString("ptelefono_encuestada"),
                         rs.getString("psugerencia_encuestada"),
-                        rs.getString("observaciones_generales"));
+                        rs.getString("pobservaciones_generales"));
                 lst.add(datos);
             }
         } catch (Exception e) {
@@ -150,7 +149,7 @@ public class FFichaLocales {
     public static ArrayList<FichaLocales> ObtenerDatosParroquia() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
-            String sql = "select * from locales.f_select_locales_busqueda_parroquia()";
+            String sql = "select * from locales2.f_select_locales_busqueda_parroquia()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarDatos(rs);
             rs = null;
@@ -164,7 +163,7 @@ public class FFichaLocales {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from locales.f_select_locales_dado_permiso_ruc_parroquia(?,?)";
+            String sql = "select * from locales2.f_select_locales_dado_permiso_ruc_parroquia(?,?)";
             lstP.add(new Parametro(1, ruc));
             lstP.add(new Parametro(2, parroquia));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
