@@ -16,10 +16,10 @@ public class TFichaLocales {
 //        for(FichaLocales n: lista){
 //            System.out.println(n.getTipo_establecimiento());
 //        }
-         List<FichaLocales> lista= FFichaLocales.ObtenerDatosDadoRucoRiseParroquias("RISE", 1);
-        for(FichaLocales n: lista){
-            System.out.println(n.getSri());
-        }
+//         List<FichaLocales> lista= FFichaLocales.ObtenerDatosDadoRucoRiseParroquias("RISE", 1);
+//        for(FichaLocales n: lista){
+//            System.out.println(n.getSri());
+//        }
 //        List<FichaLocales> listas=FFichaLocales.ObtenerDatosEstadoEstablecimiento();
 //      for(FichaLocales n:listas){
 //          System.out.println(n.getEstado_local());
@@ -36,5 +36,15 @@ public class TFichaLocales {
 //          System.out.println(n.getTipo_establecimiento());
 //      
 //      }
+        
+//              List<FichaLocales> l=FFichaLocales.ObtenerDatosEstadoEstablecimiento();
+//      for(FichaLocales n:l){
+//          System.out.println(n.getTipo_establecimiento());
+          
+               List<FichaLocales> les=FFichaLocales.ObtenerDatosDadoTipoEstablecimiento("ABARROTES");
+      for(FichaLocales n:les){
+          System.out.println(n.getTipo_establecimiento());
+      }
+        
     }
 }
