@@ -11,7 +11,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import locales2.logica.clases.FichaLocales;
 import locales2.logica.funciones.FFichaLocales;
-import locales2.logica.clases.Circuito;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
