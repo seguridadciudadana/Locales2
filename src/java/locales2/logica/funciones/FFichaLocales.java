@@ -173,6 +173,47 @@ public class FFichaLocales {
         }
         return lst;
     }
+      public static ArrayList<FichaLocales> ObtenerDatosCircuito() throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            String sql = "select * from locales.f_select_locales_busqueda_circuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoCircuito(int pe) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_circuito(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+      
+       public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosCircuito(String permiso_bomberos, int id_circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales.f_select_locales_dado_permiso_bomberos_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_bomberos));
+            lstP.add(new Parametro(2, id_circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
 
     
 }
