@@ -202,8 +202,50 @@ public class FFichaLocales {
         }
         return lst;
     }
+      //Marco Guapi
+       public static ArrayList<FichaLocales> ObtenerLocalesDadoCircuito(int pe) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_circuito(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+       //Marco Guapi
+        public static ArrayList<FichaLocales> ObtenerLocalesDadoSubcircuito(int pe) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_subcircuito(?)";
+            lstP.add(new Parametro(1, pe));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+        
+        //Marco Guapi
+         public static ArrayList<FichaLocales> ObtenerDatos() throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            String sql = "select * from locales2.f_select_locales()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
       
-      
+       
       public static ArrayList<FichaLocales> ObtenerDatosCircuito() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
