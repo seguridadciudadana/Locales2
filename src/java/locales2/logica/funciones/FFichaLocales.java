@@ -273,6 +273,34 @@ public class FFichaLocales {
         }
         return lst;
     }
+        //Marco Guapi
+        public static ArrayList<FichaLocales> ObtenerDatosDeCircuito() throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            String sql = "select * from locales2.f_select_locales_busqueda_circuito()";
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (SQLException exConec) {
+            throw new Exception(exConec.getMessage());
+        }
+        return lst;
+    }
+        //Marco Guapi
+          public static ArrayList<FichaLocales> ObtenerDatosDadoEstadoCircuito(String estado, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_estado_circuito(?,?)";
+            lstP.add(new Parametro(1, estado));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
        
       public static ArrayList<FichaLocales> ObtenerDatosCircuito() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
