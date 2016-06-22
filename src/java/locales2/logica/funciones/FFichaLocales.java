@@ -429,26 +429,15 @@ public class FFichaLocales {
         }
         return lst;
     }
+          //Marco Guapi
               
-      public static ArrayList<FichaLocales> ObtenerDatosCircuito() throws Exception {
-        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
-        try {
-            String sql = "select * from locales.f_select_locales_busqueda_circuito()";
-            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
-            lst = llenarDatos(rs);
-            rs = null;
-        } catch (SQLException exConec) {
-            throw new Exception(exConec.getMessage());
-        }
-        return lst;
-    }
-
-    public static ArrayList<FichaLocales> ObtenerDatosDadoCircuito(int pe) throws Exception {
+               public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosCircuito(String permiso_bomberos, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from locales.f_select_locales_dado_circuito(?)";
-            lstP.add(new Parametro(1, pe));
+            String sql = "select * from locales2.f_select_locales_dado_permiso_bomberos_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_bomberos));
+            lstP.add(new Parametro(2, circuito));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
@@ -456,14 +445,47 @@ public class FFichaLocales {
         }
         return lst;
     }
-      
-       public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosCircuito(String permiso_bomberos, int id_circuito) throws Exception {
+               // Marco Guapi
+               
+          public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosSubcircuito(String permiso_bomberos, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from locales.f_select_locales_dado_permiso_bomberos_circuito(?,?)";
+            String sql = "select * from locales2.f_select_locales_dado_permiso_bomberos_subcircuito(?,?)";
             lstP.add(new Parametro(1, permiso_bomberos));
-            lstP.add(new Parametro(2, id_circuito));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+          // Marco Guapi
+          
+          public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiCircuito(String permiso_mi, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_mi_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_mi));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+       
+          //Marco Guapi
+           public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiSubcircuito(String permiso_mi, int subcircuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_mi_subcircuito(?,?)";
+            lstP.add(new Parametro(1, permiso_mi));
+            lstP.add(new Parametro(2, subcircuito));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = llenarDatos(rs);
             rs = null;
