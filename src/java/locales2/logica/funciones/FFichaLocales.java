@@ -493,6 +493,100 @@ public class FFichaLocales {
         }
         return lst;
     }
+           //Marco Guapi
+           public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspCircuito(String permiso_msp, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_msp_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_msp));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+           
+           //Marco Guapi
+            public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspSubcircuito(String permiso_msp, int subcircuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_msp_subcircuito(?,?)";
+            lstP.add(new Parametro(1, permiso_msp));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+            //Marco Guapi
+              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtCircuito(String permiso_mt, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_mt_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_mt));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+              //Marco Guapi
+              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtSubcircuito(String permiso_mt, int subcircuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_mt_subcircuito(?,?)";
+            lstP.add(new Parametro(1, permiso_mt));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+              
+              //Marco Guapi
+               public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioCircuito(String permiso_municipio, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_municipio_circuito(?,?)";
+            lstP.add(new Parametro(1, permiso_municipio));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+               //Marco Guapi
+               
+                public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioSubcircuito(String permiso_municipio, int subcircuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_municipio_subcircuito(?,?)";
+            lstP.add(new Parametro(1, permiso_municipio));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
 
+           
     
 }
