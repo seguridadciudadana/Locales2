@@ -587,6 +587,36 @@ public class FFichaLocales {
         return lst;
     }
 
+                //Marco Guapi
+                 public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseCircuito(String ruc, int circuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_ruc_circuito(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, circuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+                 //Marco Guapi
+                 public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseSubcircuito(String ruc, int subcircuito) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_permiso_ruc_subcircuito(?,?)";
+            lstP.add(new Parametro(1, ruc));
+            lstP.add(new Parametro(2, subcircuito));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
            
     
 }
