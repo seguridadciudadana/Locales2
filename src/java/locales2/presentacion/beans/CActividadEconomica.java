@@ -10,10 +10,23 @@ import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import recursos.Util;
 import java.util.ArrayList;
+
+@ManagedBean
+@RequestScoped
 public class CActividadEconomica {
     private ArrayList<FichaLocales> lstLocalesTipoEstablecimiento;
     private ArrayList<FichaLocales> lstTotalLocalesDadoTipoEstablecimiento;
     private CartesianChartModel lineTipoEstablecimiento;
+    private ArrayList<FichaLocales> lstLocalesTipo;
+
+    public ArrayList<FichaLocales> getLstLocalesTipo() {
+        return lstLocalesTipo;
+    }
+
+    public void setLstLocalesTipo(ArrayList<FichaLocales> lstLocalesTipo) {
+        this.lstLocalesTipo = lstLocalesTipo;
+    }
+    
 
     public ArrayList<FichaLocales> getLstLocalesTipoEstablecimiento() {
         return lstLocalesTipoEstablecimiento;
@@ -51,12 +64,12 @@ public class CActividadEconomica {
       CartesianChartModel model =new CartesianChartModel();
       
           try {
-              lstLocalesTipoEstablecimiento=FFichaLocales.ObtenerDatosEstadoEstablecimiento();
+              lstLocalesTipo=FFichaLocales.ObtenerDatosTipoEstablecimiento();
               ChartSeries nuevo=new ChartSeries();
               nuevo.setLabel("Tipo de establecimiento");
-              for (int i = 0; lstLocalesTipoEstablecimiento.size() < 10; i++) {
-                  lstTotalLocalesDadoTipoEstablecimiento=FFichaLocales.ObtenerDatosDadoTipoEstablecimiento(lstLocalesTipoEstablecimiento.get(i).getTipo_establecimiento());
-               nuevo.set(lstLocalesTipoEstablecimiento.get(i).getTipo_establecimiento(), lstTotalLocalesDadoTipoEstablecimiento.size());
+              for (int i = 0; i < lstLocalesTipo.size(); i++) {
+                    lstTotalLocalesDadoTipoEstablecimiento=FFichaLocales.ObtenerDatosDadoTipoEstablecimiento(lstLocalesTipo.get(i).getTipo_establecimiento());
+               nuevo.set(lstLocalesTipo.get(i).getTipo_establecimiento(), lstTotalLocalesDadoTipoEstablecimiento.size());
                  
               }
               model.addSeries(nuevo);
