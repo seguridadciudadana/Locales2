@@ -20,48 +20,48 @@ public class FFichaLocales {
             while (rs.next()) {
                 datos = new FichaLocales(
                         rs.getInt("pid_ficha_locales"),
-                        rs.getInt("pparroquia"), 
-                        rs.getString("pbarrio"), 
+                        rs.getInt("pparroquia"),
+                        rs.getString("pbarrio"),
                         FCircuito.obtenerCircuitoCodigo(rs.getInt("pid_circuito")),
-                        FSubCircuito.obtenerSubCircuitoCodigo(rs.getInt("pid_subcircuito")), 
-                        rs.getString("pestado_local"), 
-                        rs.getString("prazon_social"), 
-                        rs.getInt("pcategoria"), 
-                        rs.getString("ptipo_establecimiento"), 
-                        rs.getString("pdireccion_establecimiento"), 
-                        rs.getString("pnombre_propietario"), 
-                        rs.getString("pcedula_propietario"), 
-                        rs.getString("ptelefono_propietario"), 
+                        FSubCircuito.obtenerSubCircuitoCodigo(rs.getInt("pid_subcircuito")),
+                        rs.getString("pestado_local"),
+                        rs.getString("prazon_social"),
+                        rs.getInt("pcategoria"),
+                        rs.getString("ptipo_establecimiento"),
+                        rs.getString("pdireccion_establecimiento"),
+                        rs.getString("pnombre_propietario"),
+                        rs.getString("pcedula_propietario"),
+                        rs.getString("ptelefono_propietario"),
                         rs.getDouble("px_local"),
-                        rs.getDouble("py_local"), 
-                        rs.getString("ppermiso_municipio"), 
-                        rs.getString("ppermiso_bomberos"), 
-                        rs.getString("ppermiso_mds"), 
-                        rs.getString("ppermiso_mi"), 
-                        rs.getString("ppermiso_lt"), 
-                        rs.getString("psri"), 
-                        rs.getString("phora_inicio_diurno"), 
-                        rs.getString("phora_fin_diurno"), 
-                        rs.getString("phora_inicio_nocturno"), 
-                        rs.getString("phora_fin_nocturno"), 
-                        rs.getString("pobservaciones_hora"), 
-                        rs.getString("pterrenos_valdios"), 
-                        rs.getString("pespacios_abiertos"), 
-                        rs.getString("pespecificaciones_entorno"), 
-                        rs.getString("pvisualizacion"), 
-                        rs.getString("piluminacion"), 
-                        rs.getString("pentrada_salida_emergencia"), 
-                        rs.getString("pescondites"), 
-                        rs.getString("plimpieza"), 
-                        rs.getString("psenializado"), 
-                        rs.getString("pextintores"), 
-                        rs.getString("pobservaciones_sistema_emergencia"), 
-                        rs.getString("psistema_seguridad"), 
-                        rs.getString("ptipo_sistema_seguridad"), 
-                        rs.getString("pobservaciones_sistema_seguridad"), 
-                        rs.getString("pinstitucion_educativa"), 
-                        rs.getInt("pdistancia_local_centro_educativo"), 
-                        rs.getString("pdireccion"), 
+                        rs.getDouble("py_local"),
+                        rs.getString("ppermiso_municipio"),
+                        rs.getString("ppermiso_bomberos"),
+                        rs.getString("ppermiso_mds"),
+                        rs.getString("ppermiso_mi"),
+                        rs.getString("ppermiso_lt"),
+                        rs.getString("psri"),
+                        rs.getString("phora_inicio_diurno"),
+                        rs.getString("phora_fin_diurno"),
+                        rs.getString("phora_inicio_nocturno"),
+                        rs.getString("phora_fin_nocturno"),
+                        rs.getString("pobservaciones_hora"),
+                        rs.getString("pterrenos_valdios"),
+                        rs.getString("pespacios_abiertos"),
+                        rs.getString("pespecificaciones_entorno"),
+                        rs.getString("pvisualizacion"),
+                        rs.getString("piluminacion"),
+                        rs.getString("pentrada_salida_emergencia"),
+                        rs.getString("pescondites"),
+                        rs.getString("plimpieza"),
+                        rs.getString("psenializado"),
+                        rs.getString("pextintores"),
+                        rs.getString("pobservaciones_sistema_emergencia"),
+                        rs.getString("psistema_seguridad"),
+                        rs.getString("ptipo_sistema_seguridad"),
+                        rs.getString("pobservaciones_sistema_seguridad"),
+                        rs.getString("pinstitucion_educativa"),
+                        rs.getInt("pdistancia_local_centro_educativo"),
+                        rs.getString("pdireccion"),
                         rs.getDouble("px_centro_educativo"),
                         rs.getDouble("py_centro_educativo"),
                         rs.getString("pnombre_encuestada"),
@@ -77,9 +77,7 @@ public class FFichaLocales {
         }
         return lst;
     }
-    
-    
-    
+
     public static boolean insertarFichasLocales(FichaLocales fichasLocales) throws Exception {
         boolean eje = false;
         try {
@@ -92,48 +90,48 @@ public class FFichaLocales {
             lstP.add(new Parametro(5, fichasLocales.getEstado_local()));
             lstP.add(new Parametro(6, fichasLocales.getRazon_social()));
             lstP.add(new Parametro(7, fichasLocales.getCategoria()));
-            lstP.add(new Parametro(8,fichasLocales.getTipo_establecimiento()));
-            lstP.add(new Parametro(9,fichasLocales.getDireccion_establecimiento()));
-            lstP.add(new Parametro(10,fichasLocales.getNombre_propietario()));
-            lstP.add(new Parametro(11,fichasLocales.getCedula_propietario()));
-            lstP.add(new Parametro(12,fichasLocales.getTelefono_propietario()));
-            lstP.add(new Parametro(13,fichasLocales.getX_local()));
-            lstP.add(new Parametro(14,fichasLocales.getY_local()));
-            lstP.add(new Parametro(15,fichasLocales.getPermiso_municipio()));
-            lstP.add(new Parametro(16,fichasLocales.getPermiso_bomberos()));
-            lstP.add(new Parametro(17,fichasLocales.getPermiso_mds()));
-            lstP.add(new Parametro(18,fichasLocales.getPermiso_mi()));
-            lstP.add(new Parametro(19,fichasLocales.getPermiso_lt()));
-            lstP.add(new Parametro(20,fichasLocales.getSri()));
-            lstP.add(new Parametro(21,fichasLocales.getHora_inicio_diurno()));
-            lstP.add(new Parametro(22,fichasLocales.getHora_fin_diurno()));
-            lstP.add(new Parametro(23,fichasLocales.getHora_inicio_nocturno()));
-            lstP.add(new Parametro(24,fichasLocales.getHora_fin_nocturno()));
-            lstP.add(new Parametro(25,fichasLocales.getObservaciones_hora()));
-            lstP.add(new Parametro(26,fichasLocales.getTerrenos_valdios()));
-            lstP.add(new Parametro(27,fichasLocales.getEspacios_abiertos()));
-            lstP.add(new Parametro(28,fichasLocales.getEspecificaciones_entorno()));
-            lstP.add(new Parametro(29,fichasLocales.getVisualizacion()));
-            lstP.add(new Parametro(30,fichasLocales.getIluminacion()));
-            lstP.add(new Parametro(31,fichasLocales.getEntrada_salida_emergencia()));
-            lstP.add(new Parametro(32,fichasLocales.getEscondites()));
-            lstP.add(new Parametro(33,fichasLocales.getLimpieza()));
-            lstP.add(new Parametro(34,fichasLocales.getSenializado()));
-            lstP.add(new Parametro(35,fichasLocales.getExtintores()));
-            lstP.add(new Parametro(36,fichasLocales.getObservaciones_sistema_emergencia()));
-            lstP.add(new Parametro(37,fichasLocales.getSistema_seguridad()));
-            lstP.add(new Parametro(38,fichasLocales.getTipo_sistema_seguridad()));
-            lstP.add(new Parametro(39,fichasLocales.getObservaciones_sistema_seguridad()));
-            lstP.add(new Parametro(40,fichasLocales.getInstitucion_educativa()));
-            lstP.add(new Parametro(41,fichasLocales.getDistancia_local_centro_educativo()));
-            lstP.add(new Parametro(42,fichasLocales.getDireccion()));
-            lstP.add(new Parametro(43,fichasLocales.getX_centro_educativo()));
-            lstP.add(new Parametro(44,fichasLocales.getY_centro_educativo()));
-            lstP.add(new Parametro(45,fichasLocales.getNombre_encuestada()));
-            lstP.add(new Parametro(46,fichasLocales.getCedula_encuestada()));
-            lstP.add(new Parametro(47,fichasLocales.getTelefono_encuestada()));
-            lstP.add(new Parametro(48,fichasLocales.getSugerencia_encuestada()));
-            lstP.add(new Parametro(49,fichasLocales.getObservaciones_generales()));
+            lstP.add(new Parametro(8, fichasLocales.getTipo_establecimiento()));
+            lstP.add(new Parametro(9, fichasLocales.getDireccion_establecimiento()));
+            lstP.add(new Parametro(10, fichasLocales.getNombre_propietario()));
+            lstP.add(new Parametro(11, fichasLocales.getCedula_propietario()));
+            lstP.add(new Parametro(12, fichasLocales.getTelefono_propietario()));
+            lstP.add(new Parametro(13, fichasLocales.getX_local()));
+            lstP.add(new Parametro(14, fichasLocales.getY_local()));
+            lstP.add(new Parametro(15, fichasLocales.getPermiso_municipio()));
+            lstP.add(new Parametro(16, fichasLocales.getPermiso_bomberos()));
+            lstP.add(new Parametro(17, fichasLocales.getPermiso_mds()));
+            lstP.add(new Parametro(18, fichasLocales.getPermiso_mi()));
+            lstP.add(new Parametro(19, fichasLocales.getPermiso_lt()));
+            lstP.add(new Parametro(20, fichasLocales.getSri()));
+            lstP.add(new Parametro(21, fichasLocales.getHora_inicio_diurno()));
+            lstP.add(new Parametro(22, fichasLocales.getHora_fin_diurno()));
+            lstP.add(new Parametro(23, fichasLocales.getHora_inicio_nocturno()));
+            lstP.add(new Parametro(24, fichasLocales.getHora_fin_nocturno()));
+            lstP.add(new Parametro(25, fichasLocales.getObservaciones_hora()));
+            lstP.add(new Parametro(26, fichasLocales.getTerrenos_valdios()));
+            lstP.add(new Parametro(27, fichasLocales.getEspacios_abiertos()));
+            lstP.add(new Parametro(28, fichasLocales.getEspecificaciones_entorno()));
+            lstP.add(new Parametro(29, fichasLocales.getVisualizacion()));
+            lstP.add(new Parametro(30, fichasLocales.getIluminacion()));
+            lstP.add(new Parametro(31, fichasLocales.getEntrada_salida_emergencia()));
+            lstP.add(new Parametro(32, fichasLocales.getEscondites()));
+            lstP.add(new Parametro(33, fichasLocales.getLimpieza()));
+            lstP.add(new Parametro(34, fichasLocales.getSenializado()));
+            lstP.add(new Parametro(35, fichasLocales.getExtintores()));
+            lstP.add(new Parametro(36, fichasLocales.getObservaciones_sistema_emergencia()));
+            lstP.add(new Parametro(37, fichasLocales.getSistema_seguridad()));
+            lstP.add(new Parametro(38, fichasLocales.getTipo_sistema_seguridad()));
+            lstP.add(new Parametro(39, fichasLocales.getObservaciones_sistema_seguridad()));
+            lstP.add(new Parametro(40, fichasLocales.getInstitucion_educativa()));
+            lstP.add(new Parametro(41, fichasLocales.getDistancia_local_centro_educativo()));
+            lstP.add(new Parametro(42, fichasLocales.getDireccion()));
+            lstP.add(new Parametro(43, fichasLocales.getX_centro_educativo()));
+            lstP.add(new Parametro(44, fichasLocales.getY_centro_educativo()));
+            lstP.add(new Parametro(45, fichasLocales.getNombre_encuestada()));
+            lstP.add(new Parametro(46, fichasLocales.getCedula_encuestada()));
+            lstP.add(new Parametro(47, fichasLocales.getTelefono_encuestada()));
+            lstP.add(new Parametro(48, fichasLocales.getSugerencia_encuestada()));
+            lstP.add(new Parametro(49, fichasLocales.getObservaciones_generales()));
 
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             while (rs.next()) {
@@ -146,6 +144,7 @@ public class FFichaLocales {
         return eje;
 
     }
+
     public static ArrayList<FichaLocales> ObtenerDatosParroquia() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
@@ -159,7 +158,7 @@ public class FFichaLocales {
         return lst;
     }
 
-      public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseParroquias(String ruc, int parroquia) throws Exception {
+    public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseParroquias(String ruc, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -173,9 +172,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-     
-      //Marco Guapi
-      public static ArrayList<FichaLocales> ObtenerDatosEstadoEstablecimiento() throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosEstadoEstablecimiento() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             String sql = "select * from locales2.f_select_locales_busqueda_estado()";
@@ -187,8 +186,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-      //Marco Guapi
-      public static ArrayList<FichaLocales> ObtenerDatosTipoEstablecimiento() throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosTipoEstablecimiento() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             String sql = "select * from locales2.f_select_locales_busqueda_tipo_establecimiento();";
@@ -200,9 +201,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-      
-      //Marco Guapi
-       public static ArrayList<FichaLocales> ObtenerDatosDadoTipoEstablecimiento(String pe) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoTipoEstablecimiento(String pe) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -215,8 +216,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-      //Marco Guapi
-       public static ArrayList<FichaLocales> ObtenerLocalesDadoCircuito(int pe) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerLocalesDadoCircuito(int pe) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -229,8 +232,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-       //Marco Guapi
-        public static ArrayList<FichaLocales> ObtenerLocalesDadoSubcircuito(int pe) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerLocalesDadoSubcircuito(int pe) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -243,9 +248,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-        
-        //Marco Guapi
-         public static ArrayList<FichaLocales> ObtenerDatos() throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatos() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             String sql = "select * from locales2.f_select_locales()";
@@ -257,9 +262,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-         
-         //Marco Guapi
-        public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioBarrio(String permiso_municipio, String barrio) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioBarrio(String permiso_municipio, String barrio) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -273,8 +278,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-      //Marco Guapi
-        public static ArrayList<FichaLocales> ObtenerDatosBarrios() throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosBarrios() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             String sql = "select * from locales2.f_select_locales_busqueda_barrio()";
@@ -286,8 +293,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-        //Marco Guapi
-        public static ArrayList<FichaLocales> ObtenerDatosDeCircuito() throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDeCircuito() throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             String sql = "select * from locales2.f_select_locales_busqueda_circuito()";
@@ -299,8 +308,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-        //Marco Guapi
-          public static ArrayList<FichaLocales> ObtenerDatosDadoEstadoCircuito(String estado, int circuito) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoEstadoCircuito(String estado, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -315,8 +326,8 @@ public class FFichaLocales {
         return lst;
     }
           //Marco Guapi
-          
-          public static ArrayList<FichaLocales> ObtenerLocalesDadoEstadoSubcircuito(String estado, int subcircuito) throws Exception {
+
+    public static ArrayList<FichaLocales> ObtenerLocalesDadoEstadoSubcircuito(String estado, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -330,9 +341,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-          
-          //Marco Guapi
-           public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosParroquia(String permiso_bomberos, int parroquia) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosParroquia(String permiso_bomberos, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -346,10 +357,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-       
+
            //Marco Guapi
-           
-            public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiParroquia(String permiso_mi, int parroquia) throws Exception {
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiParroquia(String permiso_mi, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -363,10 +373,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-           
+
             //Marco Guapi
-            
-             public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMdsParroquia(String permiso_msp, int parroquia) throws Exception {
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMdsParroquia(String permiso_msp, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -380,10 +389,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-             
+
              //Marco Guapi
-             
-              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoLtParroquia(String permiso_mt, int parroquia) throws Exception {
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoLtParroquia(String permiso_mt, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -397,10 +405,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-              
+
               //Marco Guapi
-              
-              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioParroquia(String permiso_municipio, int parroquia) throws Exception {
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioParroquia(String permiso_municipio, int parroquia) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -414,9 +421,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-     
-              //Marco Guapi
-              public static ArrayList<FichaLocales> ObtenerDatosDadoParroquia(int dp) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoParroquia(int dp) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -430,8 +437,8 @@ public class FFichaLocales {
         return lst;
     }
           //Marco Guapi
-              
-               public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosCircuito(String permiso_bomberos, int circuito) throws Exception {
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosCircuito(String permiso_bomberos, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -446,8 +453,8 @@ public class FFichaLocales {
         return lst;
     }
                // Marco Guapi
-               
-          public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosSubcircuito(String permiso_bomberos, int subcircuito) throws Exception {
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoBomberosSubcircuito(String permiso_bomberos, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -462,8 +469,8 @@ public class FFichaLocales {
         return lst;
     }
           // Marco Guapi
-          
-          public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiCircuito(String permiso_mi, int circuito) throws Exception {
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiCircuito(String permiso_mi, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -477,9 +484,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-       
-          //Marco Guapi
-           public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiSubcircuito(String permiso_mi, int subcircuito) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMiSubcircuito(String permiso_mi, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -493,8 +500,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-           //Marco Guapi
-           public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspCircuito(String permiso_msp, int circuito) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspCircuito(String permiso_msp, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -508,9 +517,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-           
-           //Marco Guapi
-            public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspSubcircuito(String permiso_msp, int subcircuito) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMspSubcircuito(String permiso_msp, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -524,8 +533,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-            //Marco Guapi
-              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtCircuito(String permiso_mt, int circuito) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtCircuito(String permiso_mt, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -539,8 +550,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-              //Marco Guapi
-              public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtSubcircuito(String permiso_mt, int subcircuito) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMtSubcircuito(String permiso_mt, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -554,9 +567,9 @@ public class FFichaLocales {
         }
         return lst;
     }
-              
-              //Marco Guapi
-               public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioCircuito(String permiso_municipio, int circuito) throws Exception {
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioCircuito(String permiso_municipio, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -571,8 +584,8 @@ public class FFichaLocales {
         return lst;
     }
                //Marco Guapi
-               
-                public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioSubcircuito(String permiso_municipio, int subcircuito) throws Exception {
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoPermisoMunicipioSubcircuito(String permiso_municipio, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -587,8 +600,8 @@ public class FFichaLocales {
         return lst;
     }
 
-                //Marco Guapi
-                 public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseCircuito(String ruc, int circuito) throws Exception {
+    //Marco Guapi
+    public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseCircuito(String ruc, int circuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -602,8 +615,10 @@ public class FFichaLocales {
         }
         return lst;
     }
-                 //Marco Guapi
-                 public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseSubcircuito(String ruc, int subcircuito) throws Exception {
+
+    //Marco Guapi
+
+    public static ArrayList<FichaLocales> ObtenerDatosDadoRucoRiseSubcircuito(String ruc, int subcircuito) throws Exception {
         ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
@@ -617,6 +632,118 @@ public class FFichaLocales {
         }
         return lst;
     }
-           
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistancia(String rangoDistancia) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia(?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+
+    //Marco Guapi
+    public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaPermisoMunicipio(String rangoDistancia, String permiso_municipio) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_permiso_municipio(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, permiso_municipio));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
     
+    //Marco Guapi
+    
+     public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaPermisoBomberos(String rangoDistancia, String permiso_bomberos) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_permiso_bomberos(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, permiso_bomberos));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+     
+     //Marco Guapi
+     public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaPermisoMI(String rangoDistancia, String permiso_mi) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_permiso_mi(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, permiso_mi));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+     
+     //Marco Guapi
+     
+      public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaPermisoMSP(String rangoDistancia, String permiso_msp) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_permiso_msp(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, permiso_msp));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+      
+      //Marco Guapi
+      public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaPermisoMT(String rangoDistancia, String permiso_mt) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_permiso_mt(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, permiso_mt));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+      
+      //Marco Guapi
+      public static ArrayList<FichaLocales> obtenerDatosDadoRangoDistaciaEstado(String rangoDistancia, String estado) throws Exception {
+        ArrayList<FichaLocales> lst = new ArrayList<FichaLocales>();
+        try {
+            ArrayList<Parametro> lstP = new ArrayList<Parametro>();
+            String sql = "select * from locales2.f_select_locales_dado_rango_distancia_estado(?,?)";
+            lstP.add(new Parametro(1, rangoDistancia));
+            lstP.add(new Parametro(2, estado));
+            ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
+            lst = llenarDatos(rs);
+            rs = null;
+        } catch (Exception e) {
+        }
+        return lst;
+    }
+      
 }
