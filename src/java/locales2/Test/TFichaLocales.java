@@ -6,8 +6,9 @@
 package locales2.Test;
 
 import java.util.List;
-import locales2.logica.clases.FichaLocales;
-import locales2.logica.funciones.FFichaLocales;
+import locales2.logica.clases.*;
+import locales2.logica.funciones.*;
+
 public class TFichaLocales {
 
     public static void main (String [] args) throws Exception{
@@ -41,10 +42,43 @@ public class TFichaLocales {
 //      for(FichaLocales n:l){
 //          System.out.println(n.getTipo_establecimiento());
           
-               List<FichaLocales> les=FFichaLocales.ObtenerDatosDadoTipoEstablecimiento("ABARROTES");
-      for(FichaLocales n:les){
-          System.out.println(n.getTipo_establecimiento());
-      }
+//               List<FichaLocales> les=FFichaLocales.ObtenerDatosDadoTipoEstablecimiento("ABARROTES");
+//      for(FichaLocales n:les){
+//          System.out.println(n.getTipo_establecimiento());
+//      }
+//        
         
+//         List<FichaLocales> les=FFichaLocales.ObtenerLocalesDadoCircuito(20);
+//      for(FichaLocales n:les){
+//          System.out.println(n.getNombre_propietario());
+//      }
+        
+//         List<Circuito> les=FCircuito.obtenerCircuito();
+//      for(Circuito n:les){
+//          System.out.println(n.getDescripcion());
+//      }
+        
+//        List<SubCircuito> les=FSubCircuito.obtenerSubCircuito();
+//      for(SubCircuito n:les){
+//          System.out.println(n.getDescripcion());
+//      }
+        
+//        List<FichaLocales> les=FFichaLocales.ObtenerLocalesDadoSubcircuito(19);
+//      for(FichaLocales n:les){
+//          System.out.println(n.getEstado_local());
+//      }
+//         List<FichaLocales> les=FFichaLocales.ObtenerDatos();
+//      for(FichaLocales n:les){
+//          System.out.println(n.getCedula_propietario());
+//      }
+//        List<FichaLocales> les=FFichaLocales.ObtenerDatosDadoPermisoMunicipioBarrio("SI","LA ESPERANZA");
+//      for(FichaLocales n:les){
+//          System.out.println(n.getCedula_propietario());
+//      }
+        
+        List<FichaLocales> les=FFichaLocales.ObtenerDatosBarrios();
+      for(FichaLocales n:les){
+          System.out.println(n.getCedula_propietario());
+      }
     }
 }

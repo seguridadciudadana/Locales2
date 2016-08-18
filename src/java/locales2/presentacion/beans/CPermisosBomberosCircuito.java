@@ -95,60 +95,60 @@ public class CPermisosBomberosCircuito {
         this.lstLocalesDadoCircuitoNoPresenta = lstLocalesDadoCircuitoNoPresenta;
     }
 
-    @PostConstruct
-    public void init() {
-        graficar();
-    }
+//    @PostConstruct
+//    public void init() {
+//        graficar();
+//    }
+//
+////    public void graficar() {
+////        this.lineLocalesCircuitos = graficaCircuitos();
+////
+////    }
+//
+//    private void reinit() {
+//        this.init();
+//    }
+//
+//    public CPermisosBomberosCircuito() {
+//        this.reinit();
+//    }
 
-    public void graficar() {
-        this.lineLocalesCircuitos = graficaCircuitos();
-
-    }
-
-    private void reinit() {
-        this.init();
-    }
-
-    public CPermisosBomberosCircuito() {
-        this.reinit();
-    }
-
-    private CartesianChartModel graficaCircuitos() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-
-            lstLocalesCircuito = FFichaLocales.ObtenerDatosCircuito();
-            ChartSeries Si = new ChartSeries();
-            Si.setLabel("Si");
-            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoSi =  FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("Si", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
-                Si.set(lstLocalesCircuito.get(i).getId_circuito().getId_circuito(), lstLocalesDadoCircuitoSi.size());
-            }
-
-            ChartSeries No = new ChartSeries();
-            No.setLabel("No");
-            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoNo = FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("No", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
-                No.set(lstLocalesCircuito.get(i).getId_circuito().getId_circuito(), lstLocalesDadoCircuitoNo.size());
-            }
-
-            ChartSeries NoPresenta = new ChartSeries();
-            NoPresenta.setLabel("No Presenta");
-            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
-                lstLocalesDadoCircuitoNoPresenta = FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("No Presenta", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
-                NoPresenta.set(lstLocalesCircuito.get(i).getId_circuito().getCodigo_circuito(), lstLocalesDadoCircuitoNoPresenta.size());
-            }
-
-            model.addSeries(Si);
-            model.addSeries(No);
-            model.addSeries(NoPresenta);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
-
-    }
+//    private CartesianChartModel graficaCircuitos() {
+//        CartesianChartModel model = new CartesianChartModel();
+//        try {
+//
+//            lstLocalesCircuito = FFichaLocales.ObtenerDatosCircuito();
+//            ChartSeries Si = new ChartSeries();
+//            Si.setLabel("Si");
+//            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
+//                lstLocalesDadoCircuitoSi =  FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("Si", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
+//                Si.set(lstLocalesCircuito.get(i).getId_circuito().getId_circuito(), lstLocalesDadoCircuitoSi.size());
+//            }
+//
+//            ChartSeries No = new ChartSeries();
+//            No.setLabel("No");
+//            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
+//                lstLocalesDadoCircuitoNo = FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("No", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
+//                No.set(lstLocalesCircuito.get(i).getId_circuito().getId_circuito(), lstLocalesDadoCircuitoNo.size());
+//            }
+//
+//            ChartSeries NoPresenta = new ChartSeries();
+//            NoPresenta.setLabel("No Presenta");
+//            for (int i = 0; i < lstLocalesCircuito.size(); i++) {
+//                lstLocalesDadoCircuitoNoPresenta = FFichaLocales.ObtenerDatosDadoPermisoBomberosCircuito("No Presenta", lstLocalesCircuito.get(i).getId_circuito().getId_circuito());
+//                NoPresenta.set(lstLocalesCircuito.get(i).getId_circuito().getCodigo_circuito(), lstLocalesDadoCircuitoNoPresenta.size());
+//            }
+//
+//            model.addSeries(Si);
+//            model.addSeries(No);
+//            model.addSeries(NoPresenta);
+//
+//        } catch (Exception e) {
+//            Util.addErrorMessage(e, "Error");
+//        }
+//        return model;
+//
+//    }
 
 }
 

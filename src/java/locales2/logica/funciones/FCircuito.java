@@ -4,7 +4,7 @@ import locales2.logica.clases.Circuito;
 import java.util.*;
 public class FCircuito {
     
-    public static List<Circuito> obtenerCircuito(){
+    public static ArrayList<Circuito> obtenerCircuito(){
         ArrayList<Circuito> lst= new ArrayList<Circuito>();
         String sql="SELECT id_circuito, codigo_circuito, descripcion FROM vif.circuito;";
 

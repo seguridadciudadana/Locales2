@@ -105,7 +105,6 @@ public class ControladorBarrios {
     }
 
     public void graficar() {
-        this.lineLocalesParroquias = graficaParroquias();
         this.lineLocalesParroquias2=graficaParroquias2();
     }
 
@@ -115,24 +114,6 @@ public class ControladorBarrios {
 
     public ControladorBarrios() {
         this.reinit();
-    }
-
-    private CartesianChartModel graficaParroquias() {
-        CartesianChartModel model = new CartesianChartModel();
-        try {
-            lstLocalesParroquias = FLocales.ObtenerDatosParroquia();
-            ChartSeries Parroquias = new ChartSeries();
-            Parroquias.setLabel("Parroquias");
-            for (int i = 0; i < lstLocalesParroquias.size(); i++) {
-                lstLocalesDadoParroquia = FLocales.ObtenerDatosDadoParroquia(lstLocalesParroquias.get(i).getParroquia());
-                Parroquias.set(lstLocalesParroquias.get(i).getParroquia(), lstLocalesDadoParroquia.size());
-            }
-            model.addSeries(Parroquias);
-
-        } catch (Exception e) {
-            Util.addErrorMessage(e, "Error");
-        }
-        return model;
     }
 
     private CartesianChartModel graficaParroquias2() {

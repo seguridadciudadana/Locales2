@@ -7,7 +7,7 @@ import accesodatos.*;
 
 public class FSubCircuito {
     
-    public static List<SubCircuito> obtenerSubCircuito(){
+    public static ArrayList<SubCircuito> obtenerSubCircuito(){
         ArrayList<SubCircuito> lst= new ArrayList<SubCircuito>();
         String sql="SELECT id_subcircuito, codigo_subcircuito, descripcion, id_circuito FROM vif.subcircuito;";
 

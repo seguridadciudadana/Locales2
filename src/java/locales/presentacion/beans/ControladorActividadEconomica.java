@@ -97,8 +97,8 @@ public class ControladorActividadEconomica {
             ChartSeries Tipo = new ChartSeries();
             Tipo.setLabel("Tipo de Establecimiento");
             for (int i = 0; i < lstTipoEstablecimiento.size(); i++) {
-                lstTipoEstablecimiento = FLocales.ObtenerDatosDadoTipoEstablecimiento(lstTipoEstablecimiento.get(i).getTipo_de_establecimiento());
-                Tipo.set(lstTipoEstablecimiento.get(i).getTipo_de_establecimiento(), lstDadoTipoEstablecimiento.size());
+                lstDadoTipoEstablecimiento= FLocales.ObtenerDatosDadoTipoEstablecimiento(lstTipoEstablecimiento.get(i).getTipo_de_establecimiento());
+                Tipo.set(lstTipoEstablecimiento.get(i).getTipo_de_establecimiento(),lstDadoTipoEstablecimiento.size());
             }
             model.addSeries(Tipo);
 
